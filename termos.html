@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt" id="html-root">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0A0A0A;--amber:#FFB020;--crimson:#DC143C;--white:#F4F1EC;--gray:#1C1C1C;--gray2:#2A2A2A;--gray3:#333;--muted:rgba(244,241,236,.45);--display:'Bebas Neue',sans-serif;--mono:'DM Mono',monospace;--body:'DM Sans',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--black);color:var(--white);font-family:var(--body);font-size:15px;line-height:1.8;padding:0}
+a{color:var(--amber);text-decoration:none}
+a:hover{text-decoration:underline}
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.5rem 4rem;border-bottom:1px solid rgba(255,255,255,.06);position:sticky;top:0;background:rgba(10,10,9,.95);backdrop-filter:blur(12px);z-index:100}
+.nav-logo{font-family:var(--display);font-size:1.6rem;letter-spacing:.1em;color:var(--white);text-decoration:none}
+.nav-logo .ra{color:transparent;-webkit-text-stroke:1.5px var(--amber)}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.nav-back{font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-back:hover{color:var(--amber);text-decoration:none}
+.lang-btn{font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:none;border:1px solid var(--gray3);padding:.3rem .7rem;cursor:pointer;border-radius:2px;transition:all .2s}
+.lang-btn:hover{color:var(--amber);border-color:var(--amber)}
+.wrap{max-width:760px;margin:0 auto;padding:5rem 2rem 8rem}
+.doc-label{font-family:var(--mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:1.5rem}
+h1{font-family:var(--display);font-size:clamp(2.5rem,6vw,4rem);letter-spacing:.06em;color:var(--white);line-height:1;margin-bottom:.5rem}
+.doc-meta{font-family:var(--mono);font-size:.65rem;color:var(--muted);letter-spacing:.08em;margin-bottom:3.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.08)}
+h2{font-family:var(--display);font-size:1.4rem;letter-spacing:.06em;color:var(--amber);margin:2.5rem 0 .9rem}
+h3{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--white);margin:1.5rem 0 .5rem}
+p{color:rgba(244,241,236,.75);margin-bottom:1rem;font-size:.92rem}
+ul,ol{padding-left:1.5rem;margin-bottom:1rem}
+li{color:rgba(244,241,236,.75);font-size:.92rem;margin-bottom:.4rem;line-height:1.7}
+li::marker{color:var(--amber)}
+.highlight{background:rgba(255,176,32,.06);border-left:2px solid var(--amber);padding:.8rem 1.2rem;border-radius:0 2px 2px 0;margin:1.5rem 0}
+.highlight p{margin:0;font-size:.88rem}
+footer{border-top:1px solid rgba(255,255,255,.06);padding:2rem 4rem;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.58rem;color:var(--muted);letter-spacing:.08em;flex-wrap:wrap;gap:1rem}
+.lang-section{display:none}
+.lang-section.active{display:block}
+@media(max-width:640px){nav,footer{padding:1.2rem 1.5rem}.wrap{padding:3rem 1.5rem 5rem}}
+</style>
+<title id="page-title">Termos e Condições — Volvara</title>
+<meta name="description" id="page-desc" content="Termos e Condições de Serviço da Volvara Web Agency.">
+<meta name="robots" content="noindex">
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo">VOLVA<span class="ra">RA</span></a>
+  <div class="nav-right">
+    <button class="lang-btn" id="lang-btn" onclick="toggleLang()">EN</button>
+    <a href="/" class="nav-back" id="nav-back-link">← Voltar ao site</a>
+  </div>
+</nav>
+
+<!-- PORTUGUESE -->
+<div class="lang-section active" id="section-pt">
+<div class="wrap">
+  <p class="doc-label">Legal</p>
+  <h1>TERMOS E<br>CONDIÇÕES</h1>
+  <p class="doc-meta">Última actualização: Março 2026 &nbsp;·&nbsp; Volvara · NIF 227192753 · Portimão, Portugal</p>
+  <div class="highlight"><p>Resumo simples: vês o site antes de pagar. Pagas só se gostares. O domínio é sempre teu. Podes cancelar quando quiseres.</p></div>
+  <h2>1. Identificação do prestador</h2>
+  <p><strong>Volvara</strong>, web agency a operar em regime de nome individual, com NIF 227192753, com sede em Portimão, Algarve, Portugal. Email: <a href="mailto:go@volvara.pt">go@volvara.pt</a>. Telefone: +351 917 810 999.</p>
+  <h2>2. Âmbito dos serviços</h2>
+  <p>A Volvara presta serviços de criação, desenvolvimento e manutenção de websites, incluindo:</p>
+  <ul><li>Desenvolvimento de website (criação inicial)</li><li>Alojamento web (hosting) e certificado SSL</li><li>Actualizações de conteúdo mensais</li><li>Suporte técnico e de conteúdo</li><li>Configuração e gestão de Google Business Profile</li><li>Serviços adicionais (copywriting, identidade visual)</li></ul>
+  <h2>3. Processo de contratação</h2>
+  <h3>3.1 Demo gratuita</h3>
+  <p>A Volvara cria uma versão de demonstração do website <strong>sem qualquer custo ou compromisso</strong> para o cliente. O cliente pode ver o resultado completo antes de decidir contratar.</p>
+  <h3>3.2 Aprovação e pagamento</h3>
+  <p>O contrato de serviço inicia-se apenas após aprovação expressa do cliente e pagamento do valor de criação. A aprovação pode ser feita por email, mensagem ou outro meio escrito.</p>
+  <h3>3.3 Sem compromisso prévio</h3>
+  <p>A visualização da demo não implica qualquer obrigação de pagamento. Se o cliente não aprovar o resultado, não deve nada.</p>
+  <h2>4. Preços e pagamentos</h2>
+  <h3>4.1 Estrutura de preços</h3>
+  <ul><li><strong>Pagamento único inicial</strong> — cobre o desenvolvimento e criação do website</li><li><strong>Mensalidade</strong> — cobre hosting, SSL, suporte e actualizações de conteúdo</li></ul>
+  <h3>4.2 IVA</h3>
+  <p>Os preços apresentados não incluem IVA. IVA à taxa legal em vigor (23%) será aplicado na fatura.</p>
+  <h3>4.3 Meios de pagamento</h3>
+  <p>Pagamentos aceites por transferência bancária (IBAN/SEPA), MB WAY, Revolut ou criptomoedas conforme acordado.</p>
+  <h3>4.4 Atrasos de pagamento</h3>
+  <p>Em caso de atraso no pagamento da mensalidade superior a 30 dias, a Volvara reserva-se o direito de suspender o serviço de alojamento até regularização.</p>
+  <h2>5. Propriedade do domínio e ficheiros</h2>
+  <p>O domínio registado para o cliente é <strong>propriedade exclusiva do cliente</strong> desde o primeiro dia. Em caso de cancelamento, a Volvara entrega todos os ficheiros do website no prazo de 10 dias úteis.</p>
+  <h2>6. Obrigações do cliente</h2>
+  <ul><li>Fornecer informações verdadeiras e actualizadas sobre o negócio</li><li>Disponibilizar conteúdos (textos, fotos, logótipo) quando solicitado</li><li>Comunicar alterações de conteúdo com razoável antecedência</li><li>Não utilizar o website para fins ilegais ou contrários aos bons costumes</li></ul>
+  <h2>7. Obrigações da Volvara</h2>
+  <ul><li>Entregar a demonstração do website no prazo acordado</li><li>Garantir a disponibilidade do website com uptime mínimo de 99% mensais</li><li>Implementar actualizações de conteúdo solicitadas no prazo de 5 dias úteis</li><li>Responder a pedidos de suporte no prazo de 24 horas em dias úteis</li><li>Manter SSL activo e efectuar backups regulares</li></ul>
+  <h2>8. Cancelamento</h2>
+  <h3>8.1 Cancelamento pelo cliente</h3>
+  <p>O cliente pode cancelar a mensalidade a qualquer momento, com aviso prévio de 30 dias por escrito. O pagamento único inicial não é reembolsável após a publicação do website.</p>
+  <h3>8.2 Cancelamento pela Volvara</h3>
+  <p>A Volvara pode cancelar o serviço com aviso prévio de 30 dias, entregando todos os ficheiros ao cliente.</p>
+  <h2>9. Limitação de responsabilidade</h2>
+  <p>A responsabilidade máxima da Volvara fica limitada ao valor pago pelo cliente nos últimos 3 meses de serviço.</p>
+  <h2>10. Propriedade intelectual</h2>
+  <p>O design e código do website desenvolvido para o cliente é propriedade do cliente após pagamento integral. A Volvara pode utilizar o website no seu portfólio, salvo indicação expressa em contrário pelo cliente.</p>
+  <h2>11. Protecção de dados</h2>
+  <p>O tratamento de dados pessoais rege-se pela nossa <a href="/privacidade">Política de Privacidade</a>, em conformidade com o RGPD.</p>
+  <h2>12. Lei aplicável e foro</h2>
+  <p>Estes termos regem-se pela lei portuguesa. Em caso de litígio, será competente o Tribunal da Comarca de Portimão.</p>
+  <h2>13. Contacto</h2>
+  <p><strong>Volvara</strong> · <a href="mailto:go@volvara.pt">go@volvara.pt</a> · +351 917 810 999 · Portimão, Portugal</p>
+</div>
+</div>
+
+<!-- ENGLISH -->
+<div class="lang-section" id="section-en">
+<div class="wrap">
+  <p class="doc-label">Legal</p>
+  <h1>TERMS &amp;<br>CONDITIONS</h1>
+  <p class="doc-meta">Last updated: March 2026 &nbsp;·&nbsp; Volvara · VAT 227192753 · Portimão, Portugal</p>
+  <div class="highlight"><p>Plain summary: you see the site before you pay. You only pay if you like it. Your domain is always yours. You can cancel at any time.</p></div>
+  <h2>1. Service provider</h2>
+  <p><strong>Volvara</strong>, a web agency operating as a sole trader, VAT 227192753, based in Portimão, Algarve, Portugal. Email: <a href="mailto:go@volvara.pt">go@volvara.pt</a>. Phone: +351 917 810 999.</p>
+  <h2>2. Scope of services</h2>
+  <p>Volvara provides website creation, development and maintenance services, including:</p>
+  <ul><li>Website development (initial creation)</li><li>Web hosting and SSL certificate</li><li>Monthly content updates</li><li>Technical and content support</li><li>Google Business Profile setup and management</li><li>Additional services (copywriting, visual identity)</li></ul>
+  <h2>3. Service process</h2>
+  <h3>3.1 Free demo</h3>
+  <p>Volvara creates a demo version of the website <strong>at no cost or commitment</strong> to the client. The client can view the complete result before deciding to contract.</p>
+  <h3>3.2 Approval and payment</h3>
+  <p>The service contract begins only after the client's express approval and payment of the creation fee. Approval can be given by email, message or other written means.</p>
+  <h3>3.3 No prior commitment</h3>
+  <p>Viewing the demo does not imply any payment obligation. If the client does not approve the result, they owe nothing.</p>
+  <h2>4. Prices and payments</h2>
+  <h3>4.1 Pricing structure</h3>
+  <ul><li><strong>One-off initial payment</strong> — covers website development and creation</li><li><strong>Monthly fee</strong> — covers hosting, SSL, support and content updates</li></ul>
+  <h3>4.2 VAT</h3>
+  <p>Prices shown do not include VAT. VAT at the applicable legal rate (23%) will be added to the invoice.</p>
+  <h3>4.3 Payment methods</h3>
+  <p>Payments accepted by bank transfer (IBAN/SEPA), MB WAY, Revolut or cryptocurrencies as agreed.</p>
+  <h3>4.4 Late payments</h3>
+  <p>In the event of a monthly payment being more than 30 days overdue, Volvara reserves the right to suspend the hosting service until payment is made.</p>
+  <h2>5. Domain and file ownership</h2>
+  <p>The domain registered for the client is the <strong>exclusive property of the client</strong> from day one. Upon cancellation, Volvara delivers all website files within 10 business days.</p>
+  <h2>6. Client obligations</h2>
+  <ul><li>Provide true and up-to-date information about the business</li><li>Supply content (texts, photos, logo) when requested</li><li>Communicate content changes with reasonable notice</li><li>Not use the website for illegal purposes</li></ul>
+  <h2>7. Volvara obligations</h2>
+  <ul><li>Deliver the website demo within the agreed timeframe</li><li>Ensure website availability with a minimum monthly uptime of 99%</li><li>Implement requested content updates within 5 business days</li><li>Respond to support requests within 24 hours on business days</li><li>Maintain SSL and perform regular backups</li></ul>
+  <h2>8. Cancellation</h2>
+  <h3>8.1 Cancellation by the client</h3>
+  <p>The client may cancel the monthly subscription at any time with 30 days written notice. The one-off initial payment is non-refundable once the website is published.</p>
+  <h3>8.2 Cancellation by Volvara</h3>
+  <p>Volvara may cancel the service with 30 days notice, delivering all files to the client.</p>
+  <h2>9. Limitation of liability</h2>
+  <p>Volvara's maximum liability is limited to the amount paid by the client in the last 3 months of service.</p>
+  <h2>10. Intellectual property</h2>
+  <p>The design and code of the website developed for the client becomes the client's property upon full payment. Volvara may use the website in its portfolio unless the client expressly objects.</p>
+  <h2>11. Data protection</h2>
+  <p>The processing of personal data is governed by our <a href="/privacidade">Privacy Policy</a>, in compliance with GDPR.</p>
+  <h2>12. Governing law and jurisdiction</h2>
+  <p>These terms are governed by Portuguese law. In the event of a dispute, the competent court shall be the Court of Portimão.</p>
+  <h2>13. Contact</h2>
+  <p><strong>Volvara</strong> · <a href="mailto:go@volvara.pt">go@volvara.pt</a> · +351 917 810 999 · Portimão, Portugal</p>
+</div>
+</div>
+
+<footer>
+  <span>© 2026 Volvara · NIF 227192753</span>
+  <span><a href="/">volvara.pt</a> · <a href="/privacidade" id="other-link">Política de Privacidade</a></span>
+</footer>
+
+<script>
+let currentLang = 'pt';
+function toggleLang() {
+  currentLang = currentLang === 'pt' ? 'en' : 'pt';
+  document.getElementById('section-pt').classList.toggle('active', currentLang === 'pt');
+  document.getElementById('section-en').classList.toggle('active', currentLang === 'en');
+  document.getElementById('lang-btn').textContent = currentLang === 'pt' ? 'EN' : 'PT';
+  document.getElementById('nav-back-link').textContent = currentLang === 'pt' ? '← Voltar ao site' : '← Back to site';
+  document.getElementById('html-root').lang = currentLang;
+  document.getElementById('page-title').textContent = currentLang === 'pt' ? 'Termos e Condições — Volvara' : 'Terms & Conditions — Volvara';
+  document.getElementById('page-desc').content = currentLang === 'pt' ? 'Termos e Condições de Serviço da Volvara Web Agency.' : 'Terms and Conditions of Service of Volvara Web Agency.';
+  document.getElementById('other-link').textContent = currentLang === 'pt' ? 'Política de Privacidade' : 'Privacy Policy';
+}
+</script>
+</body>
+</html>

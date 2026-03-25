@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Volvara Ops</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════ TOKENS */
+:root{
+  --black:#0A0A0A;--amber:#FFB020;--crimson:#DC143C;
+  --cream:#F4F1EC;--gray:#141414;--gray2:#1E1E1E;--gray3:#2A2A2A;
+  --muted:rgba(244,241,236,.38);--green:#22c55e;--blue:#3b82f6;
+  --purple:#a855f7;
+  --font-display:'Bebas Neue',sans-serif;
+  --font-mono:'DM Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:14px}
+body{background:var(--black);color:var(--cream);font-family:var(--font-mono);min-height:100vh;overflow-x:hidden}
+
+/* ═══════════════════════════════════════════ SETUP SCREEN */
+#setup{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem}
+.setup-card{width:min(520px,100%);background:var(--gray);border:1px solid var(--gray3);border-radius:4px;padding:2.5rem}
+.setup-logo{font-family:var(--font-display);font-size:2.4rem;letter-spacing:.1em;margin-bottom:.3rem}
+.setup-logo span{color:transparent;-webkit-text-stroke:2px var(--amber)}
+.setup-sub{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--gray3)}
+.setup-step{display:flex;gap:1rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--gray3)}
+.setup-step:last-of-type{border-bottom:none;margin-bottom:2rem}
+.step-num{width:28px;height:28px;background:var(--amber);color:var(--black);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:.1rem}
+.step-body h4{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);margin-bottom:.4rem}
+.step-body p{font-size:.72rem;color:var(--muted);line-height:1.7}
+.step-body a{color:var(--amber);text-decoration:none}
+.step-body a:hover{text-decoration:underline}
+.step-body code{background:var(--gray3);padding:.15rem .4rem;border-radius:2px;font-size:.65rem;color:var(--amber)}
+.field{margin-bottom:1rem}
+.field label{display:block;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+.field input{width:100%;background:var(--black);border:1px solid var(--gray3);border-radius:2px;padding:.65rem 1rem;color:var(--cream);font-family:var(--font-mono);font-size:.8rem;outline:none;transition:border-color .2s}
+.field input:focus{border-color:var(--amber)}
+.btn{padding:.6rem 1.4rem;border:none;border-radius:2px;cursor:pointer;font-family:var(--font-mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;transition:all .2s}
+.btn-amber{background:var(--amber);color:var(--black)}
+.btn-amber:hover{opacity:.88}
+.btn-ghost{background:transparent;border:1px solid var(--gray3);color:var(--muted)}
+.btn-ghost:hover{border-color:var(--amber);color:var(--cream)}
+.btn-sm{padding:.35rem .8rem;font-size:.58rem}
+.btn-danger{background:rgba(220,20,60,.15);color:var(--crimson);border:1px solid rgba(220,20,60,.2)}
+.btn-danger:hover{background:rgba(220,20,60,.25)}
+.error-msg{color:var(--crimson);font-size:.7rem;margin-top:.5rem;padding:.5rem .8rem;background:rgba(220,20,60,.1);border-radius:2px;border:1px solid rgba(220,20,60,.2)}
+.success-msg{color:var(--green);font-size:.7rem;margin-top:.5rem;padding:.5rem .8rem;background:rgba(34,197,94,.1);border-radius:2px;border:1px solid rgba(34,197,94,.2)}
+
+/* ═══════════════════════════════════════════ APP */
+#app{display:none}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray3);display:flex;align-items:stretch}
+.nav-logo{padding:.8rem 1.4rem;font-family:var(--font-display);font-size:1.15rem;letter-spacing:.1em;border-right:1px solid var(--gray3);display:flex;align-items:center;gap:.3rem;white-space:nowrap}
+.nav-logo span{color:transparent;-webkit-text-stroke:1.5px var(--amber)}
+.nav-tabs{display:flex;flex:1;overflow-x:auto;scrollbar-width:none}
+.nav-tabs::-webkit-scrollbar{display:none}
+.tab{padding:.85rem 1.1rem;background:none;border:none;border-bottom:2px solid transparent;color:var(--muted);font-family:var(--font-mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:all .18s;white-space:nowrap;display:flex;align-items:center;gap:.4rem}
+.tab:hover{color:var(--cream)}
+.tab.active{color:var(--amber);border-bottom-color:var(--amber)}
+.nav-right{padding:.8rem 1.2rem;display:flex;align-items:center;gap:.6rem;border-left:1px solid var(--gray3)}
+.sync-dot{width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0}
+.sync-dot.syncing{background:var(--amber);animation:pulse 1s infinite}
+.sync-dot.error{background:var(--crimson)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.sync-label{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* PAGES */
+.page{display:none;padding:1.6rem;max-width:1440px;margin:0 auto}
+.page.active{display:block}
+
+/* PAGE HEADER */
+.ph{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:1.4rem;gap:1rem;flex-wrap:wrap}
+.ph-title{font-family:var(--font-display);font-size:1.8rem;letter-spacing:.08em;line-height:1}
+.ph-sub{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:.3rem}
+
+/* STATS GRID */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.8rem;margin-bottom:1.4rem}
+.stat-card{background:var(--gray);border:1px solid var(--gray3);border-radius:3px;padding:1.1rem 1.2rem;position:relative;overflow:hidden}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--amber)}
+.stat-card.green::before{background:var(--green)}
+.stat-card.crimson::before{background:var(--crimson)}
+.stat-card.blue::before{background:var(--blue)}
+.stat-card.purple::before{background:var(--purple)}
+.stat-val{font-family:var(--font-display);font-size:1.9rem;letter-spacing:.06em;color:var(--cream);line-height:1;margin-bottom:.4rem}
+.stat-val.amber{color:var(--amber)}
+.stat-val.green{color:var(--green)}
+.stat-val.crimson{color:var(--crimson)}
+.stat-lbl{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+/* SECTION */
+.section{background:var(--gray);border:1px solid var(--gray3);border-radius:3px;margin-bottom:1.2rem;overflow:hidden}
+.section-header{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.2rem;border-bottom:1px solid var(--gray3)}
+.section-title{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber)}
+
+/* TABLE */
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse}
+th{padding:.65rem 1rem;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-align:left;border-bottom:1px solid var(--gray3);white-space:nowrap;background:var(--gray2)}
+td{padding:.75rem 1rem;border-bottom:1px solid rgba(255,255,255,.04);font-size:.78rem;vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tbody tr{transition:background .12s}
+tbody tr:hover td{background:rgba(255,176,32,.025)}
+
+/* BADGES */
+.badge{display:inline-flex;align-items:center;padding:.22rem .65rem;border-radius:2px;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;white-space:nowrap}
+.b-lead{background:rgba(59,130,246,.12);color:#93c5fd}
+.b-demo{background:rgba(255,176,32,.12);color:var(--amber)}
+.b-proposta{background:rgba(168,85,247,.12);color:#d8b4fe}
+.b-fechado{background:rgba(34,197,94,.12);color:#86efac}
+.b-perdido{background:rgba(220,20,60,.12);color:#fca5a5}
+.b-activo{background:rgba(34,197,94,.12);color:#86efac}
+.b-pausado{background:rgba(255,176,32,.12);color:var(--amber)}
+.b-pago{background:rgba(34,197,94,.12);color:#86efac}
+.b-pendente{background:rgba(255,176,32,.12);color:var(--amber)}
+.b-receita{background:rgba(34,197,94,.12);color:#86efac}
+.b-despesa{background:rgba(220,20,60,.12);color:#fca5a5}
+.b-alta{background:rgba(220,20,60,.12);color:#fca5a5}
+.b-media{background:rgba(255,176,32,.12);color:var(--amber)}
+.b-baixa{background:rgba(34,197,94,.12);color:#86efac}
+
+/* PIPELINE KANBAN */
+.kanban{display:grid;grid-template-columns:repeat(5,1fr);gap:.8rem;margin-bottom:1.2rem}
+.kanban-col{background:var(--gray);border:1px solid var(--gray3);border-radius:3px;min-height:240px}
+.kanban-hdr{padding:.6rem .9rem;border-bottom:1px solid var(--gray3);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between}
+.kanban-hdr.lead{color:#93c5fd}.kanban-hdr.demo{color:var(--amber)}.kanban-hdr.proposta{color:#d8b4fe}.kanban-hdr.fechado{color:#86efac}.kanban-hdr.perdido{color:#fca5a5}
+.kanban-body{padding:.6rem}
+.kcard{background:var(--black);border:1px solid var(--gray3);border-radius:2px;padding:.75rem;margin-bottom:.5rem;cursor:pointer;transition:border-color .15s,transform .12s}
+.kcard:hover{border-color:var(--amber);transform:translateY(-1px)}
+.kcard-name{font-size:.8rem;color:var(--cream);margin-bottom:.15rem}
+.kcard-biz{font-size:.65rem;color:var(--muted);margin-bottom:.4rem}
+.kcard-meta{display:flex;align-items:center;justify-content:space-between}
+.kcard-val{font-size:.65rem;color:var(--amber)}
+.kcard-src{font-size:.58rem;color:var(--muted)}
+.kcard-actions{display:flex;gap:.3rem;margin-top:.5rem}
+
+/* MODAL */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(4px);z-index:200;align-items:center;justify-content:center;padding:1rem}
+.overlay.open{display:flex}
+.modal{background:var(--gray);border:1px solid var(--gray3);border-radius:4px;width:min(500px,100%);max-height:90vh;overflow-y:auto}
+.modal-hdr{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.4rem;border-bottom:1px solid var(--gray3)}
+.modal-title{font-family:var(--font-display);font-size:1.1rem;letter-spacing:.1em;color:var(--amber)}
+.modal-close{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.1rem;padding:.2rem}
+.modal-body{padding:1.4rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.field{margin-bottom:.9rem}
+.field label{display:block;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+.field input,.field select,.field textarea{width:100%;background:var(--black);border:1px solid var(--gray3);border-radius:2px;padding:.6rem .9rem;color:var(--cream);font-family:var(--font-mono);font-size:.78rem;outline:none;transition:border-color .18s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--amber)}
+.field select option{background:var(--gray2)}
+.field textarea{min-height:72px;resize:vertical}
+.modal-footer{padding:1rem 1.4rem;border-top:1px solid var(--gray3);display:flex;gap:.6rem;justify-content:flex-end}
+
+/* CONTAB */
+.contab-kpis{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.2rem}
+.iva-card{background:rgba(220,20,60,.07);border:1px solid rgba(220,20,60,.2);border-radius:3px;padding:1.2rem}
+.iva-amount{font-family:var(--font-display);font-size:2rem;color:var(--crimson);letter-spacing:.06em}
+.iva-note{font-size:.65rem;color:var(--muted);margin-top:.5rem;line-height:1.6}
+
+/* EMPTY */
+.empty{padding:2.5rem;text-align:center;color:var(--muted);font-size:.72rem;letter-spacing:.08em}
+
+/* LOADING */
+.loading{display:flex;align-items:center;justify-content:center;gap:.6rem;padding:1.5rem;color:var(--muted);font-size:.72rem}
+.spinner{width:16px;height:16px;border:2px solid var(--gray3);border-top-color:var(--amber);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* CHECKBOX */
+input[type=checkbox]{accent-color:var(--amber);width:14px;height:14px;cursor:pointer}
+.strike{text-decoration:line-through;opacity:.4}
+
+/* RESPONSIVE */
+@media(max-width:900px){.kanban{grid-template-columns:1fr 1fr}.contab-kpis{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}}
+@media(max-width:600px){.kanban{grid-template-columns:1fr}.stats-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ SETUP SCREEN ═══════════════════ -->
+<div id="setup">
+  <div class="setup-card">
+    <div class="setup-logo">VOLVA<span>RA</span></div>
+    <div class="setup-sub">Ops Dashboard · Configuração Google Sheets</div>
+
+    <div class="setup-step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Criar a Google Sheet</h4>
+        <p>Abre <a href="https://sheets.google.com" target="_blank">sheets.google.com</a> e cria uma folha nova com o nome <code>Volvara Ops</code>. Copia o <strong>ID da folha</strong> — é a parte do URL entre <code>/d/</code> e <code>/edit</code>.</p>
+      </div>
+    </div>
+
+    <div class="setup-step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>Criar a API Key do Google</h4>
+        <p>Vai a <a href="https://console.cloud.google.com/apis/credentials" target="_blank">console.cloud.google.com</a> → <strong>Create Credentials → API Key</strong>. Activa a <strong>Google Sheets API</strong> no projecto. Restringe a key ao domínio <code>volvara.pt</code> para segurança.</p>
+      </div>
+    </div>
+
+    <div class="setup-step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>Tornar a Sheet pública para leitura</h4>
+        <p>Na Sheet → <strong>Partilhar → Qualquer pessoa com o link pode ver</strong>. A escrita é feita via API Key autenticada.</p>
+      </div>
+    </div>
+
+    <div class="field"><label>Google Sheet ID</label>
+      <input id="cfg-sheet" placeholder="1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms">
+    </div>
+    <div class="field"><label>Google API Key</label>
+      <input id="cfg-key" type="password" placeholder="AIzaSy...">
+    </div>
+    <div id="setup-msg"></div>
+    <div style="display:flex;gap:.8rem;margin-top:1rem">
+      <button class="btn btn-amber" onclick="initSheets()" id="setup-btn">Ligar ao Google Sheets</button>
+      
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ APP ═══════════════════ -->
+<div id="app">
+  <nav>
+    <div class="nav-logo">VOLVA<span>RA</span> <span style="font-size:.55rem;color:var(--muted);font-family:var(--font-mono);letter-spacing:.1em;margin-left:.3rem">OPS</span></div>
+    <div class="nav-tabs">
+      <button class="tab active" data-page="dashboard" onclick="switchTab(this)">📊 Dashboard</button>
+      <button class="tab" data-page="pipeline" onclick="switchTab(this)">🔄 Pipeline</button>
+      <button class="tab" data-page="clientes" onclick="switchTab(this)">👥 Clientes</button>
+      <button class="tab" data-page="tarefas" onclick="switchTab(this)">✅ Tarefas</button>
+      <button class="tab" data-page="contab" onclick="switchTab(this)">💶 Contab</button>
+    </div>
+    <div class="nav-right">
+      <div class="sync-dot" id="sync-dot"></div>
+      <span class="sync-label" id="sync-label">sincronizado</span>
+      <button class="btn btn-ghost btn-sm" onclick="syncAll()">↻ Sync</button>
+      <button class="btn btn-ghost btn-sm" onclick="resetConfig()" title="Voltar às definições">⚙</button>
+    </div>
+  </nav>
+
+  <!-- DASHBOARD -->
+  <div class="page active" id="page-dashboard">
+    <div class="ph">
+      <div><div class="ph-title">DASHBOARD</div><div class="ph-sub" id="dash-date"></div></div>
+      <button class="btn btn-amber btn-sm" onclick="syncAll()">↻ Actualizar</button>
+    </div>
+    <div class="stats-grid" id="dash-stats"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;flex-wrap:wrap">
+      <div class="section">
+        <div class="section-header"><span class="section-title">Leads recentes</span></div>
+        <div id="dash-leads"></div>
+      </div>
+      <div class="section">
+        <div class="section-header"><span class="section-title">Tarefas abertas</span></div>
+        <div id="dash-tasks"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PIPELINE -->
+  <div class="page" id="page-pipeline">
+    <div class="ph">
+      <div><div class="ph-title">PIPELINE</div><div class="ph-sub">Leads por fase</div></div>
+      <button class="btn btn-amber btn-sm" onclick="openModal('m-lead')">+ Novo Lead</button>
+    </div>
+    <div class="kanban" id="kanban-board"></div>
+  </div>
+
+  <!-- CLIENTES -->
+  <div class="page" id="page-clientes">
+    <div class="ph">
+      <div><div class="ph-title">CLIENTES</div><div class="ph-sub">Contas activas</div></div>
+      <button class="btn btn-amber btn-sm" onclick="openModal('m-client')">+ Novo Cliente</button>
+    </div>
+    <div class="section">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Nome</th><th>Negócio</th><th>Plano</th><th>/mês</th><th>Domínio</th><th>Estado</th><th>Próx. contacto</th><th></th></tr></thead>
+          <tbody id="tb-clients"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAREFAS -->
+  <div class="page" id="page-tarefas">
+    <div class="ph">
+      <div><div class="ph-title">TAREFAS</div><div class="ph-sub">Gestão de trabalho</div></div>
+      <button class="btn btn-amber btn-sm" onclick="openModal('m-task')">+ Nova Tarefa</button>
+    </div>
+    <div class="section">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th style="width:32px"></th><th>Tarefa</th><th>Contexto</th><th>Prioridade</th><th>Prazo</th><th></th></tr></thead>
+          <tbody id="tb-tasks"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTABILIDADE -->
+  <div class="page" id="page-contab">
+    <div class="ph">
+      <div><div class="ph-title">CONTABILIDADE</div><div class="ph-sub">Receitas · Despesas · IVA</div></div>
+      <button class="btn btn-amber btn-sm" onclick="openModal('m-mov')">+ Movimento</button>
+    </div>
+    <div class="contab-kpis">
+      <div class="stats-grid" style="margin:0" id="contab-kpis"></div>
+      <div class="iva-card">
+        <div style="font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem">IVA a reservar (23%)</div>
+        <div class="iva-amount" id="iva-amount">€0,00</div>
+        <div class="iva-note">Guarda este valor numa conta separada.<br>Declaração IVA: trimestral, até dia 15 do 2.º mês seguinte.<br>Valores calculados sobre receitas recebidas.</div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Data</th><th>Descrição</th><th>Tipo</th><th>Valor s/IVA</th><th>IVA</th><th>Estado</th><th></th></tr></thead>
+          <tbody id="tb-movs"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ MODALS ═══════════════════ -->
+<div class="overlay" id="m-lead">
+  <div class="modal">
+    <div class="modal-hdr"><span class="modal-title">NOVO LEAD</span><button class="modal-close" onclick="closeModal('m-lead')">✕</button></div>
+    <div class="modal-body">
+      <div class="form-row">
+        <div class="field"><label>Nome</label><input id="l-nome" placeholder="João Silva"></div>
+        <div class="field"><label>Negócio</label><input id="l-neg" placeholder="Restaurante O Farol"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>Telefone</label><input id="l-tel" placeholder="+351 9xx xxx xxx"></div>
+        <div class="field"><label>Email</label><input id="l-email" placeholder="joao@email.pt"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>Origem</label>
+          <select id="l-origem"><option>Instagram</option><option>WhatsApp</option><option>Facebook</option><option>Site</option><option>Outbound</option><option>Referência</option></select>
+        </div>
+        <div class="field"><label>Plano de interesse</label>
+          <select id="l-plano"><option>Starter (€299)</option><option>Presença (€399)</option><option>Renovação (€249)</option><option>A definir</option></select>
+        </div>
+      </div>
+      <div class="field"><label>Notas</label><textarea id="l-notas" placeholder="Ex: negócio em Portimão, sem site..."></textarea></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost btn-sm" onclick="closeModal('m-lead')">Cancelar</button>
+      <button class="btn btn-amber btn-sm" onclick="saveLead()">Guardar Lead</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="m-client">
+  <div class="modal">
+    <div class="modal-hdr"><span class="modal-title">NOVO CLIENTE</span><button class="modal-close" onclick="closeModal('m-client')">✕</button></div>
+    <div class="modal-body">
+      <div class="form-row">
+        <div class="field"><label>Nome</label><input id="c-nome" placeholder="João Silva"></div>
+        <div class="field"><label>Negócio</label><input id="c-neg" placeholder="Restaurante O Farol"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>Telefone</label><input id="c-tel" placeholder="+351 9xx xxx xxx"></div>
+        <div class="field"><label>Email</label><input id="c-email" placeholder="joao@email.pt"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>Plano</label>
+          <select id="c-plano"><option>Starter</option><option>Presença</option><option>Renovação</option></select>
+        </div>
+        <div class="field"><label>Mensalidade (€)</label><input id="c-mens" type="number" placeholder="49"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>Domínio</label><input id="c-dom" placeholder="meusite.pt"></div>
+        <div class="field"><label>Data início</label><input id="c-ini" type="date"></div>
+      </div>
+      <div class="field"><label>Próximo contacto</label><input id="c-prox" type="date"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost btn-sm" onclick="closeModal('m-client')">Cancelar</button>
+      <button class="btn btn-amber btn-sm" onclick="saveClient()">Guardar Cliente</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="m-task">
+  <div class="modal">
+    <div class="modal-hdr"><span class="modal-title">NOVA TAREFA</span><button class="modal-close" onclick="closeModal('m-task')">✕</button></div>
+    <div class="modal-body">
+      <div class="field"><label>Tarefa</label><input id="t-nome" placeholder="Ex: Criar demo para Restaurante X"></div>
+      <div class="form-row">
+        <div class="field"><label>Contexto</label><input id="t-ctx" placeholder="Cliente ou Interno"></div>
+        <div class="field"><label>Prioridade</label>
+          <select id="t-pri"><option value="alta">Alta</option><option value="media" selected>Média</option><option value="baixa">Baixa</option></select>
+        </div>
+      </div>
+      <div class="field"><label>Prazo</label><input id="t-prazo" type="date"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost btn-sm" onclick="closeModal('m-task')">Cancelar</button>
+      <button class="btn btn-amber btn-sm" onclick="saveTask()">Guardar Tarefa</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="m-mov">
+  <div class="modal">
+    <div class="modal-hdr"><span class="modal-title">NOVO MOVIMENTO</span><button class="modal-close" onclick="closeModal('m-mov')">✕</button></div>
+    <div class="modal-body">
+      <div class="form-row">
+        <div class="field"><label>Data</label><input id="m-data" type="date"></div>
+        <div class="field"><label>Tipo</label>
+          <select id="m-tipo"><option value="receita">Receita</option><option value="despesa">Despesa</option></select>
+        </div>
+      </div>
+      <div class="field"><label>Descrição</label><input id="m-desc" placeholder="Ex: Website Starter — João Silva"></div>
+      <div class="form-row">
+        <div class="field"><label>Valor sem IVA (€)</label><input id="m-val" type="number" step="0.01" placeholder="299"></div>
+        <div class="field"><label>Estado</label>
+          <select id="m-estado"><option value="pago">Pago</option><option value="pendente">Pendente</option></select>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost btn-sm" onclick="closeModal('m-mov')">Cancelar</button>
+      <button class="btn btn-amber btn-sm" onclick="saveMov()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// CONFIG & STATE
+// ═══════════════════════════════════════════════════════
+const CFG_KEY = 'volvara_ops_cfg';
+let CFG = JSON.parse(localStorage.getItem(CFG_KEY) || 'null');
+let DEMO_MODE = false;
+
+// In-memory store (populated from Sheets or demo data)
+let DB = { leads:[], clients:[], tasks:[], movs:[] };
+
+const SHEETS = {
+  leads:   'Leads',
+  clients: 'Clientes',
+  tasks:   'Tarefas',
+  movs:    'Contabilidade'
+};
+
+// Sheet column headers
+const HEADERS = {
+  leads:   ['ID','Nome','Negócio','Telefone','Email','Origem','Plano','Status','Notas','Data'],
+  clients: ['ID','Nome','Negócio','Telefone','Email','Plano','Mensalidade','Domínio','Início','Próx.Contacto','Estado'],
+  tasks:   ['ID','Nome','Contexto','Prioridade','Prazo','Feita'],
+  movs:    ['ID','Data','Tipo','Descrição','Valor','Estado']
+};
+
+// ═══════════════════════════════════════════════════════
+// GOOGLE SHEETS API
+// ═══════════════════════════════════════════════════════
+const BASE = 'https://sheets.googleapis.com/v4/spreadsheets';
+
+async function sheetsGet(sheet) {
+  const url = `${BASE}/${CFG.sheetId}/values/${sheet}!A1:Z1000?key=${CFG.apiKey}`;
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(`Sheets API: ${r.status}`);
+  const d = await r.json();
+  return d.values || [];
+}
+
+async function sheetsAppend(sheet, row) {
+  const url = `${BASE}/${CFG.sheetId}/values/${sheet}!A1:Z1000:append?valueInputOption=RAW&key=${CFG.apiKey}`;
+  const r = await fetch(url, {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ values: [row] })
+  });
+  if (!r.ok) throw new Error(`Append failed: ${r.status}`);
+  return r.json();
+}
+
+async function sheetsClear(sheet) {
+  const url = `${BASE}/${CFG.sheetId}/values/${sheet}!A2:Z1000:clear?key=${CFG.apiKey}`;
+  const r = await fetch(url, { method: 'POST', headers: {'Content-Type':'application/json'} });
+  if (!r.ok) throw new Error(`Clear failed: ${r.status}`);
+}
+
+async function sheetsWrite(sheet, rows) {
+  // Write all rows at once (after clearing)
+  await sheetsClear(sheet);
+  if (rows.length === 0) return;
+  const url = `${BASE}/${CFG.sheetId}/values/${sheet}!A2:Z1000?valueInputOption=RAW&key=${CFG.apiKey}`;
+  const r = await fetch(url, {
+    method: 'PUT',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ values: rows })
+  });
+  if (!r.ok) throw new Error(`Write failed: ${r.status}`);
+}
+
+async function ensureHeaders() {
+  // Write headers to row 1 of each sheet if missing
+  for (const [key, sheetName] of Object.entries(SHEETS)) {
+    const url = `${BASE}/${CFG.sheetId}/values/${sheetName}!A1:Z1?key=${CFG.apiKey}`;
+    const r = await fetch(url);
+    const d = await r.json();
+    if (!d.values || !d.values[0] || d.values[0][0] !== 'ID') {
+      const writeUrl = `${BASE}/${CFG.sheetId}/values/${sheetName}!A1:Z1?valueInputOption=RAW&key=${CFG.apiKey}`;
+      await fetch(writeUrl, {
+        method: 'PUT',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ values: [HEADERS[key]] })
+      });
+    }
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+// DATA PARSING
+// ═══════════════════════════════════════════════════════
+function rowsToLeads(rows) {
+  return rows.slice(1).map(r => ({
+    id: r[0]||'', nome:r[1]||'', neg:r[2]||'', tel:r[3]||'',
+    email:r[4]||'', origem:r[5]||'', plano:r[6]||'',
+    status:r[7]||'lead', notas:r[8]||'', data:r[9]||''
+  }));
+}
+function leadToRow(l){ return [l.id,l.nome,l.neg,l.tel,l.email,l.origem,l.plano,l.status,l.notas,l.data]; }
+
+function rowsToClients(rows) {
+  return rows.slice(1).map(r => ({
+    id:r[0]||'', nome:r[1]||'', neg:r[2]||'', tel:r[3]||'',
+    email:r[4]||'', plano:r[5]||'', mens:parseFloat(r[6])||0,
+    dom:r[7]||'', inicio:r[8]||'', prox:r[9]||'', estado:r[10]||'activo'
+  }));
+}
+function clientToRow(c){ return [c.id,c.nome,c.neg,c.tel,c.email,c.plano,c.mens,c.dom,c.inicio,c.prox,c.estado]; }
+
+function rowsToTasks(rows) {
+  return rows.slice(1).map(r => ({
+    id:r[0]||'', nome:r[1]||'', ctx:r[2]||'', pri:r[3]||'media',
+    prazo:r[4]||'', done:r[5]==='TRUE'||r[5]==='true'||r[5]==='1'
+  }));
+}
+function taskToRow(t){ return [t.id,t.nome,t.ctx,t.pri,t.prazo,t.done?'TRUE':'FALSE']; }
+
+function rowsToMovs(rows) {
+  return rows.slice(1).map(r => ({
+    id:r[0]||'', data:r[1]||'', tipo:r[2]||'receita',
+    desc:r[3]||'', val:parseFloat(r[4])||0, estado:r[5]||'pago'
+  }));
+}
+function movToRow(m){ return [m.id,m.data,m.tipo,m.desc,m.val,m.estado]; }
+
+// ═══════════════════════════════════════════════════════
+// SYNC
+// ═══════════════════════════════════════════════════════
+function setSyncState(state) {
+  const dot = document.getElementById('sync-dot');
+  const lbl = document.getElementById('sync-label');
+  dot.className = 'sync-dot ' + (state==='syncing'?'syncing':state==='error'?'error':'');
+  lbl.textContent = state==='syncing'?'a sincronizar...':state==='error'?'erro':state==='saved'?'guardado':'sincronizado';
+}
+
+async function syncAll() {
+  if (DEMO_MODE) { render(); return; }
+  setSyncState('syncing');
+  try {
+    const [lr, cr, tr, mr] = await Promise.all([
+      sheetsGet(SHEETS.leads), sheetsGet(SHEETS.clients),
+      sheetsGet(SHEETS.tasks), sheetsGet(SHEETS.movs)
+    ]);
+    DB.leads   = rowsToLeads(lr);
+    DB.clients = rowsToClients(cr);
+    DB.tasks   = rowsToTasks(tr);
+    DB.movs    = rowsToMovs(mr);
+    setSyncState('ok');
+    render();
+  } catch(e) {
+    setSyncState('error');
+    console.error(e);
+  }
+}
+
+async function saveToSheet(type) {
+  if (DEMO_MODE) { render(); return; }
+  setSyncState('syncing');
+  try {
+    const map = { leads:[DB.leads,leadToRow], clients:[DB.clients,clientToRow], tasks:[DB.tasks,taskToRow], movs:[DB.movs,movToRow] };
+    const [items, fn] = map[type];
+    await sheetsWrite(SHEETS[type], items.map(fn));
+    setSyncState('saved');
+    setTimeout(()=>setSyncState('ok'), 2000);
+  } catch(e) {
+    setSyncState('error');
+    console.error(e);
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+// SETUP
+// ═══════════════════════════════════════════════════════
+async function initSheets() {
+  const sheetId = document.getElementById('cfg-sheet').value.trim();
+  const apiKey  = document.getElementById('cfg-key').value.trim();
+  const msg = document.getElementById('setup-msg');
+  const btn = document.getElementById('setup-btn');
+  if (!sheetId || !apiKey) { msg.innerHTML='<div class="error-msg">Preenche ambos os campos.</div>'; return; }
+  btn.textContent = 'A ligar...'; btn.disabled = true;
+  msg.innerHTML = '';
+  CFG = { sheetId, apiKey };
+  try {
+    await ensureHeaders();
+    await syncAll();
+    localStorage.setItem(CFG_KEY, JSON.stringify(CFG));
+    showApp();
+  } catch(e) {
+    msg.innerHTML = `<div class="error-msg">Erro: ${e.message}<br>Verifica o Sheet ID, a API Key e se a Sheets API está activada.</div>`;
+    btn.textContent = 'Ligar ao Google Sheets'; btn.disabled = false;
+  }
+}
+
+function useDemo() {
+  // Demo mode disabled — connect Google Sheets to use
+}
+
+function showApp() {
+  document.getElementById('setup').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  render();
+}
+
+// ═══════════════════════════════════════════════════════
+// DEMO DATA
+// ═══════════════════════════════════════════════════════
+function today() { return new Date().toISOString().split('T')[0]; }
+function addDays(n) { const d=new Date(); d.setDate(d.getDate()+n); return d.toISOString().split('T')[0]; }
+function uid() { return 'id_' + Date.now() + '_' + Math.random().toString(36).slice(2,6); }
+
+function demoData() {
+  return {
+    leads:   [],
+    clients: [],
+    tasks:   [],
+    movs:    []
+  };
+}
+
+// ═══════════════════════════════════════════════════════
+// CRUD
+// ═══════════════════════════════════════════════════════
+function saveLead() {
+  const l = {id:uid(),nome:v('l-nome'),neg:v('l-neg'),tel:v('l-tel'),email:v('l-email'),origem:v('l-origem'),plano:v('l-plano'),status:'lead',notas:v('l-notas'),data:today()};
+  if (!l.nome) return;
+  DB.leads.push(l);
+  saveToSheet('leads');
+  closeModal('m-lead');
+  ['l-nome','l-neg','l-tel','l-email','l-notas'].forEach(clearField);
+  render();
+}
+
+function advanceLead(id) {
+  const order = ['lead','demo','proposta','fechado','perdido'];
+  const l = DB.leads.find(x=>x.id===id);
+  if (!l) return;
+  const i = order.indexOf(l.status);
+  if (i < order.length-1) { l.status = order[i+1]; saveToSheet('leads'); render(); }
+}
+
+function deleteLead(id) {
+  if (!confirm('Apagar lead?')) return;
+  DB.leads = DB.leads.filter(x=>x.id!==id);
+  saveToSheet('leads'); render();
+}
+
+function saveClient() {
+  const c = {id:uid(),nome:v('c-nome'),neg:v('c-neg'),tel:v('c-tel'),email:v('c-email'),plano:v('c-plano'),mens:parseFloat(v('c-mens'))||0,dom:v('c-dom'),inicio:v('c-ini'),prox:v('c-prox'),estado:'activo'};
+  if (!c.nome) return;
+  DB.clients.push(c);
+  saveToSheet('clients');
+  closeModal('m-client'); render();
+}
+
+function deleteClient(id) {
+  if (!confirm('Apagar cliente?')) return;
+  DB.clients = DB.clients.filter(x=>x.id!==id);
+  saveToSheet('clients'); render();
+}
+
+function saveTask() {
+  const t = {id:uid(),nome:v('t-nome'),ctx:v('t-ctx'),pri:v('t-pri'),prazo:v('t-prazo'),done:false};
+  if (!t.nome) return;
+  DB.tasks.push(t);
+  saveToSheet('tasks');
+  closeModal('m-task'); render();
+}
+
+function toggleTask(id) {
+  const t = DB.tasks.find(x=>x.id===id);
+  if (t) { t.done=!t.done; saveToSheet('tasks'); render(); }
+}
+
+function deleteTask(id) {
+  DB.tasks = DB.tasks.filter(x=>x.id!==id);
+  saveToSheet('tasks'); render();
+}
+
+function saveMov() {
+  const m = {id:uid(),data:v('m-data'),tipo:v('m-tipo'),desc:v('m-desc'),val:parseFloat(v('m-val'))||0,estado:v('m-estado')};
+  if (!m.desc) return;
+  DB.movs.push(m);
+  saveToSheet('movs');
+  closeModal('m-mov'); render();
+}
+
+function deleteMov(id) {
+  DB.movs = DB.movs.filter(x=>x.id!==id);
+  saveToSheet('movs'); render();
+}
+
+// ═══════════════════════════════════════════════════════
+// RENDER
+// ═══════════════════════════════════════════════════════
+const SLABELS = {lead:'Lead',demo:'Demo',proposta:'Proposta',fechado:'Fechado',perdido:'Perdido'};
+function fmtEur(v){ return '€'+Number(v).toLocaleString('pt-PT',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function fmtDate(d){ if(!d) return '—'; const p=d.split('-'); return `${p[2]}/${p[1]}/${p[0]}`; }
+function badge(cls,txt){ return `<span class="badge b-${cls}">${txt}</span>`; }
+function v(id){ return document.getElementById(id)?.value?.trim()||''; }
+function clearField(id){ const el=document.getElementById(id); if(el) el.value=''; }
+
+function render() {
+  renderDash();
+  renderPipeline();
+  renderClients();
+  renderTasks();
+  renderContab();
+}
+
+function renderDash() {
+  const el = document.getElementById('dash-date');
+  if (el) el.textContent = new Date().toLocaleDateString('pt-PT',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+
+  const recPago = DB.movs.filter(m=>m.tipo==='receita'&&m.estado==='pago').reduce((s,m)=>s+m.val,0);
+  const recPend = DB.movs.filter(m=>m.tipo==='receita'&&m.estado==='pendente').reduce((s,m)=>s+m.val,0);
+  const desp    = DB.movs.filter(m=>m.tipo==='despesa').reduce((s,m)=>s+m.val,0);
+  const mrr     = DB.clients.filter(c=>c.estado==='activo').reduce((s,c)=>s+c.mens,0);
+  const leads   = DB.leads.filter(l=>!['fechado','perdido'].includes(l.status)).length;
+  const tasks   = DB.tasks.filter(t=>!t.done).length;
+
+  document.getElementById('dash-stats').innerHTML = `
+    <div class="stat-card green"><div class="stat-val green">${fmtEur(recPago)}</div><div class="stat-lbl">Receita recebida</div></div>
+    <div class="stat-card"><div class="stat-val amber">${fmtEur(mrr)}</div><div class="stat-lbl">MRR · mensalidades</div></div>
+    <div class="stat-card crimson"><div class="stat-val crimson">${fmtEur(desp)}</div><div class="stat-lbl">Despesas</div></div>
+    <div class="stat-card"><div class="stat-val">${fmtEur(recPago-desp)}</div><div class="stat-lbl">Lucro líquido</div></div>
+    <div class="stat-card blue"><div class="stat-val">${DB.clients.filter(c=>c.estado==='activo').length}</div><div class="stat-lbl">Clientes activos</div></div>
+    <div class="stat-card purple"><div class="stat-val">${leads}</div><div class="stat-lbl">Leads em pipeline</div></div>
+    <div class="stat-card"><div class="stat-val">${tasks}</div><div class="stat-lbl">Tarefas abertas</div></div>
+    <div class="stat-card"><div class="stat-val amber">${fmtEur(recPend)}</div><div class="stat-lbl">A receber</div></div>`;
+
+  document.getElementById('dash-leads').innerHTML = DB.leads.length
+    ? `<table><thead><tr><th>Nome</th><th>Negócio</th><th>Status</th></tr></thead><tbody>
+       ${[...DB.leads].sort((a,b)=>b.id.localeCompare(a.id)).slice(0,6).map(l=>`<tr><td>${l.nome}</td><td style="color:var(--muted)">${l.neg}</td><td>${badge(l.status,SLABELS[l.status])}</td></tr>`).join('')}
+       </tbody></table>` : '<div class="empty">Sem leads ainda</div>';
+
+  document.getElementById('dash-tasks').innerHTML = DB.tasks.filter(t=>!t.done).length
+    ? `<table><tbody>
+       ${DB.tasks.filter(t=>!t.done).slice(0,7).map(t=>`
+         <tr><td style="width:28px"><input type="checkbox" onchange="toggleTask('${t.id}')"></td>
+         <td>${t.nome}</td><td>${badge(t.pri,t.pri)}</td></tr>`).join('')}
+       </tbody></table>` : '<div class="empty">Sem tarefas abertas ✅</div>';
+}
+
+function renderPipeline() {
+  const board = document.getElementById('kanban-board');
+  if (!board) return;
+  board.innerHTML = ['lead','demo','proposta','fechado','perdido'].map(s=>{
+    const cards = DB.leads.filter(l=>l.status===s);
+    return `<div class="kanban-col">
+      <div class="kanban-hdr ${s}">${SLABELS[s]} <span style="opacity:.5">${cards.length}</span></div>
+      <div class="kanban-body">
+        ${cards.map(l=>`<div class="kcard">
+          <div class="kcard-name">${l.nome}</div>
+          <div class="kcard-biz">${l.neg}</div>
+          <div class="kcard-meta"><span class="kcard-val">${l.plano.split('(')[0].trim()}</span><span class="kcard-src">${l.origem}</span></div>
+          <div class="kcard-actions">
+            ${s!=='perdido'&&s!=='fechado'?`<button class="btn btn-ghost btn-sm" onclick="advanceLead('${l.id}')">→ Avançar</button>`:''}
+            <button class="btn btn-danger btn-sm" onclick="deleteLead('${l.id}')">✕</button>
+          </div></div>`).join('')}
+        ${!cards.length?'<div class="empty" style="font-size:.65rem;padding:1.2rem">Vazio</div>':''}
+      </div></div>`;
+  }).join('');
+}
+
+function renderClients() {
+  const tb = document.getElementById('tb-clients');
+  if (!tb) return;
+  tb.innerHTML = DB.clients.map(c=>`<tr>
+    <td><strong>${c.nome}</strong></td><td style="color:var(--muted)">${c.neg}</td>
+    <td>${c.plano}</td><td style="color:var(--amber)">${fmtEur(c.mens)}</td>
+    <td style="color:var(--muted)">${c.dom||'—'}</td><td>${badge(c.estado,c.estado)}</td>
+    <td style="color:var(--muted)">${fmtDate(c.prox)}</td>
+    <td><button class="btn btn-danger btn-sm" onclick="deleteClient('${c.id}')">✕</button></td>
+  </tr>`).join('') || '<tr><td colspan="8" class="empty">Sem clientes</td></tr>';
+}
+
+function renderTasks() {
+  const tb = document.getElementById('tb-tasks');
+  if (!tb) return;
+  const sorted = [...DB.tasks].sort((a,b)=>(a.done-b.done)||({alta:0,media:1,baixa:2}[a.pri]-{alta:0,media:1,baixa:2}[b.pri]));
+  tb.innerHTML = sorted.map(t=>`<tr style="opacity:${t.done?.45:1}">
+    <td><input type="checkbox" ${t.done?'checked':''} onchange="toggleTask('${t.id}')"></td>
+    <td class="${t.done?'strike':''}">${t.nome}</td>
+    <td style="color:var(--muted)">${t.ctx||'—'}</td>
+    <td>${badge(t.pri,t.pri)}</td>
+    <td style="color:${t.prazo&&t.prazo<today()&&!t.done?'var(--crimson)':'var(--muted)'}">${fmtDate(t.prazo)}</td>
+    <td><button class="btn btn-danger btn-sm" onclick="deleteTask('${t.id}')">✕</button></td>
+  </tr>`).join('') || '<tr><td colspan="6" class="empty">Sem tarefas</td></tr>';
+}
+
+function renderContab() {
+  const kpis = document.getElementById('contab-kpis');
+  const tb   = document.getElementById('tb-movs');
+  if (!kpis||!tb) return;
+
+  const rec  = DB.movs.filter(m=>m.tipo==='receita'&&m.estado==='pago').reduce((s,m)=>s+m.val,0);
+  const pend = DB.movs.filter(m=>m.tipo==='receita'&&m.estado==='pendente').reduce((s,m)=>s+m.val,0);
+  const desp = DB.movs.filter(m=>m.tipo==='despesa').reduce((s,m)=>s+m.val,0);
+  const iva  = rec * 0.23;
+
+  document.getElementById('iva-amount').textContent = fmtEur(iva);
+  kpis.innerHTML = `
+    <div class="stat-card green"><div class="stat-val green">${fmtEur(rec)}</div><div class="stat-lbl">Receita paga</div></div>
+    <div class="stat-card"><div class="stat-val amber">${fmtEur(pend)}</div><div class="stat-lbl">A receber</div></div>
+    <div class="stat-card crimson"><div class="stat-val crimson">${fmtEur(desp)}</div><div class="stat-lbl">Despesas</div></div>
+    <div class="stat-card"><div class="stat-val">${fmtEur(rec-desp)}</div><div class="stat-lbl">Resultado líquido</div></div>`;
+
+  tb.innerHTML = [...DB.movs].sort((a,b)=>b.data.localeCompare(a.data)).map(m=>`<tr>
+    <td style="color:var(--muted)">${fmtDate(m.data)}</td><td>${m.desc}</td>
+    <td>${badge(m.tipo,m.tipo)}</td>
+    <td style="color:${m.tipo==='receita'?'var(--green)':'var(--crimson)'}">${m.tipo==='receita'?'+':'−'}${fmtEur(m.val)}</td>
+    <td style="color:var(--muted)">${m.tipo==='receita'?fmtEur(m.val*0.23):'—'}</td>
+    <td>${badge(m.estado,m.estado)}</td>
+    <td><button class="btn btn-danger btn-sm" onclick="deleteMov('${m.id}')">✕</button></td>
+  </tr>`).join('') || '<tr><td colspan="7" class="empty">Sem movimentos</td></tr>';
+}
+
+// ═══════════════════════════════════════════════════════
+// UI HELPERS
+// ═══════════════════════════════════════════════════════
+function switchTab(btn) {
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('page-'+btn.dataset.page).classList.add('active');
+}
+function openModal(id){ document.getElementById(id).classList.add('open'); }
+function closeModal(id){ document.getElementById(id).classList.remove('open'); }
+document.querySelectorAll('.overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('open')}));
+
+function resetConfig() {
+  if (!confirm('Voltar ao ecrã de configuração? Os dados no Google Sheets ficam intactos.')) return;
+  localStorage.removeItem(CFG_KEY);
+  CFG = null;
+  DEMO_MODE = false;
+  DB = { leads:[], clients:[], tasks:[], movs:[] };
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('setup').style.display = 'flex';
+  document.getElementById('cfg-sheet').value = '';
+  document.getElementById('cfg-key').value = '';
+  document.getElementById('setup-msg').innerHTML = '';
+}
+
+// Auto-init if config exists
+document.getElementById('m-data').value = today();
+document.getElementById('t-prazo').value = today();
+
+if (CFG) {
+  document.getElementById('cfg-sheet').value = CFG.sheetId;
+  document.getElementById('cfg-key').value   = CFG.apiKey;
+  showApp();
+  syncAll();
+}
+</script>
+</body>
+</html>
