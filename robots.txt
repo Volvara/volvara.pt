@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block internal dashboard
+Disallow: /ops/
+
+# Sitemap
+Sitemap: https://volvara.pt/sitemap.xml
