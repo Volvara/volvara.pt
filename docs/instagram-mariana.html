@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volvara · Guia Instagram — Mariana Babysitting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0A0A0A;
+  --amber: #FFB020;
+  --crimson: #DC143C;
+  --cream: #F4F1EC;
+  --gray: #1C1C1C;
+  --gray2: #2A2A2A;
+  --muted: rgba(244,241,236,.45);
+  --green: #22c55e;
+  --pink: #f472b6;
+  --display: 'Bebas Neue', sans-serif;
+  --mono: 'DM Mono', monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--cream); font-family:var(--mono); font-size:14px; line-height:1.7; }
+
+/* HEADER */
+.header { background:var(--gray); border-bottom:1px solid var(--gray2); padding:1.5rem 2rem; display:flex; align-items:center; gap:1rem; }
+.logo { font-family:var(--display); font-size:1.5rem; letter-spacing:.1em; }
+.logo span { color:transparent; -webkit-text-stroke:2px var(--amber); }
+.header-meta { margin-left:auto; font-size:.62rem; color:var(--muted); letter-spacing:.12em; text-transform:uppercase; }
+
+/* HERO */
+.hero { padding:3rem 2rem 2rem; max-width:800px; margin:0 auto; }
+.hero-label { font-size:.62rem; color:var(--amber); letter-spacing:.2em; text-transform:uppercase; margin-bottom:.6rem; }
+.hero-title { font-family:var(--display); font-size:clamp(2.5rem,6vw,4rem); letter-spacing:.04em; line-height:.95; margin-bottom:1rem; }
+.hero-title em { color:var(--amber); font-style:normal; }
+.hero-desc { font-size:.8rem; color:var(--muted); line-height:1.8; max-width:520px; }
+
+/* PREMISE */
+.premise { max-width:800px; margin:2rem auto 0; padding:0 2rem; }
+.premise-box { background:var(--gray); border:1px solid var(--gray2); border-left:3px solid var(--amber); border-radius:4px; padding:1rem 1.25rem; font-size:.78rem; color:var(--muted); line-height:1.7; }
+.premise-box strong { color:var(--cream); }
+
+/* CONTENT */
+.content { max-width:800px; margin:0 auto; padding:2rem; }
+
+/* POST CARD */
+.post-card { background:var(--gray); border:1px solid var(--gray2); border-radius:6px; margin-bottom:2rem; overflow:hidden; }
+.post-header { padding:1rem 1.25rem; border-bottom:1px solid var(--gray2); display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; }
+.post-meta { display:flex; align-items:center; gap:.75rem; }
+.post-num { font-family:var(--display); font-size:2rem; color:var(--amber); line-height:1; min-width:32px; }
+.post-info { display:flex; flex-direction:column; gap:.15rem; }
+.post-day { font-size:.82rem; color:var(--cream); font-weight:500; }
+.post-time { font-size:.68rem; color:var(--muted); letter-spacing:.06em; }
+.post-format-badge { font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; padding:.2rem .6rem; border-radius:2px; white-space:nowrap; align-self:flex-start; }
+.badge-story { background:rgba(244,114,182,.12); border:1px solid rgba(244,114,182,.25); color:var(--pink); }
+.badge-post { background:rgba(255,176,32,.1); border:1px solid rgba(255,176,32,.2); color:var(--amber); }
+.badge-carrossel { background:rgba(59,130,246,.1); border:1px solid rgba(59,130,246,.2); color:#60a5fa; }
+
+/* VISUAL */
+.visual-section { padding:1rem 1.25rem; border-bottom:1px solid var(--gray2); }
+.section-label { font-size:.58rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:.5rem; }
+.visual-desc { font-size:.78rem; color:var(--cream); line-height:1.65; }
+
+/* CAPTION BLOCK */
+.caption-block { padding:1rem 1.25rem; border-bottom:1px solid var(--gray2); }
+.caption-tabs { display:flex; gap:.5rem; margin-bottom:.75rem; }
+.tab-btn { font-family:var(--mono); font-size:.65rem; letter-spacing:.1em; text-transform:uppercase; background:none; border:1px solid var(--gray2); color:var(--muted); padding:.3rem .7rem; border-radius:2px; cursor:pointer; transition:all .15s; }
+.tab-btn.active { border-color:var(--amber); color:var(--amber); }
+.caption-content { display:none; }
+.caption-content.active { display:block; }
+.caption-text { background:#0d0d0d; border:1px solid var(--gray2); border-radius:4px; padding:1rem 1.25rem; font-size:.8rem; color:var(--cream); line-height:1.85; white-space:pre-line; position:relative; }
+.copy-btn { position:absolute; top:.6rem; right:.6rem; font-family:var(--mono); font-size:.6rem; letter-spacing:.08em; text-transform:uppercase; background:var(--gray2); border:1px solid rgba(255,255,255,.08); color:var(--muted); padding:.25rem .6rem; border-radius:2px; cursor:pointer; transition:all .15s; }
+.copy-btn:hover { color:var(--cream); border-color:rgba(255,255,255,.2); }
+.copy-btn.copied { color:var(--green); border-color:rgba(34,197,94,.3); }
+
+/* TAGS */
+.tags-section { padding:1rem 1.25rem; }
+.tags-wrap { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.5rem; }
+.tag { font-size:.68rem; color:var(--muted); background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:2px; padding:.2rem .5rem; cursor:pointer; transition:all .15s; user-select:none; }
+.tag:hover { color:var(--cream); border-color:rgba(255,255,255,.15); }
+.copy-all-tags { font-family:var(--mono); font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; background:none; border:1px solid var(--gray2); color:var(--muted); padding:.3rem .8rem; border-radius:2px; cursor:pointer; margin-top:.6rem; display:block; width:fit-content; transition:all .15s; }
+.copy-all-tags:hover { color:var(--cream); border-color:rgba(255,255,255,.2); }
+
+/* SLIDE GUIDE */
+.slides-section { padding:1rem 1.25rem; border-top:1px solid var(--gray2); }
+.slide { display:flex; gap:.75rem; align-items:flex-start; margin-bottom:.6rem; }
+.slide-num { font-family:var(--display); font-size:1rem; color:var(--amber); min-width:20px; line-height:1.3; }
+.slide-desc { font-size:.75rem; color:var(--muted); line-height:1.6; }
+.slide-desc strong { color:var(--cream); }
+
+/* NOTE BOX */
+.note { background:rgba(255,176,32,.06); border:1px solid rgba(255,176,32,.15); border-radius:4px; padding:.85rem 1.1rem; font-size:.75rem; color:var(--muted); line-height:1.65; margin-bottom:1.5rem; }
+.note strong { color:var(--cream); }
+
+/* REGRAS */
+.rules { margin-top:1rem; }
+.rule { display:flex; gap:.75rem; align-items:flex-start; padding:.75rem 0; border-bottom:1px solid var(--gray2); font-size:.76rem; color:var(--muted); line-height:1.6; }
+.rule:last-child { border-bottom:none; }
+.rule-icon { color:var(--amber); flex-shrink:0; font-size:.9rem; }
+.rule strong { color:var(--cream); }
+
+/* SECTION TITLE */
+.section-title { font-family:var(--display); font-size:1.4rem; letter-spacing:.05em; color:var(--amber); margin-bottom:1rem; margin-top:2.5rem; }
+
+@media print {
+  .copy-btn, .copy-all-tags, .tab-btn { display:none; }
+  .caption-content { display:block !important; }
+  body { background:white; color:#0A0A0A; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">VOLVA<span>RA</span></div>
+  <div class="header-meta">Instagram · Mariana Babysitting · Mar 2026</div>
+</header>
+
+<div class="hero">
+  <div class="hero-label">Guia de publicação · @volvara.pt</div>
+  <h1 class="hero-title">LANÇAMENTO<br><em>MARIANA</em><br>BABYSITTING</h1>
+  <p class="hero-desc">4 publicações ao longo de 5 dias. Sem coordenação com a cliente — tudo construído com conteúdo público do site ao vivo.</p>
+</div>
+
+<div class="premise">
+  <div class="premise-box">
+    <strong>Regra de ouro deste lançamento:</strong> A Volvara conta a história sozinha. O protagonista é o trabalho, não a cliente. Nunca usar fotos de crianças. Todo o conteúdo vem do site público marianababysitting.pt.
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- POST 1 -->
+  <div class="section-title">Publicação 1</div>
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-meta">
+        <div class="post-num">01</div>
+        <div class="post-info">
+          <div class="post-day">Sexta, 27 Mar · Hoje à noite</div>
+          <div class="post-time">20h30 · @volvara.pt</div>
+        </div>
+      </div>
+      <span class="post-format-badge badge-story">Story</span>
+    </div>
+
+    <div class="visual-section">
+      <div class="section-label">Visual</div>
+      <div class="visual-desc">Screenshot do site no browser (hero section) + link sticker a apontar para marianababysitting.pt. Texto sobreposto curto. Sem mais nada.</div>
+    </div>
+
+    <div class="caption-block">
+      <div class="section-label">Texto no story</div>
+      <div class="caption-tabs">
+        <button class="tab-btn active" onclick="switchTab(this,'s1-pt')">PT</button>
+        <button class="tab-btn" onclick="switchTab(this,'s1-en')">EN</button>
+      </div>
+      <div class="caption-content active" id="s1-pt">
+        <div class="caption-text">O nosso primeiro cliente está ao vivo. 🖤
+Desliza para ver →
+<button class="copy-btn" onclick="copyText(this, 'O nosso primeiro cliente está ao vivo. 🖤\nDesliza para ver →')">Copiar</button></div>
+      </div>
+      <div class="caption-content" id="s1-en">
+        <div class="caption-text">Our first client is live. 🖤
+Swipe to see →
+<button class="copy-btn" onclick="copyText(this, 'Our first client is live. 🖤\nSwipe to see →')">Copiar</button></div>
+      </div>
+    </div>
+
+    <div class="tags-section">
+      <div class="section-label">Tags (story)</div>
+      <div class="tags-wrap">
+        <span class="tag">#volvara</span>
+        <span class="tag">#webdesign</span>
+        <span class="tag">#primeirocliente</span>
+        <span class="tag">#firstclient</span>
+        <span class="tag">#websiteportugal</span>
+        <span class="tag">#agenciadigital</span>
+      </div>
+      <button class="copy-all-tags" onclick="copyTags(this, '#volvara #webdesign #primeirocliente #firstclient #websiteportugal #agenciadigital')">Copiar todas as tags</button>
+    </div>
+  </div>
+
+  <!-- POST 2 -->
+  <div class="section-title">Publicação 2</div>
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-meta">
+        <div class="post-num">02</div>
+        <div class="post-info">
+          <div class="post-day">Sábado, 28 Mar</div>
+          <div class="post-time">10h00 · @volvara.pt · Feed principal</div>
+        </div>
+      </div>
+      <span class="post-format-badge badge-carrossel">Carrossel</span>
+    </div>
+
+    <div class="visual-section">
+      <div class="section-label">Estrutura dos slides</div>
+      <div class="slides-section" style="padding:0;border:none;">
+        <div class="slide"><div class="slide-num">1</div><div class="slide-desc"><strong>Mockup do site completo no browser.</strong> Fundo escuro, site centrado. Nenhum texto — a imagem fala por si.</div></div>
+        <div class="slide"><div class="slide-num">2</div><div class="slide-desc"><strong>Detalhe da secção de serviços.</strong> Screenshot recortado. Mostra os preços e horários — prova que o site tem conteúdo real.</div></div>
+        <div class="slide"><div class="slide-num">3</div><div class="slide-desc"><strong>Screenshot de um testemunho.</strong> O de Julia (inglês) ou o de Miguel e Sofia. Texto público do site.</div></div>
+        <div class="slide"><div class="slide-num">4</div><div class="slide-desc"><strong>Slide de fecho — texto branco sobre preto.</strong> "O teu negócio merece um site assim. / Your business deserves a site like this." + URL volvara.pt</div></div>
+      </div>
+    </div>
+
+    <div class="caption-block">
+      <div class="section-label">Caption</div>
+      <div class="caption-tabs">
+        <button class="tab-btn active" onclick="switchTab(this,'s2-pt')">PT</button>
+        <button class="tab-btn" onclick="switchTab(this,'s2-en')">EN</button>
+      </div>
+      <div class="caption-content active" id="s2-pt">
+        <div class="caption-text">A Mariana tinha um Instagram.
+Agora tem um site com domínio próprio, SEO local, formulário de contacto e testemunhos reais.
+
+Em dias.
+
+Este é o trabalho da Volvara — transformar negócios locais em presenças online que funcionam.
+
+Próximo és tu? Demo gratuita, sem compromisso. Link na bio.
+<button class="copy-btn" onclick="copyText(this, 'A Mariana tinha um Instagram.\nAgora tem um site com domínio próprio, SEO local, formulário de contacto e testemunhos reais.\n\nEm dias.\n\nEste é o trabalho da Volvara — transformar negócios locais em presenças online que funcionam.\n\nPróximo és tu? Demo gratuita, sem compromisso. Link na bio.')">Copiar</button></div>
+      </div>
+      <div class="caption-content" id="s2-en">
+        <div class="caption-text">Mariana had an Instagram page.
+Now she has a website with her own domain, local SEO, a contact form, and real testimonials.
+
+In days.
+
+This is what Volvara does — turning local businesses into online presences that actually work.
+
+You're next? Free demo, no commitment. Link in bio.
+<button class="copy-btn" onclick="copyText(this, 'Mariana had an Instagram page.\nNow she has a website with her own domain, local SEO, a contact form, and real testimonials.\n\nIn days.\n\nThis is what Volvara does — turning local businesses into online presences that actually work.\n\nYou\'re next? Free demo, no commitment. Link in bio.')">Copiar</button></div>
+      </div>
+    </div>
+
+    <div class="tags-section">
+      <div class="section-label">Hashtags (30 — mistura PT + EN para alcance máximo)</div>
+      <div class="tags-wrap">
+        <span class="tag">#volvara</span>
+        <span class="tag">#webdesign</span>
+        <span class="tag">#websiteportugal</span>
+        <span class="tag">#agenciadigital</span>
+        <span class="tag">#webdesignportugal</span>
+        <span class="tag">#portfoliodesign</span>
+        <span class="tag">#casestudy</span>
+        <span class="tag">#smallbusiness</span>
+        <span class="tag">#smallbusinessportugal</span>
+        <span class="tag">#negociolocal</span>
+        <span class="tag">#presencaonline</span>
+        <span class="tag">#seolocal</span>
+        <span class="tag">#seoPortugal</span>
+        <span class="tag">#siteprofissional</span>
+        <span class="tag">#algarve</span>
+        <span class="tag">#portimao</span>
+        <span class="tag">#portugal</span>
+        <span class="tag">#empreendedorismo</span>
+        <span class="tag">#empreendedor</span>
+        <span class="tag">#digitalmarketing</span>
+        <span class="tag">#onlinebusiness</span>
+        <span class="tag">#websitedesign</span>
+        <span class="tag">#localSEO</span>
+        <span class="tag">#webagency</span>
+        <span class="tag">#startupportugal</span>
+        <span class="tag">#mafraSEO</span>
+        <span class="tag">#ericeira</span>
+        <span class="tag">#babysitting</span>
+        <span class="tag">#freelancedesign</span>
+        <span class="tag">#nocode</span>
+      </div>
+      <button class="copy-all-tags" onclick="copyTags(this, '#volvara #webdesign #websiteportugal #agenciadigital #webdesignportugal #portfoliodesign #casestudy #smallbusiness #smallbusinessportugal #negociolocal #presencaonline #seolocal #seoPortugal #siteprofissional #algarve #portimao #portugal #empreendedorismo #empreendedor #digitalmarketing #onlinebusiness #websitedesign #localSEO #webagency #startupportugal #mafraSEO #ericeira #babysitting #freelancedesign #nocode')">Copiar todas as tags</button>
+    </div>
+  </div>
+
+  <!-- POST 3 -->
+  <div class="section-title">Publicação 3</div>
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-meta">
+        <div class="post-num">03</div>
+        <div class="post-info">
+          <div class="post-day">Domingo, 29 Mar</div>
+          <div class="post-time">18h00 · @volvara.pt · Story</div>
+        </div>
+      </div>
+      <span class="post-format-badge badge-story">Story</span>
+    </div>
+
+    <div class="visual-section">
+      <div class="section-label">Visual</div>
+      <div class="visual-desc">Screenshot do testemunho da Julia (em inglês — mais impacto visual, nome verificável, perfil real no Instagram). Crop limpo, fundo escuro do site, estrelas visíveis. Sem edição necessária.</div>
+    </div>
+
+    <div class="caption-block">
+      <div class="section-label">Texto no story</div>
+      <div class="caption-tabs">
+        <button class="tab-btn active" onclick="switchTab(this,'s3-pt')">PT</button>
+        <button class="tab-btn" onclick="switchTab(this,'s3-en')">EN</button>
+      </div>
+      <div class="caption-content active" id="s3-pt">
+        <div class="caption-text">Quando o site fala por si. ⭐⭐⭐⭐⭐
+
+48h após o lançamento.
+<button class="copy-btn" onclick="copyText(this, 'Quando o site fala por si. ⭐⭐⭐⭐⭐\n\n48h após o lançamento.')">Copiar</button></div>
+      </div>
+      <div class="caption-content" id="s3-en">
+        <div class="caption-text">When the site speaks for itself. ⭐⭐⭐⭐⭐
+
+48 hours after launch.
+<button class="copy-btn" onclick="copyText(this, 'When the site speaks for itself. ⭐⭐⭐⭐⭐\n\n48 hours after launch.')">Copiar</button></div>
+      </div>
+    </div>
+
+    <div class="tags-section">
+      <div class="section-label">Tags (story)</div>
+      <div class="tags-wrap">
+        <span class="tag">#clientreview</span>
+        <span class="tag">#websitelaunch</span>
+        <span class="tag">#webdesign</span>
+        <span class="tag">#volvara</span>
+        <span class="tag">#prova social</span>
+        <span class="tag">#5stars</span>
+      </div>
+      <button class="copy-all-tags" onclick="copyTags(this, '#clientreview #websitelaunch #webdesign #volvara #provasocial #5stars')">Copiar todas as tags</button>
+    </div>
+  </div>
+
+  <!-- POST 4 -->
+  <div class="section-title">Publicação 4</div>
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-meta">
+        <div class="post-num">04</div>
+        <div class="post-info">
+          <div class="post-day">Terça, 1 Abril</div>
+          <div class="post-time">18h30 · @volvara.pt · Feed principal</div>
+        </div>
+      </div>
+      <span class="post-format-badge badge-post">Post</span>
+    </div>
+
+    <div class="visual-section">
+      <div class="section-label">Visual</div>
+      <div class="visual-desc">Fundo preto (#0A0A0A). Texto grande em Bebas Neue cream + amber. Minimalista. Sem imagens, sem site — só tipografia. Exemplo: "O TEU NEGÓCIO / MERECE UM / SITE ASSIM." em linha separadas, amber no destaque.</div>
+    </div>
+
+    <div class="caption-block">
+      <div class="section-label">Caption</div>
+      <div class="caption-tabs">
+        <button class="tab-btn active" onclick="switchTab(this,'s4-pt')">PT</button>
+        <button class="tab-btn" onclick="switchTab(this,'s4-en')">EN</button>
+      </div>
+      <div class="caption-content active" id="s4-pt">
+        <div class="caption-text">Primeiro cliente entregue.
+
+Site ao vivo. Domínio próprio. SEO local. Formulário. Testemunhos reais.
+
+Em dias — não semanas.
+
+Se o teu negócio ainda não tem presença online, ou se o site que tens não funciona como devia, fala connosco. A demo é gratuita. Só pagas se gostares.
+
+Link na bio → volvara.pt
+<button class="copy-btn" onclick="copyText(this, 'Primeiro cliente entregue.\n\nSite ao vivo. Domínio próprio. SEO local. Formulário. Testemunhos reais.\n\nEm dias — não semanas.\n\nSe o teu negócio ainda não tem presença online, ou se o site que tens não funciona como devia, fala connosco. A demo é gratuita. Só pagas se gostares.\n\nLink na bio → volvara.pt')">Copiar</button></div>
+      </div>
+      <div class="caption-content" id="s4-en">
+        <div class="caption-text">First client delivered.
+
+Live website. Custom domain. Local SEO. Contact form. Real testimonials.
+
+In days — not weeks.
+
+If your business has no online presence, or the website you have isn't working the way it should — talk to us. The demo is free. You only pay if you love it.
+
+Link in bio → volvara.pt
+<button class="copy-btn" onclick="copyText(this, 'First client delivered.\n\nLive website. Custom domain. Local SEO. Contact form. Real testimonials.\n\nIn days — not weeks.\n\nIf your business has no online presence, or the website you have isn\'t working the way it should — talk to us. The demo is free. You only pay if you love it.\n\nLink in bio → volvara.pt')">Copiar</button></div>
+      </div>
+    </div>
+
+    <div class="tags-section">
+      <div class="section-label">Hashtags (30)</div>
+      <div class="tags-wrap">
+        <span class="tag">#volvara</span>
+        <span class="tag">#webdesign</span>
+        <span class="tag">#websitedesign</span>
+        <span class="tag">#webdesignportugal</span>
+        <span class="tag">#agenciadigital</span>
+        <span class="tag">#portfoliodesign</span>
+        <span class="tag">#websitelaunch</span>
+        <span class="tag">#smallbusiness</span>
+        <span class="tag">#smallbusinessowner</span>
+        <span class="tag">#negociolocal</span>
+        <span class="tag">#presencaonline</span>
+        <span class="tag">#empreendedorismo</span>
+        <span class="tag">#empreendedor</span>
+        <span class="tag">#portugal</span>
+        <span class="tag">#algarve</span>
+        <span class="tag">#portimao</span>
+        <span class="tag">#digitalmarketing</span>
+        <span class="tag">#onlinebusiness</span>
+        <span class="tag">#seolocal</span>
+        <span class="tag">#siteprofissional</span>
+        <span class="tag">#webagency</span>
+        <span class="tag">#nocode</span>
+        <span class="tag">#startupportugal</span>
+        <span class="tag">#marketingdigital</span>
+        <span class="tag">#localSEO</span>
+        <span class="tag">#freelancedesign</span>
+        <span class="tag">#websiteportugal</span>
+        <span class="tag">#demogratuita</span>
+        <span class="tag">#sópagassegostar</span>
+        <span class="tag">#webdeveloper</span>
+      </div>
+      <button class="copy-all-tags" onclick="copyTags(this, '#volvara #webdesign #websitedesign #webdesignportugal #agenciadigital #portfoliodesign #websitelaunch #smallbusiness #smallbusinessowner #negociolocal #presencaonline #empreendedorismo #empreendedor #portugal #algarve #portimao #digitalmarketing #onlinebusiness #seolocal #siteprofissional #webagency #nocode #startupportugal #marketingdigital #localSEO #freelancedesign #websiteportugal #demogratuita #sópagassegostar #webdeveloper')">Copiar todas as tags</button>
+    </div>
+  </div>
+
+  <!-- REGRAS -->
+  <div class="section-title">Regras do guia</div>
+  <div class="note">
+    Todas as captions existem em PT e EN. Publica sempre em <strong>PT primeiro</strong> — o feed é português. O EN é para Stories ou quando o alcance internacional for relevante.
+  </div>
+
+  <div class="rules">
+    <div class="rule">
+      <span class="rule-icon">→</span>
+      <span><strong>Sem fotos de crianças</strong> nos posts da Volvara. Mesmo com autorização — não é o contexto certo para o portfolio de uma agência.</span>
+    </div>
+    <div class="rule">
+      <span class="rule-icon">→</span>
+      <span><strong>Sem depender da Mariana.</strong> Todo o conteúdo vem do site público. Não esperas por assets, aprovações ou coordenação.</span>
+    </div>
+    <div class="rule">
+      <span class="rule-icon">→</span>
+      <span><strong>Máximo 30 hashtags por post</strong> de feed. Stories: máximo 5–6, só as mais relevantes.</span>
+    </div>
+    <div class="rule">
+      <span class="rule-icon">→</span>
+      <span><strong>Horários recomendados:</strong> posts de feed às 10h (sábado) e 18h30 (terça). Stories às 20h–21h. São os horários de maior actividade no Instagram PT.</span>
+    </div>
+    <div class="rule">
+      <span class="rule-icon">→</span>
+      <span><strong>Link na bio = volvara.pt</strong> durante toda esta semana. Não mudar.</span>
+    </div>
+    <div class="rule">
+      <span class="rule-icon">→</span>
+      <span><strong>Responder a todos os comentários</strong> nas primeiras 2 horas. O algoritmo recompensa engagement rápido.</span>
+    </div>
+    <div class="rule">
+      <span class="rule-icon">→</span>
+      <span><strong>Não marcar @babysitting_mariana</strong> sem confirmar com ela primeiro. Sem coordenação, sem tags não solicitadas.</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function switchTab(btn, id) {
+  var card = btn.closest('.caption-block');
+  card.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  card.querySelectorAll('.caption-content').forEach(function(c) { c.classList.remove('active'); });
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+
+function copyText(btn, text) {
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = 'Copiado ✓';
+    btn.classList.add('copied');
+    setTimeout(function() { btn.textContent = 'Copiar'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+function copyTags(btn, tags) {
+  navigator.clipboard.writeText(tags).then(function() {
+    btn.textContent = 'Copiado ✓';
+    setTimeout(function() { btn.textContent = 'Copiar todas as tags'; }, 2000);
+  });
+}
+</script>
+</body>
+</html>
