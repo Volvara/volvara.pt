@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volvara · Plano Semanal + Ferramentas AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0A0A0A; --amber: #FFB020; --crimson: #DC143C;
+  --cream: #F4F1EC; --gray: #1C1C1C; --gray2: #2A2A2A;
+  --muted: rgba(244,241,236,.45); --green: #22c55e;
+  --blue: #3b82f6; --purple: #a855f7;
+  --display: 'Bebas Neue', sans-serif; --mono: 'DM Mono', monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--bg); color:var(--cream); font-family:var(--mono); font-size:14px; line-height:1.7; }
+
+/* HEADER */
+.header { background:var(--gray); border-bottom:1px solid var(--gray2); padding:1.25rem 2rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; }
+.logo { font-family:var(--display); font-size:1.4rem; letter-spacing:.1em; }
+.logo span { color:transparent; -webkit-text-stroke:2px var(--amber); }
+.header-sub { font-size:.6rem; color:var(--muted); letter-spacing:.15em; text-transform:uppercase; margin-left:auto; }
+
+/* NAV TABS */
+.tabs { display:flex; gap:0; border-bottom:1px solid var(--gray2); background:var(--gray); position:sticky; top:57px; z-index:99; }
+.tab { font-family:var(--mono); font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; background:none; border:none; border-bottom:2px solid transparent; color:var(--muted); padding:.85rem 1.5rem; cursor:pointer; transition:all .2s; white-space:nowrap; }
+.tab:hover { color:var(--cream); }
+.tab.active { color:var(--amber); border-bottom-color:var(--amber); }
+
+/* PAGES */
+.page { display:none; max-width:900px; margin:0 auto; padding:2.5rem 2rem 5rem; }
+.page.active { display:block; }
+
+/* HERO */
+.page-hero { margin-bottom:2.5rem; }
+.hero-label { font-size:.62rem; color:var(--amber); letter-spacing:.2em; text-transform:uppercase; margin-bottom:.5rem; }
+.hero-title { font-family:var(--display); font-size:clamp(2.2rem,5vw,3.5rem); letter-spacing:.04em; line-height:.95; margin-bottom:.75rem; }
+.hero-title em { color:var(--amber); font-style:normal; }
+.hero-desc { font-size:.78rem; color:var(--muted); line-height:1.8; max-width:560px; }
+
+/* SECTION */
+.section-title { font-family:var(--display); font-size:1.3rem; letter-spacing:.06em; color:var(--amber); margin:2.5rem 0 1rem; }
+.section-title.crimson { color:var(--crimson); }
+.section-title.green { color:var(--green); }
+.section-title.blue { color:var(--blue); }
+.section-title.purple { color:var(--purple); }
+.section-title.muted { color:var(--muted); }
+
+/* CARDS */
+.card { background:var(--gray); border:1px solid var(--gray2); border-radius:4px; padding:1.1rem 1.25rem; margin-bottom:.75rem; transition:border-color .2s; }
+.card:hover { border-color:rgba(255,176,32,.15); }
+.card-header { display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; margin-bottom:.5rem; }
+.card-title { font-size:.84rem; font-weight:500; color:var(--cream); }
+.card-sub { font-size:.75rem; color:var(--muted); line-height:1.65; }
+.card-tag { font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; padding:.2rem .55rem; border-radius:2px; white-space:nowrap; flex-shrink:0; }
+.tag-amber { background:rgba(255,176,32,.12); border:1px solid rgba(255,176,32,.25); color:var(--amber); }
+.tag-green { background:rgba(34,197,94,.1); border:1px solid rgba(34,197,94,.2); color:var(--green); }
+.tag-blue { background:rgba(59,130,246,.1); border:1px solid rgba(59,130,246,.2); color:var(--blue); }
+.tag-red { background:rgba(220,20,60,.1); border:1px solid rgba(220,20,60,.2); color:var(--crimson); }
+.tag-gray { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); color:var(--muted); }
+.tag-purple { background:rgba(168,85,247,.1); border:1px solid rgba(168,85,247,.2); color:var(--purple); }
+
+/* DAY CARD */
+.day-card { border:1px solid var(--gray2); border-radius:6px; margin-bottom:1.25rem; overflow:hidden; }
+.day-header { background:var(--gray2); padding:.75rem 1.25rem; display:flex; align-items:center; gap:.75rem; }
+.day-name { font-family:var(--display); font-size:1.1rem; letter-spacing:.08em; color:var(--cream); }
+.day-focus { font-size:.68rem; color:var(--muted); letter-spacing:.06em; margin-left:.5rem; }
+.day-badge { margin-left:auto; }
+.day-tasks { padding:.75rem 1.25rem; display:flex; flex-direction:column; gap:.5rem; }
+.task { display:flex; gap:.75rem; align-items:flex-start; font-size:.76rem; color:var(--muted); line-height:1.6; }
+.task-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; margin-top:.45rem; }
+.dot-amber { background:var(--amber); }
+.dot-green { background:var(--green); }
+.dot-blue { background:var(--blue); }
+.dot-gray { background:rgba(255,255,255,.2); }
+.dot-crimson { background:var(--crimson); }
+.dot-purple { background:var(--purple); }
+.task strong { color:var(--cream); }
+
+/* TOOL CARD */
+.tool-card { border:1px solid var(--gray2); border-radius:6px; margin-bottom:1.25rem; overflow:hidden; }
+.tool-header { padding:1.1rem 1.25rem; display:flex; align-items:flex-start; gap:1rem; border-bottom:1px solid var(--gray2); }
+.tool-icon { font-size:1.4rem; flex-shrink:0; margin-top:2px; }
+.tool-info { flex:1; }
+.tool-name { font-family:var(--display); font-size:1.2rem; letter-spacing:.06em; color:var(--cream); margin-bottom:.1rem; }
+.tool-tagline { font-size:.72rem; color:var(--muted); }
+.tool-verdict { display:flex; flex-direction:column; align-items:flex-end; gap:.3rem; }
+.verdict-label { font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
+.verdict-val { font-size:.7rem; font-weight:500; padding:.2rem .6rem; border-radius:2px; }
+.verdict-yes { background:rgba(34,197,94,.12); color:var(--green); border:1px solid rgba(34,197,94,.2); }
+.verdict-maybe { background:rgba(255,176,32,.1); color:var(--amber); border:1px solid rgba(255,176,32,.2); }
+.verdict-no { background:rgba(220,20,60,.08); color:var(--crimson); border:1px solid rgba(220,20,60,.15); }
+.tool-body { padding:1rem 1.25rem; display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.tool-col-title { font-size:.6rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:.5rem; }
+.tool-list { list-style:none; display:flex; flex-direction:column; gap:.35rem; }
+.tool-list li { font-size:.74rem; color:var(--muted); line-height:1.55; display:flex; gap:.6rem; }
+.tool-list li::before { content:'→'; color:var(--amber); flex-shrink:0; }
+.tool-list.red li::before { color:var(--crimson); }
+.tool-use { grid-column:1/-1; background:#0d0d0d; border:1px solid var(--gray2); border-radius:3px; padding:.75rem 1rem; font-size:.74rem; color:var(--cream); line-height:1.65; }
+.tool-use span { color:var(--amber); font-weight:500; }
+
+/* GOAL CARD */
+.goal { display:flex; gap:.75rem; align-items:flex-start; padding:.75rem 0; border-bottom:1px solid rgba(255,255,255,.05); }
+.goal:last-child { border:none; }
+.goal-num { font-family:var(--display); font-size:1.4rem; color:var(--amber); min-width:28px; line-height:1.1; }
+.goal-body { flex:1; }
+.goal-title { font-size:.82rem; font-weight:500; color:var(--cream); margin-bottom:.2rem; }
+.goal-desc { font-size:.75rem; color:var(--muted); line-height:1.65; }
+.goal-kpi { font-size:.68rem; color:var(--amber); margin-top:.25rem; letter-spacing:.05em; }
+
+/* BOX */
+.box { border-radius:4px; padding:.9rem 1.1rem; margin:.75rem 0; font-size:.75rem; line-height:1.65; display:flex; gap:.75rem; }
+.box-icon { flex-shrink:0; font-size:1rem; }
+.box-text { color:var(--muted); }
+.box-text strong { color:var(--cream); }
+.box-warn { background:rgba(220,20,60,.07); border:1px solid rgba(220,20,60,.18); }
+.box-tip { background:rgba(255,176,32,.06); border:1px solid rgba(255,176,32,.15); }
+.box-ok { background:rgba(34,197,94,.06); border:1px solid rgba(34,197,94,.18); }
+
+/* METRICS */
+.metrics { display:grid; grid-template-columns:repeat(3,1fr); gap:.75rem; margin-bottom:1.5rem; }
+.metric { background:var(--gray); border:1px solid var(--gray2); border-radius:4px; padding:.85rem 1rem; text-align:center; }
+.metric-val { font-family:var(--display); font-size:2rem; color:var(--amber); line-height:1; }
+.metric-lbl { font-size:.62rem; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-top:.2rem; }
+
+/* PRIORITY MATRIX */
+.matrix { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; margin-bottom:1.5rem; }
+.matrix-cell { background:var(--gray); border:1px solid var(--gray2); border-radius:4px; padding:.85rem 1rem; }
+.matrix-label { font-size:.6rem; letter-spacing:.14em; text-transform:uppercase; margin-bottom:.5rem; }
+.ml-do { color:var(--green); }
+.ml-plan { color:var(--amber); }
+.ml-delegate { color:var(--blue); }
+.ml-drop { color:var(--crimson); }
+.matrix-items { list-style:none; display:flex; flex-direction:column; gap:.3rem; }
+.matrix-items li { font-size:.72rem; color:var(--muted); line-height:1.5; }
+
+code { background:var(--gray2); border:1px solid rgba(255,255,255,.06); border-radius:3px; padding:.1rem .4rem; font-family:var(--mono); font-size:.78em; color:var(--amber); }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">VOLVA<span>RA</span></div>
+  <div class="header-sub">Plano Semanal · 28 Mar – 3 Abr 2026</div>
+</header>
+
+<div class="tabs">
+  <button class="tab active" onclick="showPage('semana',this)">Semana</button>
+  <button class="tab" onclick="showPage('ferramentas',this)">Ferramentas AI</button>
+  <button class="tab" onclick="showPage('portfolio',this)">Portfólio</button>
+  <button class="tab" onclick="showPage('objetivos',this)">Objectivos</button>
+</div>
+
+<!-- ════════════════════════════ SEMANA ════════════════════════════ -->
+<div class="page active" id="page-semana">
+  <div class="page-hero">
+    <div class="hero-label">Plano semanal · Minions: Project Manager + Growth Hacker + Content Creator</div>
+    <h1 class="hero-title">SEMANA<br><em>28 MAR – 3 ABR</em></h1>
+    <p class="hero-desc">Três frentes em paralelo: fechar o lançamento Mariana, preparar portfólio com amigos, e começar prospecção de clientes reais. Cada dia tem um foco claro.</p>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><div class="metric-val">2</div><div class="metric-lbl">Sites entregues</div></div>
+    <div class="metric"><div class="metric-val">0</div><div class="metric-lbl">Clientes pagantes</div></div>
+    <div class="metric"><div class="metric-val">3</div><div class="metric-lbl">Portfólio-alvo</div></div>
+  </div>
+
+  <div class="section-title">Plano dia a dia</div>
+
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-name">Sábado · 28 Mar</div>
+      <div class="day-focus">— Instagram + portfólio</div>
+      <span class="day-badge card-tag tag-amber">Publicar</span>
+    </div>
+    <div class="day-tasks">
+      <div class="task"><div class="task-dot dot-amber"></div><div><strong>10h00 — Post carrossel @volvara.pt</strong> — "A Mariana tinha um Instagram. Agora tem um site." 4 slides. Captions + tags no guia.</div></div>
+      <div class="task"><div class="task-dot dot-green"></div><div><strong>11h00 — Identificar 3 amigos/conhecidos</strong> com negócio local que precisam de site. Definir quem contactar esta semana.</div></div>
+      <div class="task"><div class="task-dot dot-gray"></div><div><strong>À tarde — Upload ficheiros GitHub</strong> volvara.pt: index.html corrigido + robots.txt + sitemap.xml + manifest.json.</div></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-name">Domingo · 29 Mar</div>
+      <div class="day-focus">— Story + outreach</div>
+      <span class="day-badge card-tag tag-blue">Outreach</span>
+    </div>
+    <div class="day-tasks">
+      <div class="task"><div class="task-dot dot-amber"></div><div><strong>18h00 — Story @volvara.pt</strong> — Screenshot testemunho Julia do site marianababysitting.pt. "Quando o site fala por si. ⭐⭐⭐⭐⭐"</div></div>
+      <div class="task"><div class="task-dot dot-blue"></div><div><strong>Enviar 1ª mensagem de outreach</strong> ao primeiro amigo da lista — proposta de site grátis em troca de testemunho e referência. Tom: casual, directo, sem pitch.</div></div>
+      <div class="task"><div class="task-dot dot-gray"></div><div><strong>Verificar volvara.pt no Google Search Console</strong> — confirmar indexação, submeter sitemap.xml se ainda não estiver.</div></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-name">Segunda · 30 Mar</div>
+      <div class="day-focus">— Portfólio site 2</div>
+      <span class="day-badge card-tag tag-green">Construção</span>
+    </div>
+    <div class="day-tasks">
+      <div class="task"><div class="task-dot dot-green"></div><div><strong>Briefing com amigo 1</strong> — recolher os 14 campos do playbook (nome, morada, telefone, serviços, fotos, cores). Pode ser por WhatsApp.</div></div>
+      <div class="task"><div class="task-dot dot-green"></div><div><strong>Criar repo GitHub + estrutura</strong> para o site 2 — segundo o playbook: <code>assets/img/</code>, <code>CNAME</code>, <code>robots.txt</code>, <code>sitemap.xml</code>.</div></div>
+      <div class="task"><div class="task-dot dot-gray"></div><div><strong>Google Search Console</strong> — adicionar volvara.pt como propriedade se ainda não estiver. Submeter sitemap.</div></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-name">Terça · 1 Abril</div>
+      <div class="day-focus">— Post feed + construção</div>
+      <span class="day-badge card-tag tag-amber">Publicar</span>
+    </div>
+    <div class="day-tasks">
+      <div class="task"><div class="task-dot dot-amber"></div><div><strong>18h30 — Post @volvara.pt</strong> — "Primeiro cliente entregue." Post tipográfico preto + amber. Caption PT no guia. 30 hashtags.</div></div>
+      <div class="task"><div class="task-dot dot-green"></div><div><strong>Construir index.html site 2</strong> — seguir o playbook: head completo, Schema.org, CSS variables, JS isolado. Objectivo: ter versão 0.1 no browser hoje.</div></div>
+      <div class="task"><div class="task-dot dot-blue"></div><div><strong>Enviar outreach amigo 2</strong> — mesma proposta, negócio diferente. Não enviar tudo de uma vez — parece spam.</div></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-name">Quarta · 2 Abril</div>
+      <div class="day-focus">— Refinamento + prospecção</div>
+      <span class="day-badge card-tag tag-purple">Prospecto</span>
+    </div>
+    <div class="day-tasks">
+      <div class="task"><div class="task-dot dot-green"></div><div><strong>Continuar site 2</strong> — secções, imagens em WebP, formulário Formspree (novo ID por cliente), og:image 1200×630.</div></div>
+      <div class="task"><div class="task-dot dot-purple"></div><div><strong>Pesquisar 5 negócios locais no Algarve</strong> com site mau ou sem site: restaurantes, clínicas, oficinas, lojas. Anotar no Ops Dashboard como leads frios.</div></div>
+      <div class="task"><div class="task-dot dot-gray"></div><div><strong>Rever memória do chat anterior</strong> — actualizar volvara-memory.md com o estado actual (Cloudflare activo, Mariana entregue, ops.html actualizado).</div></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-name">Quinta · 3 Abril</div>
+      <div class="day-focus">— QA + primeiros contactos reais</div>
+      <span class="day-badge card-tag tag-blue">QA + Vendas</span>
+    </div>
+    <div class="day-tasks">
+      <div class="task"><div class="task-dot dot-green"></div><div><strong>QA site 2</strong> — checklist do playbook: PageSpeed mobile ≥80, Schema validado, formulário testado, mobile 375px.</div></div>
+      <div class="task"><div class="task-dot dot-purple"></div><div><strong>Primeiro contacto real</strong> — escolher 1 negócio da lista de leads frios. Abordagem: "Vi o vosso negócio, preparei uma ideia para o site, posso mostrar?" — sem pedir dinheiro.</div></div>
+      <div class="task"><div class="task-dot dot-amber"></div><div><strong>Actualizar Ops Dashboard</strong> — registar todos os leads contactados, estado, próximo follow-up.</div></div>
+    </div>
+  </div>
+
+  <div class="box box-tip">
+    <span class="box-icon">💡</span>
+    <div class="box-text"><strong>Regra da semana:</strong> Não esperas pelos amigos para avançar. Se não responderam ao briefing em 24h, envias uma mensagem de seguimento ou passas para o próximo. O portfólio não cresce à espera de ninguém.</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════ FERRAMENTAS ════════════════════════ -->
+<div class="page" id="page-ferramentas">
+  <div class="page-hero">
+    <div class="hero-label">Minions: Tool Evaluator + Workflow Architect + Autonomous Optimization Architect</div>
+    <h1 class="hero-title">FERRAMENTAS<br><em>AI</em></h1>
+    <p class="hero-desc">Avaliação honesta das 4 ferramentas — utilidade real para a Volvara, curva de aprendizagem, e recomendação clara de quando (e se) adoptar.</p>
+  </div>
+
+  <!-- 21st.dev -->
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="tool-icon">🧩</div>
+      <div class="tool-info">
+        <div class="tool-name">21ST.DEV</div>
+        <div class="tool-tagline">Marketplace de componentes React/UI — "npm para design engineers"</div>
+      </div>
+      <div class="tool-verdict">
+        <span class="verdict-label">Volvara?</span>
+        <span class="verdict-val verdict-no">Não agora</span>
+      </div>
+    </div>
+    <div class="tool-body">
+      <div>
+        <div class="tool-col-title">O que é</div>
+        <ul class="tool-list">
+          <li>Biblioteca de componentes React com Tailwind e Radix UI</li>
+          <li>Instala com <code>npx shadcn</code> — código fica no teu projecto</li>
+          <li>Tem MCP server para usar com Cursor/Windsurf</li>
+          <li>1.4M+ developers, backed by Y Combinator</li>
+        </ul>
+      </div>
+      <div>
+        <div class="tool-col-title">Por que não agora</div>
+        <ul class="tool-list red">
+          <li>Stack Volvara = vanilla HTML/CSS — sem React, sem Tailwind</li>
+          <li>Componentes não são compatíveis com sites estáticos GitHub Pages</li>
+          <li>Adiciona complexidade sem benefício para o teu modelo actual</li>
+          <li>MCP pago — créditos esgotam rapidamente segundo reviews</li>
+        </ul>
+      </div>
+      <div class="tool-use">
+        <span>Quando fica relevante:</span> Quando a Volvara começar a construir em Framer (para clientes Presença) ou quando um cliente pedir uma web app/dashboard. Para sites estáticos simples, não traz valor.
+      </div>
+    </div>
+  </div>
+
+  <!-- Wispr Flow -->
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="tool-icon">🎙️</div>
+      <div class="tool-info">
+        <div class="tool-name">WISPR FLOW</div>
+        <div class="tool-tagline">Ditado por voz com IA — 4× mais rápido que escrever</div>
+      </div>
+      <div class="tool-verdict">
+        <span class="verdict-label">Volvara?</span>
+        <span class="verdict-val verdict-yes">Sim — experimenta</span>
+      </div>
+    </div>
+    <div class="tool-body">
+      <div>
+        <div class="tool-col-title">O que faz</div>
+        <ul class="tool-list">
+          <li>Converte voz em texto formatado em qualquer app (Gmail, Slack, Claude, VS Code)</li>
+          <li>Remove palavras de hesitação, formata automaticamente</li>
+          <li>4× mais rápido que escrever — comprovado em reviews reais</li>
+          <li>Mac, Windows, iOS, Android — hotkey global</li>
+        </ul>
+      </div>
+      <div>
+        <div class="tool-col-title">Limitações</div>
+        <ul class="tool-list red">
+          <li>800MB RAM mesmo em idle — pesado</li>
+          <li>Voz processada na cloud — não para dados sensíveis</li>
+          <li>Plano gratuito: 2.000 palavras/semana — pode ser pouco</li>
+          <li>Startup 8–10 segundos</li>
+        </ul>
+      </div>
+      <div class="tool-use">
+        <span>Uso concreto na Volvara:</span> Ditar captions do Instagram, responder a emails de clientes, dar instruções ao Claude (este chat) por voz. Especialmente útil quando estás a trabalhar com o telemóvel ou a pensar em voz alta. Testa o plano gratuito esta semana nos briefings de clientes.
+      </div>
+    </div>
+  </div>
+
+  <!-- n8n -->
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="tool-icon">⚙️</div>
+      <div class="tool-info">
+        <div class="tool-name">N8N</div>
+        <div class="tool-tagline">Automação de workflows com IA — alternativa open-source ao Zapier</div>
+      </div>
+      <div class="tool-verdict">
+        <span class="verdict-label">Volvara?</span>
+        <span class="verdict-val verdict-maybe">Futuro próximo</span>
+      </div>
+    </div>
+    <div class="tool-body">
+      <div>
+        <div class="tool-col-title">O que faz</div>
+        <ul class="tool-list">
+          <li>Liga apps entre si com lógica visual (drag-and-drop)</li>
+          <li>Integra Claude, OpenAI, Google Sheets, Gmail, Slack, etc.</li>
+          <li>Open-source — self-host grátis, cloud €20/mês</li>
+          <li>500+ integrações, JS/Python nativo nos nodes</li>
+        </ul>
+      </div>
+      <div>
+        <div class="tool-col-title">Para a Volvara</div>
+        <ul class="tool-list">
+          <li>Automatizar: lead entra no formulário → Ops Dashboard → email notificação</li>
+          <li>Automatizar: cliente paga → email de boas-vindas → tarefa no CRM</li>
+          <li>Automatizar: post agendado Instagram com caption gerada por Claude</li>
+          <li>Curva de aprendizagem de ~2–3h para casos simples</li>
+        </ul>
+      </div>
+      <div class="tool-use">
+        <span>Quando adoptar:</span> Quando tiveres 3+ clientes pagantes e a gestão manual começar a consumir tempo. Por agora o Ops Dashboard cobre o que precisas. Marca para explorar em Maio — quando o portfólio estiver construído e o foco mudar para escalar.
+      </div>
+    </div>
+  </div>
+
+  <!-- NotebookLM -->
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="tool-icon">📓</div>
+      <div class="tool-info">
+        <div class="tool-name">GOOGLE NOTEBOOKLM</div>
+        <div class="tool-tagline">Assistente de pesquisa — analisa os teus documentos com IA</div>
+      </div>
+      <div class="tool-verdict">
+        <span class="verdict-label">Volvara?</span>
+        <span class="verdict-val verdict-yes">Sim — usa já</span>
+      </div>
+    </div>
+    <div class="tool-body">
+      <div>
+        <div class="tool-col-title">O que faz</div>
+        <ul class="tool-list">
+          <li>Carregas PDFs, links, docs, YouTube — faz perguntas sobre eles</li>
+          <li>Respostas sempre baseadas nas fontes que carregaste (com citações)</li>
+          <li>Gera podcasts audio, summaries, guias de estudo, infográficos</li>
+          <li>Grátis — 100 notebooks, 50 fontes cada. Corre no Gemini 3.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="tool-col-title">Uso concreto Volvara</div>
+        <ul class="tool-list">
+          <li>Carregar os playbooks + memória — fazer perguntas rápidas sem abrir ficheiros</li>
+          <li>Pesquisar sector de um cliente potencial antes de uma reunião</li>
+          <li>Analisar o site de um concorrente ou parceiro (URL como fonte)</li>
+          <li>Gerar FAQ para o site de um cliente a partir do briefing</li>
+        </ul>
+      </div>
+      <div class="tool-use">
+        <span>Acção esta semana:</span> Vai a <code>notebooklm.google</code> → cria um notebook "Volvara Ops" → carrega o volvara-memory.md e o website-playbook.html. A partir daí, quando precisares de consultar regras rápidas, perguntas lá em vez de procurar no ficheiro.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title green">Resumo de adopção</div>
+  <div class="card">
+    <div class="card-sub" style="line-height:2">
+      <span style="color:var(--green)">■</span> <strong style="color:var(--cream)">Esta semana:</strong> NotebookLM (grátis, impacto imediato) + Wispr Flow (testa plano gratuito)<br>
+      <span style="color:var(--amber)">■</span> <strong style="color:var(--cream)">Maio/Junho:</strong> n8n (quando escalar com 3+ clientes)<br>
+      <span style="color:var(--crimson)">■</span> <strong style="color:var(--cream)">Não adoptar agora:</strong> 21st.dev (incompatível com stack actual)
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════ PORTFÓLIO ════════════════════════ -->
+<div class="page" id="page-portfolio">
+  <div class="page-hero">
+    <div class="hero-label">Minions: Sales Coach + Brand Guardian + Project Manager</div>
+    <h1 class="hero-title">PORTFÓLIO<br><em>ESTRATÉGIA</em></h1>
+    <p class="hero-desc">Tens 2 sites. Precisas de 3–5 para ter portfólio suficiente para abordar clientes pagantes com confiança. O caminho mais rápido é amigos com negócio real.</p>
+  </div>
+
+  <div class="section-title">Como abordar amigos</div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">A mensagem certa</div>
+      <span class="card-tag tag-green">Copy pronto</span>
+    </div>
+    <div class="card-sub" style="background:#0d0d0d; border:1px solid var(--gray2); border-radius:3px; padding:1rem; margin-top:.5rem; white-space:pre-line; color:var(--cream);">"Ei [nome], estou a lançar a minha agência de websites e precisava de mais uns projectos no portfólio.
+
+Vi que tens o [negócio] — achas que farias sentido ter um site? Fazia-o grátis em troca de um testemunho honesto no final. Sem obrigação nenhuma da tua parte.
+
+O trabalho demora uns dias e fica contigo para sempre — domínio, hosting, tudo."</div>
+  </div>
+
+  <div class="section-title">Critérios para escolher quem abordar</div>
+
+  <div class="card">
+    <div class="card-header"><div class="card-title">Perfil ideal para portfólio gratuito</div><span class="card-tag tag-amber">Prioridade</span></div>
+    <div class="card-sub">
+      Negócio real com clientes reais (não só projecto pessoal) · Sector diferente do que já tens (Mariana = babysitting) · Tem Instagram ou Facebook activo = fotos disponíveis · Mora perto ou conheces pessoalmente = briefing fácil · Vai recomendar activamente quando o site ficar bem
+    </div>
+  </div>
+
+  <div class="section-title">Sectores com mais potencial no Algarve</div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:.6rem; margin-bottom:1.5rem;">
+    <div class="card"><div class="card-title">🍽️ Restauração</div><div class="card-sub" style="margin-top:.3rem; font-size:.72rem;">Cafés, restaurantes, pastelarias — quase todos têm mau site ou nenhum. Público local + turistas.</div></div>
+    <div class="card"><div class="card-title">💆 Saúde &amp; Bem-estar</div><div class="card-sub" style="margin-top:.3rem; font-size:.72rem;">Fisioterapeutas, psicólogos, massagistas — trabalham por marcação, formulário é essencial.</div></div>
+    <div class="card"><div class="card-title">🔧 Serviços ao lar</div><div class="card-sub" style="margin-top:.3rem; font-size:.72rem;">Electricistas, canalizadores, pintores — quase zero presença online, enorme procura local.</div></div>
+    <div class="card"><div class="card-title">🐾 Animais</div><div class="card-sub" style="margin-top:.3rem; font-size:.72rem;">Pet shops, veterinários, grooming — donos de animais são muito fiéis ao negócio que encontraram online.</div></div>
+  </div>
+
+  <div class="section-title crimson">Regras do portfólio gratuito</div>
+  <div class="card">
+    <ul class="tool-list" style="padding:.25rem 0; gap:.5rem;">
+      <li>Máximo 3 sites gratuitos — a partir do 4º, cobras mesmo que seja amigo</li>
+      <li>Contrato simples: site grátis em troca de testemunho escrito + não pedes o site de volta</li>
+      <li>Defines o prazo — não te deixas arrastar por clientes que não entregam assets</li>
+      <li>Screenshots e URL vão directamente para o Instagram da Volvara — sem pedir permissão extra</li>
+      <li>Registo no Ops Dashboard como cliente (mensalidade €0 durante X meses, depois proposta de manutenção)</li>
+    </ul>
+  </div>
+
+  <div class="box box-tip">
+    <span class="box-icon">💡</span>
+    <div class="box-text"><strong>O momento certo para cobrar:</strong> Quando tiveres 4–5 sites no portfólio e conseguires mostrar um case study concreto ("a Mariana passou de Instagram para site com SEO local em 3 dias"), a proposta de €299 setup + €49/mês deixa de precisar de justificação. O portfólio é a prova.</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════ OBJECTIVOS ════════════════════════ -->
+<div class="page" id="page-objetivos">
+  <div class="page-hero">
+    <div class="hero-label">Minions: Studio Producer + Finance Tracker + Growth Hacker</div>
+    <h1 class="hero-title">OBJECTIVOS<br><em>Q2 2026</em></h1>
+    <p class="hero-desc">Abril, Maio, Junho. Do portfólio para os primeiros clientes pagantes. Marco a seguir a esta semana.</p>
+  </div>
+
+  <div class="section-title">Abril — construir portfólio</div>
+  <div class="card" style="padding:1.1rem 1.25rem;">
+    <div class="goal"><div class="goal-num">1</div><div class="goal-body"><div class="goal-title">3 sites no portfólio (total)</div><div class="goal-desc">Volvara + Mariana + 1 novo de amigo. O terceiro devia ser de sector diferente — restauração, saúde, ou serviços.</div><div class="goal-kpi">KPI: 3 URLs ao vivo antes de 30 Abril</div></div></div>
+    <div class="goal"><div class="goal-num">2</div><div class="goal-body"><div class="goal-title">Primeira abordagem a cliente real (pagante)</div><div class="goal-desc">Não precisas de vender ainda. Só mostrar a demo e ouvir o feedback. O objectivo é a conversa, não o contrato.</div><div class="goal-kpi">KPI: 2 conversas com negócios reais</div></div></div>
+    <div class="goal"><div class="goal-num">3</div><div class="goal-body"><div class="goal-title">Google Search Console activo para volvara.pt</div><div class="goal-desc">Sitemap submetido, primeiros dados de impressões começam a aparecer. SEO leva tempo — quanto mais cedo começar melhor.</div><div class="goal-kpi">KPI: sitemap aceite, 0 erros de indexação</div></div></div>
+    <div class="goal"><div class="goal-num">4</div><div class="goal-body"><div class="goal-title">Instagram @volvara.pt: 8 publicações</div><div class="goal-desc">2 posts de feed + stories de suporte. Ritmo: 2 posts/semana é suficiente para esta fase. Consistência > volume.</div><div class="goal-kpi">KPI: 8 posts publicados em Abril</div></div></div>
+  </div>
+
+  <div class="section-title">Maio — primeiros clientes pagantes</div>
+  <div class="card" style="padding:1.1rem 1.25rem;">
+    <div class="goal"><div class="goal-num">1</div><div class="goal-body"><div class="goal-title">Primeiro cliente pagante</div><div class="goal-desc">Setup €299 + €49/mês (plano Starter). Um cliente real já paga os custos operacionais do mês.</div><div class="goal-kpi">KPI: €349 de receita (setup + 1ª mensalidade)</div></div></div>
+    <div class="goal"><div class="goal-num">2</div><div class="goal-body"><div class="goal-title">5 sites no portfólio</div><div class="goal-desc">Com 5 casos reais e variados é possível abordar qualquer tipo de negócio local com confiança.</div><div class="goal-kpi">KPI: 5 URLs distintos ao vivo</div></div></div>
+    <div class="goal"><div class="goal-num">3</div><div class="goal-body"><div class="goal-title">Google Business Profile da Volvara</div><div class="goal-desc">Aparecer na pesquisa "web agency Portimão" e "website Algarve". Grátis, alto impacto para clientes locais.</div><div class="goal-kpi">KPI: perfil verificado e publicado</div></div></div>
+  </div>
+
+  <div class="section-title">Prioridade esta semana — matrix</div>
+  <div class="matrix">
+    <div class="matrix-cell">
+      <div class="matrix-label ml-do">Fazer agora</div>
+      <ul class="matrix-items">
+        <li>Upload GitHub (robots, sitemap, manifest, index)</li>
+        <li>Post carrossel @volvara.pt sábado 10h</li>
+        <li>Contactar amigo 1 para portfólio</li>
+        <li>NotebookLM — criar notebook Volvara Ops</li>
+      </ul>
+    </div>
+    <div class="matrix-cell">
+      <div class="matrix-label ml-plan">Planear esta semana</div>
+      <ul class="matrix-items">
+        <li>Briefing completo para site 2</li>
+        <li>Lista de 5 leads frios no Algarve</li>
+        <li>Google Search Console setup</li>
+        <li>Testar Wispr Flow</li>
+      </ul>
+    </div>
+    <div class="matrix-cell">
+      <div class="matrix-label ml-delegate">Para Maio</div>
+      <ul class="matrix-items">
+        <li>n8n automação de leads</li>
+        <li>Google Business Profile Volvara</li>
+        <li>Primeira proposta paga</li>
+        <li>Google Ads local (quando tiver budget)</li>
+      </ul>
+    </div>
+    <div class="matrix-cell">
+      <div class="matrix-label ml-drop">Não fazer agora</div>
+      <ul class="matrix-items">
+        <li>21st.dev (incompatível com stack)</li>
+        <li>Framer (aguardar clientes Presença)</li>
+        <li>Redesenhar volvara.pt</li>
+        <li>Criar conta empresa / NIF empresa</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box box-ok">
+    <span class="box-icon">✅</span>
+    <div class="box-text"><strong>Estado actual é bom.</strong> Dois sites entregues em menos de um mês de operação, Cloudflare activo, Instagram a crescer, playbook documentado. O próximo passo crítico é o portfólio — sem ele, não há prova para clientes pagantes. Foca essa semana em construir o site 2.</div>
+  </div>
+</div>
+
+<script>
+function showPage(id, btn) {
+  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+  document.getElementById('page-' + id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
