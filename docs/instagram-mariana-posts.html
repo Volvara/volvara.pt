@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volvara · Assets Instagram</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#111; font-family:'DM Mono', monospace; color:#F4F1EC; padding:2rem; }
+.nav { display:flex; gap:1rem; margin-bottom:2rem; flex-wrap:wrap; }
+.nav-btn {
+  font-family:'DM Mono', monospace;
+  font-size:.7rem; letter-spacing:.12em; text-transform:uppercase;
+  background:none; border:1px solid #2A2A2A; color:rgba(244,241,236,.5);
+  padding:.5rem 1rem; border-radius:2px; cursor:pointer; transition:all .2s;
+}
+.nav-btn:hover { color:#F4F1EC; border-color:rgba(255,176,32,.4); }
+.nav-btn.active { border-color:#FFB020; color:#FFB020; }
+.instructions {
+  background:#1C1C1C; border:1px solid #2A2A2A; border-left:3px solid #FFB020;
+  border-radius:4px; padding:1rem 1.25rem; margin-bottom:2rem;
+  font-size:.75rem; color:rgba(244,241,236,.55); line-height:1.7;
+}
+.instructions strong { color:#F4F1EC; }
+.canvas-wrap { display:none; }
+.canvas-wrap.active { display:block; }
+.canvas-label {
+  font-size:.62rem; letter-spacing:.15em; text-transform:uppercase;
+  color:rgba(244,241,236,.35); margin-bottom:1rem;
+}
+
+/* ── THE CANVASES — each exactly 1080×1080 ── */
+.canvas {
+  width:1080px; height:1080px;
+  position:relative; overflow:hidden;
+  outline:1px solid #2A2A2A;
+}
+
+/* ════════════════════════════════════════
+   CANVAS A — Story "Primeiro cliente ao vivo"
+   ════════════════════════════════════════ */
+#canvas-a {
+  background:#0A0A0A;
+  display:flex; flex-direction:column;
+  justify-content:center; align-items:flex-start;
+  padding:96px;
+}
+#canvas-a .noise {
+  position:absolute; inset:0; opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px;
+}
+#canvas-a .bar {
+  width:4px; height:80px; background:#DC143C;
+  margin-bottom:64px;
+}
+#canvas-a .pre {
+  font-size:22px; letter-spacing:.25em; text-transform:uppercase;
+  color:rgba(244,241,236,.4); margin-bottom:28px;
+}
+#canvas-a .headline {
+  font-family:'Bebas Neue', sans-serif;
+  font-size:128px; line-height:.92; letter-spacing:.03em;
+  color:#F4F1EC; margin-bottom:28px;
+}
+#canvas-a .headline em {
+  color:#FFB020; font-style:normal;
+  display:block;
+}
+#canvas-a .sub {
+  font-size:22px; letter-spacing:.1em;
+  color:rgba(244,241,236,.45); margin-top:40px;
+}
+#canvas-a .logo-wrap {
+  position:absolute; bottom:80px; right:96px;
+  display:flex; align-items:center; gap:0;
+}
+#canvas-a .logo-text {
+  font-family:'Bebas Neue', sans-serif;
+  font-size:36px; letter-spacing:.12em; color:#F4F1EC;
+}
+#canvas-a .logo-text .ra {
+  color:transparent;
+  -webkit-text-stroke:2px #FFB020;
+}
+#canvas-a .swipe {
+  position:absolute; bottom:80px; left:96px;
+  font-size:20px; letter-spacing:.12em; text-transform:uppercase;
+  color:rgba(244,241,236,.35);
+  display:flex; align-items:center; gap:12px;
+}
+#canvas-a .swipe::after {
+  content:'→';
+  color:#FFB020;
+}
+
+/* ════════════════════════════════════════
+   CANVAS B — Carrossel Slide 4 (fecho)
+   ════════════════════════════════════════ */
+#canvas-b {
+  background:#0A0A0A;
+  display:flex; flex-direction:column;
+  justify-content:center; align-items:flex-start;
+  padding:96px;
+}
+#canvas-b .noise {
+  position:absolute; inset:0; opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px;
+}
+#canvas-b .slide-num {
+  font-family:'Bebas Neue', sans-serif;
+  font-size:20px; letter-spacing:.3em;
+  color:rgba(255,176,32,.35); margin-bottom:64px;
+}
+#canvas-b .question {
+  font-size:28px; letter-spacing:.08em; text-transform:uppercase;
+  color:rgba(244,241,236,.45); margin-bottom:32px; line-height:1.4;
+}
+#canvas-b .cta-big {
+  font-family:'Bebas Neue', sans-serif;
+  font-size:108px; line-height:.9; letter-spacing:.02em; color:#F4F1EC;
+  margin-bottom:16px;
+}
+#canvas-b .cta-big span { color:#FFB020; display:block; }
+#canvas-b .cta-sub {
+  font-size:22px; letter-spacing:.08em; text-transform:uppercase;
+  color:rgba(244,241,236,.4); margin-top:48px; line-height:1.6;
+}
+#canvas-b .url-pill {
+  margin-top:64px;
+  background:#FFB020;
+  border-radius:2px;
+  padding:16px 40px;
+  display:inline-block;
+}
+#canvas-b .url-pill span {
+  font-family:'Bebas Neue', sans-serif;
+  font-size:32px; letter-spacing:.12em; color:#0A0A0A;
+}
+#canvas-b .logo-wrap {
+  position:absolute; top:80px; right:96px;
+  display:flex; align-items:center;
+}
+#canvas-b .logo-text {
+  font-family:'Bebas Neue', sans-serif;
+  font-size:30px; letter-spacing:.12em; color:#F4F1EC;
+}
+#canvas-b .logo-text .ra {
+  color:transparent; -webkit-text-stroke:2px #FFB020;
+}
+
+/* ════════════════════════════════════════
+   CANVAS C — Post terça "Primeiro cliente entregue"
+   ════════════════════════════════════════ */
+#canvas-c {
+  background:#0A0A0A;
+  display:flex; flex-direction:column;
+  justify-content:space-between;
+  padding:96px;
+}
+#canvas-c .noise {
+  position:absolute; inset:0; opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px;
+}
+#canvas-c .top { display:flex; justify-content:space-between; align-items:flex-start; }
+#canvas-c .tag-pill {
+  background:#DC143C; border-radius:2px; padding:10px 24px;
+  font-size:18px; letter-spacing:.15em; text-transform:uppercase; color:#F4F1EC;
+}
+#canvas-c .logo-text {
+  font-family:'Bebas Neue', sans-serif;
+  font-size:30px; letter-spacing:.12em; color:#F4F1EC;
+}
+#canvas-c .logo-text .ra { color:transparent; -webkit-text-stroke:2px #FFB020; }
+#canvas-c .middle { flex:1; display:flex; flex-direction:column; justify-content:center; padding:80px 0 40px; }
+#canvas-c .headline-big {
+  font-family:'Bebas Neue', sans-serif;
+  font-size:160px; line-height:.88; letter-spacing:.02em; color:#F4F1EC;
+}
+#canvas-c .headline-big .accent { color:#FFB020; }
+#canvas-c .divider-line { width:80px; height:3px; background:#FFB020; margin:48px 0; }
+#canvas-c .checklist { list-style:none; display:flex; flex-direction:column; gap:16px; }
+#canvas-c .checklist li {
+  font-size:24px; letter-spacing:.06em; text-transform:uppercase;
+  color:rgba(244,241,236,.6); display:flex; align-items:center; gap:20px;
+}
+#canvas-c .checklist li::before {
+  content:''; width:6px; height:6px; background:#FFB020;
+  border-radius:50%; flex-shrink:0;
+}
+#canvas-c .checklist li strong { color:#F4F1EC; }
+#canvas-c .bottom {
+  border-top:1px solid rgba(255,255,255,.08); padding-top:40px;
+  display:flex; justify-content:space-between; align-items:flex-end;
+}
+#canvas-c .bottom-left { display:flex; flex-direction:column; gap:8px; }
+#canvas-c .bottom-cta {
+  font-size:20px; letter-spacing:.12em; text-transform:uppercase;
+  color:rgba(244,241,236,.4);
+}
+#canvas-c .bottom-url {
+  font-family:'Bebas Neue', sans-serif;
+  font-size:36px; letter-spacing:.1em; color:#FFB020;
+}
+#canvas-c .bottom-days {
+  font-family:'Bebas Neue', sans-serif;
+  font-size:72px; letter-spacing:.03em; color:#F4F1EC; text-align:right;
+  line-height:.9;
+}
+#canvas-c .bottom-days span { font-size:22px; letter-spacing:.12em; display:block; color:rgba(244,241,236,.35); font-family:'DM Mono', monospace; }
+
+/* ════════════════════════════════════════
+   CANVAS D — Story domingo "testemunho"
+   ════════════════════════════════════════ */
+#canvas-d {
+  background:#0A0A0A;
+  display:flex; flex-direction:column;
+  justify-content:center; align-items:flex-start;
+  padding:96px;
+}
+#canvas-d .noise {
+  position:absolute; inset:0; opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px;
+}
+#canvas-d .stars { font-size:48px; letter-spacing:8px; margin-bottom:48px; }
+#canvas-d .quote-mark {
+  font-family:'Bebas Neue', sans-serif;
+  font-size:200px; line-height:.7; color:#FFB020; opacity:.15;
+  position:absolute; top:64px; right:80px;
+}
+#canvas-d .quote-text {
+  font-size:30px; line-height:1.65; color:#F4F1EC; letter-spacing:.02em;
+  max-width:820px; margin-bottom:56px; position:relative; z-index:1;
+}
+#canvas-d .quote-text em { color:#FFB020; font-style:italic; }
+#canvas-d .attribution {
+  display:flex; flex-direction:column; gap:8px;
+}
+#canvas-d .attr-name {
+  font-family:'Bebas Neue', sans-serif;
+  font-size:32px; letter-spacing:.1em; color:#F4F1EC;
+}
+#canvas-d .attr-detail {
+  font-size:18px; letter-spacing:.08em; text-transform:uppercase;
+  color:rgba(244,241,236,.35);
+}
+#canvas-d .bottom-bar {
+  position:absolute; bottom:0; left:0; right:0;
+  background:#FFB020; height:8px;
+}
+#canvas-d .logo-wrap {
+  position:absolute; bottom:40px; right:96px;
+}
+#canvas-d .logo-text {
+  font-family:'Bebas Neue', sans-serif;
+  font-size:28px; letter-spacing:.12em; color:#F4F1EC;
+}
+#canvas-d .logo-text .ra { color:transparent; -webkit-text-stroke:2px #FFB020; }
+#canvas-d .context-tag {
+  position:absolute; top:80px; right:96px;
+  font-size:16px; letter-spacing:.14em; text-transform:uppercase;
+  color:rgba(244,241,236,.3);
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <button class="nav-btn active" onclick="show('a', this)">A · Story hoje</button>
+  <button class="nav-btn" onclick="show('b', this)">B · Carrossel slide 4</button>
+  <button class="nav-btn" onclick="show('c', this)">C · Post terça</button>
+  <button class="nav-btn" onclick="show('d', this)">D · Story domingo</button>
+</div>
+
+<div class="instructions">
+  <strong>Como usar:</strong> Selecciona a imagem no menu → redimensiona o browser para 1080px de largura (ou usa DevTools → Device: 1080×1080) → screenshot da <code>.canvas</code> → pronto para publicar. Cada imagem está isolada — zero scroll, zero UI.
+</div>
+
+<!-- CANVAS A: Story hoje à noite -->
+<div class="canvas-wrap active" id="wrap-a">
+  <div class="canvas-label">A · Story hoje à noite · 20h30 · 1080×1080</div>
+  <div class="canvas" id="canvas-a">
+    <div class="noise"></div>
+    <div class="bar"></div>
+    <div class="pre">@volvara.pt</div>
+    <div class="headline">
+      PRIMEIRO<br>
+      <em>CLIENTE</em>
+      AO VIVO.
+    </div>
+    <div class="sub">marianababysitting.pt →</div>
+    <div class="swipe">desliza para ver</div>
+    <div class="logo-wrap">
+      <div class="logo-text">VOLVA<span class="ra">RA</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CANVAS B: Carrossel Slide 4 -->
+<div class="canvas-wrap" id="wrap-b">
+  <div class="canvas-label">B · Carrossel · Slide 4 (fecho) · 1080×1080</div>
+  <div class="canvas" id="canvas-b">
+    <div class="noise"></div>
+    <div class="logo-wrap">
+      <div class="logo-text">VOLVA<span class="ra">RA</span></div>
+    </div>
+    <div class="slide-num">04 / 04</div>
+    <div class="question">O teu negócio<br>merece um site assim.</div>
+    <div class="cta-big">DEMO<br><span>GRATUITA.</span></div>
+    <div class="cta-sub">Vês o resultado antes de pagares.<br>Sem compromisso. Sem contratos.</div>
+    <div class="url-pill">
+      <span>VOLVARA.PT</span>
+    </div>
+  </div>
+</div>
+
+<!-- CANVAS C: Post terça -->
+<div class="canvas-wrap" id="wrap-c">
+  <div class="canvas-label">C · Post terça, 1 Abr · 18h30 · 1080×1080</div>
+  <div class="canvas" id="canvas-c">
+    <div class="noise"></div>
+    <div class="top">
+      <div class="tag-pill">Primeiro cliente</div>
+      <div class="logo-text">VOLVA<span class="ra">RA</span></div>
+    </div>
+    <div class="middle">
+      <div class="headline-big">SITE<br>AO<br><span class="accent">VIVO.</span></div>
+      <div class="divider-line"></div>
+      <ul class="checklist">
+        <li><strong>Domínio próprio</strong></li>
+        <li><strong>SEO local</strong></li>
+        <li><strong>Formulário de contacto</strong></li>
+        <li><strong>Testemunhos reais</strong></li>
+      </ul>
+    </div>
+    <div class="bottom">
+      <div class="bottom-left">
+        <div class="bottom-cta">Demo gratuita · Só pagas se gostares</div>
+        <div class="bottom-url">volvara.pt</div>
+      </div>
+      <div class="bottom-days">
+        DIAS<span>não semanas</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CANVAS D: Story domingo testemunho -->
+<div class="canvas-wrap" id="wrap-d">
+  <div class="canvas-label">D · Story domingo · 18h00 · 1080×1080</div>
+  <div class="canvas" id="canvas-d">
+    <div class="noise"></div>
+    <div class="quote-mark">"</div>
+    <div class="context-tag">marianababysitting.pt</div>
+    <div class="stars">★★★★★</div>
+    <div class="quote-text">
+      "Special thanks to the amazing babysitter who took care of Sofia. She can't stop telling me stories of <em>how much fun she had.</em> Next trip she will also stay with you for sure."
+    </div>
+    <div class="attribution">
+      <div class="attr-name">Julia · @julia_buying</div>
+      <div class="attr-detail">Mãe · Mafra, Lisboa · Verificado Instagram</div>
+    </div>
+    <div class="bottom-bar"></div>
+    <div class="logo-wrap">
+      <div class="logo-text">VOLVA<span class="ra">RA</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.canvas-wrap').forEach(function(w) { w.classList.remove('active'); });
+  document.querySelectorAll('.nav-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById('wrap-' + id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
