@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volvara · Guia de Produtividade</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#0A0A0A;--bg2:#111012;--bg3:#181618;--bg4:#1e1b1e;
+  --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);
+  --amber:#FFB020;--a2:rgba(255,176,32,.12);--a3:rgba(255,176,32,.06);
+  --crimson:#DC143C;--cream:#F4F1EC;--muted:rgba(244,241,236,.45);
+  --green:#22c55e;--g2:rgba(34,197,94,.1);
+  --blue:#60a5fa;--b2:rgba(96,165,250,.1);
+  --purple:#a78bfa;--p2:rgba(167,139,250,.1);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Mono',monospace;background:var(--bg);color:var(--cream);font-size:14px;line-height:1.7;overflow-x:hidden;}
+a{color:var(--amber);text-decoration:none;}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1000px;margin:0 auto;padding:.65rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.08em;}
+.logo-ra{color:transparent;-webkit-text-stroke:1.5px var(--amber);}
+.nav-links{display:flex;gap:1.5rem;flex-wrap:wrap;}
+.nav-links a{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:color .15s;text-decoration:none;}
+.nav-links a:hover{color:var(--cream);}
+.nav-tag{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;background:var(--a2);color:var(--amber);border:1px solid rgba(255,176,32,.2);border-radius:2px;padding:.2rem .55rem;}
+
+/* HERO */
+.hero{max-width:1000px;margin:0 auto;padding:3.5rem 1.5rem 2.5rem;}
+.eyebrow{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:.6rem;margin-bottom:1rem;}
+.eyebrow::before{content:'';width:20px;height:1px;background:var(--amber);}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,7vw,5rem);line-height:1;letter-spacing:.04em;margin-bottom:1rem;}
+.hero h1 span{color:var(--amber);}
+.hero-sub{font-size:.85rem;color:var(--muted);max-width:580px;line-height:1.8;margin-bottom:2rem;}
+.pills{display:flex;gap:1.25rem;flex-wrap:wrap;}
+.pill{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.4rem;}
+.dot{width:6px;height:6px;border-radius:50%;}
+
+/* WRAP */
+.wrap{max-width:1000px;margin:0 auto;padding:0 1.5rem 5rem;}
+
+/* SECTION */
+.sh{margin:3rem 0 1.5rem;}
+.sl{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem;}
+.sl::before{content:'';width:16px;height:1px;background:var(--amber);}
+.st{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.06em;}
+
+/* COMPARE */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border-radius:8px;overflow:hidden;margin:1.5rem 0;}
+.cc{background:var(--bg2);padding:1.25rem;}
+.cc-lbl{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:.85rem;padding-bottom:.6rem;border-bottom:1px solid var(--border);}
+.lb-b{color:var(--muted);}
+.lb-a{color:var(--green);}
+.ci{display:flex;gap:.6rem;align-items:flex-start;margin-bottom:.65rem;font-size:.78rem;color:var(--muted);}
+.ci:last-child{margin:0;}
+.ico{width:16px;height:16px;border-radius:50%;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;font-size:9px;}
+.ix{background:rgba(220,20,60,.12);color:var(--crimson);}
+.io{background:var(--g2);color:var(--green);}
+@media(max-width:560px){.compare{grid-template-columns:1fr;}}
+
+/* PHASES */
+.phases{display:flex;flex-direction:column;gap:8px;margin:1.5rem 0;}
+.phase{background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.ph{display:flex;align-items:center;gap:.85rem;padding:1rem 1.25rem;cursor:pointer;user-select:none;}
+.ph:hover{background:var(--bg3);}
+.pn{font-family:'Bebas Neue',sans-serif;font-size:2rem;line-height:1;color:var(--amber);min-width:32px;}
+.pm{flex:1;}
+.pm-name{font-size:.82rem;font-weight:500;color:var(--cream);margin-bottom:.15rem;}
+.pm-when{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.pbadge{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .65rem;border-radius:2px;flex-shrink:0;}
+.bm{background:rgba(244,241,236,.06);color:var(--muted);border:1px solid var(--border);}
+.bs{background:var(--a2);color:var(--amber);border:1px solid rgba(255,176,32,.2);}
+.ba{background:var(--g2);color:var(--green);border:1px solid rgba(34,197,94,.2);}
+.parr{font-size:.7rem;color:var(--amber);transition:transform .25s;flex-shrink:0;}
+.pb{border-top:1px solid var(--border);padding:1.25rem;display:none;}
+.pb.open{display:block;}
+
+/* STEPS */
+.steps{display:flex;flex-direction:column;gap:0;}
+.step{display:flex;gap:.85rem;align-items:flex-start;}
+.sline{display:flex;flex-direction:column;align-items:center;}
+.scirc{width:22px;height:22px;border-radius:50%;background:var(--bg4);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:.62rem;color:var(--muted);flex-shrink:0;}
+.sconn{width:1px;flex:1;min-height:24px;background:var(--border);}
+.sc{flex:1;padding-bottom:1rem;}
+.st-t{font-size:.8rem;font-weight:500;color:var(--cream);margin-bottom:.3rem;}
+.st-d{font-size:.76rem;color:var(--muted);line-height:1.7;}
+.cmd{background:var(--bg);border:1px solid var(--border2);border-left:2px solid var(--amber);border-radius:0 4px 4px 0;padding:.55rem .75rem;margin:.5rem 0;font-size:.72rem;color:var(--amber);word-break:break-all;cursor:pointer;position:relative;padding-right:4rem;}
+.cmd::after{content:'copiar';position:absolute;right:.55rem;top:50%;transform:translateY(-50%);font-size:.58rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;pointer-events:none;}
+.cmd.copied::after{content:'copiado ✓';color:var(--green);}
+.note{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:.6rem .85rem;margin:.5rem 0;font-size:.72rem;color:var(--muted);line-height:1.65;}
+.note strong{color:var(--cream);}
+.tools{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.5rem;}
+.tool{font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border-radius:2px;}
+.ta{background:var(--a2);color:var(--amber);border:1px solid rgba(255,176,32,.2);}
+.tg{background:var(--g2);color:var(--green);border:1px solid rgba(34,197,94,.2);}
+.tb{background:var(--b2);color:var(--blue);border:1px solid rgba(96,165,250,.2);}
+.tp{background:var(--p2);color:var(--purple);border:1px solid rgba(167,139,250,.2);}
+
+/* MINIONS */
+.mrow{display:flex;flex-direction:column;gap:8px;margin:1.5rem 0;}
+.mcard{background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.mcols{display:grid;grid-template-columns:100px 1fr;}
+.mleft{background:var(--bg3);border-right:1px solid var(--border);padding:1rem .75rem;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
+.mnum{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--amber);line-height:1;}
+.mlbl{font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.25rem;}
+.mright{padding:1rem 1.25rem;}
+.mtags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.75rem;}
+.mtag{border-radius:4px;padding:.35rem .75rem;}
+.mtag-name{font-size:.68rem;font-weight:500;margin-bottom:.15rem;}
+.mtag-desc{font-size:.63rem;color:var(--muted);}
+.mhow{font-size:.72rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.65rem;line-height:1.65;}
+.mhow strong{color:var(--cream);}
+.vcard{border-color:rgba(255,176,32,.2);}
+.vleft{background:rgba(255,176,32,.06);border-right-color:rgba(255,176,32,.15);}
+
+/* TOOLS GRID */
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:1.5rem 0;}
+.tcard{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.25rem;}
+.tcard-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:.75rem;}
+.tcard-name{font-size:.85rem;font-weight:500;color:var(--cream);}
+.tcard-desc{font-size:.75rem;color:var(--muted);line-height:1.65;margin-bottom:.85rem;}
+.install{font-size:.7rem;color:var(--amber);background:var(--bg);border:1px solid var(--border2);border-radius:4px;padding:.5rem .75rem;cursor:pointer;position:relative;padding-right:4rem;word-break:break-all;}
+.install::after{content:'copiar';position:absolute;right:.5rem;top:50%;transform:translateY(-50%);font-size:.58rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;pointer-events:none;}
+.install.copied::after{content:'copiado ✓';color:var(--green);}
+
+/* TIMELINE */
+.tl{display:flex;flex-direction:column;margin:1.5rem 0;}
+.tli{display:grid;grid-template-columns:90px 1fr;gap:1.25rem;position:relative;}
+.tli::before{content:'';position:absolute;left:89px;top:20px;bottom:0;width:1px;background:var(--border);}
+.tli:last-child::before{display:none;}
+.tld{font-size:.68rem;color:var(--muted);text-align:right;padding-top:3px;line-height:1.5;}
+.tldot{position:absolute;left:84px;top:5px;width:10px;height:10px;border-radius:50%;}
+.tlc{padding-bottom:1.75rem;}
+.tlt{font-size:.82rem;font-weight:500;color:var(--cream);margin-bottom:.3rem;}
+.tldesc{font-size:.74rem;color:var(--muted);line-height:1.65;}
+
+/* WEEK */
+.week{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0;}
+.wcard{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.25rem;}
+.wlbl{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:.85rem;}
+.wcard ul{list-style:none;display:flex;flex-direction:column;gap:.35rem;}
+.wcard li{font-size:.76rem;color:var(--muted);display:flex;gap:.5rem;align-items:flex-start;}
+.wcard li::before{content:'·';color:var(--amber);flex-shrink:0;}
+@media(max-width:560px){.week{grid-template-columns:1fr;}}
+
+/* FAQ */
+.faq{display:flex;flex-direction:column;gap:6px;margin:1.5rem 0;}
+.fitem{background:var(--bg2);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.fq{padding:.9rem 1.1rem;font-size:.8rem;color:var(--cream);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;user-select:none;}
+.fq:hover{background:var(--bg3);}
+.farr{font-size:.7rem;color:var(--amber);transition:transform .25s;flex-shrink:0;}
+.fa{overflow:hidden;max-height:0;transition:max-height .35s ease;}
+.fa.open{max-height:600px;}
+.fa-inner{padding:.25rem 1.1rem .9rem;font-size:.76rem;color:var(--muted);line-height:1.75;}
+.fa-inner strong{color:var(--cream);}
+
+/* QUICK REF */
+.qrefs{display:flex;flex-direction:column;gap:.75rem;margin:1.5rem 0;}
+.qlbl{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem;}
+
+/* CALLOUT */
+.callout{background:var(--a3);border:1px solid rgba(255,176,32,.2);border-left:3px solid var(--amber);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.5rem 0;}
+.callout-lbl{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:.4rem;}
+.callout p{font-size:.8rem;color:var(--muted);line-height:1.8;margin:0;}
+.callout p span{color:var(--cream);}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:2rem 1.5rem;}
+.fi{max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.fn{font-size:.65rem;color:var(--muted);}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">VOLVA<span class="logo-ra">RA</span></div>
+    <div class="nav-links">
+      <a href="#processo">Processo</a>
+      <a href="#fases">Fases</a>
+      <a href="#minions">Minions</a>
+      <a href="#ferramentas">Ferramentas</a>
+      <a href="#plano">Plano</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-tag">Guia interno v2</div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">Volvara · Guia de Produtividade com AI</div>
+  <h1>DO MANUAL<br>AO <span>SEMI-AUTO.</span></h1>
+  <p class="hero-sub">Como passar de procurar leads à mão e pedir demos ao Claude, para um sistema onde o AI faz a prospeção, geras demos em minutos com templates, e o processo de publicação e SEO corre quase sozinho.</p>
+  <div class="pills">
+    <div class="pill"><div class="dot" style="background:var(--amber)"></div>Sem código extra</div>
+    <div class="pill"><div class="dot" style="background:var(--green)"></div>Baseado no teu setup actual</div>
+    <div class="pill"><div class="dot" style="background:var(--amber)"></div>Solo operator · Portimão</div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ANTES / DEPOIS -->
+<section id="processo">
+  <div class="sh">
+    <div class="sl">Ponto de partida</div>
+    <div class="st">Antes vs Depois</div>
+  </div>
+  <div class="compare">
+    <div class="cc">
+      <div class="cc-lbl lb-b">Como está hoje</div>
+      <div class="ci"><div class="ico ix">✕</div><span>Pesquisas manualmente no Google Maps, Instagram, Tripadvisor</span></div>
+      <div class="ci"><div class="ico ix">✕</div><span>Pedes ao Claude para criar cada demo de raiz com minions</span></div>
+      <div class="ci"><div class="ico ix">✕</div><span>Envias o demo e esperas resposta sem sistema</span></div>
+      <div class="ci"><div class="ico ix">✕</div><span>Pedes passo a passo de publicação, SEO e Google Business manualmente</span></div>
+      <div class="ci"><div class="ico ix">✕</div><span>Cada cliente = sessão nova do zero</span></div>
+    </div>
+    <div class="cc">
+      <div class="cc-lbl lb-a">Com as ferramentas</div>
+      <div class="ci"><div class="ico io">✓</div><span>Agent-Reach pesquisa Instagram + Maps e devolve lista de leads</span></div>
+      <div class="ci"><div class="ico io">✓</div><span>5 templates prontos — substituís dados do cliente em minutos</span></div>
+      <div class="ci"><div class="ico io">✓</div><span>Spec-kit + Superpowers garantem qualidade automática</span></div>
+      <div class="ci"><div class="ico io">✓</div><span>Checklist de publicação/SEO embutida — não pedes, já está</span></div>
+      <div class="ci"><div class="ico io">✓</div><span>Minions especializados activados no ponto certo do processo</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FASES -->
+<section id="fases">
+  <div class="sh">
+    <div class="sl">O novo processo</div>
+    <div class="st">5 Fases — clica para expandir</div>
+  </div>
+  <div class="phases">
+
+    <!-- F1 PROSPECÇÃO -->
+    <div class="phase">
+      <div class="ph" onclick="toggle(this)">
+        <div class="pn">01</div>
+        <div class="pm"><div class="pm-name">Prospecção — encontrar leads</div><div class="pm-when">30 min/semana · Segunda de manhã</div></div>
+        <div class="pbadge bs">semi-auto</div>
+        <div class="parr">▾</div>
+      </div>
+      <div class="pb">
+        <div class="steps">
+          <div class="step">
+            <div class="sline"><div class="scirc">1</div><div class="sconn"></div></div>
+            <div class="sc">
+              <div class="st-t">Instala o Agent-Reach (só uma vez)</div>
+              <div class="st-d">O Agent-Reach dá ao Claude acesso ao Instagram, Maps, LinkedIn e mais — sem pagar APIs. Instala no teu Mac/PC com o terminal:</div>
+              <div class="cmd" onclick="cpCmd(this)">pip install https://github.com/Panniantong/agent-reach/archive/main.zip</div>
+              <div class="cmd" onclick="cpCmd(this)">agent-reach install --env=auto</div>
+              <div class="note"><strong>Nota importante:</strong> Isto instala-se no teu computador — não aqui no Claude.ai. Abre o Terminal (Mac) ou CMD (Windows), cola o comando e prime Enter.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="sline"><div class="scirc">2</div><div class="sconn"></div></div>
+            <div class="sc">
+              <div class="st-t">Pesquisa leads com 1 prompt</div>
+              <div class="st-d">No Claude Code (no teu terminal), pede directamente:</div>
+              <div class="cmd" onclick="cpCmd(this)">Pesquisa negócios em [CIDADE], Algarve sem website nos sectores: restaurante, bar, fotógrafo, clínica, serviços ao lar. Filtra os que não têm site ou têm site desactualizado. Devolve tabela com: nome, Instagram, telefone, sector, nota.</div>
+              <div class="note"><strong>O Claude devolve:</strong> tabela com 10-20 leads prontos para filtrar. Escolhes os 3 melhores.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="sline"><div class="scirc">3</div></div>
+            <div class="sc">
+              <div class="st-t">Regista no Ops Dashboard</div>
+              <div class="st-d">Copia os 3 melhores leads para o Ops Dashboard, coluna "Lead novo". Critérios: Instagram activo, 500+ followers, sector com template pronto.</div>
+              <div class="tools"><span class="tool ta">Agent-Reach</span><span class="tool tg">Ops Dashboard</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- F2 DEMO -->
+    <div class="phase">
+      <div class="ph" onclick="toggle(this)">
+        <div class="pn">02</div>
+        <div class="pm"><div class="pm-name">Criar o demo</div><div class="pm-when">30-45 min com template · vs 4h do zero</div></div>
+        <div class="pbadge bs">semi-auto</div>
+        <div class="parr">▾</div>
+      </div>
+      <div class="pb">
+        <div class="steps">
+          <div class="step">
+            <div class="sline"><div class="scirc">1</div><div class="sconn"></div></div>
+            <div class="sc">
+              <div class="st-t">Escolhe o template do sector</div>
+              <div class="st-d">Tens 5 templates prontos com todos os marcadores REPLACE_ identificados. Não começas do zero.</div>
+              <div class="note"><strong>Ficheiros disponíveis:</strong><br>volvara-template-restaurante.html · volvara-template-fotografo.html<br>volvara-template-bar.html · volvara-template-servicos.html · volvara-template-clinica.html</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="sline"><div class="scirc">2</div><div class="sconn"></div></div>
+            <div class="sc">
+              <div class="st-t">Preenche com os dados do cliente</div>
+              <div class="st-d">Carrega o template para esta conversa e diz:</div>
+              <div class="cmd" onclick="cpCmd(this)">Minions: Brand Guardian + Frontend Developer. Usa o template em anexo. Preenche todos os REPLACE_ com: Nome:[X] Morada:[X] Tel:[X] Instagram:[X] AccentHex:[X] Formspree:[ID]. Mantém Schema.org, tail })(); e verificações intactos.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="sline"><div class="scirc">3</div><div class="sconn"></div></div>
+            <div class="sc">
+              <div class="st-t">Verificação de qualidade</div>
+              <div class="st-d">Pede sempre antes de publicar:</div>
+              <div class="cmd" onclick="cpCmd(this)">Minion: Reality Checker. Verifica o HTML: tail })(); correcto, zero cdn-cgi, email limpo sem cf_email, Schema.org presente, honeypot _gotcha activo, null-checks no JS, mobile-first. Lista problemas.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="sline"><div class="scirc">4</div></div>
+            <div class="sc">
+              <div class="st-t">Publica no GitHub Pages</div>
+              <div class="st-d">Cria repositório em github.com/volvara/[nome-cliente], upload do index.html, activa Pages. URL pronta em 2 minutos.</div>
+              <div class="note"><strong>URL padrão:</strong> https://volvara.github.io/[nome-cliente]/ — é este link que envias no outreach.</div>
+              <div class="tools"><span class="tool tg">GitHub Pages</span><span class="tool tb">Cloudflare</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- F3 OUTREACH -->
+    <div class="phase">
+      <div class="ph" onclick="toggle(this)">
+        <div class="pn">03</div>
+        <div class="pm"><div class="pm-name">Outreach — enviar o demo</div><div class="pm-when">10 min por lead · WhatsApp ou Instagram DM</div></div>
+        <div class="pbadge bm">manual</div>
+        <div class="parr">▾</div>
+      </div>
+      <div class="pb">
+        <div class="steps">
+          <div class="step">
+            <div class="sline"><div class="scirc">1</div><div class="sconn"></div></div>
+            <div class="sc">
+              <div class="st-t">Gera a mensagem personalizada</div>
+              <div class="st-d">Diz ao Claude:</div>
+              <div class="cmd" onclick="cpCmd(this)">Minion: Outbound Strategist. Escreve mensagem de outreach para [nome do negócio] no [canal: WhatsApp / Instagram DM]. Sector: [X]. Link do demo: [URL]. Tom: directo, sem floreados, leva com o demo. Máximo 5 linhas.</div>
+              <div class="note">
+                <strong>Fórmula WA que funciona:</strong> "Olá. Encontrei o [nome] no Instagram e fiz uma demonstração do que poderia ser o vosso site. 👉 [LINK] — Sem compromisso. Só fica vosso depois de aprovarem. Telmo · Volvara · volvara.pt"
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="sline"><div class="scirc">2</div></div>
+            <div class="sc">
+              <div class="st-t">Follow-up agendado</div>
+              <div class="st-d">Regista no Ops Dashboard. Regras de follow-up:</div>
+              <div class="note">
+                <strong>Se responderam:</strong> pede ao Sales Deal Strategist o próximo passo.<br>
+                <strong>Sem abrir (5-7 dias):</strong> reenvia versão curta — "pode ter ficado perdida".<br>
+                <strong>Abriu, não respondeu (+3 dias):</strong> publica story bastidores no IG.<br>
+                <strong>3 tentativas sem resposta:</strong> fecha o loop, próximo target.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- F4 ENTREGA -->
+    <div class="phase">
+      <div class="ph" onclick="toggle(this)">
+        <div class="pn">04</div>
+        <div class="pm"><div class="pm-name">Entrega e publicação</div><div class="pm-when">2-3h após aprovação do cliente</div></div>
+        <div class="pbadge bs">semi-auto</div>
+        <div class="parr">▾</div>
+      </div>
+      <div class="pb">
+        <div class="steps">
+          <div class="step">
+            <div class="sline"><div class="scirc">1</div><div class="sconn"></div></div>
+            <div class="sc">
+              <div class="st-t">Actualiza com conteúdo real</div>
+              <div class="cmd" onclick="cpCmd(this)">Actualiza o demo com dados finais: [fotos reais, horários, email, endereço]. Substitui imagens placeholder pelas URLs reais. Mantém Schema.org e tail. Gera versão final para domínio próprio.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="sline"><div class="scirc">2</div><div class="sconn"></div></div>
+            <div class="sc">
+              <div class="st-t">Checklist de publicação completa</div>
+              <div class="cmd" onclick="cpCmd(this)">Minions: DevOps Automator + SEO Specialist. Gera checklist de publicação para [nome] em [domínio]: DNS Cloudflare, SSL Full, robots.txt, sitemap.xml, Search Console, Google Business, Formspree activo, teste mobile PageSpeed.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="sline"><div class="scirc">3</div></div>
+            <div class="sc">
+              <div class="st-t">Google Business Profile completo</div>
+              <div class="cmd" onclick="cpCmd(this)">Minion: SEO Specialist. Cria conteúdo Google Business para [nome]: descrição curta (150 chars), longa (750 chars), serviços, horário, categorias, 5 Q&A, 3 posts inauguração. Português.</div>
+              <div class="tools"><span class="tool tg">Google Search Console</span><span class="tool tb">Google Business</span><span class="tool ta">Cloudflare DNS</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- F5 MANUTENÇÃO -->
+    <div class="phase">
+      <div class="ph" onclick="toggle(this)">
+        <div class="pn">05</div>
+        <div class="pm"><div class="pm-name">Manutenção e SEO contínuo</div><div class="pm-when">30 min/mês por cliente activo</div></div>
+        <div class="pbadge ba">quase-auto</div>
+        <div class="parr">▾</div>
+      </div>
+      <div class="pb">
+        <div class="steps">
+          <div class="step">
+            <div class="sline"><div class="scirc">1</div><div class="sconn"></div></div>
+            <div class="sc">
+              <div class="st-t">Relatório SEO mensal — 1 prompt</div>
+              <div class="cmd" onclick="cpCmd(this)">Minion: SEO Specialist. Relatório SEO mensal para [cliente] em [domínio]: keywords a trabalhar, 2 posts Google Business este mês, 1 melhoria técnica ao site, email de relatório simples para o cliente sem jargão.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="sline"><div class="scirc">2</div><div class="sconn"></div></div>
+            <div class="sc">
+              <div class="st-t">Respostas a reviews Google</div>
+              <div class="cmd" onclick="cpCmd(this)">Minion: Content Creator. Escreve resposta para esta review do Google de [nome]: "[texto]". Tom caloroso, profissional. Máximo 150 palavras. Português.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="sline"><div class="scirc">3</div></div>
+            <div class="sc">
+              <div class="st-t">Actualizações ao site</div>
+              <div class="cmd" onclick="cpCmd(this)">Actualiza o site [nome] — [descreve a mudança]. Mantém Schema.org, tail e todas as verificações intactas. Gera versão corrigida pronta para upload.</div>
+              <div class="tools"><span class="tool tg">Google Business Posts</span><span class="tool ta">Minions Volvara</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /phases -->
+</section>
+
+<!-- MINIONS -->
+<section id="minions">
+  <div class="sh">
+    <div class="sl">Os teus minions</div>
+    <div class="st">Quem faz o quê em cada fase</div>
+  </div>
+  <p style="font-size:.8rem;color:var(--muted);max-width:640px;line-height:1.8;margin-bottom:1.5rem;">Os minions não desaparecem — são os especialistas activados em cada fase. Agent-Reach, Superpowers e spec-kit são a <em style="color:var(--cream)">estrutura do processo</em>. Os minions são os <em style="color:var(--cream)">especialistas dentro dessa estrutura</em>.</p>
+
+  <div class="mrow">
+
+    <div class="mcard">
+      <div class="mcols">
+        <div class="mleft"><div class="mnum">01</div><div class="mlbl">Prospecção</div></div>
+        <div class="mright">
+          <div class="mtags">
+            <div class="mtag" style="background:var(--a2);border:1px solid rgba(255,176,32,.2)"><div class="mtag-name" style="color:var(--amber)">Outbound Strategist</div><div class="mtag-desc">Define ICP, sequências de outreach, mensagem certa para cada sector</div></div>
+            <div class="mtag" style="background:var(--a2);border:1px solid rgba(255,176,32,.2)"><div class="mtag-name" style="color:var(--amber)">Sales Discovery Coach</div><div class="mtag-desc">Analisa o perfil do lead antes de contactar — dores, objecções prováveis</div></div>
+            <div class="mtag" style="background:var(--a2);border:1px solid rgba(255,176,32,.2)"><div class="mtag-name" style="color:var(--amber)">Sales Pipeline Analyst</div><div class="mtag-desc">Prioriza quais leads atacar primeiro com base em sinais de compra</div></div>
+          </div>
+          <div class="mhow"><strong>Activar:</strong> "Minion: Outbound Strategist. Analisa este lead — [Instagram/site] — e sugere a mensagem para [sector]."</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mcard">
+      <div class="mcols">
+        <div class="mleft"><div class="mnum">02</div><div class="mlbl">Demo</div></div>
+        <div class="mright">
+          <div class="mtags">
+            <div class="mtag" style="background:var(--p2);border:1px solid rgba(167,139,250,.2)"><div class="mtag-name" style="color:var(--purple)">Brand Guardian</div><div class="mtag-desc">Valida que o demo respeita a identidade do cliente — cores, tom, tipografia</div></div>
+            <div class="mtag" style="background:var(--p2);border:1px solid rgba(167,139,250,.2)"><div class="mtag-name" style="color:var(--purple)">Frontend Developer</div><div class="mtag-desc">Implementa HTML — CSS, JS, Schema.org, Formspree, mobile-first</div></div>
+            <div class="mtag" style="background:var(--p2);border:1px solid rgba(167,139,250,.2)"><div class="mtag-name" style="color:var(--purple)">UX Architect</div><div class="mtag-desc">Estrutura o fluxo do site — o que aparece primeiro, o que converte</div></div>
+            <div class="mtag" style="background:var(--p2);border:1px solid rgba(167,139,250,.2)"><div class="mtag-name" style="color:var(--purple)">UI Designer</div><div class="mtag-desc">Decisões visuais — layout, hierarquia, fontes, espaçamento</div></div>
+            <div class="mtag" style="background:var(--p2);border:1px solid rgba(167,139,250,.2)"><div class="mtag-name" style="color:var(--purple)">Reality Checker</div><div class="mtag-desc">QA antes de publicar — "defaults to NEEDS WORK", exige evidência</div></div>
+          </div>
+          <div class="mhow"><strong>Activar:</strong> "Minions: Brand Guardian + Frontend Developer. Demo para [cliente], template [sector], dados: [briefing]."</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mcard">
+      <div class="mcols">
+        <div class="mleft"><div class="mnum">03</div><div class="mlbl">Outreach</div></div>
+        <div class="mright">
+          <div class="mtags">
+            <div class="mtag" style="background:var(--g2);border:1px solid rgba(34,197,94,.2)"><div class="mtag-name" style="color:var(--green)">Outbound Strategist</div><div class="mtag-desc">Escreve a mensagem inicial personalizada para o canal certo (WA vs IG DM)</div></div>
+            <div class="mtag" style="background:var(--g2);border:1px solid rgba(34,197,94,.2)"><div class="mtag-name" style="color:var(--green)">Sales Deal Strategist</div><div class="mtag-desc">Quando o cliente responde — analisa e sugere o próximo passo</div></div>
+            <div class="mtag" style="background:var(--g2);border:1px solid rgba(34,197,94,.2)"><div class="mtag-name" style="color:var(--green)">Sales Coach</div><div class="mtag-desc">Quando há objecções — preço, timing, "já temos alguém"</div></div>
+            <div class="mtag" style="background:var(--g2);border:1px solid rgba(34,197,94,.2)"><div class="mtag-name" style="color:var(--green)">Sales Proposal Strategist</div><div class="mtag-desc">Estrutura a proposta quando entras em negociação de preço</div></div>
+          </div>
+          <div class="mhow"><strong>Activar:</strong> "Minion: Sales Deal Strategist. O Salga respondeu: [texto]. Qual o próximo passo?"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mcard">
+      <div class="mcols">
+        <div class="mleft"><div class="mnum">04</div><div class="mlbl">Entrega</div></div>
+        <div class="mright">
+          <div class="mtags">
+            <div class="mtag" style="background:var(--b2);border:1px solid rgba(96,165,250,.2)"><div class="mtag-name" style="color:var(--blue)">DevOps Automator</div><div class="mtag-desc">GitHub Pages, DNS Cloudflare, SSL — checklist completa de publicação</div></div>
+            <div class="mtag" style="background:var(--b2);border:1px solid rgba(96,165,250,.2)"><div class="mtag-name" style="color:var(--blue)">SEO Specialist</div><div class="mtag-desc">robots.txt, sitemap, Schema.org, Search Console, meta tags, Core Web Vitals</div></div>
+            <div class="mtag" style="background:var(--b2);border:1px solid rgba(96,165,250,.2)"><div class="mtag-name" style="color:var(--blue)">Technical Writer</div><div class="mtag-desc">Email de entrega ao cliente — claro, sem jargão, com próximos passos</div></div>
+            <div class="mtag" style="background:var(--b2);border:1px solid rgba(96,165,250,.2)"><div class="mtag-name" style="color:var(--blue)">Accessibility Auditor</div><div class="mtag-desc">ARIA labels, contraste, navegação por teclado — antes de entregar</div></div>
+          </div>
+          <div class="mhow"><strong>Activar:</strong> "Minions: DevOps Automator + SEO Specialist. Checklist de publicação para [domínio] e Google Business Profile."</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mcard">
+      <div class="mcols">
+        <div class="mleft"><div class="mnum">05</div><div class="mlbl">Manutenção</div></div>
+        <div class="mright">
+          <div class="mtags">
+            <div class="mtag" style="background:var(--a2);border:1px solid rgba(255,176,32,.2)"><div class="mtag-name" style="color:var(--amber)">SEO Specialist</div><div class="mtag-desc">Relatório mensal — keywords, posts Google Business, melhorias técnicas</div></div>
+            <div class="mtag" style="background:var(--a2);border:1px solid rgba(255,176,32,.2)"><div class="mtag-name" style="color:var(--amber)">Content Creator</div><div class="mtag-desc">Posts Google Business, respostas a reviews, actualizações sazonais</div></div>
+            <div class="mtag" style="background:var(--a2);border:1px solid rgba(255,176,32,.2)"><div class="mtag-name" style="color:var(--amber)">Growth Hacker</div><div class="mtag-desc">Identifica oportunidades de upsell — nova feature, novo sector</div></div>
+          </div>
+          <div class="mhow"><strong>Activar:</strong> "Minion: SEO Specialist. Relatório mensal para [cliente] em [domínio] — keywords, 2 posts Google Business, 1 melhoria."</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mcard vcard">
+      <div class="mcols">
+        <div class="mleft vleft"><div class="logo" style="font-size:1rem">VOLVA<span class="logo-ra" style="-webkit-text-stroke-width:1px">RA</span></div><div class="mlbl">Agência</div></div>
+        <div class="mright">
+          <div style="font-size:.72rem;color:var(--muted);margin-bottom:.75rem;">Minions para a Volvara em si — não para os clientes:</div>
+          <div class="mtags">
+            <div class="mtag" style="background:var(--a2);border:1px solid rgba(255,176,32,.2)"><div class="mtag-name" style="color:var(--amber)">Social Media Strategist</div><div class="mtag-desc">Plano semanal Instagram Volvara — posts, stories, reels</div></div>
+            <div class="mtag" style="background:var(--a2);border:1px solid rgba(255,176,32,.2)"><div class="mtag-name" style="color:var(--amber)">Brand Guardian</div><div class="mtag-desc">Consistência visual da Volvara em todos os outputs</div></div>
+            <div class="mtag" style="background:var(--a2);border:1px solid rgba(255,176,32,.2)"><div class="mtag-name" style="color:var(--amber)">Growth Hacker</div><div class="mtag-desc">Estratégia de crescimento — novos sectores, novos mercados</div></div>
+            <div class="mtag" style="background:var(--a2);border:1px solid rgba(255,176,32,.2)"><div class="mtag-name" style="color:var(--amber)">Project Shepherd</div><div class="mtag-desc">Monitoriza todos os projectos activos — quem precisa de atenção</div></div>
+            <div class="mtag" style="background:var(--a2);border:1px solid rgba(255,176,32,.2)"><div class="mtag-name" style="color:var(--amber)">Workflow Optimizer</div><div class="mtag-desc">Identifica onde o processo cria fricção e propõe melhorias</div></div>
+          </div>
+          <div class="mhow"><strong>Activar:</strong> "Minion: Social Media Strategist. Plano semanal Instagram Volvara para [data] — 5 peças, temas, copy, horário."</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout">
+    <div class="callout-lbl">Regra de ouro</div>
+    <p>Agent-Reach, Superpowers e spec-kit são <span>ferramentas de estrutura</span> — organizam o processo e automatizam a pesquisa. Os <span>minions são os especialistas</span> que operam dentro dessa estrutura. Dá sempre o contexto: briefing do cliente, o que já existe, e o output que queres.</p>
+  </div>
+</section>
+
+<!-- FERRAMENTAS -->
+<section id="ferramentas">
+  <div class="sh">
+    <div class="sl">Stack de ferramentas</div>
+    <div class="st">O que instalar e quando</div>
+  </div>
+  <div class="tgrid">
+    <div class="tcard">
+      <div class="tcard-top"><div class="tcard-name">Agent-Reach</div><div class="tool tg">instalar agora</div></div>
+      <div class="tcard-desc">Dá ao Claude acesso ao Instagram, Google, LinkedIn e Reddit sem pagar APIs. Instala no teu Mac/PC.</div>
+      <div class="install" onclick="cpCmd(this)">pip install https://github.com/Panniantong/agent-reach/archive/main.zip</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-top"><div class="tcard-name">Superpowers</div><div class="tool tg">instalar agora</div></div>
+      <div class="tcard-desc">Plugin Claude Code. Brainstorm → spec → plano → subagentes. QA automático. Instala no Claude Code.</div>
+      <div class="install" onclick="cpCmd(this)">/plugin marketplace add obra/superpowers-marketplace</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-top"><div class="tcard-name">spec-kit (GitHub)</div><div class="tool tg">instalar agora</div></div>
+      <div class="tcard-desc">Spec formal antes de escrever código. Consistência entre todos os templates. Reduz bugs.</div>
+      <div class="install" onclick="cpCmd(this)">uv tool install specify-cli --from git+https://github.com/github/spec-kit.git</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-top"><div class="tcard-name">oh-my-claudecode</div><div class="tool ta">maio</div></div>
+      <div class="tcard-desc">Orquestra Claude + Gemini + Codex em paralelo. QA visual por screenshot. Para 3+ demos/semana.</div>
+      <div class="install" onclick="cpCmd(this)">https://yeachan-heo.github.io/oh-my-claudecode-website/</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-top"><div class="tcard-name">n8n (automação)</div><div class="tool ta">junho</div></div>
+      <div class="tcard-desc">Automatiza leads → CRM → outreach → follow-up. Instalar com 3+ clientes activos.</div>
+      <div class="install" onclick="cpCmd(this)">docker run -it --rm --name n8n -p 5678:5678 n8nio/n8n</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-top"><div class="tcard-name">Lightpanda</div><div class="tool ta">junho</div></div>
+      <div class="tcard-desc">Browser headless 9× mais rápido. Scraping avançado quando Agent-Reach não chega.</div>
+      <div class="install" onclick="cpCmd(this)">https://github.com/lightpanda-io/browser</div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANO -->
+<section id="plano">
+  <div class="sh">
+    <div class="sl">Plano de implementação</div>
+    <div class="st">O que fazer e quando</div>
+  </div>
+  <div class="tl">
+    <div class="tli">
+      <div class="tld">Hoje<br>Abr</div>
+      <div class="tldot" style="background:var(--green)"></div>
+      <div class="tlc">
+        <div class="tlt">Fase 1 — Setup base (30 min)</div>
+        <div class="tldesc">Instala Agent-Reach no teu terminal (2 comandos). Instala Superpowers no Claude Code (1 comando). Os 5 templates já existem — não precisas de os reconstruir. Testa: pede ao Claude para encontrar 10 leads em Lagos.</div>
+      </div>
+    </div>
+    <div class="tli">
+      <div class="tld">7-11 Abr</div>
+      <div class="tldot" style="background:var(--amber)"></div>
+      <div class="tlc">
+        <div class="tlt">Fase 2 — Primeiro demo com o novo processo</div>
+        <div class="tldesc">Usa o template de restaurante para o Salga (se avançarem). Testa o fluxo completo: template → briefing JSON → Reality Checker → publicação GitHub Pages. Mede o tempo vs processo anterior.</div>
+      </div>
+    </div>
+    <div class="tli">
+      <div class="tld">Abril</div>
+      <div class="tldot" style="background:var(--amber)"></div>
+      <div class="tlc">
+        <div class="tlt">Fase 3 — 3 demos/semana</div>
+        <div class="tldesc">Com templates + Agent-Reach a funcionar: prospecção segunda, 1 demo por dia ter/qua/qui, outreach sexta. Meta: 3 demos/semana. Tudo no Ops Dashboard.</div>
+      </div>
+    </div>
+    <div class="tli">
+      <div class="tld">Maio</div>
+      <div class="tldot" style="background:rgba(255,176,32,.4)"></div>
+      <div class="tlc">
+        <div class="tlt">Fase 4 — spec-kit + oh-my-claudecode</div>
+        <div class="tldesc">Adiciona spec-kit para specs formais dos demos. Instala oh-my-claudecode para QA visual automático. Cada demo passa a ter spec + QA sem esforço manual.</div>
+      </div>
+    </div>
+    <div class="tli">
+      <div class="tld">Junho</div>
+      <div class="tldot" style="background:rgba(255,176,32,.2)"></div>
+      <div class="tlc">
+        <div class="tlt">Fase 5 — n8n + pipeline automático</div>
+        <div class="tldesc">Com 3+ clientes pagantes: instala n8n para automatizar leads → CRM → outreach → follow-up → relatório mensal. O pipeline corre sozinho entre a tua revisão.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sh" style="margin-top:2rem;">
+    <div class="sl">Rotina semanal</div>
+    <div class="st">Como seria uma semana normal</div>
+  </div>
+  <div class="week">
+    <div class="wcard"><div class="wlbl">Segunda · ~45 min</div><ul><li>Agent-Reach: pesquisa 10-15 leads</li><li>Filtra os 3 melhores → Ops Dashboard</li><li>Revê follow-ups pendentes</li><li>Envia follow-ups em atraso</li></ul></div>
+    <div class="wcard"><div class="wlbl">Terça-Quinta · ~45 min/dia</div><ul><li>1 demo por dia com template</li><li>Responde a conversas activas</li><li>Envia demos novos no final do dia</li></ul></div>
+    <div class="wcard"><div class="wlbl">Sexta · ~30 min</div><ul><li>Publica conteúdo social Volvara</li><li>Revê Ops Dashboard, move colunas</li><li>Regista follow-ups semana seguinte</li></ul></div>
+    <div class="wcard"><div class="wlbl">1× por mês · ~30 min</div><ul><li>Relatório SEO por cliente (1 prompt)</li><li>Posts Google Business todos os clientes</li><li>Responde a reviews pendentes</li><li>Actualiza Ops Dashboard com métricas</li></ul></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="sh">
+    <div class="sl">Perguntas frequentes</div>
+    <div class="st">Dúvidas comuns</div>
+  </div>
+  <div class="faq">
+    <div class="fitem">
+      <div class="fq" onclick="tfaq(this)">Preciso de saber programar para usar estas ferramentas?<span class="farr">▾</span></div>
+      <div class="fa"><div class="fa-inner">Não. O Agent-Reach instala-se com 2 comandos no terminal — copia e cola. O Superpowers instala-se com 1 comando no Claude Code. O spec-kit é 1 linha. Nenhuma destas ferramentas requer código. O Claude é o intermediário — tu dizes o que queres em português e ele executa.</div></div>
+    </div>
+    <div class="fitem">
+      <div class="fq" onclick="tfaq(this)">O Agent-Reach pode ser banido do Instagram?<span class="farr">▾</span></div>
+      <div class="fa"><div class="fa-inner">Existe risco com qualquer acesso por cookie. O Agent-Reach usa a tua sessão existente (como se fosses tu a navegar). Para minimizar: usa conta secundária dedicada para pesquisa, não faças centenas de pesquisas por hora, usa só para recolha de informação pública. Para 10-15 leads por semana o risco é muito baixo.</div></div>
+    </div>
+    <div class="fitem">
+      <div class="fq" onclick="tfaq(this)">O que é o Claude Code e preciso dele?<span class="farr">▾</span></div>
+      <div class="fa"><div class="fa-inner">Claude Code é o Claude que corre no terminal do teu Mac/PC. O Superpowers e o Agent-Reach funcionam melhor com Claude Code. Mas podes fazer tudo neste guia no Claude.ai normal — só perdes as funcionalidades automáticas do Superpowers. Para instalar: <strong>npm install -g @anthropic-ai/claude-code</strong> e depois <strong>claude</strong> no terminal.</div></div>
+    </div>
+    <div class="fitem">
+      <div class="fq" onclick="tfaq(this)">Quanto tempo poupa o novo processo vs o actual?<span class="farr">▾</span></div>
+      <div class="fa"><div class="fa-inner">Prospecção: de 1-2h manual para 20-30 min com Agent-Reach. Demo: de 3-4h do zero para 30-45 min com template. Publicação/SEO: de 1-2h manual para 30 min com checklists. Total: um ciclo completo passa de ~8h para ~2h. Isto significa 3-4 demos por semana em vez de 1.</div></div>
+    </div>
+    <div class="fitem">
+      <div class="fq" onclick="tfaq(this)">Os templates já estão prontos ou tenho de os criar?<span class="farr">▾</span></div>
+      <div class="fa"><div class="fa-inner">Já estão prontos. Tens 5 templates com todos os marcadores REPLACE_ identificados: restaurante, fotógrafo, bar/rooftop, serviços ao lar e clínica/saúde. Estão nos ficheiros volvara-template-*.html que já geraste. Carregas o ficheiro para o Claude e dás o briefing do cliente.</div></div>
+    </div>
+    <div class="fitem">
+      <div class="fq" onclick="tfaq(this)">Tenho de fazer tudo isto de uma vez?<span class="farr">▾</span></div>
+      <div class="fa"><div class="fa-inner">Não. O único passo urgente é instalar o Agent-Reach (5 min) para começares a prospecção automática esta semana. O Superpowers e spec-kit podes adicionar quando fizeres o próximo demo. O n8n e oh-my-claudecode só em Maio/Junho. Começa com o mínimo que dá impacto imediato: Agent-Reach + templates existentes.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMPTS RÁPIDOS -->
+<section>
+  <div class="sh">
+    <div class="sl">Referência rápida</div>
+    <div class="st">Prompts prontos a usar</div>
+  </div>
+  <div class="qrefs">
+    <div><div class="qlbl">Prospecção</div><div class="cmd" onclick="cpCmd(this)">Pesquisa negócios em [CIDADE], Algarve sem website: restaurantes, bares, fotógrafos, clínicas, serviços ao lar. Instagram activo. Devolve: nome, Instagram, telefone, sector, nota sobre o site.</div></div>
+    <div><div class="qlbl">Demo a partir de template</div><div class="cmd" onclick="cpCmd(this)">Minions: Brand Guardian + Frontend Developer. Usa o template volvara-template-[SECTOR].html. Preenche todos REPLACE_ com: Nome:[X] Morada:[X] Tel:[X] Instagram:[X] AccentHex:[X] Formspree:[ID]. Mantém Schema.org, tail e verificações.</div></div>
+    <div><div class="qlbl">Verificação de qualidade</div><div class="cmd" onclick="cpCmd(this)">Minion: Reality Checker. Verifica o HTML: tail })(); correcto, zero cdn-cgi, email limpo, Schema.org presente, honeypot _gotcha activo, null-checks JS, mobile-first. Lista problemas.</div></div>
+    <div><div class="qlbl">Checklist de publicação</div><div class="cmd" onclick="cpCmd(this)">Minions: DevOps Automator + SEO Specialist. Checklist de publicação para [nome] em [domínio]: DNS Cloudflare, SSL Full, robots.txt, sitemap.xml, Search Console, Google Business, Formspree, PageSpeed mobile.</div></div>
+    <div><div class="qlbl">Google Business completo</div><div class="cmd" onclick="cpCmd(this)">Minion: SEO Specialist. Google Business para [nome]: descrição curta (150 chars), longa (750 chars), serviços, horário, categorias, 5 Q&A, 3 posts inauguração. Português.</div></div>
+    <div><div class="qlbl">Relatório SEO mensal</div><div class="cmd" onclick="cpCmd(this)">Minion: SEO Specialist. Relatório SEO mensal para [cliente] em [domínio]: keywords, 2 posts Google Business, 1 melhoria técnica, email de relatório simples para o cliente.</div></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="fi">
+    <div class="logo">VOLVA<span class="logo-ra">RA</span></div>
+    <div class="fn">Guia interno Volvara · Portimão, Algarve · go@volvara.pt</div>
+    <div class="fn" id="updated"></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var uel = document.getElementById('updated');
+  if(uel) uel.textContent = 'v2 · ' + new Date().toLocaleDateString('pt-PT',{day:'2-digit',month:'long',year:'numeric'});
+
+  window.toggle = function(header){
+    var phase = header.parentElement;
+    if(!phase) return;
+    var body = phase.querySelector('.pb');
+    var arrow = header.querySelector('.parr');
+    if(!body) return;
+    var isOpen = body.classList.contains('open');
+    document.querySelectorAll('.pb').forEach(function(b){ b.classList.remove('open'); });
+    document.querySelectorAll('.parr').forEach(function(a){ a.style.transform=''; });
+    if(!isOpen){
+      body.classList.add('open');
+      if(arrow) arrow.style.transform = 'rotate(180deg)';
+    }
+  };
+
+  window.tfaq = function(q){
+    var fa = q.nextElementSibling;
+    var arr = q.querySelector('.farr');
+    if(!fa) return;
+    var isOpen = fa.classList.contains('open');
+    document.querySelectorAll('.fa').forEach(function(a){ a.classList.remove('open'); });
+    document.querySelectorAll('.farr').forEach(function(a){ a.style.transform=''; });
+    if(!isOpen){
+      fa.classList.add('open');
+      if(arr) arr.style.transform = 'rotate(180deg)';
+    }
+  };
+
+  window.cpCmd = function(el){
+    var text = el.textContent.replace(/copiar$|copiado ✓$/,'').trim();
+    if(!navigator.clipboard){ return; }
+    navigator.clipboard.writeText(text).then(function(){
+      el.classList.add('copied');
+      setTimeout(function(){ el.classList.remove('copied'); }, 2000);
+    }).catch(function(){});
+  };
+
+  // Open first phase by default
+  var fp = document.querySelector('.pb');
+  var fph = document.querySelector('.parr');
+  if(fp){ fp.classList.add('open'); }
+  if(fph){ fph.style.transform = 'rotate(180deg)'; }
+
+})();
+</script>
+</body>
+</html>
