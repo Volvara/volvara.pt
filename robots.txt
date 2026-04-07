@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Block internal dashboard
+Disallow: /ops/
+
+# Block Cloudflare system paths
+Disallow: /cdn-cgi/
+
+# Sitemap
+Sitemap: https://volvara.pt/sitemap.xml
