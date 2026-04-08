@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super Stars CTPP — Plano de Site & Branding</title>
+<style>
+  :root {
+    --court-green: #2D6A4F;
+    --court-green-light: #40916C;
+    --court-green-pale: #D8F3DC;
+    --clay: #C97B4B;
+    --clay-light: #E8A97A;
+    --clay-pale: #FDEBD0;
+    --midnight: #0D1B2A;
+    --slate: #1B2B3A;
+    --cream: #F7F4EF;
+    --gold: #F4A828;
+    --gold-pale: #FEF3DC;
+    --white: #FFFFFF;
+    --text: #0D1B2A;
+    --text-muted: #5C6B7A;
+    --text-light: #8A9BAA;
+    --border: rgba(13,27,42,0.12);
+    --border-strong: rgba(13,27,42,0.22);
+    --bg: #F7F4EF;
+    --surface: #FFFFFF;
+    --surface2: #F0EDE8;
+    --shadow: 0 2px 12px rgba(13,27,42,0.08);
+    --radius: 10px;
+    --radius-lg: 16px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Georgia', serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--midnight);
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 0 24px;
+    border-bottom: 2px solid var(--court-green);
+    overflow-x: auto;
+  }
+  nav .brand {
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px 20px 14px 0;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    margin-right: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  nav button {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.55);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 16px 14px;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: color .2s, border-color .2s;
+    font-family: inherit;
+  }
+  nav button:hover { color: rgba(255,255,255,0.85); }
+  nav button.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* ─── TABS ─── */
+  .tab { display: none; }
+  .tab.active { display: block; }
+
+  /* ─── LAYOUT ─── */
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* ─── TYPOGRAPHY ─── */
+  h1 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 1.15;
+    color: var(--midnight);
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--midnight);
+    margin: 40px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 1.5px solid var(--border);
+    letter-spacing: -0.01em;
+  }
+  h3 {
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: var(--midnight);
+    margin: 24px 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.85rem;
+  }
+  p { margin-bottom: 12px; color: var(--text); }
+  .lead {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 660px;
+  }
+
+  /* ─── CHIPS / BADGES ─── */
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+  }
+  .badge-green { background: var(--court-green-pale); color: var(--court-green); }
+  .badge-clay  { background: var(--clay-pale); color: var(--clay); }
+  .badge-gold  { background: var(--gold-pale); color: #8a5a00; }
+  .badge-dark  { background: var(--slate); color: #eee; }
+
+  /* ─── AGENT TAG ─── */
+  .agent-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--midnight);
+    color: var(--gold);
+    padding: 4px 10px 4px 8px;
+    border-radius: 20px;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .agent-tag span.dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--court-green-light);
+    display: inline-block;
+  }
+
+  /* ─── CARD ─── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+  }
+  .card-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+  .card-accent {
+    border-left: 4px solid var(--court-green);
+    background: var(--court-green-pale);
+    border-right: 1px solid var(--border);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .card-clay {
+    border-left: 4px solid var(--clay);
+    background: var(--clay-pale);
+    border-right: 1px solid var(--border);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .card-gold {
+    border-left: 4px solid var(--gold);
+    background: var(--gold-pale);
+    border-right: 1px solid var(--border);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ─── GRID ─── */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  @media(max-width:680px) {
+    .grid2, .grid3 { grid-template-columns: 1fr; }
+  }
+
+  /* ─── COLOR SWATCH ─── */
+  .swatch-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
+  .swatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    min-width: 90px;
+  }
+  .swatch-box {
+    width: 100%;
+    height: 60px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  .swatch small {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  /* ─── TYPE SPECIMEN ─── */
+  .type-specimen {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    margin: 16px 0;
+  }
+
+  /* ─── TIMELINE / STEPS ─── */
+  .steps { margin: 16px 0; }
+  .step {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+  .step-num {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--midnight);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 2px;
+  }
+  .step-body {}
+  .step-body strong { display: block; margin-bottom: 4px; }
+
+  /* ─── TABLE ─── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin: 16px 0;
+  }
+  th {
+    background: var(--midnight);
+    color: var(--gold);
+    text-align: left;
+    padding: 10px 14px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--surface2); }
+
+  /* ─── SCREEN WIREFRAME ─── */
+  .wireframe-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .screen {
+    border: 1.5px solid var(--border-strong);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--surface);
+    box-shadow: 0 4px 20px rgba(13,27,42,0.1);
+    margin-bottom: 24px;
+  }
+  .screen-bar {
+    background: var(--midnight);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .screen-bar .logo-txt { color: var(--gold); font-size: 13px; font-weight: bold; letter-spacing: 0.05em; }
+  .screen-bar nav-items { display: flex; gap: 12px; }
+  .screen-section {
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .screen-section:last-child { border-bottom: none; }
+  .block { background: var(--surface2); border-radius: 6px; padding: 10px 14px; margin: 6px 0; font-size: 13px; }
+  .block-green { background: var(--court-green-pale); color: var(--court-green); }
+  .block-clay  { background: var(--clay-pale); color: #8a4020; }
+  .block-gold  { background: var(--gold-pale); color: #7a4e00; }
+  .hero-block {
+    background: linear-gradient(135deg, var(--midnight) 0%, var(--slate) 100%);
+    padding: 32px 24px;
+    color: white;
+  }
+  .hero-block .ht { font-size: 1.6rem; font-weight: bold; color: var(--gold); margin-bottom: 6px; }
+  .hero-block .hs { font-size: 13px; color: rgba(255,255,255,0.6); }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+  .pill {
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    border: 1px solid var(--border);
+    background: var(--surface2);
+    color: var(--text-muted);
+  }
+  .pill-active { background: var(--court-green); color: white; border-color: var(--court-green); }
+
+  /* ─── USER FLOW DIAGRAM ─── */
+  .flow-diagram {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin: 16px 0;
+    font-size: 13px;
+  }
+  .flow-node {
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 8px;
+    padding: 8px 14px;
+    text-align: center;
+    min-width: 90px;
+  }
+  .flow-node.primary { background: var(--midnight); color: var(--gold); border-color: var(--midnight); }
+  .flow-node.success { background: var(--court-green-pale); color: var(--court-green); border-color: var(--court-green-light); }
+  .flow-arrow { color: var(--text-muted); font-size: 16px; }
+
+  /* ─── RANKING MOCKUP ─── */
+  .ranking-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .rank-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+  .rank-1 { background: var(--gold); color: #5a3500; }
+  .rank-2 { background: #C0C0C0; color: #333; }
+  .rank-3 { background: #CD7F32; color: white; }
+  .rank-n { background: var(--surface2); color: var(--text-muted); }
+  .rank-name { flex: 1; font-weight: normal; }
+  .rank-pts { font-weight: bold; color: var(--court-green); font-size: 13px; }
+  .rank-games { color: var(--text-muted); font-size: 12px; }
+
+  /* ─── HERO SECTION ─── */
+  .page-hero {
+    background: var(--midnight);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    margin-bottom: 36px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '★';
+    position: absolute;
+    right: 36px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 8rem;
+    color: rgba(244,168,40,0.08);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .page-hero h1 { color: var(--gold); font-size: 2rem; margin-bottom: 6px; }
+  .page-hero p { color: rgba(255,255,255,0.65); margin: 0; }
+
+  /* ─── SPRINT CARD ─── */
+  .sprint {
+    display: flex;
+    gap: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+    margin-bottom: 12px;
+  }
+  .sprint-week {
+    flex-shrink: 0;
+    width: 56px;
+    text-align: center;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text-muted);
+    padding-top: 2px;
+  }
+  .sprint-week strong { display: block; font-size: 1.4rem; color: var(--midnight); line-height: 1; }
+  .sprint-content strong { display: block; margin-bottom: 4px; }
+  .sprint-content { font-size: 13.5px; }
+  .sprint-tag {
+    display: inline-block;
+    background: var(--court-green-pale);
+    color: var(--court-green);
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 11px;
+    margin-right: 4px;
+    margin-top: 6px;
+  }
+  .sprint-tag.clay { background: var(--clay-pale); color: var(--clay); }
+  .sprint-tag.gold { background: var(--gold-pale); color: #7a4e00; }
+
+  /* SCORE TAG */
+  .score {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-muted);
+    background: var(--surface2);
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-right: 6px;
+    margin-top: 6px;
+  }
+
+  /* section divider */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+  .section-intro { font-size: 0.92rem; color: var(--text-muted); margin-top: -10px; margin-bottom: 20px; }
+
+  /* inline code */
+  code { background: var(--surface2); padding: 1px 6px; border-radius: 4px; font-size: 12px; }
+
+  ul { padding-left: 20px; margin-bottom: 12px; }
+  li { margin-bottom: 5px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">⭐ Super Stars CTPP</div>
+  <button class="active" onclick="showTab('visao')">Visão Geral</button>
+  <button onclick="showTab('branding')">Branding</button>
+  <button onclick="showTab('arquitetura')">Arquitetura</button>
+  <button onclick="showTab('wireframes')">Wireframes</button>
+  <button onclick="showTab('gestao')">Painel Diretor</button>
+  <button onclick="showTab('sprint')">Roadmap</button>
+</nav>
+
+<!-- ═══════════════════════════════════════════════ TAB: VISÃO ═══ -->
+<div id="tab-visao" class="tab active">
+<div class="page">
+
+  <div class="agent-tag"><span class="dot"></span> Product Manager · Brand Guardian activados</div>
+
+  <div class="page-hero">
+    <h1>Super Stars CTPP</h1>
+    <p>Site de apresentação pública + painel de gestão interno para o torneio social do Clube de Ténis & Padel de Portimão</p>
+  </div>
+
+  <h2>O Problema Actual</h2>
+  <p class="section-intro">Diagnóstico feito a partir da mensagem de WhatsApp e do regulamento oficial.</p>
+  <div class="grid2">
+    <div class="card card-clay">
+      <div class="card-title">🔴 Dores actuais</div>
+      <ul>
+        <li>Toda a comunicação concentrada num grupo WhatsApp</li>
+        <li>Inscrições por ordem de chegada no chat — caótico</li>
+        <li>Resultados inseridos em Excel pelo director</li>
+        <li>Rankings calculados manualmente</li>
+        <li>Sócios novos não sabem onde encontrar informação</li>
+        <li>Sem histórico ou memória do torneio</li>
+      </ul>
+    </div>
+    <div class="card card-accent">
+      <div class="card-title">✅ Oportunidade</div>
+      <ul>
+        <li>Site leve, mobile-first — abre no WhatsApp sem fricção</li>
+        <li>Calendário sempre actualizado e visível</li>
+        <li>Rankings gerados automaticamente após inserção de resultados</li>
+        <li>Director insere via painel protegido por password</li>
+        <li>Histórico permanente das etapas</li>
+        <li>Potencial para inscrição online no futuro</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Dois Produtos num Site</h2>
+  <p class="section-intro">Separação clara entre a camada pública e a área de gestão.</p>
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">🌐 Site Público</div>
+      <strong>Para os jogadores e sócios</strong>
+      <p style="margin-top:8px;font-size:13.5px;color:var(--text-muted)">Informação, calendário, rankings, regulamento. Abre directo a partir do WhatsApp.</p>
+      <div class="score">Mobile-first</div>
+      <div class="score">Sem login</div>
+      <div class="score">PT + EN</div>
+    </div>
+    <div class="card">
+      <div class="card-title">🔒 Painel do Director</div>
+      <strong>Para quem gere o torneio</strong>
+      <p style="margin-top:8px;font-size:13.5px;color:var(--text-muted)">Inserir resultados, confirmar inscrições, exportar rankings. Acesso por password simples.</p>
+      <div class="score">Password-protected</div>
+      <div class="score">Desktop-friendly</div>
+      <div class="score">Offline-capable</div>
+    </div>
+  </div>
+
+  <h2>Utilizadores & Jornadas</h2>
+
+  <h3>Jogador típico</h3>
+  <div class="flow-diagram">
+    <div class="flow-node primary">Recebe link<br>no WhatsApp</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">Vê calendário<br>& próxima etapa</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">Confirma<br>inscrição</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node success">Vê ranking<br>após jogo</div>
+  </div>
+
+  <h3>Director do torneio</h3>
+  <div class="flow-diagram">
+    <div class="flow-node primary">Login no<br>painel</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">Selecciona<br>etapa</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">Insere<br>resultados</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node success">Rankings<br>actualizados</div>
+  </div>
+
+  <h2>Stack Recomendada</h2>
+  <div class="card">
+    <table>
+      <tr><th>Componente</th><th>Solução</th><th>Motivo</th></tr>
+      <tr><td>Frontend</td><td><code>HTML / CSS / JS vanilla</code></td><td>Leve, sem dependências, abre rápido no mobile</td></tr>
+      <tr><td>Dados</td><td><code>localStorage</code> + JSON export</td><td>Zero backend para começar; exportável para Excel</td></tr>
+      <tr><td>Hosting</td><td><code>GitHub Pages</code> via volvara org</td><td>Gratuito, já familiar</td></tr>
+      <tr><td>Domínio</td><td><code>superstars.ctpp.pt</code> ou subpasta</td><td>Fácil de partilhar no WhatsApp</td></tr>
+      <tr><td>Auth director</td><td>Password hash simples em JS</td><td>Não precisa de servidor</td></tr>
+      <tr><td>Inscrições v1</td><td>Link WhatsApp pré-preenchido</td><td>O director já gere por lá</td></tr>
+    </table>
+  </div>
+
+  <div class="card card-gold">
+    <div class="card-title">💡 Nota Volvara</div>
+    <strong>Este é um projecto-piloto ideal para o clube</strong>
+    <p style="margin-top:8px;font-size:13.5px;">Demo gratuita → se gostarem, propõe manutenção mensal. O CTPP tem padel + ténis, escola júnior, eventos sazonais. Há upsell natural para um site institucional completo.</p>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ TAB: BRANDING ═══ -->
+<div id="tab-branding" class="tab">
+<div class="page">
+
+  <div class="agent-tag"><span class="dot"></span> Brand Guardian activado</div>
+
+  <h1>Identidade Visual</h1>
+  <p class="lead">O torneio já tem um nome forte — Super Stars — e pertence a um clube com identidade. O branding deve reflectir o carácter social e desportivo: energético mas inclusivo, sério mas acessível.</p>
+
+  <h2>Conceito Central</h2>
+  <div class="card">
+    <div class="card-title">Posicionamento de marca</div>
+    <p style="font-size:1.15rem;font-style:italic;color:var(--midnight);margin:0;">"O ténis social de Portimão — onde todos competem, todos evoluem."</p>
+  </div>
+  <div class="grid3">
+    <div class="card" style="text-align:center;">
+      <div style="font-size:2rem;margin-bottom:8px;">🎾</div>
+      <strong>Social</strong>
+      <p style="font-size:13px;color:var(--text-muted);margin-top:4px;">Para quem adora jogar, não para quem quer rankings ATP</p>
+    </div>
+    <div class="card" style="text-align:center;">
+      <div style="font-size:2rem;margin-bottom:8px;">⭐</div>
+      <strong>Aspiracional</strong>
+      <p style="font-size:13px;color:var(--text-muted);margin-top:4px;">Todos são "Stars" — o nome é inclusivo por design</p>
+    </div>
+    <div class="card" style="text-align:center;">
+      <div style="font-size:2rem;margin-bottom:8px;">🏡</div>
+      <strong>Local</strong>
+      <p style="font-size:13px;color:var(--text-muted);margin-top:4px;">Pertence ao CTPP, ao Algarve, à comunidade do clube</p>
+    </div>
+  </div>
+
+  <h2>Paleta de Cores</h2>
+  <p class="section-intro">Inspirada nas cores reais do ténis: court verde (hard court), clay (terra batida), e o dourado das estrelas.</p>
+
+  <div class="swatch-row">
+    <div class="swatch">
+      <div class="swatch-box" style="background:#0D1B2A;"></div>
+      <small><strong>Midnight</strong><br>#0D1B2A<br>Backgrounds escuros, nav, texto principal</small>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="background:#2D6A4F;"></div>
+      <small><strong>Court Green</strong><br>#2D6A4F<br>Cor primária, CTA, acento forte</small>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="background:#40916C;"></div>
+      <small><strong>Court Light</strong><br>#40916C<br>Hover states, links</small>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="background:#C97B4B;"></div>
+      <small><strong>Clay</strong><br>#C97B4B<br>Júnior Stars, elementos quentes</small>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="background:#F4A828;"></div>
+      <small><strong>Star Gold</strong><br>#F4A828<br>Destaques, ranking nº1, troféus</small>
+    </div>
+    <div class="swatch">
+      <div class="swatch-box" style="background:#F7F4EF;"></div>
+      <small><strong>Cream</strong><br>#F7F4EF<br>Background principal, superfícies</small>
+    </div>
+  </div>
+
+  <h3>Mapeamento Semântico</h3>
+  <div class="grid2">
+    <div class="card" style="border-left:4px solid #2D6A4F;">
+      <div class="card-title">Verde → Senior Stars</div>
+      <p style="font-size:13.5px;color:var(--text-muted);margin:0;">Eventos de domingo, calendário sénior, ranking adultos. Tom mais sóbrio e maduro.</p>
+    </div>
+    <div class="card" style="border-left:4px solid #C97B4B;">
+      <div class="card-title">Clay → Junior Stars</div>
+      <p style="font-size:13.5px;color:var(--text-muted);margin:0;">Eventos de sábado, escalões de bola. Tom enérgico e juvenil.</p>
+    </div>
+  </div>
+
+  <h2>Tipografia</h2>
+  <div class="type-specimen">
+    <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:16px;">Display — Títulos e Hero</p>
+    <p style="font-size:2.8rem;font-weight:900;letter-spacing:-0.03em;color:var(--midnight);line-height:1;margin-bottom:4px;">SUPER STARS</p>
+    <p style="font-size:1rem;color:var(--text-muted);margin-bottom:0;">Bebas Neue ou Black Han Sans (Google Fonts) — impacto máximo, lê bem em mobile</p>
+  </div>
+  <div class="type-specimen">
+    <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:16px;">Body — Conteúdo e UI</p>
+    <p style="font-size:1.1rem;color:var(--midnight);margin-bottom:4px;">DM Sans — legível, moderno, desportivo sem ser agressivo</p>
+    <p style="font-size:0.9rem;color:var(--text-muted);">Rankings · Calendário · Regulamento · Resultados</p>
+  </div>
+  <div class="type-specimen">
+    <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:16px;">Mono — Scores e estatísticas</p>
+    <p style="font-family:monospace;font-size:1.4rem;font-weight:bold;color:var(--court-green);letter-spacing:0.05em;margin-bottom:4px;">6 — 3 · 6 — 4</p>
+    <p style="font-size:0.9rem;color:var(--text-muted);">DM Mono para scores, pontos, contagens</p>
+  </div>
+
+  <h2>Logo & Nome</h2>
+  <div class="card">
+    <div style="display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;">
+      <div style="text-align:center;flex:1;min-width:140px;">
+        <div style="background:var(--midnight);border-radius:12px;padding:24px;margin-bottom:8px;">
+          <div style="font-size:2rem;font-weight:900;color:var(--gold);letter-spacing:0.05em;font-style:italic;line-height:1;">SUPER<br><span style="color:white;">STARS</span></div>
+          <div style="font-size:0.7rem;color:rgba(255,255,255,0.4);letter-spacing:0.2em;text-transform:uppercase;margin-top:6px;">CTPP · PORTIMÃO</div>
+        </div>
+        <small style="color:var(--text-muted);font-size:12px;">Versão escura</small>
+      </div>
+      <div style="text-align:center;flex:1;min-width:140px;">
+        <div style="background:var(--court-green);border-radius:12px;padding:24px;margin-bottom:8px;">
+          <div style="font-size:2rem;font-weight:900;color:white;letter-spacing:0.05em;font-style:italic;line-height:1;">SUPER<br><span style="color:var(--gold);">STARS</span></div>
+          <div style="font-size:0.7rem;color:rgba(255,255,255,0.5);letter-spacing:0.2em;text-transform:uppercase;margin-top:6px;">CTPP · PORTIMÃO</div>
+        </div>
+        <small style="color:var(--text-muted);font-size:12px;">Versão verde</small>
+      </div>
+      <div style="flex:2;min-width:200px;">
+        <h3>Regras</h3>
+        <ul style="font-size:13.5px;color:var(--text-muted);">
+          <li><strong>SUPER</strong> em itálico bold, STARS em peso normal ou bold contrasting</li>
+          <li>A estrela ★ pode ser usada como ícone standalone (favicon, avatar WhatsApp)</li>
+          <li>CTPP · PORTIMÃO sempre em lowercase tracking — subordinado ao nome do torneio</li>
+          <li>Nunca usar o logo sobre fundo claro sem ajustar cores</li>
+          <li>Manter proporção — não esticar horizontalmente</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h2>Tom de Voz</h2>
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">✅ É assim</div>
+      <ul style="font-size:13.5px;">
+        <li>Directo e energético</li>
+        <li>"Inscreve-te" não "Por favor proceda à inscrição"</li>
+        <li>Celebra os jogadores pelo nome</li>
+        <li>"Próxima etapa: Domingo 12 Abril — 8h30"</li>
+        <li>Usa "tu" — é um clube, não um tribunal</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">❌ Evita</div>
+      <ul style="font-size:13.5px;">
+        <li>Linguagem burocrática ("conforme regulamento nº...")</li>
+        <li>Informação duplicada (regulamento em 3 sítios)</li>
+        <li>Copy genérico de "desporto"</li>
+        <li>Frases longas — os jogadores lêem no telemóvel</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ TAB: ARQUITECTURA ═══ -->
+<div id="tab-arquitetura" class="tab">
+<div class="page">
+
+  <div class="agent-tag"><span class="dot"></span> UX Architect · Product Manager activados</div>
+
+  <h1>Arquitectura de Informação</h1>
+  <p class="lead">Estrutura completa do site: páginas, secções, dados e fluxos de interacção.</p>
+
+  <h2>Mapa do Site</h2>
+  <div class="card">
+    <table>
+      <tr><th>Rota</th><th>Página</th><th>Utilizador</th><th>Prioridade</th></tr>
+      <tr>
+        <td><code>/</code></td>
+        <td>Homepage — Hero + próxima etapa + ranking rápido</td>
+        <td>Todos</td>
+        <td><span class="badge badge-green">MVP</span></td>
+      </tr>
+      <tr>
+        <td><code>/calendario</code></td>
+        <td>Calendário completo Senior + Junior com datas e horários</td>
+        <td>Jogadores</td>
+        <td><span class="badge badge-green">MVP</span></td>
+      </tr>
+      <tr>
+        <td><code>/ranking</code></td>
+        <td>Rankings Senior Stars e Junior Stars por escalão</td>
+        <td>Jogadores</td>
+        <td><span class="badge badge-green">MVP</span></td>
+      </tr>
+      <tr>
+        <td><code>/regulamento</code></td>
+        <td>Regulamento completo com tabs Senior / Junior</td>
+        <td>Jogadores</td>
+        <td><span class="badge badge-green">MVP</span></td>
+      </tr>
+      <tr>
+        <td><code>/resultados</code></td>
+        <td>Arquivo de resultados por etapa</td>
+        <td>Jogadores</td>
+        <td><span class="badge badge-clay">V2</span></td>
+      </tr>
+      <tr>
+        <td><code>/admin</code></td>
+        <td>Painel director — inserir resultados, gerir jogadores</td>
+        <td>Director</td>
+        <td><span class="badge badge-green">MVP</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <h2>Modelo de Dados</h2>
+  <p class="section-intro">Estrutura JSON armazenada em localStorage — sem servidor necessário para v1.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">👤 Jogador</div>
+      <code style="display:block;font-size:12px;line-height:1.8;white-space:pre;">id: "jogador_001"
+nome: "Ana Silva"
+categoria: "senior" | "junior"
+escalao: null | "vermelho" | "verde" | "laranja"
+ativo: true
+inscricoes: ["etapa_001", "etapa_003"]</code>
+    </div>
+    <div class="card">
+      <div class="card-title">📅 Etapa</div>
+      <code style="display:block;font-size:12px;line-height:1.8;white-space:pre;">id: "etapa_001"
+numero: 1
+categoria: "senior" | "junior"
+data: "2026-04-12"
+hora: "08:30"
+estado: "aberta" | "em_curso" | "concluida"
+inscritos: ["jogador_001", ...]
+limite: 15</code>
+    </div>
+    <div class="card">
+      <div class="card-title">🎾 Jogo</div>
+      <code style="display:block;font-size:12px;line-height:1.8;white-space:pre;">id: "jogo_001"
+etapa_id: "etapa_001"
+jogador_a: "jogador_001"
+jogador_b: "jogador_002"
+score_a: 6
+score_b: 3
+duracao_min: 20
+vencedor: "jogador_001"</code>
+    </div>
+    <div class="card">
+      <div class="card-title">🏆 Ranking (calculado)</div>
+      <code style="display:block;font-size:12px;line-height:1.8;white-space:pre;">jogador_id: "jogador_001"
+categoria: "senior"
+temporada: 2026
+pontos: 42
+jogos: 8
+vitorias: 5
+derrotas: 3
+posicao: 2</code>
+    </div>
+  </div>
+
+  <h2>Sistema de Pontuação</h2>
+  <div class="card">
+    <div class="card-title">Proposta de pontuação (Round Robin, 20min)</div>
+    <table>
+      <tr><th>Resultado</th><th>Pontos Vencedor</th><th>Pontos Perdedor</th></tr>
+      <tr><td>Vitória (6-X)</td><td><strong style="color:var(--court-green)">3 pts</strong></td><td>1 pt</td></tr>
+      <tr><td>Vitória parcial (5-X, 4-X por tempo)</td><td><strong style="color:var(--court-green)">2 pts</strong></td><td>1 pt</td></tr>
+      <tr><td>Participação (etapa concluída)</td><td>1 pt</td><td>1 pt</td></tr>
+      <tr><td>Ausência sem aviso</td><td>0 pts</td><td>0 pts</td></tr>
+    </table>
+    <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">⚠ O director pode ajustar este sistema — é configurável no painel de admin.</p>
+  </div>
+
+  <h2>Fluxo de Inscrição (v1)</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Director abre inscrições (6ª feira 9h)</strong>
+        O site mostra automaticamente a etapa seguinte como "aberta para inscrição". Director pode activar/desactivar no painel.
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Jogador inscreve-se via WhatsApp (link pré-preenchido)</strong>
+        Botão no site abre WhatsApp com mensagem "Quero inscrever-me na Etapa X — [Nome]". O director confirma e adiciona ao painel.
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Director fecha inscrições (6ª feira 21h)</strong>
+        Lista de inscritos fica visível no site. Se >15, lista de suplentes aparece automaticamente.
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <strong>Director insere resultados (durante/após etapa)</strong>
+        No painel admin, jogo a jogo. Rankings actualizam em tempo real.
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <strong>Jogadores vêem resultados e ranking actualizado</strong>
+        Site público mostra tudo sem login. Link partilhado no grupo WhatsApp.
+      </div>
+    </div>
+  </div>
+
+  <h2>Componentes Reutilizáveis</h2>
+  <div class="grid3">
+    <div class="card" style="text-align:center;padding:20px;">
+      <div style="font-size:1.6rem;margin-bottom:8px;">📅</div>
+      <strong style="font-size:13px;">Countdown Card</strong>
+      <p style="font-size:12px;color:var(--text-muted);margin-top:4px;">Dias para próxima etapa</p>
+    </div>
+    <div class="card" style="text-align:center;padding:20px;">
+      <div style="font-size:1.6rem;margin-bottom:8px;">🏆</div>
+      <strong style="font-size:13px;">Ranking Table</strong>
+      <p style="font-size:12px;color:var(--text-muted);margin-top:4px;">Top 15 com pontos e jogos</p>
+    </div>
+    <div class="card" style="text-align:center;padding:20px;">
+      <div style="font-size:1.6rem;margin-bottom:8px;">🎾</div>
+      <strong style="font-size:13px;">Score Input</strong>
+      <p style="font-size:12px;color:var(--text-muted);margin-top:4px;">Inserção rápida no admin</p>
+    </div>
+    <div class="card" style="text-align:center;padding:20px;">
+      <div style="font-size:1.6rem;margin-bottom:8px;">📋</div>
+      <strong style="font-size:13px;">Inscritos List</strong>
+      <p style="font-size:12px;color:var(--text-muted);margin-top:4px;">Com suplentes destacados</p>
+    </div>
+    <div class="card" style="text-align:center;padding:20px;">
+      <div style="font-size:1.6rem;margin-bottom:8px;">📆</div>
+      <strong style="font-size:13px;">Calendar Strip</strong>
+      <p style="font-size:12px;color:var(--text-muted);margin-top:4px;">Todas as etapas do ano</p>
+    </div>
+    <div class="card" style="text-align:center;padding:20px;">
+      <div style="font-size:1.6rem;margin-bottom:8px;">👤</div>
+      <strong style="font-size:13px;">Player Card</strong>
+      <p style="font-size:12px;color:var(--text-muted);margin-top:4px;">Stats individuais do jogador</p>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ TAB: WIREFRAMES ═══ -->
+<div id="tab-wireframes" class="tab">
+<div class="page">
+
+  <div class="agent-tag"><span class="dot"></span> UI Designer · UX Architect activados</div>
+
+  <h1>Wireframes</h1>
+  <p class="lead">Esboços funcionais das páginas principais. Design final vai aplicar a paleta e tipografia definida no Branding.</p>
+
+  <!-- HOMEPAGE -->
+  <h2>Homepage — Página Principal</h2>
+  <div class="wireframe-label">Mobile view (375px) — o que abre ao clicar o link no WhatsApp</div>
+  <div class="screen" style="max-width:375px;margin:0 auto 32px;">
+    <div class="screen-bar">
+      <div class="logo-txt">★ SUPER STARS</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.4);">CTPP</div>
+    </div>
+    <div class="hero-block">
+      <div style="font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Próxima Etapa</div>
+      <div class="ht">1ª Etapa Senior</div>
+      <div class="hs">Domingo · 12 Abril · 8h30 → 11h</div>
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center;">
+        <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:10px 14px;text-align:center;flex:1;">
+          <div style="font-size:1.6rem;font-weight:900;color:white;line-height:1;">4</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.45);">dias</div>
+        </div>
+        <a style="background:var(--gold);color:var(--midnight);padding:12px 18px;border-radius:8px;font-size:13px;font-weight:bold;text-decoration:none;flex:2;text-align:center;display:block;">Inscrever-me →</a>
+      </div>
+    </div>
+    <div class="screen-section">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:10px;">Ranking Senior — Temporada 2026</div>
+      <div class="ranking-row">
+        <div class="rank-num rank-1">1</div>
+        <div class="rank-name">João Ferreira</div>
+        <div class="rank-pts">18 pts</div>
+        <div class="rank-games">6J</div>
+      </div>
+      <div class="ranking-row">
+        <div class="rank-num rank-2">2</div>
+        <div class="rank-name">Maria Santos</div>
+        <div class="rank-pts">15 pts</div>
+        <div class="rank-games">6J</div>
+      </div>
+      <div class="ranking-row">
+        <div class="rank-num rank-3">3</div>
+        <div class="rank-name">Pedro Costa</div>
+        <div class="rank-pts">12 pts</div>
+        <div class="rank-games">5J</div>
+      </div>
+      <div class="ranking-row">
+        <div class="rank-num rank-n">4</div>
+        <div class="rank-name">Ana Rodrigues</div>
+        <div class="rank-pts">10 pts</div>
+        <div class="rank-games">4J</div>
+      </div>
+      <div style="text-align:center;margin-top:12px;">
+        <a style="font-size:12px;color:var(--court-green);text-decoration:none;">Ver ranking completo →</a>
+      </div>
+    </div>
+    <div class="screen-section">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:10px;">Próximas Etapas</div>
+      <div class="block">
+        <strong style="color:var(--court-green);">Senior</strong> &nbsp;·&nbsp; 19 Abr &nbsp;·&nbsp; 2ª Etapa
+      </div>
+      <div class="block" style="margin-top:6px;">
+        <strong style="color:var(--clay);">Junior</strong> &nbsp;·&nbsp; 18 Abr &nbsp;·&nbsp; 1ª Etapa (Sábado)
+      </div>
+    </div>
+  </div>
+
+  <!-- RANKING PAGE -->
+  <h2>Página de Rankings</h2>
+  <div class="screen">
+    <div class="screen-bar">
+      <div class="logo-txt">★ Rankings 2026</div>
+    </div>
+    <div class="screen-section">
+      <div class="pill-row">
+        <div class="pill pill-active">Senior Stars</div>
+        <div class="pill">Junior — Bola Verde</div>
+        <div class="pill">Junior — Bola Laranja</div>
+        <div class="pill">Junior — Bola Vermelha</div>
+      </div>
+    </div>
+    <div class="screen-section">
+      <div style="font-size:11px;color:var(--text-muted);margin-bottom:12px;">Actualizado após: 2ª Etapa (19 Abr) · 15 jogadores</div>
+      <div class="ranking-row">
+        <div class="rank-num rank-1">1</div>
+        <div class="rank-name" style="flex:1;">João Ferreira</div>
+        <div style="text-align:right;">
+          <div class="rank-pts">18 pts</div>
+          <div class="rank-games">2 etapas · 6J · 5V</div>
+        </div>
+      </div>
+      <div class="ranking-row">
+        <div class="rank-num rank-2">2</div>
+        <div class="rank-name" style="flex:1;">Maria Santos</div>
+        <div style="text-align:right;">
+          <div class="rank-pts">15 pts</div>
+          <div class="rank-games">2 etapas · 6J · 4V</div>
+        </div>
+      </div>
+      <div class="ranking-row">
+        <div class="rank-num rank-3">3</div>
+        <div class="rank-name" style="flex:1;">Pedro Costa</div>
+        <div style="text-align:right;">
+          <div class="rank-pts">12 pts</div>
+          <div class="rank-games">1 etapa · 5J · 4V</div>
+        </div>
+      </div>
+      <div style="text-align:center;padding:12px 0;font-size:12px;color:var(--text-muted);">... 12 jogadores restantes</div>
+    </div>
+  </div>
+
+  <!-- CALENDAR PAGE -->
+  <h2>Calendário de Etapas</h2>
+  <div class="screen">
+    <div class="screen-bar">
+      <div class="logo-txt">★ Calendário 2026</div>
+    </div>
+    <div class="screen-section">
+      <div class="pill-row">
+        <div class="pill pill-active">Todos</div>
+        <div class="pill">Senior</div>
+        <div class="pill">Junior</div>
+      </div>
+    </div>
+    <div class="screen-section">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:12px;">Abril 2026</div>
+
+      <div style="display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border);">
+        <div style="background:var(--court-green);color:white;border-radius:8px;padding:8px 12px;text-align:center;flex-shrink:0;min-width:50px;">
+          <div style="font-size:1.4rem;font-weight:900;line-height:1;">12</div>
+          <div style="font-size:10px;opacity:.75;">DOM</div>
+        </div>
+        <div>
+          <div style="font-weight:bold;font-size:14px;">1ª Etapa Senior Stars</div>
+          <div style="font-size:12px;color:var(--text-muted);">8h30 — 11h · 15 vagas · 5€</div>
+          <div style="margin-top:6px;"><span class="badge badge-green">Inscrições abertas</span></div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border);">
+        <div style="background:var(--clay);color:white;border-radius:8px;padding:8px 12px;text-align:center;flex-shrink:0;min-width:50px;">
+          <div style="font-size:1.4rem;font-weight:900;line-height:1;">18</div>
+          <div style="font-size:10px;opacity:.75;">SÁB</div>
+        </div>
+        <div>
+          <div style="font-weight:bold;font-size:14px;">1ª Etapa Junior Stars</div>
+          <div style="font-size:12px;color:var(--text-muted);">14h — 18h · Bola Vermelha/Verde/Laranja</div>
+          <div style="margin-top:6px;"><span class="badge badge-clay">Inscrições na recepção</span></div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:14px;align-items:flex-start;opacity:0.6;">
+        <div style="background:var(--surface2);color:var(--text-muted);border-radius:8px;padding:8px 12px;text-align:center;flex-shrink:0;min-width:50px;border:1px solid var(--border);">
+          <div style="font-size:1.4rem;font-weight:900;line-height:1;">19</div>
+          <div style="font-size:10px;">DOM</div>
+        </div>
+        <div>
+          <div style="font-weight:bold;font-size:14px;">2ª Etapa Senior Stars</div>
+          <div style="font-size:12px;color:var(--text-muted);">8h30 — 11h · 15 vagas · 5€</div>
+          <div style="margin-top:6px;"><span class="badge badge-dark">Ainda não aberta</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ TAB: GESTÃO ═══ -->
+<div id="tab-gestao" class="tab">
+<div class="page">
+
+  <div class="agent-tag"><span class="dot"></span> Frontend Developer · UX Architect activados</div>
+
+  <h1>Painel do Director</h1>
+  <p class="lead">Interface de gestão para inserir resultados, gerir jogadores e acompanhar o torneio. Acesso por password. Desktop-friendly mas funciona no tablet.</p>
+
+  <h2>Login Screen</h2>
+  <div class="screen" style="max-width:400px;">
+    <div class="hero-block" style="text-align:center;padding:32px;">
+      <div class="ht" style="font-size:1.2rem;">★ Painel Super Stars</div>
+      <div class="hs">Acesso restrito ao director do torneio</div>
+      <div style="margin-top:20px;">
+        <input style="width:100%;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:white;font-size:14px;margin-bottom:10px;" placeholder="Password" type="password">
+        <button style="width:100%;background:var(--gold);color:var(--midnight);padding:12px;border-radius:8px;border:none;font-weight:bold;font-size:14px;cursor:pointer;">Entrar</button>
+      </div>
+    </div>
+  </div>
+
+  <h2>Dashboard Principal</h2>
+  <div class="screen">
+    <div class="screen-bar">
+      <div class="logo-txt">⚙ Painel Director</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.4);">Temporada 2026</div>
+    </div>
+
+    <!-- Métricas rápidas -->
+    <div class="screen-section">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
+        <div style="background:var(--court-green-pale);border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-size:1.6rem;font-weight:900;color:var(--court-green);">1</div>
+          <div style="font-size:11px;color:var(--court-green);">Etapas completas</div>
+        </div>
+        <div style="background:var(--gold-pale);border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-size:1.6rem;font-weight:900;color:#8a5a00;">12</div>
+          <div style="font-size:11px;color:#8a5a00;">Inscritos próxima</div>
+        </div>
+        <div style="background:var(--clay-pale);border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-size:1.6rem;font-weight:900;color:var(--clay);">3</div>
+          <div style="font-size:11px;color:var(--clay);">Suplentes</div>
+        </div>
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-size:1.6rem;font-weight:900;color:var(--text);">24</div>
+          <div style="font-size:11px;color:var(--text-muted);">Jogadores activos</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Acções rápidas -->
+    <div class="screen-section">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:12px;">Acções Rápidas</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <button style="background:var(--court-green);color:white;border:none;border-radius:8px;padding:12px;font-size:13px;font-weight:bold;cursor:pointer;">+ Inserir Resultado</button>
+        <button style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px;font-size:13px;cursor:pointer;">👤 Gerir Jogadores</button>
+        <button style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px;font-size:13px;cursor:pointer;">📅 Abrir Inscrições</button>
+        <button style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px;font-size:13px;cursor:pointer;">📊 Exportar Rankings</button>
+      </div>
+    </div>
+
+    <!-- Score input mockup -->
+    <div class="screen-section">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:14px;">Inserir Resultado — 1ª Etapa Senior</div>
+      <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin-bottom:12px;">
+        <div>
+          <select style="width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:6px;font-size:13px;background:var(--surface);">
+            <option>João Ferreira</option>
+          </select>
+        </div>
+        <div style="text-align:center;font-size:11px;color:var(--text-muted);font-weight:bold;">VS</div>
+        <div>
+          <select style="width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:6px;font-size:13px;background:var(--surface);">
+            <option>Maria Santos</option>
+          </select>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+        <div>
+          <label style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:4px;">Games João</label>
+          <input type="number" value="6" min="0" max="6" style="width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:6px;font-size:1.2rem;font-weight:bold;font-family:monospace;text-align:center;">
+        </div>
+        <div>
+          <label style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:4px;">Games Maria</label>
+          <input type="number" value="3" min="0" max="6" style="width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:6px;font-size:1.2rem;font-weight:bold;font-family:monospace;text-align:center;">
+        </div>
+      </div>
+      <button style="width:100%;background:var(--court-green);color:white;border:none;border-radius:8px;padding:12px;font-size:13px;font-weight:bold;cursor:pointer;">✓ Guardar Resultado</button>
+    </div>
+
+    <!-- Lista inscritos -->
+    <div class="screen-section">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);">Inscritos — 2ª Etapa (19 Abr)</div>
+        <span class="badge badge-green">12/15</span>
+      </div>
+      <div class="block" style="margin-bottom:6px;">1. João Ferreira &nbsp;<span style="font-size:11px;color:var(--text-muted);">inscrito 6ª 10:23</span></div>
+      <div class="block" style="margin-bottom:6px;">2. Maria Santos &nbsp;<span style="font-size:11px;color:var(--text-muted);">inscrito 6ª 10:45</span></div>
+      <div class="block" style="margin-bottom:6px;">3. Pedro Costa &nbsp;<span style="font-size:11px;color:var(--text-muted);">inscrito 6ª 11:02</span></div>
+      <div style="font-size:11px;color:var(--text-muted);padding:8px 0;">... 9 jogadores</div>
+      <div class="block block-clay">⏳ Suplente 1: Ana Rodrigues</div>
+    </div>
+  </div>
+
+  <h2>Funcionalidades do Admin</h2>
+  <table>
+    <tr><th>Funcionalidade</th><th>Como funciona</th><th>Release</th></tr>
+    <tr><td>Inserir resultados jogo a jogo</td><td>Dropdown jogadores + inputs score</td><td><span class="badge badge-green">MVP</span></td></tr>
+    <tr><td>Gerir lista de jogadores</td><td>Add / edit / desactivar jogador</td><td><span class="badge badge-green">MVP</span></td></tr>
+    <tr><td>Abrir/fechar inscrições</td><td>Toggle por etapa</td><td><span class="badge badge-green">MVP</span></td></tr>
+    <tr><td>Ver lista de inscritos + suplentes</td><td>Ordenada por hora de inscrição</td><td><span class="badge badge-green">MVP</span></td></tr>
+    <tr><td>Exportar ranking para Excel/CSV</td><td>Botão download JSON→CSV</td><td><span class="badge badge-green">MVP</span></td></tr>
+    <tr><td>Configurar sistema de pontuação</td><td>Campos editáveis no admin</td><td><span class="badge badge-clay">V2</span></td></tr>
+    <tr><td>Enviar notificação WhatsApp</td><td>Link pré-formatado para o grupo</td><td><span class="badge badge-clay">V2</span></td></tr>
+    <tr><td>Histórico de temporadas</td><td>Arquivo por ano</td><td><span class="badge badge-clay">V2</span></td></tr>
+  </table>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ TAB: ROADMAP ═══ -->
+<div id="tab-sprint" class="tab">
+<div class="page">
+
+  <div class="agent-tag"><span class="dot"></span> Product Manager · Frontend Developer activados</div>
+
+  <h1>Roadmap de Desenvolvimento</h1>
+  <p class="lead">Plano em 3 fases. A fase 1 entrega valor imediato antes da 1ª etapa. As restantes iteram com base no feedback do director e jogadores.</p>
+
+  <h2>Fase 1 — MVP <span class="badge badge-green" style="vertical-align:middle;margin-left:8px;">Urgente · 1–2 dias</span></h2>
+  <p class="section-intro">Objectivo: ter o site online antes de 12 Abril (1ª etapa Senior).</p>
+
+  <div class="sprint">
+    <div class="sprint-week"><strong>D1</strong>Dia 1</div>
+    <div class="sprint-content">
+      <strong>Estrutura base + Branding</strong>
+      HTML single-page, nav sticky, secções hero/ranking/calendário/regulamento. Importar dados do regulamento.
+      <div><span class="sprint-tag">Frontend</span><span class="sprint-tag gold">Branding</span></div>
+    </div>
+  </div>
+
+  <div class="sprint">
+    <div class="sprint-week"><strong>D1</strong>Dia 1</div>
+    <div class="sprint-content">
+      <strong>Calendário de etapas</strong>
+      Cards para todas as 12 etapas (6 Senior + 6 Junior) com estado: aberta / fechada / concluída. Dados hardcoded para começar.
+      <div><span class="sprint-tag">Frontend</span></div>
+    </div>
+  </div>
+
+  <div class="sprint">
+    <div class="sprint-week"><strong>D2</strong>Dia 2</div>
+    <div class="sprint-content">
+      <strong>Ranking estático + dados reais</strong>
+      Tabela de ranking com jogadores reais fornecidos pelo director. JSON local editável.
+      <div><span class="sprint-tag">Frontend</span><span class="sprint-tag clay">Dados</span></div>
+    </div>
+  </div>
+
+  <div class="sprint">
+    <div class="sprint-week"><strong>D2</strong>Dia 2</div>
+    <div class="sprint-content">
+      <strong>Painel Admin v1</strong>
+      Login por password, inserção de resultados, atualização de ranking automática via localStorage.
+      <div><span class="sprint-tag">Frontend</span><span class="sprint-tag gold">Admin</span></div>
+    </div>
+  </div>
+
+  <div class="sprint">
+    <div class="sprint-week"><strong>D2</strong>Dia 2</div>
+    <div class="sprint-content">
+      <strong>Deploy GitHub Pages + domínio</strong>
+      Site publicado. Link partilhável no WhatsApp. Testar em mobile.
+      <div><span class="sprint-tag clay">Deploy</span></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <h2>Fase 2 — Consolidação <span class="badge badge-clay" style="vertical-align:middle;margin-left:8px;">Semana 2–3</span></h2>
+  <p class="section-intro">Melhorias após feedback da 1ª e 2ª etapas.</p>
+
+  <div class="sprint">
+    <div class="sprint-week"><strong>S2</strong>Sem 2</div>
+    <div class="sprint-content">
+      <strong>Gestão completa de jogadores no admin</strong>
+      Adicionar, editar, desactivar jogadores. Lista de inscritos por etapa.
+      <div><span class="sprint-tag gold">Admin</span></div>
+    </div>
+  </div>
+
+  <div class="sprint">
+    <div class="sprint-week"><strong>S2</strong>Sem 2</div>
+    <div class="sprint-content">
+      <strong>Página de jogador individual</strong>
+      Stats pessoais: vitórias, derrotas, jogos, pontos por etapa. Link partilhável.
+      <div><span class="sprint-tag">Frontend</span></div>
+    </div>
+  </div>
+
+  <div class="sprint">
+    <div class="sprint-week"><strong>S3</strong>Sem 3</div>
+    <div class="sprint-content">
+      <strong>Junior Stars — Separação por escalão</strong>
+      Rankings separados: Bola Vermelha, Verde, Laranja. Admin separa por escalão ao inserir.
+      <div><span class="sprint-tag">Frontend</span><span class="sprint-tag clay">Dados</span></div>
+    </div>
+  </div>
+
+  <div class="sprint">
+    <div class="sprint-week"><strong>S3</strong>Sem 3</div>
+    <div class="sprint-content">
+      <strong>Export CSV / Excel</strong>
+      Botão no admin para download do ranking actualizado. Substitui o Excel manual do director.
+      <div><span class="sprint-tag gold">Admin</span></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <h2>Fase 3 — Evolução <span class="badge badge-dark" style="vertical-align:middle;margin-left:8px;">Longo prazo</span></h2>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">🔔 Notificações automáticas</div>
+      <p style="font-size:13.5px;color:var(--text-muted);">Mensagem pré-formatada para o grupo WhatsApp com a abertura de inscrições + link</p>
+    </div>
+    <div class="card">
+      <div class="card-title">📲 Inscrição online</div>
+      <p style="font-size:13.5px;color:var(--text-muted);">Formulário com nome + confirmação automática por ordem de chegada. Elimina intermediação do WhatsApp</p>
+    </div>
+    <div class="card">
+      <div class="card-title">📅 Calendário iCal</div>
+      <p style="font-size:13.5px;color:var(--text-muted);">Feed .ics para adicionar todas as etapas ao calendário do telemóvel</p>
+    </div>
+    <div class="card">
+      <div class="card-title">🏆 Histórico de temporadas</div>
+      <p style="font-size:13.5px;color:var(--text-muted);">Arquivo dos rankings de 2026, 2027... Quem ganhou cada temporada</p>
+    </div>
+    <div class="card">
+      <div class="card-title">💰 Pagamento online</div>
+      <p style="font-size:13.5px;color:var(--text-muted);">MBWay ou Revolut integrado para os 5€ de inscrição. Admin vê status pago/pendente</p>
+    </div>
+    <div class="card">
+      <div class="card-title">📱 App PWA</div>
+      <p style="font-size:13.5px;color:var(--text-muted);">Site instalável no homescreen do telemóvel. Notificações push quando ranking actualiza</p>
+    </div>
+  </div>
+
+  <h2>Proposta Comercial para CTPP</h2>
+  <div class="card card-gold">
+    <div class="card-title">💼 Modelo Volvara — Demo grátis, só pagas se gostares</div>
+    <div class="grid2" style="margin-top:12px;">
+      <div>
+        <strong>Build + Demo</strong>
+        <p style="font-size:13.5px;color:var(--text-muted);">Site completo MVP entregue antes da 1ª etapa. O director usa, os jogadores usam. Só depois há conversa de preço.</p>
+      </div>
+      <div>
+        <strong>Manutenção mensal</strong>
+        <p style="font-size:13.5px;color:var(--text-muted);">Actualizações de conteúdo, novas funcionalidades, backups. Proposta após validação do MVP.</p>
+      </div>
+    </div>
+    <hr class="divider" style="margin:16px 0;">
+    <p style="font-size:13px;color:var(--text-muted);">O CTPP é também um potencial cliente para site institucional completo (ténis + padel + escola júnior + reservas de court). Este projecto é a porta de entrada.</p>
+  </div>
+
+  <h2>Próximos Passos Imediatos</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Confirmar com o director do torneio</strong>
+        Quem é? Contacto via André (do grupo WhatsApp) ou recepção do CTPP. Pedir lista de jogadores actuais e validar o sistema de pontuação preferido.
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Construir demo em 1-2 dias</strong>
+        Com dados reais do regulamento já disponível. Site funcional para o director ver antes da 1ª etapa (12 Abril).
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Partilhar link no WhatsApp</strong>
+        "Fiz um site para o Super Stars — vejam o que acham antes de domingo."
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <strong>Iterar com feedback</strong>
+        Após a 1ª etapa, recolher feedback do director e dos jogadores. Fase 2 começa aqui.
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script>
+function showTab(name) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
