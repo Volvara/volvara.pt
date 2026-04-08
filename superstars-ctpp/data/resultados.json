@@ -1,3 +1,13 @@
 {
-  "jogos": []
+  "jogos": [
+    {
+      "id": "g54482",
+      "etapa": "e001",
+      "ja": "j001",
+      "jb": "j002",
+      "score_a": 2,
+      "score_b": 3,
+      "vencedor": "j002"
+    }
+  ]
 }
