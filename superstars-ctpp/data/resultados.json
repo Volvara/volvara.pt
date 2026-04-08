@@ -1,15 +1,6 @@
 {
   "jogos": [
     {
-      "id": "g64545",
-      "etapa": "e001",
-      "ja": "j001",
-      "jb": "j003",
-      "score_a": 6,
-      "score_b": 3,
-      "vencedor": "j001"
-    },
-    {
       "id": "g92128",
       "etapa": "e001",
       "ja": "j003",
