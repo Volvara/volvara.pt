@@ -1,0 +1,26 @@
+[
+  {
+    "id": "id_1774459485148_fvew",
+    "data": "2026-03-13",
+    "tipo": "despesa",
+    "desc": "Claudi AI Pro",
+    "val": 18,
+    "estado": "pago"
+  },
+  {
+    "id": "id_1774459835659_c5tr",
+    "data": "2026-03-16",
+    "tipo": "despesa",
+    "desc": "Hera Video",
+    "val": 17.47,
+    "estado": "pago"
+  },
+  {
+    "id": "id_1775492891607_bz37",
+    "data": "2026-04-06",
+    "tipo": "despesa",
+    "desc": "Claude AI upgrade para Plano Max",
+    "val": 86.04,
+    "estado": "pago"
+  }
+]
