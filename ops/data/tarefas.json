@@ -8,14 +8,6 @@
     "done": false
   },
   {
-    "id": "id_1774621002005_x1j1",
-    "nome": "Lançamento 1º Cliente - Publicação 1 20h30",
-    "ctx": "Interno",
-    "pri": "alta",
-    "prazo": "2026-03-27",
-    "done": true
-  },
-  {
     "id": "id_1774621030486_hbtm",
     "nome": "Lançamento 1º Cliente - Publicação 2 10h00",
     "ctx": "Interno",
