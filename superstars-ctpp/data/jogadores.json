@@ -83,6 +83,13 @@
       "tipo": "senior",
       "escalao": null,
       "ativo": true
+    },
+    {
+      "id": "jmntiq83xrdu1",
+      "nome": "Tomás Barbosa",
+      "tipo": "senior",
+      "escalao": null,
+      "ativo": true
     }
   ]
 }
