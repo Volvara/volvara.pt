@@ -5,7 +5,7 @@
       "nome": "João Ferreira",
       "tipo": "senior",
       "escalao": null,
-      "ativo": false
+      "ativo": true
     },
     {
       "id": "j002",
