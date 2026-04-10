@@ -55,6 +55,13 @@
       "tipo": "senior",
       "escalao": null,
       "ativo": true
+    },
+    {
+      "id": "jmnthwlqoipnb",
+      "nome": "Monitor Teste",
+      "tipo": "senior",
+      "escalao": null,
+      "ativo": true
     }
   ]
 }
