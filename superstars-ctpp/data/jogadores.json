@@ -12,7 +12,7 @@
       "nome": "Maria Santos",
       "tipo": "senior",
       "escalao": null,
-      "ativo": false
+      "ativo": true
     },
     {
       "id": "j003",
