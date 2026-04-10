@@ -35,6 +35,15 @@
       "score_a": 4,
       "score_b": 2,
       "vencedor": "j002"
+    },
+    {
+      "id": "gmnt2eubpg2nu",
+      "etapa": "e001",
+      "ja": "j001",
+      "jb": "j002",
+      "score_a": 3,
+      "score_b": 4,
+      "vencedor": "j002"
     }
   ]
 }
