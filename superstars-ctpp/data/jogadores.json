@@ -1,14 +1,74 @@
 {
   "jogadores": [
-    {"id":"j001","nome":"João Ferreira","tipo":"senior","escalao":null,"ativo":true},
-    {"id":"j002","nome":"Maria Santos","tipo":"senior","escalao":null,"ativo":true},
-    {"id":"j003","nome":"Pedro Costa","tipo":"senior","escalao":null,"ativo":true},
-    {"id":"j004","nome":"Ana Rodrigues","tipo":"senior","escalao":null,"ativo":true},
-    {"id":"j005","nome":"Carlos Mendes","tipo":"senior","escalao":null,"ativo":true},
-    {"id":"j006","nome":"Sofia Lopes","tipo":"senior","escalao":null,"ativo":true},
-    {"id":"j007","nome":"Rui Almeida","tipo":"senior","escalao":null,"ativo":true},
-    {"id":"j008","nome":"Beatriz Lima","tipo":"junior","escalao":"verde","ativo":true},
-    {"id":"j009","nome":"Tomás Carvalho","tipo":"junior","escalao":"laranja","ativo":true},
-    {"id":"j010","nome":"Inês Ferreira","tipo":"junior","escalao":"vermelha","ativo":true}
+    {
+      "id": "j001",
+      "nome": "João Ferreira",
+      "tipo": "senior",
+      "escalao": null,
+      "ativo": false
+    },
+    {
+      "id": "j002",
+      "nome": "Maria Santos",
+      "tipo": "senior",
+      "escalao": null,
+      "ativo": true
+    },
+    {
+      "id": "j003",
+      "nome": "Pedro Costa",
+      "tipo": "senior",
+      "escalao": null,
+      "ativo": true
+    },
+    {
+      "id": "j004",
+      "nome": "Ana Rodrigues",
+      "tipo": "senior",
+      "escalao": null,
+      "ativo": true
+    },
+    {
+      "id": "j005",
+      "nome": "Carlos Mendes",
+      "tipo": "senior",
+      "escalao": null,
+      "ativo": true
+    },
+    {
+      "id": "j006",
+      "nome": "Sofia Lopes",
+      "tipo": "senior",
+      "escalao": null,
+      "ativo": true
+    },
+    {
+      "id": "j007",
+      "nome": "Rui Almeida",
+      "tipo": "senior",
+      "escalao": null,
+      "ativo": true
+    },
+    {
+      "id": "j008",
+      "nome": "Beatriz Lima",
+      "tipo": "junior",
+      "escalao": "verde",
+      "ativo": true
+    },
+    {
+      "id": "j009",
+      "nome": "Tomás Carvalho",
+      "tipo": "junior",
+      "escalao": "laranja",
+      "ativo": true
+    },
+    {
+      "id": "j010",
+      "nome": "Inês Ferreira",
+      "tipo": "junior",
+      "escalao": "vermelha",
+      "ativo": true
+    }
   ]
 }
