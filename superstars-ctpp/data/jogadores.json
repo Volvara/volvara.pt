@@ -41,6 +41,13 @@
       "tipo": "senior",
       "escalao": null,
       "ativo": true
+    },
+    {
+      "id": "jmnthutcyz4pz",
+      "nome": "Teste Debug",
+      "tipo": "senior",
+      "escalao": null,
+      "ativo": true
     }
   ]
 }
