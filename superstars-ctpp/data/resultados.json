@@ -8,6 +8,15 @@
       "score_a": 4,
       "score_b": 3,
       "vencedor": "j001"
+    },
+    {
+      "id": "g23784",
+      "etapa": "e001",
+      "ja": "j005",
+      "jb": "j007",
+      "score_a": 3,
+      "score_b": 2,
+      "vencedor": "j005"
     }
   ]
 }
