@@ -9,7 +9,9 @@
       "hora": "08:30",
       "limite": 15,
       "estado": "aberta",
-      "inscritos": []
+      "inscritos": [
+        "j001"
+      ]
     },
     {
       "id": "e002",
