@@ -48,6 +48,13 @@
       "tipo": "senior",
       "escalao": null,
       "ativo": true
+    },
+    {
+      "id": "jmntii5ehdkwg",
+      "nome": "João Barrocas",
+      "tipo": "senior",
+      "escalao": null,
+      "ativo": true
     }
   ]
 }
