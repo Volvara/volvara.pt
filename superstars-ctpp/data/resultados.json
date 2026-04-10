@@ -17,6 +17,15 @@
       "score_a": 4,
       "score_b": 1,
       "vencedor": "j001"
+    },
+    {
+      "id": "g42551",
+      "etapa": "e001",
+      "ja": "j001",
+      "jb": "j004",
+      "score_a": 2,
+      "score_b": 3,
+      "vencedor": "j004"
     }
   ]
 }
