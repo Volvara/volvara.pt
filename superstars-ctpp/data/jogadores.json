@@ -69,6 +69,13 @@
       "tipo": "senior",
       "escalao": null,
       "ativo": true
+    },
+    {
+      "id": "jmntipl8cugw0",
+      "nome": "Hugo",
+      "tipo": "senior",
+      "escalao": null,
+      "ativo": true
     }
   ]
 }
