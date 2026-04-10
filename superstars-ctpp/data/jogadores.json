@@ -68,7 +68,7 @@
       "nome": "Inês Ferreira",
       "tipo": "junior",
       "escalao": "vermelha",
-      "ativo": false
+      "ativo": true
     }
   ]
 }
