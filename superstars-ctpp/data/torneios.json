@@ -28,6 +28,14 @@
               "score_a": 4,
               "score_b": 2,
               "vencedor": "j001"
+            },
+            {
+              "id": "gjmnupqsbcho4e",
+              "ja": "j001",
+              "jb": "j005",
+              "score_a": 4,
+              "score_b": 1,
+              "vencedor": "j001"
             }
           ],
           "classificacao": [],
