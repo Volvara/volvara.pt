@@ -701,9 +701,9 @@
                 "nome": "Final (11º/12º)",
                 "jogA": "jmntipxsi5f0s",
                 "jogB": "j003",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 6,
+                "score_b": 3,
+                "vencedor": "jmntipxsi5f0s"
               },
               {
                 "id": "qb_1314",
