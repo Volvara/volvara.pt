@@ -2,7 +2,7 @@
   "torneios": [
     {
       "etapaId": "e001",
-      "estado": "quadros",
+      "estado": "concluido",
       "numGrupos": 5,
       "cabecasDeSerie": [
         "j001",
@@ -718,7 +718,83 @@
           }
         ]
       },
-      "classificacaoFinal": []
+      "classificacaoFinal": [
+        {
+          "pos": 1,
+          "jogId": "j001",
+          "pts": 18
+        },
+        {
+          "pos": 2,
+          "jogId": "jmntii5ehdkwg",
+          "pts": 16
+        },
+        {
+          "pos": 3,
+          "jogId": "jmntihrfco8zm",
+          "pts": 14
+        },
+        {
+          "pos": 4,
+          "jogId": "jmntipxsi5f0s",
+          "pts": 13
+        },
+        {
+          "pos": 5,
+          "jogId": "j006",
+          "pts": 12
+        },
+        {
+          "pos": 6,
+          "jogId": "jmntipl8cugw0",
+          "pts": 11
+        },
+        {
+          "pos": 7,
+          "jogId": "j005",
+          "pts": 10
+        },
+        {
+          "pos": 8,
+          "jogId": "j002",
+          "pts": 9
+        },
+        {
+          "pos": 9,
+          "jogId": "jmnulp1rji487",
+          "pts": 8
+        },
+        {
+          "pos": 10,
+          "jogId": "j003",
+          "pts": 7
+        },
+        {
+          "pos": 11,
+          "jogId": "jmntiomivpeaw",
+          "pts": 6
+        },
+        {
+          "pos": 12,
+          "jogId": "jmntiqp3bcz0c",
+          "pts": 5
+        },
+        {
+          "pos": 13,
+          "jogId": "jmntir2jlvvot",
+          "pts": 4
+        },
+        {
+          "pos": 14,
+          "jogId": "j004",
+          "pts": 3
+        },
+        {
+          "pos": 15,
+          "jogId": "jmntiou1qw765",
+          "pts": 2
+        }
+      ]
     }
   ]
 }
