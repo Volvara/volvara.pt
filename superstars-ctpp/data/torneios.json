@@ -57,7 +57,16 @@
             "jmntir2jlvvot",
             "jmntiqp3bcz0c"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmnuqa242c30u",
+              "ja": "j001",
+              "jb": "jmntir2jlvvot",
+              "score_a": 4,
+              "score_b": 1,
+              "vencedor": "j001"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         },
