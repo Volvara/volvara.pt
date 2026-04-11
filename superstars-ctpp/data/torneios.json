@@ -710,9 +710,9 @@
                 "nome": "13º/14º Lugar",
                 "jogA": "jmntir2jlvvot",
                 "jogB": "j004",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 6,
+                "score_b": 3,
+                "vencedor": "jmntir2jlvvot"
               }
             ]
           }
