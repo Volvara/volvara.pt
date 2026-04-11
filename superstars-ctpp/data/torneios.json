@@ -57,7 +57,16 @@
             "j002",
             "jmntiqp3bcz0c"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmnu7foinznov",
+              "ja": "jmntii5ehdkwg",
+              "jb": "j002",
+              "score_a": 6,
+              "score_b": 0,
+              "vencedor": "jmntii5ehdkwg"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         },
