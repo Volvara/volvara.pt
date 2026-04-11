@@ -36,6 +36,14 @@
               "score_a": 4,
               "score_b": 1,
               "vencedor": "j006"
+            },
+            {
+              "id": "gjmnure54mjv2l",
+              "ja": "j005",
+              "jb": "j003",
+              "score_a": 1,
+              "score_b": 4,
+              "vencedor": "j003"
             }
           ],
           "classificacao": [],
