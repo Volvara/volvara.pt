@@ -20,7 +20,16 @@
             "jmntiomivpeaw",
             "j002"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmntkuziyoa3j",
+              "ja": "jmntihrfco8zm",
+              "jb": "jmntiomivpeaw",
+              "score_a": 6,
+              "score_b": 1,
+              "vencedor": "jmntihrfco8zm"
+            }
+          ],
           "classificacao": [
             {
               "pos": 1,
