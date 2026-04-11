@@ -120,7 +120,16 @@
             "jmntiou1qw765",
             "jmntiq83xrdu1"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmntkx4jwtr39",
+              "ja": "j001",
+              "jb": "jmntiou1qw765",
+              "score_a": 6,
+              "score_b": 0,
+              "vencedor": "j001"
+            }
+          ],
           "classificacao": [
             {
               "pos": 1,
