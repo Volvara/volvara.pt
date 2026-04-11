@@ -70,7 +70,16 @@
             "jmntipxsi5f0s",
             "jmntipl8cugw0"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmntkw9r5d6mo",
+              "ja": "j003",
+              "jb": "jmntipxsi5f0s",
+              "score_a": 3,
+              "score_b": 4,
+              "vencedor": "jmntipxsi5f0s"
+            }
+          ],
           "classificacao": [
             {
               "pos": 1,
