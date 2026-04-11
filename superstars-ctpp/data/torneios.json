@@ -168,7 +168,16 @@
             "j002",
             "jmntiqp3bcz0c"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmnu6r8iheei5",
+              "ja": "jmntihrfco8zm",
+              "jb": "j002",
+              "score_a": 4,
+              "score_b": 2,
+              "vencedor": "jmntihrfco8zm"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         }
