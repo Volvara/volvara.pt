@@ -2,22 +2,45 @@
   "torneios": [
     {
       "etapaId": "e001",
-      "estado": "sorteio",
+      "estado": "grupos",
       "numGrupos": 5,
-      "cabecasDeSerie": [],
+      "cabecasDeSerie": [
+        "jmntii5ehdkwg",
+        "j001",
+        "j006",
+        "jmntihrfco8zm",
+        "jmntipl8cugw0"
+      ],
       "grupos": [
         {
           "id": "g1",
           "campo": 1,
-          "jogadores": [],
-          "jogos": [],
+          "jogadores": [
+            "jmntihrfco8zm",
+            "j002",
+            "jmntiq83xrdu1"
+          ],
+          "jogos": [
+            {
+              "id": "gjmnubg0xqkq3s",
+              "ja": "jmntihrfco8zm",
+              "jb": "j002",
+              "score_a": 4,
+              "score_b": 1,
+              "vencedor": "jmntihrfco8zm"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         },
         {
           "id": "g2",
           "campo": 2,
-          "jogadores": [],
+          "jogadores": [
+            "j001",
+            "j005",
+            "jmntiou1qw765"
+          ],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -25,7 +48,11 @@
         {
           "id": "g3",
           "campo": 3,
-          "jogadores": [],
+          "jogadores": [
+            "jmntipl8cugw0",
+            "j004",
+            "jmntipxsi5f0s"
+          ],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -33,7 +60,11 @@
         {
           "id": "g4",
           "campo": 4,
-          "jogadores": [],
+          "jogadores": [
+            "j006",
+            "jmntiomivpeaw",
+            "jmntiqp3bcz0c"
+          ],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -41,7 +72,11 @@
         {
           "id": "g5",
           "campo": 5,
-          "jogadores": [],
+          "jogadores": [
+            "jmntii5ehdkwg",
+            "jmntir2jlvvot",
+            "j003"
+          ],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
