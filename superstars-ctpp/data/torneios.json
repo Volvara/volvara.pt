@@ -57,7 +57,16 @@
             "jmntiq83xrdu1",
             "j004"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmnulmqbinvid",
+              "ja": "j006",
+              "jb": "jmntiq83xrdu1",
+              "score_a": 4,
+              "score_b": 2,
+              "vencedor": "j006"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         },
