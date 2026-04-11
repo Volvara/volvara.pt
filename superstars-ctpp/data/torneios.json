@@ -57,7 +57,16 @@
             "j005",
             "jmntiou1qw765"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmnubh02mmngw",
+              "ja": "j001",
+              "jb": "j005",
+              "score_a": 5,
+              "score_b": 1,
+              "vencedor": "j001"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         },
