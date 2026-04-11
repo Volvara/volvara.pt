@@ -34,14 +34,6 @@
           ],
           "jogos": [
             {
-              "id": "gjmnuln56k8wrc",
-              "ja": "j006",
-              "jb": "j004",
-              "score_a": 5,
-              "score_b": 1,
-              "vencedor": "j006"
-            },
-            {
               "id": "gjmnulnz6jayg5",
               "ja": "j004",
               "jb": "jmntiq83xrdu1",
