@@ -220,7 +220,16 @@
             "jmntir2jlvvot",
             "j004"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmntkyz1oeh3f",
+              "ja": "j005",
+              "jb": "jmntir2jlvvot",
+              "score_a": 6,
+              "score_b": 3,
+              "vencedor": "j005"
+            }
+          ],
           "classificacao": [
             {
               "pos": 1,
