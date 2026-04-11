@@ -487,9 +487,9 @@
                 "id": "qp_sf_1",
                 "jogA": "jmntihrfco8zm",
                 "jogB": "j001",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 5,
+                "score_b": 4,
+                "vencedor": "jmntihrfco8zm"
               },
               {
                 "id": "qp_sf_2",
@@ -530,7 +530,7 @@
               {
                 "id": "qp_final",
                 "nome": "Final (1º/2º)",
-                "jogA": null,
+                "jogA": "jmntihrfco8zm",
                 "jogB": "jmntii5ehdkwg",
                 "score_a": null,
                 "score_b": null,
@@ -539,7 +539,7 @@
               {
                 "id": "qp_3lugar",
                 "nome": "3º/4º Lugar",
-                "jogA": null,
+                "jogA": "j001",
                 "jogB": "jmntiq83xrdu1",
                 "score_a": null,
                 "score_b": null,
