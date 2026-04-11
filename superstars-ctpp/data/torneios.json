@@ -57,7 +57,16 @@
             "jmntir2jlvvot",
             "j004"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmnu6nlsp60vy",
+              "ja": "j001",
+              "jb": "jmntir2jlvvot",
+              "score_a": 4,
+              "score_b": 1,
+              "vencedor": "j001"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         },
