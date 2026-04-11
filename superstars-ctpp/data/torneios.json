@@ -160,7 +160,16 @@
             "jmntiomivpeaw",
             "jmntipl8cugw0"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmnulpkloasht",
+              "ja": "jmntihrfco8zm",
+              "jb": "jmntiomivpeaw",
+              "score_a": 4,
+              "score_b": 1,
+              "vencedor": "jmntihrfco8zm"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         }
