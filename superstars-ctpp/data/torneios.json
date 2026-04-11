@@ -94,7 +94,16 @@
             "j004",
             "jmntipxsi5f0s"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmnubhuu7l00j",
+              "ja": "jmntipl8cugw0",
+              "jb": "j004",
+              "score_a": 4,
+              "score_b": 1,
+              "vencedor": "jmntipl8cugw0"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         },
