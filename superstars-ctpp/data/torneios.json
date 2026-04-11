@@ -53,11 +53,11 @@
             },
             {
               "pos": 2,
-              "jogId": "jmntiomivpeaw"
+              "jogId": "j002"
             },
             {
               "pos": 3,
-              "jogId": "j002"
+              "jogId": "jmntiomivpeaw"
             }
           ],
           "classificacaoEditada": false
@@ -99,7 +99,7 @@
           "classificacao": [
             {
               "pos": 1,
-              "jogId": "j003"
+              "jogId": "jmntipxsi5f0s"
             },
             {
               "pos": 2,
@@ -107,7 +107,7 @@
             },
             {
               "pos": 3,
-              "jogId": "jmntipxsi5f0s"
+              "jogId": "j003"
             }
           ],
           "classificacaoEditada": false
@@ -307,7 +307,7 @@
           },
           {
             "pos": 9,
-            "jogId": "jmntiomivpeaw",
+            "jogId": "j002",
             "bye": false
           },
           {
@@ -342,7 +342,7 @@
           },
           {
             "pos": 16,
-            "jogId": "j003",
+            "jogId": "jmntipxsi5f0s",
             "bye": false
           }
         ],
@@ -359,7 +359,7 @@
                 "score_b": null,
                 "vencedor": null,
                 "jogA": "jmntihrfco8zm",
-                "jogB": "j003",
+                "jogB": "jmntipxsi5f0s",
                 "bye": false
               },
               {
@@ -436,7 +436,7 @@
                 "score_b": null,
                 "vencedor": null,
                 "jogA": "jmntipl8cugw0",
-                "jogB": "jmntiomivpeaw",
+                "jogB": "j002",
                 "bye": false
               }
             ]
@@ -578,7 +578,7 @@
         "posicoes": [
           {
             "pos": 1,
-            "jogId": "j002",
+            "jogId": "jmntiomivpeaw",
             "bye": false
           },
           {
@@ -613,7 +613,7 @@
           },
           {
             "pos": 8,
-            "jogId": "jmntipxsi5f0s",
+            "jogId": "j003",
             "bye": false
           }
         ],
