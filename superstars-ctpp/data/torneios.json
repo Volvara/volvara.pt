@@ -2,7 +2,7 @@
   "torneios": [
     {
       "etapaId": "e001",
-      "estado": "concluido",
+      "estado": "grupos",
       "numGrupos": 5,
       "cabecasDeSerie": [
         "jmntii5ehdkwg",
@@ -16,9 +16,9 @@
           "id": "g1",
           "campo": 1,
           "jogadores": [
-            "jmntihrfco8zm",
-            "j002",
-            "jmntiq83xrdu1"
+            "jmntipl8cugw0",
+            "j004",
+            "jmntiomivpeaw"
           ],
           "jogos": [
             {
@@ -66,9 +66,9 @@
           "id": "g2",
           "campo": 2,
           "jogadores": [
-            "j001",
-            "j005",
-            "jmntiou1qw765"
+            "j006",
+            "jmntipxsi5f0s",
+            "jmntiqp3bcz0c"
           ],
           "jogos": [
             {
@@ -116,19 +116,11 @@
           "id": "g3",
           "campo": 3,
           "jogadores": [
-            "jmntipl8cugw0",
-            "j004",
-            "jmntipxsi5f0s"
+            "jmntii5ehdkwg",
+            "jmntiou1qw765",
+            "j005"
           ],
           "jogos": [
-            {
-              "id": "gjmnubhuu7l00j",
-              "ja": "jmntipl8cugw0",
-              "jb": "j004",
-              "score_a": 4,
-              "score_b": 1,
-              "vencedor": "jmntipl8cugw0"
-            },
             {
               "id": "gjmnubi5v6h87f",
               "ja": "jmntipl8cugw0",
@@ -166,9 +158,9 @@
           "id": "g4",
           "campo": 4,
           "jogadores": [
-            "j006",
-            "jmntiomivpeaw",
-            "jmntiqp3bcz0c"
+            "j001",
+            "j002",
+            "jmntiq83xrdu1"
           ],
           "jogos": [
             {
@@ -216,7 +208,7 @@
           "id": "g5",
           "campo": 5,
           "jogadores": [
-            "jmntii5ehdkwg",
+            "jmntihrfco8zm",
             "jmntir2jlvvot",
             "j003"
           ],
