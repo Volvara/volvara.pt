@@ -16,19 +16,11 @@
           "id": "g1",
           "campo": 1,
           "jogadores": [
-            "jmntipl8cugw0",
-            "j004",
-            "jmntiomivpeaw"
+            "jmntii5ehdkwg",
+            "jmntipxsi5f0s",
+            "j003"
           ],
           "jogos": [
-            {
-              "id": "gjmnubg0xqkq3s",
-              "ja": "jmntihrfco8zm",
-              "jb": "j002",
-              "score_a": 4,
-              "score_b": 1,
-              "vencedor": "jmntihrfco8zm"
-            },
             {
               "id": "gjmnubgc9is2g0",
               "ja": "jmntihrfco8zm",
@@ -66,9 +58,9 @@
           "id": "g2",
           "campo": 2,
           "jogadores": [
-            "j006",
-            "jmntipxsi5f0s",
-            "jmntiqp3bcz0c"
+            "j001",
+            "jmntiomivpeaw",
+            "jmntiq83xrdu1"
           ],
           "jogos": [
             {
@@ -116,9 +108,9 @@
           "id": "g3",
           "campo": 3,
           "jogadores": [
-            "jmntii5ehdkwg",
-            "jmntiou1qw765",
-            "j005"
+            "j006",
+            "j004",
+            "jmntir2jlvvot"
           ],
           "jogos": [
             {
@@ -158,9 +150,9 @@
           "id": "g4",
           "campo": 4,
           "jogadores": [
-            "j001",
-            "j002",
-            "jmntiq83xrdu1"
+            "jmntipl8cugw0",
+            "j005",
+            "j002"
           ],
           "jogos": [
             {
@@ -209,8 +201,8 @@
           "campo": 5,
           "jogadores": [
             "jmntihrfco8zm",
-            "jmntir2jlvvot",
-            "j003"
+            "jmntiqp3bcz0c",
+            "jmntiou1qw765"
           ],
           "jogos": [
             {
