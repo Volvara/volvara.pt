@@ -95,16 +95,7 @@
             "j006",
             "jmntiqp3bcz0c"
           ],
-          "jogos": [
-            {
-              "id": "gjmntj14y7ds87",
-              "ja": "jmntiqp3bcz0c",
-              "jb": "j006",
-              "score_a": 4,
-              "score_b": 1,
-              "vencedor": "jmntiqp3bcz0c"
-            }
-          ],
+          "jogos": [],
           "classificacao": [
             {
               "pos": 1,
