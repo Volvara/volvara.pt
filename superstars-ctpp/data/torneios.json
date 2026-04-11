@@ -641,9 +641,9 @@
                 "posB": 4,
                 "jogA": "jmntiq83xrdu1",
                 "jogB": "j002",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null,
+                "score_a": 4,
+                "score_b": 1,
+                "vencedor": "jmntiq83xrdu1",
                 "bye": false
               },
               {
@@ -677,7 +677,7 @@
               {
                 "id": "qb_sf_1",
                 "jogA": "jmntiou1qw765",
-                "jogB": null,
+                "jogB": "jmntiq83xrdu1",
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null
