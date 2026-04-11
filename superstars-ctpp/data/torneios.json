@@ -4,22 +4,12 @@
       "etapaId": "e001",
       "estado": "sorteio",
       "numGrupos": 5,
-      "cabecasDeSerie": [
-        "j001",
-        "jmntii5ehdkwg",
-        "jmntihrfco8zm",
-        "j003",
-        "j005"
-      ],
+      "cabecasDeSerie": [],
       "grupos": [
         {
           "id": "g1",
           "campo": 1,
-          "jogadores": [
-            "jmntihrfco8zm",
-            "jmntiomivpeaw",
-            "j002"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -27,11 +17,7 @@
         {
           "id": "g2",
           "campo": 2,
-          "jogadores": [
-            "j003",
-            "jmntipxsi5f0s",
-            "jmntipl8cugw0"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -39,11 +25,7 @@
         {
           "id": "g3",
           "campo": 3,
-          "jogadores": [
-            "j001",
-            "jmntiou1qw765",
-            "jmntiq83xrdu1"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -51,11 +33,7 @@
         {
           "id": "g4",
           "campo": 4,
-          "jogadores": [
-            "jmntii5ehdkwg",
-            "j006",
-            "jmntiqp3bcz0c"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -63,11 +41,7 @@
         {
           "id": "g5",
           "campo": 5,
-          "jogadores": [
-            "j005",
-            "jmntir2jlvvot",
-            "j004"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
