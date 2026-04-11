@@ -131,7 +131,16 @@
             "jmntipxsi5f0s",
             "j003"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmnu6q8obshof",
+              "ja": "jmntii5ehdkwg",
+              "jb": "jmntipxsi5f0s",
+              "score_a": 6,
+              "score_b": 0,
+              "vencedor": "jmntii5ehdkwg"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         },
