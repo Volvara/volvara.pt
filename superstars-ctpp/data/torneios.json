@@ -20,16 +20,7 @@
             "jmntipxsi5f0s",
             "j003"
           ],
-          "jogos": [
-            {
-              "id": "gjmnudrnyxhenh",
-              "ja": "jmntipxsi5f0s",
-              "jb": "j003",
-              "score_a": 3,
-              "score_b": 6,
-              "vencedor": "j003"
-            }
-          ],
+          "jogos": [],
           "classificacao": [
             {
               "pos": 1,
