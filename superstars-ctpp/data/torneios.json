@@ -568,9 +568,9 @@
                 "nome": "9º/10º Lugar",
                 "jogA": "jmntiou1qw765",
                 "jogB": "jmntir2jlvvot",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 6,
+                "score_b": 3,
+                "vencedor": "jmntiou1qw765"
               }
             ]
           }
