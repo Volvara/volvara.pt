@@ -368,9 +368,9 @@
                 "posB": 4,
                 "jogA": "j005",
                 "jogB": "jmntiqp3bcz0c",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null,
+                "score_a": 4,
+                "score_b": 1,
+                "vencedor": "j005",
                 "bye": false
               },
               {
@@ -641,9 +641,9 @@
                 "posB": 4,
                 "jogA": "jmntiou1qw765",
                 "jogB": "j004",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null,
+                "score_a": 6,
+                "score_b": 3,
+                "vencedor": "jmntiou1qw765",
                 "bye": false
               },
               {
@@ -686,9 +686,9 @@
                 "id": "qb_sf_2",
                 "jogA": "j006",
                 "jogB": "j003",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 6,
+                "score_b": 3,
+                "vencedor": "j006"
               }
             ]
           },
@@ -699,8 +699,8 @@
               {
                 "id": "qb_final",
                 "nome": "Final (11º/12º)",
-                "jogA": null,
-                "jogB": null,
+                "jogA": "jmntiomivpeaw",
+                "jogB": "j006",
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null
@@ -709,7 +709,7 @@
                 "id": "qb_1314",
                 "nome": "13º/14º Lugar",
                 "jogA": null,
-                "jogB": null,
+                "jogB": "j003",
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null
