@@ -36,7 +36,9 @@
       "hora": "08:30",
       "limite": 15,
       "estado": "pendente",
-      "inscritos": []
+      "inscritos": [
+        "j001"
+      ]
     },
     {
       "id": "e003",
