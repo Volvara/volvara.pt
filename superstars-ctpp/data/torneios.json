@@ -550,9 +550,9 @@
                 "nome": "5º/6º Lugar",
                 "jogA": "j006",
                 "jogB": "jmntiq83xrdu1",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 5,
+                "score_b": 1,
+                "vencedor": "j006"
               },
               {
                 "id": "qp_78",
