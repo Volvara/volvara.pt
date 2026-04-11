@@ -532,9 +532,9 @@
                 "nome": "Final (1º/2º)",
                 "jogA": "jmntihrfco8zm",
                 "jogB": "jmntii5ehdkwg",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 6,
+                "score_b": 2,
+                "vencedor": "jmntihrfco8zm"
               },
               {
                 "id": "qp_3lugar",
