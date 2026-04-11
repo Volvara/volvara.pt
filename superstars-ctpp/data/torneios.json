@@ -412,9 +412,9 @@
                 "posB": 12,
                 "jogA": "jmntir2jlvvot",
                 "jogB": "jmntii5ehdkwg",
-                "score_a": 2,
-                "score_b": 5,
-                "vencedor": "jmntii5ehdkwg",
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null,
                 "bye": false
               },
               {
@@ -451,15 +451,15 @@
                 "jogB": null,
                 "score_a": null,
                 "score_b": null,
-                "vencedor": "jmntihrfco8zm"
+                "vencedor": null
               },
               {
                 "id": "qp_qf_2",
                 "jogA": "j001",
                 "jogB": "jmntipl8cugw0",
-                "score_a": 6,
-                "score_b": 3,
-                "vencedor": "j001"
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null
               },
               {
                 "id": "qp_qf_3",
@@ -467,15 +467,15 @@
                 "jogB": null,
                 "score_a": null,
                 "score_b": null,
-                "vencedor": "j002"
+                "vencedor": null
               },
               {
                 "id": "qp_qf_4",
                 "jogA": "jmntiq83xrdu1",
                 "jogB": "jmntipxsi5f0s",
-                "score_a": 3,
-                "score_b": 4,
-                "vencedor": "jmntipxsi5f0s"
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null
               }
             ]
           },
@@ -485,16 +485,16 @@
             "jogos": [
               {
                 "id": "qp_sf_1",
-                "jogA": "jmntihrfco8zm",
-                "jogB": "j001",
+                "jogA": null,
+                "jogB": null,
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null
               },
               {
                 "id": "qp_sf_2",
-                "jogA": "j002",
-                "jogB": "jmntipxsi5f0s",
+                "jogA": null,
+                "jogB": null,
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null
@@ -508,7 +508,7 @@
               {
                 "id": "qp_sfp_1",
                 "jogA": null,
-                "jogB": "jmntipl8cugw0",
+                "jogB": null,
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null
@@ -516,7 +516,7 @@
               {
                 "id": "qp_sfp_2",
                 "jogA": null,
-                "jogB": "jmntiq83xrdu1",
+                "jogB": null,
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null
@@ -641,9 +641,9 @@
                 "posB": 4,
                 "jogA": "jmntiou1qw765",
                 "jogB": "j004",
-                "score_a": 6,
-                "score_b": 3,
-                "vencedor": "jmntiou1qw765",
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null,
                 "bye": false
               },
               {
@@ -680,15 +680,15 @@
                 "jogB": null,
                 "score_a": null,
                 "score_b": null,
-                "vencedor": "jmntiomivpeaw"
+                "vencedor": null
               },
               {
                 "id": "qb_sf_2",
                 "jogA": "j006",
                 "jogB": "j003",
-                "score_a": 6,
-                "score_b": 3,
-                "vencedor": "j006"
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null
               }
             ]
           },
@@ -699,8 +699,8 @@
               {
                 "id": "qb_final",
                 "nome": "Final (11º/12º)",
-                "jogA": "jmntiomivpeaw",
-                "jogB": "j006",
+                "jogA": null,
+                "jogB": null,
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null
@@ -709,7 +709,7 @@
                 "id": "qb_1314",
                 "nome": "13º/14º Lugar",
                 "jogA": null,
-                "jogB": "j003",
+                "jogB": null,
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null
