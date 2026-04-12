@@ -2,14 +2,24 @@
   "torneios": [
     {
       "etapaId": "e001",
-      "estado": "sorteio",
+      "estado": "grupos",
       "numGrupos": 5,
-      "cabecasDeSerie": [],
+      "cabecasDeSerie": [
+        "j001",
+        "j006",
+        "jmntihrfco8zm",
+        "jmntii5ehdkwg",
+        "jmntir2jlvvot"
+      ],
       "grupos": [
         {
           "id": "g1",
           "campo": 1,
-          "jogadores": [],
+          "jogadores": [
+            "jmntihrfco8zm",
+            "jmntiqp3bcz0c",
+            "j002"
+          ],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -17,7 +27,11 @@
         {
           "id": "g2",
           "campo": 2,
-          "jogadores": [],
+          "jogadores": [
+            "jmntir2jlvvot",
+            "jmnulp1rji487",
+            "j005"
+          ],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -25,7 +39,11 @@
         {
           "id": "g3",
           "campo": 3,
-          "jogadores": [],
+          "jogadores": [
+            "jmntii5ehdkwg",
+            "j003",
+            "jmntiou1qw765"
+          ],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -33,15 +51,32 @@
         {
           "id": "g4",
           "campo": 4,
-          "jogadores": [],
-          "jogos": [],
+          "jogadores": [
+            "j001",
+            "jmntiomivpeaw",
+            "j004"
+          ],
+          "jogos": [
+            {
+              "id": "gjmnvo7p8hf43n",
+              "ja": "j001",
+              "jb": "jmntiomivpeaw",
+              "score_a": 5,
+              "score_b": 3,
+              "vencedor": "j001"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         },
         {
           "id": "g5",
           "campo": 5,
-          "jogadores": [],
+          "jogadores": [
+            "j006",
+            "jmnvd7pc2bbhk",
+            "jmntipxsi5f0s"
+          ],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
