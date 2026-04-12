@@ -168,7 +168,16 @@
             "jmnvd7pc2bbhk",
             "jmntipxsi5f0s"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmnvq03w4eila",
+              "ja": "jmnvd7pc2bbhk",
+              "jb": "j006",
+              "score_a": 5,
+              "score_b": 2,
+              "vencedor": "jmnvd7pc2bbhk"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         }
