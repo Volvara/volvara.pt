@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super Stars CTPP — Plano de Torneio Flexível</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ni: #0D1B2A;
+  --sl: #1B2B3A;
+  --mi: #243447;
+  --hi: #2d3f52;
+  --g:  #2D6A4F;
+  --gl: #40916C;
+  --go: #F4A828;
+  --gop: rgba(244,168,40,.12);
+  --cy: #C97B4B;
+  --red: #C0392B;
+  --tx: #E8E4DE;
+  --mu: rgba(232,228,222,.55);
+  --bd: rgba(232,228,222,.1);
+  --bd2: rgba(232,228,222,.2);
+  --cr: #F7F4EF;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--ni);
+  color: var(--tx);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+/* ── HEADER ── */
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 48px;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand-icon {
+  width: 52px; height: 52px;
+  background: var(--go);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px; color: var(--ni); letter-spacing: .04em;
+}
+.brand-text .title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px; letter-spacing: .08em;
+  color: var(--tx); line-height: 1;
+}
+.brand-text .title span { color: var(--go); }
+.brand-text .sub {
+  font-size: 12px; color: var(--mu);
+  font-family: 'DM Mono', monospace;
+  letter-spacing: .06em; text-transform: uppercase; margin-top: 3px;
+}
+.header-meta {
+  text-align: right;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; color: var(--mu);
+  line-height: 1.8;
+}
+
+/* ── SECTION TITLE ── */
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px; letter-spacing: .1em;
+  color: var(--go); text-transform: uppercase;
+  margin-bottom: 16px; margin-top: 40px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--bd2);
+}
+
+/* ── INTRO ── */
+.intro {
+  background: var(--sl);
+  border: 1px solid var(--bd2);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+}
+.intro p { color: rgba(232,228,222,.8); font-size: 14px; line-height: 1.7; }
+.intro p + p { margin-top: 10px; }
+
+/* ── SLIDER CONTROL ── */
+.ctrl-card {
+  background: var(--sl);
+  border: 1px solid var(--bd2);
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 28px;
+}
+.ctrl-row {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.ctrl-label {
+  font-size: 13px; color: var(--mu);
+  font-family: 'DM Mono', monospace;
+  text-transform: uppercase; letter-spacing: .05em;
+  white-space: nowrap;
+}
+input[type=range] {
+  -webkit-appearance: none;
+  flex: 1; min-width: 160px; max-width: 280px;
+  height: 4px;
+  background: var(--bd2);
+  border-radius: 2px; outline: none; cursor: pointer;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px; height: 18px;
+  background: var(--go);
+  border-radius: 50%;
+  border: 2px solid var(--ni);
+  cursor: pointer;
+}
+.n-display {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px; color: var(--go);
+  line-height: 1; min-width: 44px; text-align: center;
+}
+.n-label {
+  font-size: 11px; color: var(--mu);
+  font-family: 'DM Mono', monospace;
+  text-transform: uppercase; margin-top: 2px; text-align: center;
+}
+.config-desc {
+  font-size: 13px; color: var(--tx);
+  font-family: 'DM Mono', monospace;
+  padding: 6px 12px; background: var(--gop);
+  border-radius: 6px; margin-top: 12px;
+  display: inline-block;
+}
+
+/* ── SUMMARY CARDS ── */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+@media (max-width: 600px) { .summary-grid { grid-template-columns: repeat(2,1fr); } }
+.sum-card {
+  background: var(--mi);
+  border: 1px solid var(--bd);
+  border-radius: 10px;
+  padding: 14px;
+}
+.sum-card .label {
+  font-size: 10px; color: var(--mu);
+  font-family: 'DM Mono', monospace;
+  text-transform: uppercase; letter-spacing: .07em; margin-bottom: 6px;
+}
+.sum-card .value {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px; color: var(--go); line-height: 1;
+}
+.sum-card .detail {
+  font-size: 11px; color: var(--mu); margin-top: 3px;
+}
+
+/* ── PHASE BLOCKS ── */
+.phases { display: flex; flex-direction: column; gap: 0; }
+.phase-block {
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.phase-header {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 18px;
+  cursor: pointer;
+}
+.phase-header.blue  { background: rgba(45,106,79,.18); border-bottom: 1px solid rgba(45,106,79,.3); }
+.phase-header.amber { background: rgba(244,168,40,.12); border-bottom: 1px solid rgba(244,168,40,.25); }
+.phase-header.cy    { background: rgba(201,123,75,.12); border-bottom: 1px solid rgba(201,123,75,.25); }
+.phase-header.pts   { background: rgba(232,228,222,.06); border-bottom: 1px solid var(--bd); }
+.phase-badge {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px; letter-spacing: .08em;
+  padding: 3px 10px; border-radius: 20px;
+}
+.badge-blue  { background: rgba(45,106,79,.3);  color: #74C69D; }
+.badge-amber { background: rgba(244,168,40,.25); color: var(--go); }
+.badge-cy    { background: rgba(201,123,75,.2);  color: var(--cy); }
+.badge-pts   { background: rgba(232,228,222,.1); color: var(--mu); }
+.phase-range {
+  font-size: 12px; color: var(--mu);
+  font-family: 'DM Mono', monospace;
+  margin-left: auto;
+}
+.phase-body {
+  padding: 16px 18px;
+  background: var(--sl);
+}
+
+/* groups grid */
+.groups-grid {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;
+}
+.group-pill {
+  background: var(--mi);
+  border: 1px solid var(--bd2);
+  border-radius: 8px;
+  padding: 8px 12px;
+  min-width: 110px;
+}
+.group-pill .gn {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px; color: var(--go); letter-spacing: .05em;
+}
+.group-pill .gs {
+  font-size: 11px; color: var(--mu);
+  font-family: 'DM Mono', monospace; margin-top: 1px;
+}
+
+/* bracket pills */
+.bracket-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.bp {
+  font-size: 11px; padding: 3px 9px;
+  border-radius: 5px; font-family: 'DM Mono', monospace;
+}
+.bp-g  { background: rgba(45,106,79,.2);  color: #74C69D;  border: 1px solid rgba(45,106,79,.3); }
+.bp-a  { background: rgba(244,168,40,.15); color: var(--go); border: 1px solid rgba(244,168,40,.25); }
+.bp-c  { background: rgba(201,123,75,.15); color: var(--cy); border: 1px solid rgba(201,123,75,.25); }
+
+/* pontuação */
+.pts-row { display: flex; flex-wrap: wrap; gap: 5px; }
+.pts-pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; padding: 3px 8px;
+  background: var(--mi); border-radius: 5px;
+  border: 1px solid var(--bd);
+  color: var(--mu);
+}
+.pts-pill strong { color: var(--go); }
+
+/* ── CHANGES BOX ── */
+.changes-box {
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-top: 16px;
+  border: 1px solid var(--bd);
+}
+.changes-box.ok   { border-color: rgba(45,106,79,.4);  background: rgba(45,106,79,.08); }
+.changes-box.warn { border-color: rgba(244,168,40,.3); background: rgba(244,168,40,.06); }
+.changes-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px; letter-spacing: .08em;
+  margin-bottom: 10px;
+}
+.changes-box.ok   .changes-title { color: #74C69D; }
+.changes-box.warn .changes-title { color: var(--go); }
+.change-item {
+  font-size: 12px; color: rgba(232,228,222,.7);
+  padding: 3px 0 3px 14px;
+  position: relative; line-height: 1.5;
+}
+.change-item::before {
+  content: '—'; position: absolute; left: 0;
+  color: var(--bd2);
+}
+.change-item.c-ok   { color: #74C69D; }
+.change-item.c-warn { color: #F4A828; }
+.change-item.c-err  { color: #e07070; }
+
+/* ── CODE CHANGES TABLE ── */
+.code-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 12px; margin-top: 12px;
+}
+.code-table th {
+  text-align: left; padding: 8px 12px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; text-transform: uppercase;
+  letter-spacing: .06em; color: var(--mu);
+  border-bottom: 1px solid var(--bd2);
+}
+.code-table td {
+  padding: 8px 12px; color: rgba(232,228,222,.8);
+  border-bottom: 1px solid var(--bd);
+  vertical-align: top; line-height: 1.5;
+}
+.code-table tr:last-child td { border-bottom: none; }
+.code-table td:first-child {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; color: var(--go);
+  white-space: nowrap;
+}
+.tag { display: inline-block; font-size: 10px; padding: 1px 6px; border-radius: 3px; font-weight: 500; vertical-align: middle; margin-left: 4px; }
+.tag-ok   { background: rgba(45,106,79,.3);  color: #74C69D; }
+.tag-new  { background: rgba(244,168,40,.2); color: var(--go); }
+.tag-fix  { background: rgba(192,57,43,.2);  color: #e07070; }
+
+/* ── FOOTER ── */
+.footer {
+  margin-top: 60px; padding-top: 20px;
+  border-top: 1px solid var(--bd);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+}
+.footer-brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px; letter-spacing: .08em; color: var(--mu);
+}
+.footer-brand span { color: var(--go); }
+.footer-note {
+  font-size: 11px; color: var(--mu);
+  font-family: 'DM Mono', monospace;
+}
+
+/* print */
+@media print {
+  body { background: white; color: #0D1B2A; }
+  .page { padding: 24px; }
+  input[type=range] { display: none; }
+  .ctrl-card { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="brand">
+      <div class="brand-icon">SS</div>
+      <div class="brand-text">
+        <div class="title">SUPER <span>STARS</span></div>
+        <div class="sub">Clube de Ténis e Padel de Portimão</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <div>Plano de Torneio Flexível</div>
+      <div>Versão 1.0 — Abril 2026</div>
+      <div>Director: CTPP</div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro">
+    <p>Este documento descreve como o sistema Super Stars CTPP se adapta ao número de participantes de cada etapa. A estrutura base foi desenhada e testada com 15 jogadores. Para etapas com menos inscritos, o sistema ajusta automaticamente o número de grupos, a dimensão dos quadros e a tabela de pontuação, garantindo sempre uma classificação completa do 1.º ao último lugar.</p>
+    <p>Usa o selector abaixo para explorar cada configuração. As alterações de código necessárias estão indicadas para cada caso.</p>
+  </div>
+
+  <!-- INTERACTIVE SELECTOR -->
+  <div class="ctrl-card">
+    <div class="ctrl-row">
+      <span class="ctrl-label">Participantes na etapa:</span>
+      <input type="range" min="8" max="15" value="15" id="slider" oninput="update(+this.value)">
+      <div>
+        <div class="n-display" id="nbadge">15</div>
+        <div class="n-label">jogadores</div>
+      </div>
+    </div>
+    <div id="config-desc"></div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="summary-grid" id="summary-grid"></div>
+
+  <!-- PHASES -->
+  <div class="phases" id="phases"></div>
+
+  <!-- CHANGES -->
+  <div id="changes-box"></div>
+
+  <!-- CODE CHANGES TABLE -->
+  <div class="section-title">O que precisa de ser alterado no código</div>
+  <div id="code-table-wrap"></div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">SUPER <span>STARS</span> CTPP</div>
+    <div class="footer-note">Documento interno — Volvara © 2026</div>
+  </div>
+
+</div>
+
+<script>
+const PONTUACAO_BASE = [18,16,14,13,12,11,10,9,8,7,6,5,4,3,2];
+
+function groupSizes(n, g) {
+  const base = Math.floor(n/g);
+  const extra = n % g;
+  return Array.from({length:g}, (_,i) => base + (i < extra ? 1 : 0));
+}
+
+function getConfig(n) {
+  const configs = {
+    15: {g:5, qpSlots:16, qbSlots:8},
+    14: {g:4, qpSlots:16, qbSlots:8},
+    13: {g:4, qpSlots:16, qbSlots:8},
+    12: {g:4, qpSlots:8,  qbSlots:4},
+    11: {g:3, qpSlots:8,  qbSlots:4},
+    10: {g:3, qpSlots:8,  qbSlots:4},
+     9: {g:3, qpSlots:8,  qbSlots:4},
+     8: {g:2, qpSlots:8,  qbSlots:2},
+  };
+  return configs[n] || configs[15];
+}
+
+function qpRondas(qpSlots, g) {
+  if(qpSlots===16) return [
+    {label:'R1 (Oitavos)',  n: 8,  type:'g'},
+    {label:'QF',            n: 4,  type:'g'},
+    {label:'Meias',         n: 2,  type:'g'},
+    {label:'Final 1º/2º',  n: 1,  type:'a'},
+    {label:'3º/4º',        n: 1,  type:'a'},
+    {label:'Meias 5–8',    n: 2,  type:'a'},
+    {label:'5º/6º',        n: 1,  type:'a'},
+    {label:'7º/8º',        n: 1,  type:'a'},
+    {label:'9º/10º',       n: 1,  type:'a'},
+  ];
+  return [
+    {label:'QF (Quartos)', n: 4,  type:'g'},
+    {label:'Meias',        n: 2,  type:'g'},
+    {label:'Final 1º/2º', n: 1,  type:'a'},
+    {label:'3º/4º',       n: 1,  type:'a'},
+    {label:'Meias 5–6',   n: 2,  type:'a'},
+    {label:'5º/6º',       n: 1,  type:'a'},
+    {label:'7º/8º',       n: 1,  type:'a'},
+  ];
+}
+
+function qbRondas(qbSlots) {
+  if(qbSlots===8) return [
+    {label:'QF',           n:4, type:'c'},
+    {label:'Meias',        n:2, type:'c'},
+    {label:'Final 11º/12º',n:1, type:'a'},
+    {label:'13º/14º',      n:1, type:'a'},
+    {label:'15º',          n:1, type:'a'},
+  ];
+  if(qbSlots===4) return [
+    {label:'Meias',        n:2, type:'c'},
+    {label:'Final',        n:1, type:'a'},
+    {label:'3º/4º QB',     n:1, type:'a'},
+  ];
+  return [
+    {label:'Jogo directo', n:1, type:'c'},
+  ];
+}
+
+function codeChanges(n) {
+  const c = getConfig(n);
+  const rows = [];
+
+  if(n===15) {
+    rows.push({file:'TorneioEngine',  desc:'Sem alterações necessárias', tag:'ok'});
+    rows.push({file:'QP_POSICOES[5]', desc:'Já definido — 10 jogadores em 16 slots', tag:'ok'});
+    rows.push({file:'QB_POSICOES[5]', desc:'Já definido — 5 terceiros em 8 slots', tag:'ok'});
+    rows.push({file:'PONTUACAO',      desc:'Array de 15 posições já configurado', tag:'ok'});
+    return rows;
+  }
+
+  rows.push({file:'criarTorneio()',   desc:`Recebe numGrupos=${c.g} — já suportado pelo admin`, tag:'ok'});
+
+  const qpMapExists = [2,3,4,5].includes(c.g);
+  const qbMapExists = [2,3,4,5].includes(c.g);
+  rows.push({file:`QP_POSICOES[${c.g}]`, desc: qpMapExists
+    ? `Mapa já definido para ${c.g} grupos — ${groupSizes(n,c.g).reduce((s)=>s,0)*2} posições reais`
+    : `Precisa de ser criado — mapeamento de ${c.g} grupos para ${c.qpSlots} slots`, tag: qpMapExists?'ok':'new'});
+
+  rows.push({file:`QB_POSICOES[${c.g}]`, desc: qbMapExists
+    ? `Mapa já definido para ${c.g} grupos`
+    : `Precisa de ser criado`, tag: qbMapExists?'ok':'new'});
+
+  rows.push({file:'gerarRondasQP()', desc:`${c.qpSlots} slots — lógica existente suporta ${c.qpSlots===16?'16 (≥4 grupos)':'8 (<4 grupos)'}`, tag:'ok'});
+
+  rows.push({file:'calcClassificacaoFinal()', desc:`Precisa garantir propagação correcta com ${Math.max(0, c.qpSlots - c.g*2)} byes no QP e ${Math.max(0, c.qbSlots - c.g)} byes no QB`, tag: n<15?'fix':'ok'});
+
+  rows.push({file:'PONTUACAO',      desc:`Encurtar para ${n} posições — array já suporta slice dinâmico`, tag:'ok'});
+
+  const sizes = groupSizes(n, c.g);
+  const mixed = new Set(sizes).size > 1;
+  if(mixed) rows.push({file:'executarSorteio()', desc:`Grupos de tamanho misto (${sizes.join('+')}): distribuição das cabeças de série requer atenção`, tag:'fix'});
+
+  return rows;
+}
+
+function update(n) {
+  document.getElementById('nbadge').textContent = n;
+  const c = getConfig(n);
+  const sizes = groupSizes(n, c.g);
+  const uniqueSizes = [...new Set(sizes)];
+  const qpByes = Math.max(0, c.qpSlots - c.g*2);
+  const qbByes = Math.max(0, c.qbSlots - c.g);
+  const totalGrupoJogos = sizes.reduce((s,sz)=>s+sz*(sz-1)/2, 0);
+  const qpTop = c.g*2;
+  const qbTop = Math.min(n, qpTop + c.g);
+  const pts = PONTUACAO_BASE.slice(0, n);
+
+  const configStr = `${c.g} grupos · ${uniqueSizes.length>1? sizes.join('+') : sizes[0]+'×'+c.g} jogadores · QP${c.qpSlots} + QB${c.qbSlots}`;
+  document.getElementById('config-desc').innerHTML = `<span class="config-desc">${configStr}</span>`;
+
+  // Summary cards
+  document.getElementById('summary-grid').innerHTML = [
+    {l:'Grupos', v:c.g, d: uniqueSizes.length>1 ? sizes.join('+') : `${sizes[0]} p/grupo`},
+    {l:'Jogos grupo', v:totalGrupoJogos, d:'round robin'},
+    {l:'QP slots', v:c.qpSlots, d:`${c.g*2} reais + ${qpByes} byes`},
+    {l:'QB slots', v:c.qbSlots, d:`${c.g} reais + ${qbByes} byes`},
+  ].map(({l,v,d})=>`<div class="sum-card"><div class="label">${l}</div><div class="value">${v}</div><div class="detail">${d}</div></div>`).join('');
+
+  // Phase 1: Groups
+  const groupsHtml = sizes.map((sz,i)=>`<div class="group-pill"><div class="gn">Grupo ${i+1}</div><div class="gs">${sz} jogadores · ${sz*(sz-1)/2} jogos</div></div>`).join('');
+
+  // Phase 2: QP
+  const qpR = qpRondas(c.qpSlots, c.g);
+  const qpPills = qpR.map(r=>`<span class="bp bp-${r.type}">${r.label}</span>`).join('');
+
+  // Phase 3: QB
+  const qbR = qbRondas(c.qbSlots);
+  const qbPills = qbR.map(r=>`<span class="bp bp-${r.type}">${r.label}</span>`).join('');
+
+  // Points
+  const ptsPills = pts.map((p,i)=>`<div class="pts-pill">${i+1}.º <strong>${p}</strong></div>`).join('');
+
+  document.getElementById('phases').innerHTML = `
+    <div class="phase-block">
+      <div class="phase-header blue">
+        <span class="phase-badge badge-blue">Fase de Grupos</span>
+        <span style="font-size:12px;color:rgba(232,228,222,.6);font-family:'DM Mono',monospace">Top 2 → QP · 3.º → QB</span>
+        <span class="phase-range">${n} jogadores</span>
+      </div>
+      <div class="phase-body">
+        <div class="groups-grid">${groupsHtml}</div>
+        <div style="font-size:12px;color:var(--mu)">Cada grupo joga todos contra todos · ${sizes[0]} jogadores = ${sizes[0]*(sizes[0]-1)/2} jogos por grupo</div>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-header amber">
+        <span class="phase-badge badge-amber">Quadro Principal</span>
+        <span style="font-size:12px;color:rgba(232,228,222,.6);font-family:'DM Mono',monospace">${c.qpSlots} slots · ${qpByes} byes</span>
+        <span class="phase-range">1.º – ${qpTop}.º lugar</span>
+      </div>
+      <div class="phase-body">
+        <div class="bracket-pills">${qpPills}</div>
+        <div style="font-size:12px;color:var(--mu);margin-top:10px">
+          Cores: <span class="bp bp-g" style="font-size:10px">Main draw</span>
+          <span class="bp bp-a" style="font-size:10px">Posições perdedores</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-header cy">
+        <span class="phase-badge badge-cy">Quadro B</span>
+        <span style="font-size:12px;color:rgba(232,228,222,.6);font-family:'DM Mono',monospace">${c.qbSlots} slots · ${qbByes} byes</span>
+        <span class="phase-range">${qpTop+1}.º – ${qbTop}.º lugar</span>
+      </div>
+      <div class="phase-body">
+        <div class="bracket-pills">${qbPills}</div>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-header pts">
+        <span class="phase-badge badge-pts">Pontuação de Temporada</span>
+        <span class="phase-range">${n} posições</span>
+      </div>
+      <div class="phase-body">
+        <div class="pts-row">${ptsPills}</div>
+      </div>
+    </div>
+  `;
+
+  // Changes
+  const mixed = new Set(sizes).size > 1;
+  const warn = n<15 && (mixed || n<12);
+  document.getElementById('changes-box').innerHTML = n===15
+    ? `<div class="changes-box ok"><div class="changes-title">Configuração base — totalmente funcional</div>
+        <div class="change-item c-ok">Todos os mapas QP_POSICOES e QB_POSICOES definidos para 5 grupos</div>
+        <div class="change-item c-ok">Bracket de 16 + 8 testado com 15 jogadores na 1.ª etapa</div>
+        <div class="change-item c-ok">Pontuação de 15 posições configurada</div></div>`
+    : `<div class="changes-box warn"><div class="changes-title">Alterações necessárias face a 15 jogadores</div>
+        ${mixed ? `<div class="change-item c-warn">Grupos de tamanho misto (${sizes.join('+')}) — distribuição das cabeças de série requer cuidado</div>` : ''}
+        ${qpByes>0 ? `<div class="change-item">QP: ${qpByes} posições por preencher (byes) — bracket funciona mas tem slots vazios</div>` : ''}
+        ${qbByes>0 ? `<div class="change-item">QB: ${qbByes} byes — ${c.g<4?'bracket mais simples':'slots vazios'}</div>` : ''}
+        <div class="change-item c-ok">Mapas QP_POSICOES[${c.g}] e QB_POSICOES[${c.g}] já existem no TorneioEngine</div>
+        ${n<12 ? `<div class="change-item c-warn">calcClassificacaoFinal precisa de ser testada com ${n} jogadores — simulações mostraram bugs com byes em cascata</div>` : ''}
+        <div class="change-item">Pontuação encurtada para ${n} posições — automático via slice</div>
+      </div>`;
+
+  // Code table
+  const rows = codeChanges(n);
+  document.getElementById('code-table-wrap').innerHTML = `
+    <table class="code-table">
+      <thead><tr><th>Ficheiro / Função</th><th>Situação</th><th>Estado</th></tr></thead>
+      <tbody>${rows.map(r=>`<tr>
+        <td>${r.file}</td>
+        <td>${r.desc}</td>
+        <td><span class="tag tag-${r.tag}">${r.tag==='ok'?'OK':r.tag==='new'?'A criar':'A corrigir'}</span></td>
+      </tr>`).join('')}</tbody>
+    </table>`;
+}
+
+update(15);
+</script>
+</body>
+</html>
