@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algarvian Brewing Company — Cerveja Artesanal e Cozinha Mexicana em Portimão</title>
+<meta name="description" content="Cervejaria artesanal em Portimão com 12 torneiras próprias e cozinha mexicana autêntica. Zona Ribeirinha, todos os dias das 13h às 23h. Reservas: 282 105 534.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://algarvianbrewing.pt/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="restaurant.restaurant">
+<meta property="og:title" content="Algarvian Brewing Company — Portimão">
+<meta property="og:description" content="Raízes portuguesas, alma mexicana. 12 cervejas artesanais feitas na casa e comida mexicana autêntica, no coração de Portimão.">
+<meta property="og:image" content="https://algarvianbrewing.pt/assets/og-image.jpg">
+<meta property="og:url" content="https://algarvianbrewing.pt/">
+<meta property="og:locale" content="pt_PT">
+<meta property="og:site_name" content="Algarvian Brewing Company">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Algarvian Brewing Company — Portimão">
+<meta name="twitter:description" content="12 cervejas artesanais feitas na casa. Cozinha mexicana autêntica. Zona Ribeirinha, Portimão.">
+<meta name="twitter:image" content="https://algarvianbrewing.pt/assets/og-image.jpg">
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0B0B0B">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,600;1,600&family=DM+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BarOrPub",
+  "name": "Algarvian Brewing Company",
+  "image": "https://algarvianbrewing.pt/assets/og-image.jpg",
+  "url": "https://algarvianbrewing.pt/",
+  "telephone": "+351282105534",
+  "servesCuisine": ["Mexicana", "Cerveja Artesanal"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Oceanário Residence, Av. Afonso Henriques Loja I",
+    "addressLocality": "Portimão",
+    "postalCode": "8500-502",
+    "addressRegion": "Faro",
+    "addressCountry": "PT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 37.1366,
+    "longitude": -8.5380
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "13:00",
+    "closes": "23:00"
+  }],
+  "priceRange": "€€",
+  "sameAs": [
+    "https://www.instagram.com/algarvian.brewing/",
+    "https://www.facebook.com/algarvian",
+    "https://untappd.com/AlgarvianBrewingCo"
+  ]
+}
+</script>
+
+<style>
+:root {
+  --bg: #0B0B0B;
+  --bg2: #141414;
+  --bg3: #1C1C1C;
+  --red: #D7263D;
+  --red-dim: #9E1C2C;
+  --cream: #F5EFE0;
+  --cream-dim: rgba(245,239,224,.6);
+  --cream-faint: rgba(245,239,224,.25);
+  --copper: #C97B4B;
+  --border: rgba(245,239,224,.1);
+  --display: 'Bebas Neue', sans-serif;
+  --serif: 'Playfair Display', serif;
+  --mono: 'DM Mono', monospace;
+  --body: 'Inter', sans-serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img, video { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+::selection { background: var(--red); color: var(--cream); }
+
+/* ── NAV ── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1rem 1.5rem;
+  background: rgba(11,11,11,.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: .7rem;
+  font-family: var(--display);
+  font-size: 1.1rem;
+  letter-spacing: .08em;
+}
+.nav-logo img { width: 34px; height: 34px; border-radius: 4px; }
+.nav-logo-text { line-height: 1; }
+.nav-logo-text .sub {
+  display: block;
+  font-family: var(--mono);
+  font-size: .55rem;
+  color: var(--cream-dim);
+  letter-spacing: .25em;
+  margin-top: 2px;
+}
+.nav-links { display: none; gap: 2rem; }
+.nav-links a {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--red); }
+.nav-cta {
+  display: none;
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  padding: .7rem 1.2rem;
+  border: 1px solid var(--red);
+  color: var(--red);
+  transition: all .2s;
+}
+.nav-cta:hover { background: var(--red); color: var(--cream); }
+
+.nav-burger {
+  display: flex; flex-direction: column; gap: 5px;
+  padding: 8px;
+}
+.nav-burger span { width: 22px; height: 2px; background: var(--cream); transition: .3s; }
+.nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-mobile {
+  position: fixed;
+  top: 66px; left: 0; right: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem;
+  display: none;
+  flex-direction: column;
+  gap: 1.2rem;
+  z-index: 99;
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  letter-spacing: .06em;
+  color: var(--cream);
+  padding-bottom: .8rem;
+  border-bottom: 1px solid var(--border);
+}
+.nav-mobile a:last-child { border: none; }
+
+@media (min-width: 900px) {
+  .nav { padding: 1.2rem 2.5rem; }
+  .nav-links { display: flex; }
+  .nav-cta { display: inline-block; }
+  .nav-burger { display: none; }
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding: 0 1.5rem 4rem;
+}
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 70% 30%, rgba(215,38,61,.18), transparent 60%),
+    linear-gradient(180deg, rgba(11,11,11,.55) 0%, rgba(11,11,11,.3) 40%, rgba(11,11,11,.95) 100%);
+  z-index: 1;
+}
+.hero-grain {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/></svg>");
+  opacity: .12;
+  mix-blend-mode: overlay;
+  z-index: 2;
+  pointer-events: none;
+}
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+.hero-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin-bottom: 1.5rem;
+  padding: .5rem 1rem;
+  border: 1px solid var(--cream-faint);
+  background: rgba(11,11,11,.4);
+  backdrop-filter: blur(6px);
+}
+.hero-marker::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--red);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--red);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .4; }
+}
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(3.2rem, 11vw, 9rem);
+  line-height: .85;
+  letter-spacing: .01em;
+  margin-bottom: 1.5rem;
+  color: var(--cream);
+}
+.hero h1 .red { color: var(--red); }
+.hero h1 .italic {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0;
+  font-size: .55em;
+  color: var(--cream);
+  display: block;
+  margin-top: .3em;
+}
+.hero-sub {
+  font-size: 1rem;
+  max-width: 520px;
+  color: var(--cream);
+  line-height: 1.65;
+  margin-bottom: 2rem;
+  text-shadow: 0 1px 20px rgba(0,0,0,.8);
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+.btn {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: 1.1rem 1.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  transition: all .25s;
+  border: 1px solid transparent;
+}
+.btn-primary {
+  background: var(--red);
+  color: var(--cream);
+}
+.btn-primary:hover { background: var(--cream); color: var(--bg); }
+.btn-ghost {
+  border-color: var(--cream-faint);
+  color: var(--cream);
+}
+.btn-ghost:hover { border-color: var(--red); color: var(--red); }
+
+.hero-meta {
+  position: absolute;
+  bottom: 1.5rem; right: 1.5rem;
+  z-index: 3;
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  text-align: right;
+  line-height: 1.8;
+  display: none;
+}
+.hero-meta strong { color: var(--cream); display: block; }
+@media (min-width: 800px) { .hero-meta { display: block; } }
+
+/* ── SECTION BASE ── */
+section { position: relative; padding: 5rem 1.5rem; }
+@media (min-width: 800px) { section { padding: 7rem 2.5rem; } }
+
+.section-label {
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+}
+.section-label::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--red);
+}
+.section-title {
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: .9;
+  letter-spacing: .02em;
+  margin-bottom: 1.5rem;
+}
+.section-title .italic {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--red);
+}
+.section-intro {
+  max-width: 600px;
+  color: var(--cream-dim);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+/* ── STORY ── */
+.story {
+  background: var(--bg);
+  position: relative;
+}
+.story-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 3rem;
+}
+@media (min-width: 900px) {
+  .story-wrap { grid-template-columns: 1.1fr 1fr; align-items: center; gap: 5rem; }
+}
+.story-text h2 { margin-bottom: 2rem; }
+.story-text p {
+  color: var(--cream);
+  margin-bottom: 1.2rem;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+.story-text .signature {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--copper);
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+.story-image {
+  position: relative;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+}
+.story-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: saturate(1.05) contrast(1.05);
+}
+.story-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--red);
+  transform: translate(12px, 12px);
+  pointer-events: none;
+}
+
+/* ── TAP ROOM ── */
+.taproom {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.taproom-head {
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+  display: grid;
+  gap: 1.5rem;
+}
+@media (min-width: 900px) {
+  .taproom-head { grid-template-columns: 1fr 1fr; align-items: end; }
+}
+.beer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+@media (min-width: 640px) { .beer-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1000px) { .beer-grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+.beer {
+  background: var(--bg2);
+  padding: 2rem 1.8rem;
+  position: relative;
+  transition: background .25s;
+}
+.beer:hover { background: var(--bg3); }
+.beer-num {
+  font-family: var(--mono);
+  font-size: .62rem;
+  color: var(--cream-faint);
+  letter-spacing: .2em;
+  margin-bottom: 1rem;
+}
+.beer-name {
+  font-family: var(--display);
+  font-size: 2.2rem;
+  line-height: .95;
+  letter-spacing: .02em;
+  margin-bottom: .4rem;
+}
+.beer-style {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--copper);
+  margin-bottom: 1.2rem;
+}
+.beer-notes {
+  font-size: .9rem;
+  color: var(--cream-dim);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+.beer-stats {
+  display: flex;
+  gap: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+}
+.beer-stats strong { color: var(--red); }
+
+.taproom-footer {
+  max-width: 1200px;
+  margin: 3rem auto 0;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  text-align: center;
+}
+.taproom-footer .mono {
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: .8rem;
+}
+.taproom-footer p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--cream);
+}
+
+/* ── CANS ── */
+.cans { background: var(--bg); }
+.cans-wrap { max-width: 1200px; margin: 0 auto; }
+.cans-head { text-align: center; margin-bottom: 4rem; }
+.cans-head .section-label { justify-content: center; }
+.cans-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+@media (min-width: 800px) { .cans-grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+.can {
+  background: var(--bg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.can-img {
+  aspect-ratio: 1/1;
+  width: 100%;
+  max-width: 280px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  background: var(--bg2);
+}
+.can-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+.can:hover .can-img img { transform: scale(1.06); }
+.can-name {
+  font-family: var(--display);
+  font-size: 1.8rem;
+  letter-spacing: .03em;
+  margin-bottom: .3rem;
+}
+.can-style {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: .95rem;
+  color: var(--copper);
+  margin-bottom: 1rem;
+}
+.can-specs {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+}
+.can-specs span + span::before { content: ' · '; color: var(--red); }
+
+/* ── KITCHEN ── */
+.kitchen {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.kitchen-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 3rem;
+}
+@media (min-width: 900px) {
+  .kitchen-wrap { grid-template-columns: 1fr 1.2fr; align-items: start; gap: 4rem; }
+}
+.kitchen-text h2 { margin-bottom: 1.5rem; }
+.kitchen-text p {
+  color: var(--cream);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+.kitchen-dishes {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.dish {
+  background: var(--bg2);
+  padding: 1.2rem 1rem;
+}
+.dish-name {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  letter-spacing: .04em;
+  margin-bottom: .2rem;
+}
+.dish-desc {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+}
+
+.kitchen-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.kitchen-gallery > div {
+  overflow: hidden;
+  aspect-ratio: 1/1;
+}
+.kitchen-gallery > div:first-child { grid-column: span 2; aspect-ratio: 2/1; }
+.kitchen-gallery img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .6s;
+}
+.kitchen-gallery > div:hover img { transform: scale(1.05); }
+
+/* ── GALLERY STRIP ── */
+.gallery-strip {
+  background: var(--bg);
+  padding: 4rem 0;
+  overflow: hidden;
+}
+.gallery-strip-inner {
+  display: flex;
+  gap: 8px;
+  animation: scroll 45s linear infinite;
+  width: max-content;
+}
+.gallery-strip-inner img {
+  height: 320px;
+  width: auto;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (max-width: 700px) {
+  .gallery-strip-inner img { height: 220px; }
+}
+
+/* ── VISIT ── */
+.visit { background: var(--bg); }
+.visit-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 3rem;
+}
+@media (min-width: 900px) { .visit-wrap { grid-template-columns: 1fr 1fr; gap: 5rem; } }
+
+.visit-info h2 { margin-bottom: 2rem; }
+.info-block {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.info-block:last-child { border: none; }
+.info-label {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: .5rem;
+}
+.info-value {
+  font-family: var(--display);
+  font-size: 1.6rem;
+  letter-spacing: .03em;
+  line-height: 1.2;
+}
+.info-value a { transition: color .2s; }
+.info-value a:hover { color: var(--red); }
+.info-sub {
+  font-size: .85rem;
+  color: var(--cream-dim);
+  margin-top: .3rem;
+}
+
+/* ── FORM ── */
+.form-wrap {
+  background: var(--bg2);
+  padding: 2.5rem 2rem;
+  border: 1px solid var(--border);
+}
+.form-wrap h3 {
+  font-family: var(--display);
+  font-size: 2rem;
+  letter-spacing: .03em;
+  margin-bottom: .4rem;
+}
+.form-wrap .form-sub {
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  margin-bottom: 2rem;
+}
+.field { margin-bottom: 1.3rem; }
+.field label {
+  display: block;
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  margin-bottom: .5rem;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--cream);
+  padding: .9rem 1rem;
+  font-family: var(--body);
+  font-size: .95rem;
+  outline: none;
+  transition: border-color .2s;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus { border-color: var(--red); }
+.field textarea { resize: vertical; min-height: 80px; }
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.hp { position: absolute; left: -9999px; }
+.form-btn {
+  width: 100%;
+  background: var(--red);
+  color: var(--cream);
+  font-family: var(--mono);
+  font-size: .75rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  padding: 1.1rem;
+  transition: background .25s;
+  margin-top: .5rem;
+}
+.form-btn:hover { background: var(--cream); color: var(--bg); }
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 3rem 1.5rem 2rem;
+}
+.footer-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+}
+@media (min-width: 800px) {
+  .footer-wrap { grid-template-columns: 2fr 1fr 1fr; }
+}
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.footer-brand img { width: 56px; height: 56px; border-radius: 6px; }
+.footer-brand-name {
+  font-family: var(--display);
+  font-size: 1.4rem;
+  letter-spacing: .06em;
+  line-height: 1;
+}
+.footer-brand-name .sub {
+  display: block;
+  font-family: var(--mono);
+  font-size: .55rem;
+  color: var(--cream-dim);
+  letter-spacing: .22em;
+  margin-top: 4px;
+}
+.footer-tag {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--cream-dim);
+  max-width: 320px;
+}
+.footer-col h4 {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 1rem;
+}
+.footer-col ul { list-style: none; }
+.footer-col li {
+  font-size: .85rem;
+  color: var(--cream-dim);
+  margin-bottom: .5rem;
+  transition: color .2s;
+}
+.footer-col a:hover { color: var(--red); }
+.footer-bottom {
+  max-width: 1200px;
+  margin: 3rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+}
+@media (min-width: 700px) {
+  .footer-bottom { flex-direction: row; align-items: center; }
+}
+.footer-bottom a:hover { color: var(--red); }
+
+/* ── REVEAL ANIMATIONS ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav">
+  <a href="#top" class="nav-logo">
+    <img src="assets/favicon-512.png" alt="Algarvian Brewing Company">
+    <span class="nav-logo-text">
+      ALGARVIAN
+      <span class="sub">BREWING CO.</span>
+    </span>
+  </a>
+  <div class="nav-links">
+    <a href="#historia">História</a>
+    <a href="#tap-room">Tap Room</a>
+    <a href="#cozinha">Cozinha</a>
+    <a href="#visita">Visita-nos</a>
+  </div>
+  <a href="#visita" class="nav-cta">Reservar</a>
+  <button class="nav-burger" id="burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <a href="#historia">História</a>
+  <a href="#tap-room">Tap Room</a>
+  <a href="#cozinha">Cozinha</a>
+  <a href="#visita">Visita-nos</a>
+  <a href="tel:+351282105534" style="color: var(--red);">282 105 534</a>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="top">
+  <video class="hero-video" autoplay muted loop playsinline poster="assets/tap-room.jpg">
+    <source src="assets/hero-loop.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-grain"></div>
+
+  <div class="hero-content">
+    <div class="hero-marker">Zona Ribeirinha · Portimão · Aberto hoje</div>
+    <h1>
+      RAÍZES <span class="red">PORTUGUESAS</span><br>
+      <span class="italic">alma mexicana</span>
+    </h1>
+    <p class="hero-sub">Doze torneiras. Cerveja feita aqui ao lado, entre os tanques. Cozinha mexicana autêntica por mãos mexicanas. Farol aceso das treze às vinte e três, todos os dias.</p>
+    <div class="hero-actions">
+      <a href="#tap-room" class="btn btn-primary">Ver cervejas →</a>
+      <a href="#visita" class="btn btn-ghost">Como chegar</a>
+    </div>
+  </div>
+
+  <div class="hero-meta">
+    <strong>EST. Portimão</strong>
+    12 torneiras · 13h–23h<br>
+    Av. Afonso Henriques
+  </div>
+</section>
+
+<!-- ═══ HISTÓRIA ═══ -->
+<section class="story" id="historia">
+  <div class="story-wrap">
+    <div class="story-text reveal">
+      <div class="section-label">A nossa história</div>
+      <h2 class="section-title">Das ondas do <span class="italic">Pacífico</span> ao Atlântico</h2>
+      <p>A Algarvian começou longe daqui. Começou em 1945, no México, numa família que já fazia cerveja antes de ser moda. Três gerações depois, o Israel trouxe essa receita para Portimão e abriu portas ao lado do rio.</p>
+      <p>Hoje, o mesmo homem que cozinha a tua cerveja é o que te diz olá quando entras. Tens os tanques à vista, o chefe mexicano na cozinha, e um farol no logótipo que só tem uma função: guiar-te a casa.</p>
+      <p>Não há aqui apressos. Senta-te, experimenta uma sampler de quatro, pede uns tacos, fica o tempo que precisares.</p>
+      <div class="signature">"Let the lights guide you home."</div>
+    </div>
+    <div class="story-image reveal">
+      <img src="assets/tap-room.jpg" alt="Tanques de fermentação e torneiras de cobre da Algarvian Brewing Company em Portimão" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TAP ROOM ═══ -->
+<section class="taproom" id="tap-room">
+  <div class="taproom-head">
+    <div class="reveal">
+      <div class="section-label">Tap Room · 12 torneiras</div>
+      <h2 class="section-title">Feita <span class="italic">aqui</span>, bebida <span class="italic">aqui</span></h2>
+    </div>
+    <p class="section-intro reveal">Doze cervejas na torneira, todas fermentadas a três metros de onde as bebes. Desde uma Lager acessível até uma Imperial Stout que leva seis meses a ficar pronta. Tamanhos: 50cl, 23cl, ou sampler de quatro a 15cl.</p>
+  </div>
+
+  <div class="beer-grid">
+    <div class="beer reveal">
+      <div class="beer-num">01 / LAGER</div>
+      <div class="beer-name">Algarve Lager</div>
+      <div class="beer-style">Lager clássica</div>
+      <div class="beer-notes">Limpa, refrescante, o encontro certo para um fim de tarde quente. A porta de entrada.</div>
+      <div class="beer-stats"><span><strong>4.1%</strong> ABV</span><span>50cl · 23cl</span></div>
+    </div>
+
+    <div class="beer reveal">
+      <div class="beer-num">02 / IPA</div>
+      <div class="beer-name">Franky Gaivota</div>
+      <div class="beer-style">Hazy IPA</div>
+      <div class="beer-notes">Macia, aveludada, com notas de manga, ananás e casca de laranja dos lúpulos Cascade, El Dorado e Mosaic.</div>
+      <div class="beer-stats"><span><strong>6.5%</strong> ABV</span><span>50cl · 23cl</span></div>
+    </div>
+
+    <div class="beer reveal">
+      <div class="beer-num">03 / IPA</div>
+      <div class="beer-name">Peter Sardinha</div>
+      <div class="beer-style">American IPA</div>
+      <div class="beer-notes">Cítricos a abrir — limão, laranja, toranja — e um fundo de pêssego vindo dos lúpulos "C".</div>
+      <div class="beer-stats"><span><strong>6.2%</strong> ABV</span><span>50cl · 23cl</span></div>
+    </div>
+
+    <div class="beer reveal">
+      <div class="beer-num">04 / IPA</div>
+      <div class="beer-name">Benjamin Tubarão</div>
+      <div class="beer-style">Session IPA</div>
+      <div class="beer-notes">Leve, com maracujá nos lúpulos Cascade e Citra. Para sessões longas sem peso.</div>
+      <div class="beer-stats"><span><strong>4.5%</strong> ABV</span><span>50cl · 23cl</span></div>
+    </div>
+
+    <div class="beer reveal">
+      <div class="beer-num">05 / IPA</div>
+      <div class="beer-name">Galaxy Triple IPA</div>
+      <div class="beer-style">Triple IPA</div>
+      <div class="beer-notes">Grande. Intensa. Para quem sabe o que pede. Lúpulo Galaxy a marcar presença do princípio ao fim.</div>
+      <div class="beer-stats"><span><strong>10.5%</strong> ABV</span><span>23cl</span></div>
+    </div>
+
+    <div class="beer reveal">
+      <div class="beer-num">06 / WHEAT</div>
+      <div class="beer-name">Algarve Wheat</div>
+      <div class="beer-style">Weissbier</div>
+      <div class="beer-notes">Trigo, banana, cravinho. Estilo alemão clássico, feito à mão com paciência.</div>
+      <div class="beer-stats"><span><strong>5.2%</strong> ABV</span><span>50cl · 23cl</span></div>
+    </div>
+
+    <div class="beer reveal">
+      <div class="beer-num">07 / BLONDE</div>
+      <div class="beer-name">Belgian Blonde</div>
+      <div class="beer-style">Belgian Blonde Ale</div>
+      <div class="beer-notes">Dourada, equilibrada, com o toque de levedura belga. Para quem gosta de complexidade sem excesso.</div>
+      <div class="beer-stats"><span><strong>6.5%</strong> ABV</span><span>50cl · 23cl</span></div>
+    </div>
+
+    <div class="beer reveal">
+      <div class="beer-num">08 / PORTER</div>
+      <div class="beer-name">Atlantic Porter</div>
+      <div class="beer-style">Porter</div>
+      <div class="beer-notes">Chocolate, café, um fim seco. A cerveja para as noites em que o Atlântico está picado.</div>
+      <div class="beer-stats"><span><strong>5.8%</strong> ABV</span><span>50cl · 23cl</span></div>
+    </div>
+
+    <div class="beer reveal">
+      <div class="beer-num">09 / STOUT</div>
+      <div class="beer-name">Imperial Stout</div>
+      <div class="beer-style">Russian Imperial Stout</div>
+      <div class="beer-notes">Seis meses a fermentar. Notas de café torrado, cacau, baunilha e madeira. A jóia da casa.</div>
+      <div class="beer-stats"><span><strong>9.8%</strong> ABV</span><span>23cl</span></div>
+    </div>
+
+    <div class="beer reveal">
+      <div class="beer-num">10 / MEXICAN</div>
+      <div class="beer-name">Mexicana</div>
+      <div class="beer-style">Vienna Lager mexicana</div>
+      <div class="beer-notes">Homenagem às raízes. Malte tostado, corpo médio, final limpo. Servida com gomo de lima.</div>
+      <div class="beer-stats"><span><strong>4.8%</strong> ABV</span><span>50cl · 23cl</span></div>
+    </div>
+
+    <div class="beer reveal">
+      <div class="beer-num">11 / SIDRA</div>
+      <div class="beer-name">Sidra da Casa</div>
+      <div class="beer-style">Cidra artesanal</div>
+      <div class="beer-notes">Maçãs fermentadas na própria brewery. Seca, com acidez viva. Para quem prefere fruta a cereal.</div>
+      <div class="beer-stats"><span><strong>4.5%</strong> ABV</span><span>50cl · 23cl</span></div>
+    </div>
+
+    <div class="beer reveal">
+      <div class="beer-num">12 / ROTATIVA</div>
+      <div class="beer-name">Torneira 12</div>
+      <div class="beer-style">Edição limitada</div>
+      <div class="beer-notes">A experimental. Muda de tempos a tempos — pergunta ao staff o que anda no tanque esta semana.</div>
+      <div class="beer-stats"><span><strong>?</strong> ABV</span><span>Pergunta-nos</span></div>
+    </div>
+  </div>
+
+  <div class="taproom-footer reveal">
+    <div class="mono">Sampler da Casa</div>
+    <p>Quatro cervejas à tua escolha, 15cl cada, devidamente etiquetadas — para quem vem descobrir.</p>
+  </div>
+</section>
+
+<!-- ═══ CANS ═══ -->
+<section class="cans">
+  <div class="cans-wrap">
+    <div class="cans-head reveal">
+      <div class="section-label">Take away</div>
+      <h2 class="section-title">Cerveja em <span class="italic">lata</span></h2>
+      <p class="section-intro" style="margin: 1rem auto 0;">As nossas três estrelas em formato 33cl para levar contigo — praia, casa, piquenique, presente.</p>
+    </div>
+
+    <div class="cans-grid">
+      <div class="can reveal">
+        <div class="can-img"><img src="assets/franky-gaivota.jpg" alt="Lata de cerveja Franky Gaivota Hazy IPA da Algarvian Brewing Company ao pôr do sol" loading="lazy"></div>
+        <div class="can-name">Franky Gaivota</div>
+        <div class="can-style">Hazy IPA</div>
+        <div class="can-specs"><span>33CL</span><span>6.5% ABV</span></div>
+      </div>
+      <div class="can reveal">
+        <div class="can-img"><img src="assets/porter-tap.jpg" alt="Cerveja Atlantic Porter servida em copo com logótipo Algarvian" loading="lazy"></div>
+        <div class="can-name">Peter Sardinha</div>
+        <div class="can-style">American IPA</div>
+        <div class="can-specs"><span>33CL</span><span>6.2% ABV</span></div>
+      </div>
+      <div class="can reveal">
+        <div class="can-img"><img src="assets/ipa-esplanada.jpg" alt="Session IPA Benjamin Tubarão na esplanada com mesas comunitárias" loading="lazy"></div>
+        <div class="can-name">Benjamin Tubarão</div>
+        <div class="can-style">Session IPA</div>
+        <div class="can-specs"><span>33CL</span><span>4.5% ABV</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ KITCHEN ═══ -->
+<section class="kitchen" id="cozinha">
+  <div class="kitchen-wrap">
+    <div class="kitchen-text reveal">
+      <div class="section-label">Cozinha</div>
+      <h2 class="section-title">Mãos <span class="italic">mexicanas</span>, tudo feito aqui</h2>
+      <p>Tortilhas de milho esticadas de manhã. Carnitas a desfiar-se sozinhas. Salsas que ardem o que têm de arder. O nosso chefe é mexicano e não negoceia com a tradição.</p>
+      <p>Tacos, nachos, tostadas, burritos, camarones al ajillo, wings banhadas em molho da casa. Tudo para emparelhar com uma cerveja nossa.</p>
+
+      <div class="kitchen-dishes">
+        <div class="dish">
+          <div class="dish-name">Tacos al Pastor</div>
+          <div class="dish-desc">Porco marinado · abacaxi</div>
+        </div>
+        <div class="dish">
+          <div class="dish-name">Chorizo Tacos</div>
+          <div class="dish-desc">Chorizo mexicano · coentros</div>
+        </div>
+        <div class="dish">
+          <div class="dish-name">Volcán de Pastor</div>
+          <div class="dish-desc">Queijo gratinado · porco</div>
+        </div>
+        <div class="dish">
+          <div class="dish-name">Camarones al Ajillo</div>
+          <div class="dish-desc">Camarão · alho · guindilla</div>
+        </div>
+        <div class="dish">
+          <div class="dish-name">Nachos da Casa</div>
+          <div class="dish-desc">Tortilha frita · guacamole</div>
+        </div>
+        <div class="dish">
+          <div class="dish-name">Wings Picantes</div>
+          <div class="dish-desc">Asas glaceadas · rancho</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kitchen-gallery reveal">
+      <div><img src="assets/tacos-dourados.jpg" alt="Tacos dourados servidos em tabuleiro com papel Algarvian" loading="lazy"></div>
+      <div><img src="assets/tacos-chorizo.jpg" alt="Tacos de chorizo com cerveja Algarvian ao fundo" loading="lazy"></div>
+      <div><img src="assets/wings.jpg" alt="Wings glaceadas com molho rancho e crudités" loading="lazy"></div>
+      <div><img src="assets/tostadas.jpg" alt="Tostadas com camarão, abacaxi e vegetais" loading="lazy"></div>
+      <div><img src="assets/tacos-carne.jpg" alt="Tacos de carne servidos em suporte metálico sobre papel da casa" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY STRIP ═══ -->
+<section class="gallery-strip" aria-hidden="true">
+  <div class="gallery-strip-inner">
+    <img src="assets/dia-muertos.jpg" alt="">
+    <img src="assets/tap-room.jpg" alt="">
+    <img src="assets/franky-gaivota.jpg" alt="">
+    <img src="assets/tacos-chorizo.jpg" alt="">
+    <img src="assets/porter-tap.jpg" alt="">
+    <img src="assets/wings.jpg" alt="">
+    <img src="assets/ipa-esplanada.jpg" alt="">
+    <img src="assets/tostadas.jpg" alt="">
+    <!-- duplicated for infinite loop -->
+    <img src="assets/dia-muertos.jpg" alt="">
+    <img src="assets/tap-room.jpg" alt="">
+    <img src="assets/franky-gaivota.jpg" alt="">
+    <img src="assets/tacos-chorizo.jpg" alt="">
+    <img src="assets/porter-tap.jpg" alt="">
+    <img src="assets/wings.jpg" alt="">
+    <img src="assets/ipa-esplanada.jpg" alt="">
+    <img src="assets/tostadas.jpg" alt="">
+  </div>
+</section>
+
+<!-- ═══ VISIT ═══ -->
+<section class="visit" id="visita">
+  <div class="visit-wrap">
+    <div class="visit-info reveal">
+      <div class="section-label">Visita-nos</div>
+      <h2 class="section-title">O farol está <span class="italic">aceso</span></h2>
+
+      <div class="info-block">
+        <div class="info-label">Morada</div>
+        <div class="info-value">
+          <a href="https://maps.google.com/?q=Algarvian+Brewing+Company+Portimão" target="_blank" rel="noopener">
+            Av. Afonso Henriques<br>Oceanário Residence, Loja I
+          </a>
+        </div>
+        <div class="info-sub">8500-502 Portimão · Zona Ribeirinha</div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-label">Horário</div>
+        <div class="info-value">Todos os dias · 13:00 — 23:00</div>
+        <div class="info-sub">Cozinha aberta durante todo o horário</div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-label">Telefone · WhatsApp</div>
+        <div class="info-value">
+          <a href="tel:+351282105534">282 105 534</a>
+        </div>
+        <div class="info-sub">Reservas por chamada ou mensagem</div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-label">Segue-nos</div>
+        <div class="info-value" style="font-size: 1rem; font-family: var(--mono); letter-spacing: .1em;">
+          <a href="https://www.instagram.com/algarvian.brewing/" target="_blank" rel="noopener">INSTAGRAM</a>
+          &nbsp;·&nbsp;
+          <a href="https://www.facebook.com/algarvian" target="_blank" rel="noopener">FACEBOOK</a>
+          &nbsp;·&nbsp;
+          <a href="https://untappd.com/AlgarvianBrewingCo" target="_blank" rel="noopener">UNTAPPD</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-wrap reveal">
+      <h3>Reservar mesa</h3>
+      <div class="form-sub">Resposta em poucas horas</div>
+
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="reserveForm">
+        <div class="field">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" required>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="tel">Telefone</label>
+            <input type="tel" id="tel" name="telefone" required>
+          </div>
+          <div class="field">
+            <label for="pax">Pessoas</label>
+            <select id="pax" name="pessoas" required>
+              <option value="2">2 pessoas</option>
+              <option value="3">3 pessoas</option>
+              <option value="4">4 pessoas</option>
+              <option value="5">5 pessoas</option>
+              <option value="6">6 pessoas</option>
+              <option value="7+">7 ou mais</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="data">Data</label>
+            <input type="date" id="data" name="data" required>
+          </div>
+          <div class="field">
+            <label for="hora">Hora</label>
+            <select id="hora" name="hora" required>
+              <option value="13:00">13:00</option><option value="13:30">13:30</option>
+              <option value="14:00">14:00</option><option value="14:30">14:30</option>
+              <option value="18:00">18:00</option><option value="18:30">18:30</option>
+              <option value="19:00">19:00</option><option value="19:30">19:30</option>
+              <option value="20:00">20:00</option><option value="20:30">20:30</option>
+              <option value="21:00">21:00</option><option value="21:30">21:30</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="notas">Notas (opcional)</label>
+          <textarea id="notas" name="notas" placeholder="Aniversário, alergias, pedido especial..."></textarea>
+        </div>
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off">
+        <button type="submit" class="form-btn">Pedir reserva →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="footer-wrap">
+    <div>
+      <div class="footer-brand">
+        <img src="assets/favicon-512.png" alt="Algarvian Brewing Company">
+        <div class="footer-brand-name">
+          ALGARVIAN
+          <span class="sub">BREWING COMPANY</span>
+        </div>
+      </div>
+      <p class="footer-tag">Portuguese roots, Mexican soul. Brewed in Portimão since day one.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navegar</h4>
+      <ul>
+        <li><a href="#historia">História</a></li>
+        <li><a href="#tap-room">Tap Room</a></li>
+        <li><a href="#cozinha">Cozinha</a></li>
+        <li><a href="#visita">Visita-nos</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="tel:+351282105534">+351 282 105 534</a></li>
+        <li>Av. Afonso Henriques</li>
+        <li>8500-502 Portimão</li>
+        <li>13:00 — 23:00</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2026 Algarvian Brewing Company</div>
+    <div>Site por <a href="https://volvara.pt" target="_blank" rel="noopener" style="color: var(--red);">VOLVARA</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Mobile menu
+  var burger = document.getElementById('burger');
+  var navMobile = document.getElementById('navMobile');
+  burger.addEventListener('click', function(){
+    burger.classList.toggle('open');
+    navMobile.classList.toggle('open');
+  });
+  navMobile.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      burger.classList.remove('open');
+      navMobile.classList.remove('open');
+    });
+  });
+
+  // Reveal on scroll
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // Min date = today
+  var d = new Date();
+  var iso = d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+  var dataInput = document.getElementById('data');
+  if (dataInput) { dataInput.min = iso; dataInput.value = iso; }
+
+  // Form rate limit (basic)
+  var form = document.getElementById('reserveForm');
+  if (form) {
+    form.addEventListener('submit', function(e){
+      var last = parseInt(localStorage.getItem('abcLastSubmit') || '0', 10);
+      var now = Date.now();
+      if (now - last < 30000) {
+        e.preventDefault();
+        alert('Aguarda alguns segundos antes de enviar novamente.');
+        return;
+      }
+      localStorage.setItem('abcLastSubmit', String(now));
+    });
+  }
+})();
+</script>
+</body>
+</html>
