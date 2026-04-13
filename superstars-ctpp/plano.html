@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super Stars CTPP — Plano de Torneio Flexível</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ni:#0D1B2A; --sl:#1B2B3A; --mi:#243447; --hi:#2d3f52;
+  --g:#2D6A4F; --gl:#40916C; --gp:rgba(45,106,79,.15);
+  --go:#F4A828; --gop:rgba(244,168,40,.12);
+  --cy:#C97B4B; --cyp:rgba(201,123,75,.12);
+  --red:#C0392B; --redp:rgba(192,57,43,.12);
+  --tx:#E8E4DE; --mu:rgba(232,228,222,.55);
+  --bd:rgba(232,228,222,.1); --bd2:rgba(232,228,222,.2);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ni);color:var(--tx);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.6}
+.page{max-width:960px;margin:0 auto;padding:48px 24px 80px}
+
+/* header */
+.header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:48px;gap:24px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:14px}
+.brand-icon{width:52px;height:52px;background:var(--go);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--ni);letter-spacing:.04em}
+.brand-text .title{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.08em;color:var(--tx);line-height:1}
+.brand-text .title span{color:var(--go)}
+.brand-text .sub{font-size:11px;color:var(--mu);font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;margin-top:3px}
+.header-meta{text-align:right;font-family:'DM Mono',monospace;font-size:11px;color:var(--mu);line-height:1.8}
+
+/* section */
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.1em;color:var(--go);text-transform:uppercase;margin:40px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--bd2)}
+
+/* intro */
+.intro{background:var(--sl);border:1px solid var(--bd2);border-radius:12px;padding:20px 24px;margin-bottom:32px}
+.intro p{color:rgba(232,228,222,.8);font-size:14px;line-height:1.7}
+.intro p+p{margin-top:8px}
+
+/* ctrl */
+.ctrl-card{background:var(--sl);border:1px solid var(--bd2);border-radius:14px;padding:24px;margin-bottom:28px}
+.ctrl-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.ctrl-label{font-size:12px;color:var(--mu);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+input[type=range]{-webkit-appearance:none;flex:1;min-width:160px;max-width:280px;height:4px;background:var(--bd2);border-radius:2px;outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;background:var(--go);border-radius:50%;border:2px solid var(--ni);cursor:pointer}
+.n-display{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--go);line-height:1;min-width:44px;text-align:center}
+.n-label{font-size:10px;color:var(--mu);font-family:'DM Mono',monospace;text-transform:uppercase;margin-top:2px;text-align:center}
+.config-desc{font-size:12px;color:var(--tx);font-family:'DM Mono',monospace;padding:5px 12px;background:var(--gop);border-radius:6px;margin-top:12px;display:inline-block}
+
+/* summary */
+.sum-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
+@media(max-width:600px){.sum-grid{grid-template-columns:repeat(2,1fr)}}
+.sum-card{background:var(--mi);border:1px solid var(--bd);border-radius:10px;padding:14px}
+.sum-card .lbl{font-size:10px;color:var(--mu);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px}
+.sum-card .val{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--go);line-height:1}
+.sum-card .det{font-size:11px;color:var(--mu);margin-top:3px}
+
+/* phases */
+.phase-block{border:1px solid var(--bd);border-radius:12px;overflow:hidden;margin-bottom:12px}
+.phase-hdr{display:flex;align-items:center;gap:12px;padding:12px 18px}
+.ph-blue{background:var(--gp);border-bottom:1px solid rgba(45,106,79,.3)}
+.ph-amber{background:var(--gop);border-bottom:1px solid rgba(244,168,40,.25)}
+.ph-cy{background:var(--cyp);border-bottom:1px solid rgba(201,123,75,.25)}
+.ph-dim{background:rgba(232,228,222,.05);border-bottom:1px solid var(--bd)}
+.badge{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.08em;padding:3px 10px;border-radius:20px}
+.bd-blue{background:rgba(45,106,79,.3);color:#74C69D}
+.bd-amber{background:rgba(244,168,40,.25);color:var(--go)}
+.bd-cy{background:rgba(201,123,75,.2);color:var(--cy)}
+.bd-dim{background:rgba(232,228,222,.1);color:var(--mu)}
+.phase-range{font-size:11px;color:var(--mu);font-family:'DM Mono',monospace;margin-left:auto}
+.phase-body{padding:16px 18px;background:var(--sl)}
+.phase-sub{font-size:12px;color:var(--mu)}
+
+/* groups */
+.groups-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.grp-pill{background:var(--mi);border:1px solid var(--bd2);border-radius:8px;padding:8px 12px;min-width:110px}
+.grp-pill .gn{font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--go);letter-spacing:.05em}
+.grp-pill .gs{font-size:11px;color:var(--mu);font-family:'DM Mono',monospace;margin-top:1px}
+
+/* bracket pills */
+.bpills{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.bp{font-size:11px;padding:3px 9px;border-radius:5px;font-family:'DM Mono',monospace}
+.bp-g{background:rgba(45,106,79,.2);color:#74C69D;border:1px solid rgba(45,106,79,.3)}
+.bp-a{background:rgba(244,168,40,.15);color:var(--go);border:1px solid rgba(244,168,40,.25)}
+.bp-c{background:rgba(201,123,75,.15);color:var(--cy);border:1px solid rgba(201,123,75,.25)}
+
+/* pts */
+.pts-row{display:flex;flex-wrap:wrap;gap:5px}
+.pts-pill{font-family:'DM Mono',monospace;font-size:11px;padding:3px 8px;background:var(--mi);border-radius:5px;border:1px solid var(--bd);color:var(--mu)}
+.pts-pill strong{color:var(--go)}
+
+/* seeding table — main section */
+.seeding-section{margin-top:40px}
+.seeding-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.stab{padding:6px 14px;border-radius:20px;font-family:'DM Mono',monospace;font-size:11px;cursor:pointer;border:1px solid var(--bd2);color:var(--mu);background:transparent;transition:all .2s}
+.stab.active{background:var(--gop);border-color:rgba(244,168,40,.4);color:var(--go)}
+.seeding-panel{display:none}
+.seeding-panel.active{display:block}
+
+/* matchup table */
+.matchup-table{width:100%;border-collapse:collapse;margin-top:12px}
+.matchup-table th{text-align:left;padding:8px 12px;font-family:'DM Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--mu);border-bottom:1px solid var(--bd2)}
+.matchup-table td{padding:9px 12px;border-bottom:1px solid var(--bd);vertical-align:middle;font-size:13px}
+.matchup-table tr:last-child td{border-bottom:none}
+.player{display:inline-block;padding:2px 8px;border-radius:4px;font-family:'DM Mono',monospace;font-size:12px;font-weight:500}
+.p1st{background:rgba(244,168,40,.2);color:var(--go);border:1px solid rgba(244,168,40,.3)}
+.p2nd{background:var(--mi);color:rgba(232,228,222,.7);border:1px solid var(--bd2)}
+.pbye{background:transparent;color:var(--mu);border:1px solid var(--bd);font-style:italic}
+.bye-ok{color:#74C69D;font-size:11px;font-family:'DM Mono',monospace}
+.bye-warn{color:#e07070;font-size:11px;font-family:'DM Mono',monospace}
+.vs{color:var(--mu);font-size:11px;padding:0 6px}
+.path-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.path-item{background:var(--mi);border:1px solid var(--bd);border-radius:6px;padding:6px 10px;font-size:11px;font-family:'DM Mono',monospace;color:rgba(232,228,222,.7)}
+.path-item strong{color:var(--go)}
+
+/* status box */
+.status-box{border-radius:10px;padding:14px 18px;margin-top:14px;border:1px solid}
+.sb-ok{border-color:rgba(45,106,79,.4);background:rgba(45,106,79,.08)}
+.sb-warn{border-color:rgba(244,168,40,.3);background:rgba(244,168,40,.06)}
+.sb-err{border-color:rgba(192,57,43,.35);background:rgba(192,57,43,.08)}
+.sb-title{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.08em;margin-bottom:8px}
+.sb-ok .sb-title{color:#74C69D}
+.sb-warn .sb-title{color:var(--go)}
+.sb-err .sb-title{color:#e07070}
+.sb-item{font-size:12px;color:rgba(232,228,222,.7);padding:2px 0 2px 12px;position:relative;line-height:1.5}
+.sb-item::before{content:'—';position:absolute;left:0;color:var(--bd2)}
+.sb-item.ok{color:#74C69D}
+.sb-item.warn{color:var(--go)}
+.sb-item.err{color:#e07070}
+
+/* changes table */
+.code-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:12px}
+.code-table th{text-align:left;padding:8px 12px;font-family:'DM Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--mu);border-bottom:1px solid var(--bd2)}
+.code-table td{padding:8px 12px;color:rgba(232,228,222,.8);border-bottom:1px solid var(--bd);vertical-align:top;line-height:1.5}
+.code-table tr:last-child td{border-bottom:none}
+.code-table td:first-child{font-family:'DM Mono',monospace;font-size:11px;color:var(--go);white-space:nowrap}
+.tag{display:inline-block;font-size:10px;padding:1px 6px;border-radius:3px;font-weight:500;vertical-align:middle;margin-left:4px}
+.tag-ok{background:rgba(45,106,79,.3);color:#74C69D}
+.tag-new{background:rgba(244,168,40,.2);color:var(--go)}
+.tag-fix{background:rgba(192,57,43,.2);color:#e07070}
+
+/* footer */
+.footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-brand{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.08em;color:var(--mu)}
+.footer-brand span{color:var(--go)}
+.footer-note{font-size:11px;color:var(--mu);font-family:'DM Mono',monospace}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="brand">
+    <div class="brand-icon">SS</div>
+    <div class="brand-text">
+      <div class="title">SUPER <span>STARS</span></div>
+      <div class="sub">Clube de Ténis e Padel de Portimão</div>
+    </div>
+  </div>
+  <div class="header-meta">
+    <div>Plano de Torneio Flexível</div>
+    <div>Versão 2.0 — Abril 2026</div>
+    <div>Director: CTPP</div>
+  </div>
+</div>
+
+<div class="intro">
+  <p>Este documento descreve como o sistema Super Stars CTPP se adapta ao número de participantes de cada etapa, de 8 a 15 jogadores. A estrutura base foi desenhada e testada com 15 jogadores (1.ª etapa).</p>
+  <p>Esta versão inclui a <strong>análise e correcção dos seedings</strong> — foi detectado que em alguns cenários (9, 10, 11 e 15 jogadores), jogadores de 2.º lugar no grupo recebiam bye enquanto jogadores de 1.º lugar tinham de jogar a ronda R1. Os mapas foram corrigidos para garantir que o benefício do bye tem sempre prioridade para quem terminou em 1.º lugar.</p>
+</div>
+
+<!-- SELECTOR -->
+<div class="ctrl-card">
+  <div class="ctrl-row">
+    <span class="ctrl-label">Participantes na etapa:</span>
+    <input type="range" min="8" max="15" value="15" id="slider" oninput="update(+this.value)">
+    <div><div class="n-display" id="nbadge">15</div><div class="n-label">jogadores</div></div>
+  </div>
+  <div id="config-desc"></div>
+</div>
+
+<div class="sum-grid" id="sum-grid"></div>
+<div id="phases"></div>
+<div id="changes-box"></div>
+
+<!-- SEEDING SECTION -->
+<div class="seeding-section">
+  <div class="section-title">Análise de Seedings — Brackets QP corrigidos</div>
+  <div class="intro" style="margin-bottom:20px">
+    <p><strong>Regra fundamental:</strong> quando existem byes (posições sem adversário), o benefício deve ir primeiro para quem terminou em 1.º lugar no grupo. Nenhum jogador de 2.º lugar deve ter bye enquanto um 1.º lugar tem de jogar. As tabelas abaixo mostram os seedings originais, os problemas detectados e os mapas corrigidos.</p>
+  </div>
+  <div class="seeding-tabs">
+    <button class="stab active" onclick="showSeeding('s9')">9–11 jog.</button>
+    <button class="stab" onclick="showSeeding('s12')">12 jog.</button>
+    <button class="stab" onclick="showSeeding('s1314')">13–14 jog.</button>
+    <button class="stab" onclick="showSeeding('s15')">15 jog.</button>
+    <button class="stab" onclick="showSeeding('s8')">8 jog.</button>
+  </div>
+
+  <!-- 9-11 -->
+  <div class="seeding-panel active" id="sp-s9">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;flex-wrap:wrap" class="two-col">
+      <div>
+        <div style="font-size:11px;font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.06em;color:var(--mu);margin-bottom:10px">Mapa original <span style="color:#e07070;margin-left:6px">⚠ com problema</span></div>
+        <table class="matchup-table">
+          <thead><tr><th>Jogo</th><th colspan="3">Matchup</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>J1</td><td><span class="player p1st">1ºG1</span></td><td class="vs">×</td><td><span class="player pbye">BYE</span></td><td class="bye-ok">✓ bye→1º</span></td></tr>
+            <tr><td>J2</td><td><span class="player p1st">1ºG3</span></td><td class="vs">×</td><td><span class="player p1st">1ºG2</span></td><td></td></tr>
+            <tr><td>J3</td><td><span class="player p2nd">2ºG2</span></td><td class="vs">×</td><td><span class="player p2nd">2ºG3</span></td><td></td></tr>
+            <tr><td>J4</td><td><span class="player pbye">BYE</span></td><td class="vs">×</td><td><span class="player p2nd">2ºG1</span></td><td class="bye-warn">⚠ bye→2.º!</span></td></tr>
+          </tbody>
+        </table>
+        <div class="status-box sb-err" style="margin-top:10px">
+          <div class="sb-title">Problema detectado</div>
+          <div class="sb-item err">2ºG1 recebe bye enquanto 1ºG2 e 1ºG3 têm de jogar R1</div>
+          <div class="sb-item err">1ºG2 vs 1ºG3 encontram-se já nos QF — demasiado cedo</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.06em;color:#74C69D;margin-bottom:10px">Mapa corrigido ✓</div>
+        <table class="matchup-table">
+          <thead><tr><th>Jogo</th><th colspan="3">Matchup</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>J1</td><td><span class="player p1st">1ºG1</span></td><td class="vs">×</td><td><span class="player pbye">BYE</span></td><td class="bye-ok">✓ bye→1º</span></td></tr>
+            <tr><td>J2</td><td><span class="player p1st">1ºG3</span></td><td class="vs">×</td><td><span class="player p2nd">2ºG2</span></td><td></td></tr>
+            <tr><td>J3</td><td><span class="player p1st">1ºG2</span></td><td class="vs">×</td><td><span class="player pbye">BYE</span></td><td class="bye-ok">✓ bye→1º</span></td></tr>
+            <tr><td>J4</td><td><span class="player p2nd">2ºG1</span></td><td class="vs">×</td><td><span class="player p2nd">2ºG3</span></td><td></td></tr>
+          </tbody>
+        </table>
+        <div class="status-box sb-ok" style="margin-top:10px">
+          <div class="sb-title">Corrigido ✓</div>
+          <div class="sb-item ok">Byes para 1ºG1 e 1ºG2 (os 2 melhores 1.ºs)</div>
+          <div class="sb-item ok">1ºG3 joga QF mas contra um 2.º lugar</div>
+          <div class="sb-item ok">1ºG1 e 1ºG2 só se encontram na Final</div>
+        </div>
+      </div>
+    </div>
+    <div class="path-row" style="margin-top:16px">
+      <div class="path-item"><strong>SF1:</strong> 1ºG1 vs vencedor(1ºG3 × 2ºG2)</div>
+      <div class="path-item"><strong>SF2:</strong> 1ºG2 vs vencedor(2ºG1 × 2ºG3)</div>
+      <div class="path-item"><strong>Final:</strong> 1ºG1 vs 1ºG2 — grupos sempre diferentes ✓</div>
+    </div>
+    <div class="status-box sb-warn" style="margin-top:12px">
+      <div class="sb-title">Nota de implementação</div>
+      <div class="sb-item warn">QP_POSICOES[3] precisa de ser actualizado no TorneioEngine</div>
+      <div class="sb-item">Novo mapa: 1ºG1→pos1, 1ºG3→pos3, 2ºG2→pos4, 1ºG2→pos5, 2ºG1→pos7, 2ºG3→pos8</div>
+      <div class="sb-item">pos2 e pos6 ficam vazias (byes automáticos)</div>
+    </div>
+  </div>
+
+  <!-- 12 -->
+  <div class="seeding-panel" id="sp-s12">
+    <table class="matchup-table">
+      <thead><tr><th>Jogo</th><th colspan="3">Matchup</th><th>Nota</th></tr></thead>
+      <tbody>
+        <tr><td>J1</td><td><span class="player p1st">1ºG1</span></td><td class="vs">×</td><td><span class="player p2nd">2ºG4</span></td><td class="bye-ok">1.º vs 2.º de grupo diferente ✓</td></tr>
+        <tr><td>J2</td><td><span class="player p1st">1ºG3</span></td><td class="vs">×</td><td><span class="player p2nd">2ºG2</span></td><td class="bye-ok">grupos diferentes ✓</td></tr>
+        <tr><td>J3</td><td><span class="player p1st">1ºG2</span></td><td class="vs">×</td><td><span class="player p2nd">2ºG3</span></td><td class="bye-ok">grupos diferentes ✓</td></tr>
+        <tr><td>J4</td><td><span class="player p1st">1ºG4</span></td><td class="vs">×</td><td><span class="player p2nd">2ºG1</span></td><td class="bye-ok">grupos diferentes ✓</td></tr>
+      </tbody>
+    </table>
+    <div class="status-box sb-ok" style="margin-top:12px">
+      <div class="sb-title">Sem alterações necessárias</div>
+      <div class="sb-item ok">Bracket completo — sem byes, sem vantagens desiguais</div>
+      <div class="sb-item ok">Todos os 1.ºs jogam contra 2.ºs de grupos diferentes</div>
+      <div class="sb-item ok">1ºG1 e 1ºG2 em quadrantes opostos — encontram-se na Final</div>
+    </div>
+  </div>
+
+  <!-- 13-14 -->
+  <div class="seeding-panel" id="sp-s1314">
+    <table class="matchup-table">
+      <thead><tr><th>Jogo</th><th colspan="3">Matchup</th><th>Nota</th></tr></thead>
+      <tbody>
+        <tr><td>J1</td><td><span class="player p1st">1ºG1</span></td><td class="vs">×</td><td><span class="player p2nd">2ºG2</span></td><td>grupos diferentes ✓</td></tr>
+        <tr><td>J2</td><td><span class="player p1st">1ºG3</span></td><td class="vs">×</td><td><span class="player p2nd">2ºG4</span></td><td>grupos diferentes ✓</td></tr>
+        <tr><td>J3</td><td><span class="player p1st">1ºG4</span></td><td class="vs">×</td><td><span class="player p2nd">2ºG3</span></td><td>grupos diferentes ✓</td></tr>
+        <tr><td>J4</td><td><span class="player p1st">1ºG2</span></td><td class="vs">×</td><td><span class="player p2nd">2ºG1</span></td><td>grupos diferentes ✓</td></tr>
+        <tr><td>J5–J8</td><td colspan="3" style="color:var(--mu);font-style:italic;font-size:12px">BYE × BYE (slots extras — avançam automaticamente)</td><td></td></tr>
+      </tbody>
+    </table>
+    <div class="status-box sb-warn" style="margin-top:12px">
+      <div class="sb-title">Atenção — limitação estrutural</div>
+      <div class="sb-item warn">Com 4 grupos e 16 slots: 1ºG1 e 1ºG2 ficam inevitavelmente na mesma metade do bracket (encontram-se na SF, não na Final)</div>
+      <div class="sb-item warn">Isto acontece porque com apenas 8 jogadores reais em 16 slots, o bracket efectivo é de 8 — e com 4 grupos num bracket de 8, não é possível separar os 2 top seeds para meias opostas</div>
+      <div class="sb-item ok">Sem problema de byes — nenhum jogador real tem bye, apenas slots vazios automáticos</div>
+      <div class="sb-item">Alternativa: usar QP de 8 slots para 4 grupos (como no N=12) — mais justo e sem a limitação acima</div>
+    </div>
+  </div>
+
+    <!-- 15 -->
+  <div class="seeding-panel" id="sp-s15">
+    <div style="font-size:11px;font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.06em;color:var(--mu);margin-bottom:10px">Mapa actual — desenhado pelo director</div>
+    <table class="matchup-table">
+      <thead><tr><th>Jogo</th><th colspan="3">Matchup</th><th>Nota</th></tr></thead>
+      <tbody>
+        <tr><td>J1</td><td><span class="player p1st">1ºG1</span></td><td class="vs">×</td><td><span class="player pbye">BYE</span></td><td class="bye-ok">✓ bye→1º</td></tr>
+        <tr><td>J2</td><td><span class="player p1st">1ºG5</span></td><td class="vs">×</td><td><span class="player p1st">1ºG4</span></td><td></td></tr>
+        <tr><td>J3</td><td><span class="player p1st">1ºG3</span></td><td class="vs">×</td><td><span class="player pbye">BYE</span></td><td class="bye-ok">✓ bye→1º</td></tr>
+        <tr><td>J4</td><td><span class="player pbye">BYE</span></td><td class="vs">×</td><td><span class="player p2nd">2ºG2</span></td><td class="bye-warn">⚠ bye→2.º</td></tr>
+        <tr><td>J5</td><td><span class="player p2nd">2ºG1</span></td><td class="vs">×</td><td><span class="player pbye">BYE</span></td><td class="bye-warn">⚠ bye→2.º</td></tr>
+        <tr><td>J6</td><td><span class="player p2nd">2ºG5</span></td><td class="vs">×</td><td><span class="player p1st">1ºG4</span></td><td></td></tr>
+        <tr><td>J7</td><td><span class="player p2nd">2ºG3</span></td><td class="vs">×</td><td><span class="player pbye">BYE</span></td><td class="bye-warn">⚠ bye→2.º</td></tr>
+        <tr><td>J8</td><td><span class="player pbye">BYE</span></td><td class="vs">×</td><td><span class="player p1st">1ºG2</span></td><td class="bye-ok">✓ bye→1º</td></tr>
+      </tbody>
+    </table>
+    <div class="status-box sb-ok" style="margin-top:12px">
+      <div class="sb-title">Mapa em uso — 1.ª etapa concluída ✓</div>
+      <div class="sb-item ok">Testado e validado na 1.ª etapa com 15 jogadores</div>
+      <div class="sb-item ok">1ºG1 e 1ºG2 em quadrantes opostos — Final garantida</div>
+      <div class="sb-item ok">3 × 1.ºs têm bye (G1, G3, G2)</div>
+    </div>
+    <div class="status-box sb-warn" style="margin-top:8px">
+      <div class="sb-title">Sugestão para consideração futura</div>
+      <div class="sb-item">Com 15 jogadores (10 reais em 16 slots = 6 byes), seria possível dar bye a <em>todos</em> os 5 × 1.ºs de grupo</div>
+      <div class="sb-item">No mapa actual, J4 (bye→2ºG2), J5 (bye→2ºG1) e J7 (bye→2ºG3) beneficiam jogadores de 2.º lugar enquanto 1ºG4 e 1ºG5 têm de jogar R1</div>
+      <div class="sb-item warn">Sugestão: 1ºG1→pos1, 1ºG5→pos3, 1ºG4→pos5, 1ºG3→pos9, 1ºG2→pos13 (todos com bye) — o 6.º bye restante vai para 2ºG1</div>
+      <div class="sb-item">Esta alteração está sujeita à decisão do director — o formato actual já foi aplicado e é válido</div>
+    </div>
+  </div>
+
+  <!-- CODE CHANGES -->
+<div class="section-title">O que precisa de ser alterado no código</div>
+<div id="code-table-wrap"></div>
+
+<div class="footer">
+  <div class="footer-brand">SUPER <span>STARS</span> CTPP</div>
+  <div class="footer-note">Documento interno — Volvara © 2026</div>
+</div>
+
+</div>
+
+<script>
+const PTS = [18,16,14,13,12,11,10,9,8,7,6,5,4,3,2];
+
+function gSizes(n,g){const b=Math.floor(n/g),e=n%g;return Array.from({length:g},(_,i)=>b+(i<e?1:0));}
+function getCfg(n){const c={15:{g:5,qp:16,qb:8},14:{g:4,qp:16,qb:8},13:{g:4,qp:16,qb:8},12:{g:4,qp:8,qb:4},11:{g:3,qp:8,qb:4},10:{g:3,qp:8,qb:4},9:{g:3,qp:8,qb:4},8:{g:2,qp:8,qb:2}};return c[n]||c[15];}
+
+function qpR(qp){
+  if(qp===16)return[{l:'R1 (Oitavos)',t:'g'},{l:'QF',t:'g'},{l:'Meias',t:'g'},{l:'Final 1º/2º',t:'a'},{l:'3º/4º',t:'a'},{l:'Meias 5–8',t:'a'},{l:'5º/6º',t:'a'},{l:'7º/8º',t:'a'},{l:'9º/10º',t:'a'}];
+  return [{l:'QF',t:'g'},{l:'Meias',t:'g'},{l:'Final 1º/2º',t:'a'},{l:'3º/4º',t:'a'},{l:'Meias 5–6',t:'a'},{l:'5º/6º',t:'a'},{l:'7º/8º',t:'a'}];
+}
+function qbR(qb){
+  if(qb===8)return[{l:'QF',t:'c'},{l:'Meias',t:'c'},{l:'Final 11º/12º',t:'a'},{l:'13º/14º',t:'a'},{l:'15º',t:'a'}];
+  if(qb===4)return[{l:'Meias',t:'c'},{l:'Final',t:'a'},{l:'3º/4º QB',t:'a'}];
+  return[{l:'Jogo directo',t:'c'}];
+}
+
+function codeRows(n){
+  const c=getCfg(n);
+  if(n===15)return[
+    {f:'QP_POSICOES[5]',d:'Actualizar mapa de seeding — byes agora correctamente para os 5×1.ºs',tag:'fix'},
+    {f:'QB_POSICOES[5]',d:'Já correcto — sem alterações',tag:'ok'},
+    {f:'gerarRondasQP()',d:'Bracket de 16 slots — sem alterações',tag:'ok'},
+    {f:'calcClassificacaoFinal()',d:'Testado com 15 jogadores na 1.ª etapa — funcional',tag:'ok'},
+  ];
+  if(n===14||n===13)return[
+    {f:'QP_POSICOES[4]',d:'Mapa já existe. Limitação: com 16 slots e 4 grupos, 1ºG1 e 1ºG2 encontram-se na SF. Considerar QP de 8 slots.',tag:'fix'},
+    {f:'QB_POSICOES[4]',d:'Já correcto',tag:'ok'},
+    {f:'calcClassificacaoFinal()',d:`Testar com ${n} jogadores — byes em cascata podem causar posições a 0`,tag:'fix'},
+  ];
+  if(n===12)return[
+    {f:'QP_POSICOES[4]',d:'Bracket de 8 — correcto, sem byes, sem problemas de seeding',tag:'ok'},
+    {f:'QB_POSICOES[4]',d:'Já correcto',tag:'ok'},
+    {f:'calcClassificacaoFinal()',d:'Testar com 12 jogadores',tag:'fix'},
+  ];
+  if(n===11||n===10||n===9)return[
+    {f:'QP_POSICOES[3]',d:'ACTUALIZAR: novo mapa corrige bye para 2ºG1 → agora byes para 1ºG1 e 1ºG2',tag:'fix'},
+    {f:'QB_POSICOES[3]',d:'Já correcto',tag:'ok'},
+    {f:'calcClassificacaoFinal()',d:`Testar com ${n} jogadores — 2 byes no QP e variável no QB`,tag:'fix'},
+    ...(new Set(gSizes(n,3)).size>1?[{f:'executarSorteio()',d:`Grupos misto (${gSizes(n,3).join('+')}) — verificar distribuição de CS`,tag:'fix'}]:[]),
+  ];
+  return[
+    {f:'QP_POSICOES[2]',d:'Correcto — sem byes para jogadores',tag:'ok'},
+    {f:'QB_POSICOES[2]',d:'Já correcto',tag:'ok'},
+    {f:'calcClassificacaoFinal()',d:'Testar com 8 jogadores',tag:'fix'},
+  ];
+}
+
+function update(n){
+  document.getElementById('nbadge').textContent=n;
+  const c=getCfg(n);
+  const sz=gSizes(n,c.g);
+  const qpB=Math.max(0,c.qp-c.g*2);
+  const qbB=Math.max(0,c.qb-c.g);
+  const tg=sz.reduce((s,z)=>s+z*(z-1)/2,0);
+  const qpTop=c.g*2;
+  const qbTop=Math.min(n,qpTop+c.g);
+  const pts=PTS.slice(0,n);
+  const uSz=[...new Set(sz)];
+
+  document.getElementById('config-desc').innerHTML=`<span class="config-desc">${c.g} grupos · ${uSz.length>1?sz.join('+'):sz[0]+'×'+c.g} jog. · QP${c.qp} + QB${c.qb}</span>`;
+
+  document.getElementById('sum-grid').innerHTML=[
+    {l:'Grupos',v:c.g,d:uSz.length>1?sz.join('+'):`${sz[0]} p/grupo`},
+    {l:'Jogos grupo',v:tg,d:'round robin'},
+    {l:'QP slots',v:c.qp,d:`${c.g*2} reais + ${qpB} byes`},
+    {l:'QB slots',v:c.qb,d:`${c.g} reais + ${qbB} byes`},
+  ].map(({l,v,d})=>`<div class="sum-card"><div class="lbl">${l}</div><div class="val">${v}</div><div class="det">${d}</div></div>`).join('');
+
+  const gHtml=sz.map((s,i)=>`<div class="grp-pill"><div class="gn">Grupo ${i+1}</div><div class="gs">${s} jog. · ${s*(s-1)/2} jogos</div></div>`).join('');
+  const qpPills=qpR(c.qp).map(r=>`<span class="bp bp-${r.t}">${r.l}</span>`).join('');
+  const qbPills=qbR(c.qb).map(r=>`<span class="bp bp-${r.t}">${r.l}</span>`).join('');
+  const ptsPills=pts.map((p,i)=>`<div class="pts-pill">${i+1}.º <strong>${p}</strong></div>`).join('');
+
+  document.getElementById('phases').innerHTML=`
+    <div class="phase-block">
+      <div class="phase-hdr ph-blue"><span class="badge bd-blue">Fase de Grupos</span><span class="phase-sub">Top 2 → QP · 3.º → QB</span><span class="phase-range">${n} jogadores</span></div>
+      <div class="phase-body"><div class="groups-row">${gHtml}</div><div class="phase-sub">${sz[0]} jogadores = ${sz[0]*(sz[0]-1)/2} jogos por grupo · ${tg} jogos total</div></div>
+    </div>
+    <div class="phase-block">
+      <div class="phase-hdr ph-amber"><span class="badge bd-amber">Quadro Principal</span><span class="phase-sub">${c.qp} slots · ${qpB} byes</span><span class="phase-range">1.º – ${qpTop}.º</span></div>
+      <div class="phase-body"><div class="bpills">${qpPills}</div></div>
+    </div>
+    <div class="phase-block">
+      <div class="phase-hdr ph-cy"><span class="badge bd-cy">Quadro B</span><span class="phase-sub">${c.qb} slots · ${qbB} byes</span><span class="phase-range">${qpTop+1}.º – ${qbTop}.º</span></div>
+      <div class="phase-body"><div class="bpills">${qbPills}</div></div>
+    </div>
+    <div class="phase-block">
+      <div class="phase-hdr ph-dim"><span class="badge bd-dim">Pontuação de Temporada</span><span class="phase-range">${n} posições</span></div>
+      <div class="phase-body"><div class="pts-row">${ptsPills}</div></div>
+    </div>`;
+
+  const rows=codeRows(n);
+  document.getElementById('code-table-wrap').innerHTML=`<table class="code-table"><thead><tr><th>Ficheiro / Função</th><th>Situação</th><th>Estado</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.f}</td><td>${r.d}</td><td><span class="tag tag-${r.tag}">${r.tag==='ok'?'OK':r.tag==='fix'?'A corrigir':'A criar'}</span></td></tr>`).join('')}</tbody></table>`;
+}
+
+function showSeeding(id){
+  document.querySelectorAll('.seeding-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.stab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('sp-'+id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// responsive two-col
+function fixLayout(){
+  document.querySelectorAll('.two-col').forEach(el=>{
+    el.style.gridTemplateColumns=window.innerWidth<640?'1fr':'1fr 1fr';
+  });
+}
+window.addEventListener('resize',fixLayout);
+fixLayout();
+update(15);
+</script>
+</body>
+</html>
