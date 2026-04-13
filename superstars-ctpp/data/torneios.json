@@ -805,11 +805,7 @@
         {
           "id": "g1",
           "campo": 1,
-          "jogadores": [
-            "j001",
-            "j004",
-            "jmntihrfco8zm"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -817,11 +813,7 @@
         {
           "id": "g2",
           "campo": 2,
-          "jogadores": [
-            "jmnvd7pc2bbhk",
-            "j005",
-            "jmntiou1qw765"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -829,11 +821,7 @@
         {
           "id": "g3",
           "campo": 3,
-          "jogadores": [
-            "j002",
-            "j003",
-            "j006"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -841,11 +829,7 @@
         {
           "id": "g4",
           "campo": 4,
-          "jogadores": [
-            "jmntii5ehdkwg",
-            "jmntiomivpeaw",
-            "jmntiqp3bcz0c"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -853,11 +837,7 @@
         {
           "id": "g5",
           "campo": 5,
-          "jogadores": [
-            "jmntir2jlvvot",
-            "jmnulp1rji487",
-            "jmntipxsi5f0s"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -865,332 +845,11 @@
       ],
       "quadroPrincipal": {
         "posicoes": [],
-        "rondas": [
-          {
-            "id": "r1",
-            "nome": "Oitavos de Final",
-            "jogos": [
-              {
-                "id": "qp_r1_1",
-                "posA": 1,
-                "posB": 2,
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null,
-                "bye": false
-              },
-              {
-                "id": "qp_r1_2",
-                "posA": 3,
-                "posB": 4,
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null,
-                "bye": false
-              },
-              {
-                "id": "qp_r1_3",
-                "posA": 5,
-                "posB": 6,
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null,
-                "bye": false
-              },
-              {
-                "id": "qp_r1_4",
-                "posA": 7,
-                "posB": 8,
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null,
-                "bye": false
-              },
-              {
-                "id": "qp_r1_5",
-                "posA": 9,
-                "posB": 10,
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null,
-                "bye": false
-              },
-              {
-                "id": "qp_r1_6",
-                "posA": 11,
-                "posB": 12,
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null,
-                "bye": false
-              },
-              {
-                "id": "qp_r1_7",
-                "posA": 13,
-                "posB": 14,
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null,
-                "bye": false
-              },
-              {
-                "id": "qp_r1_8",
-                "posA": 15,
-                "posB": 16,
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null,
-                "bye": false
-              }
-            ]
-          },
-          {
-            "id": "r2",
-            "nome": "Quartos de Final",
-            "jogos": [
-              {
-                "id": "qp_qf_1",
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              },
-              {
-                "id": "qp_qf_2",
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              },
-              {
-                "id": "qp_qf_3",
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              },
-              {
-                "id": "qp_qf_4",
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              }
-            ]
-          },
-          {
-            "id": "r3",
-            "nome": "Meias Finais",
-            "jogos": [
-              {
-                "id": "qp_sf_1",
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              },
-              {
-                "id": "qp_sf_2",
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              }
-            ]
-          },
-          {
-            "id": "r3p",
-            "nome": "Meias Finais (5º-8º)",
-            "jogos": [
-              {
-                "id": "qp_sfp_1",
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              },
-              {
-                "id": "qp_sfp_2",
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              }
-            ]
-          },
-          {
-            "id": "r4",
-            "nome": "Finals",
-            "jogos": [
-              {
-                "id": "qp_final",
-                "nome": "Final (1º/2º)",
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              },
-              {
-                "id": "qp_3lugar",
-                "nome": "3º/4º Lugar",
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              },
-              {
-                "id": "qp_56",
-                "nome": "5º/6º Lugar",
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              },
-              {
-                "id": "qp_78",
-                "nome": "7º/8º Lugar",
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              },
-              {
-                "id": "qp_910",
-                "nome": "9º/10º Lugar",
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              }
-            ]
-          }
-        ]
+        "rondas": []
       },
       "quadroB": {
         "posicoes": [],
-        "rondas": [
-          {
-            "id": "r1",
-            "nome": "Quartos de Final",
-            "jogos": [
-              {
-                "id": "qb_qf_1",
-                "posA": 1,
-                "posB": 2,
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              },
-              {
-                "id": "qb_qf_2",
-                "posA": 3,
-                "posB": 4,
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              },
-              {
-                "id": "qb_qf_3",
-                "posA": 5,
-                "posB": 6,
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              },
-              {
-                "id": "qb_qf_4",
-                "posA": 7,
-                "posB": 8,
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              }
-            ]
-          },
-          {
-            "id": "r2",
-            "nome": "Meias Finais",
-            "jogos": [
-              {
-                "id": "qb_sf_1",
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              },
-              {
-                "id": "qb_sf_2",
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              }
-            ]
-          },
-          {
-            "id": "r3",
-            "nome": "Finals",
-            "jogos": [
-              {
-                "id": "qb_final",
-                "nome": "Final (11º/12º)",
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              },
-              {
-                "id": "qb_1314",
-                "nome": "13º/14º Lugar",
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              }
-            ]
-          }
-        ]
+        "rondas": []
       },
       "classificacaoFinal": []
     }
