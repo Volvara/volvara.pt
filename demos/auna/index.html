@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AUNA Kitchen & Bar — A melhor pizza sourdough de Portimão. Massa de fermentação lenta, ingredientes frescos, coctéis artesanais. Edifício Elite, Praia da Rocha.">
+  <meta name="description" lang="en" content="AUNA Kitchen & Bar — The best sourdough pizza in Portimão. Slow fermentation dough, fresh ingredients, craft cocktails. Elite Building, Praia da Rocha.">
+  <meta property="og:title" content="AUNA Kitchen & Bar — Portimão">
+  <meta property="og:description" content="A melhor pizza sourdough de Portimão. Todos os dias até às 22h.">
+  <meta property="og:type" content="restaurant">
+  <title>AUNA Kitchen & Bar — Portimão</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "AUNA Kitchen & Bar",
+    "description": "Pizza sourdough artesanal em Portimão. Massa de fermentação lenta.",
+    "url": "https://volvara.pt/auna",
+    "telephone": "+351925698762",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Edifício Elite, Praia da Rocha",
+      "addressLocality": "Portimão",
+      "addressCountry": "PT"
+    },
+    "servesCuisine": ["Pizza", "Tapas", "Cocktails"],
+    "openingHours": "Mo-Su 12:00-22:00",
+    "priceRange": "€€"
+  }
+  </script>
+
+  <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #0A0A0A;
+      --dark:    #111111;
+      --card:    #181818;
+      --border:  #2a2a2a;
+      --gold:    #C8963E;
+      --gold-lt: #E0B060;
+      --cream:   #F4F1EC;
+      --white:   #FFFFFF;
+      --muted:   #888888;
+      --red:     #DC143C;
+
+      --ff-display: 'Bebas Neue', sans-serif;
+      --ff-body:    'DM Sans', sans-serif;
+      --ff-mono:    'DM Mono', monospace;
+
+      --section-pad: clamp(64px, 10vw, 120px) clamp(20px, 5vw, 80px);
+      --radius: 4px;
+      --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--cream);
+      font-family: var(--ff-body);
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px clamp(20px,5vw,80px);
+      background: rgba(10,10,10,0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background var(--transition), padding var(--transition), border-color var(--transition);
+    }
+    nav.scrolled {
+      background: rgba(10,10,10,0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding-top: 14px; padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex; align-items: center;
+    }
+    .nav-logo-img {
+      height: 44px;
+      width: auto;
+      filter: brightness(0) invert(1); /* force white */
+      transition: opacity var(--transition);
+    }
+    .nav-logo:hover .nav-logo-img { opacity: 0.85; }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--ff-mono);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--cream); }
+
+    .nav-lang {
+      font-family: var(--ff-mono);
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      cursor: pointer;
+      border: 1px solid var(--gold);
+      padding: 5px 12px;
+      border-radius: var(--radius);
+      transition: background var(--transition), color var(--transition);
+      background: transparent;
+    }
+    .nav-lang:hover { background: var(--gold); color: var(--black); }
+
+    /* hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 1.5px;
+      background: var(--cream);
+      transition: var(--transition);
+    }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed; inset: 0; z-index: 99;
+      background: rgba(10,10,10,0.97);
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 40px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--ff-display);
+      font-size: 40px;
+      letter-spacing: 6px;
+      color: var(--cream);
+      transition: color var(--transition);
+    }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu .mob-lang {
+      font-family: var(--ff-mono);
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 8px 20px;
+      cursor: pointer;
+      background: transparent;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100svh; min-height: 600px;
+      display: flex; align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      transform: scale(1.05);
+      transition: transform 8s ease;
+    }
+    .hero.loaded .hero-img { transform: scale(1); }
+
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10,10,10,0.1) 0%,
+        rgba(10,10,10,0.2) 40%,
+        rgba(10,10,10,0.85) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: clamp(40px,8vw,100px) clamp(20px,5vw,80px);
+      max-width: 800px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--ff-mono);
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block; width: 40px; height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-title {
+      font-family: var(--ff-display);
+      font-size: clamp(64px, 12vw, 140px);
+      line-height: 0.9;
+      letter-spacing: 2px;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: clamp(14px,2vw,18px);
+      color: rgba(244,241,236,0.75);
+      font-weight: 300;
+      max-width: 460px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex; gap: 16px; flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: var(--ff-mono);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--black);
+    }
+    .btn-primary:hover {
+      background: var(--gold-lt);
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--cream);
+      border: 1px solid rgba(244,241,236,0.35);
+    }
+    .btn-outline:hover {
+      border-color: var(--cream);
+      transform: translateY(-1px);
+    }
+
+    /* ── SECTION HEADERS ── */
+    .section-label {
+      font-family: var(--ff-mono);
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::before {
+      content: ''; display: block;
+      width: 24px; height: 1px; background: var(--gold);
+    }
+
+    .section-title {
+      font-family: var(--ff-display);
+      font-size: clamp(40px,6vw,72px);
+      letter-spacing: 2px;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+    .section-title em { font-style: normal; color: var(--gold); }
+
+    .section-body {
+      font-size: 15px;
+      color: rgba(244,241,236,0.65);
+      line-height: 1.8;
+      max-width: 520px;
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      padding: var(--section-pad);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px,6vw,100px);
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+    .about-img-main {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+    .about-img-accent {
+      position: absolute;
+      width: 45%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: var(--radius);
+      bottom: -32px; right: -24px;
+      border: 4px solid var(--black);
+    }
+    .about-badge {
+      position: absolute;
+      top: 24px; left: -24px;
+      background: var(--gold);
+      color: var(--black);
+      padding: 16px 20px;
+      font-family: var(--ff-display);
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-align: center;
+      line-height: 1.3;
+      z-index: 1;
+    }
+    .about-badge strong { display: block; font-size: 28px; }
+
+    .about-text { padding-bottom: 40px; }
+
+    .about-features {
+      margin-top: 32px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    .about-feature {
+      border-left: 2px solid var(--gold);
+      padding-left: 16px;
+    }
+    .about-feature-title {
+      font-family: var(--ff-mono);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .about-feature-body {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── SOURDOUGH HIGHLIGHT ── */
+    .sourdough {
+      position: relative;
+      overflow: hidden;
+    }
+    .sourdough-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.25) saturate(0.6);
+    }
+    .sourdough-content {
+      position: relative; z-index: 2;
+      padding: var(--section-pad);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px,6vw,80px);
+      align-items: center;
+    }
+    .sourdough-stat {
+      text-align: center;
+      padding: 32px;
+      border: 1px solid rgba(200,150,62,0.2);
+      border-radius: var(--radius);
+      background: rgba(10,10,10,0.4);
+      backdrop-filter: blur(4px);
+    }
+    .sourdough-stat-num {
+      font-family: var(--ff-display);
+      font-size: 64px;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .sourdough-stat-label {
+      font-family: var(--ff-mono);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+    .sourdough-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+
+    /* ── MENU SECTION ── */
+    .menu-section {
+      padding: var(--section-pad);
+    }
+    .menu-header {
+      display: flex; align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 56px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .menu-tabs {
+      display: flex; gap: 4px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 4px;
+      background: var(--dark);
+    }
+    .menu-tab {
+      font-family: var(--ff-mono);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 2px;
+      cursor: pointer;
+      color: var(--muted);
+      transition: var(--transition);
+      border: none;
+      background: transparent;
+    }
+    .menu-tab.active {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .menu-grid {
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      background: var(--border);
+      border: 1px solid var(--border);
+      gap: 1px;
+    }
+    .menu-grid.active { display: grid; }
+
+    .menu-item {
+      background: var(--dark);
+      padding: 28px 32px;
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 20px;
+      transition: background var(--transition);
+      /* equal height rows: items in same row are always aligned */
+    }
+    .menu-item:hover { background: var(--card); }
+
+    /* Sub-headers span both columns */
+    .menu-item--sub {
+      grid-column: 1 / -1;
+      background: var(--black) !important;
+      padding: 20px 32px 12px;
+      cursor: default;
+      align-items: center;
+    }
+    .menu-item--sub:hover { background: var(--black) !important; }
+
+    /* Full-width highlight row (burrata, notes, odd items) */
+    .menu-item--full {
+      grid-column: 1 / -1;
+      background: rgba(200,150,62,0.06);
+      border-top: 1px solid rgba(200,150,62,0.15);
+    }
+    .menu-item--full:hover { background: rgba(200,150,62,0.10); }
+
+    /* Filler cell to balance odd items — invisible but holds the grid */
+    .menu-item--filler {
+      background: var(--dark);
+      pointer-events: none;
+    }
+    .menu-item--filler:hover { background: var(--dark); }
+
+    .menu-item-name--sub {
+      font-family: var(--ff-mono);
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold) !important;
+    }
+    .menu-item-year {
+      font-family: var(--ff-mono);
+      font-size: 9px;
+      letter-spacing: 1px;
+      color: var(--muted);
+      font-weight: 400;
+      text-transform: lowercase;
+      margin-left: 6px;
+    }
+
+    .menu-item-info {}
+    .menu-item-name {
+      font-family: var(--ff-mono);
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--cream);
+      margin-bottom: 6px;
+    }
+    .menu-item-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 260px;
+    }
+    .menu-item-price {
+      font-family: var(--ff-display);
+      font-size: 22px;
+      color: var(--gold);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── FOOD GALLERY ── */
+    .gallery {
+      padding: 0 clamp(20px,5vw,80px) clamp(64px,10vw,120px);
+    }
+    .gallery-header {
+      margin-bottom: 40px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto;
+      gap: 8px;
+    }
+    .gallery-grid .g1 { grid-column: span 5; grid-row: span 2; }
+    .gallery-grid .g2 { grid-column: span 4; }
+    .gallery-grid .g3 { grid-column: span 3; }
+    .gallery-grid .g4 { grid-column: span 4; }
+    .gallery-grid .g5 { grid-column: span 3; }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: var(--radius);
+      position: relative;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-item .g-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.5) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .gallery-item:hover .g-overlay { opacity: 1; }
+    .g1 { min-height: 480px; }
+    .g2, .g4 { min-height: 220px; }
+    .g3, .g5 { min-height: 220px; }
+
+    /* ── BAR SECTION ── */
+    .bar-section {
+      padding: var(--section-pad);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px,6vw,100px);
+      align-items: center;
+      background: var(--dark);
+    }
+    .bar-img {
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: var(--radius);
+      width: 100%;
+    }
+
+    .bar-drinks {
+      margin-top: 40px;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .bar-drink-item {
+      display: flex; align-items: center; gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .bar-drink-item:last-child { border-bottom: none; }
+    .bar-drink-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .bar-drink-name {
+      font-family: var(--ff-mono);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--cream);
+      flex: 1;
+    }
+    .bar-drink-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ── LOCATION ── */
+    .location {
+      padding: var(--section-pad);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px,6vw,100px);
+      align-items: start;
+    }
+    .location-details {
+      display: flex; flex-direction: column; gap: 32px;
+    }
+    .location-block-label {
+      font-family: var(--ff-mono);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .location-block-value {
+      font-size: 15px;
+      color: var(--cream);
+      line-height: 1.7;
+    }
+
+    .map-embed {
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--card);
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .map-embed iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; border: none;
+      filter: grayscale(1) invert(0.9) contrast(0.85);
+    }
+
+    /* ── CTA ── */
+    .cta {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: clamp(80px,12vw,160px) clamp(20px,5vw,80px);
+    }
+    .cta-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.2) saturate(0.4);
+    }
+    .cta-content {
+      position: relative; z-index: 2;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .cta-title {
+      font-family: var(--ff-display);
+      font-size: clamp(48px,8vw,96px);
+      line-height: 0.95;
+      letter-spacing: 2px;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    .cta-title em { font-style: normal; color: var(--gold); }
+    .cta-sub {
+      font-size: 15px;
+      color: rgba(244,241,236,0.65);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+    .cta-actions {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    }
+    .btn-wa {
+      background: #25D366;
+      color: var(--white);
+    }
+    .btn-wa:hover { background: #20c05b; transform: translateY(-1px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      padding: 48px clamp(20px,5vw,80px) 32px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand-name {
+      font-family: var(--ff-display);
+      font-size: 32px;
+      letter-spacing: 6px;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .footer-brand-sub {
+      font-family: var(--ff-mono);
+      font-size: 9px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .footer-brand-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+    .footer-col-title {
+      font-family: var(--ff-mono);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--muted);
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: var(--cream); }
+
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      gap: 16px; flex-wrap: wrap;
+    }
+    .footer-copy {
+      font-family: var(--ff-mono);
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: var(--muted);
+    }
+    .footer-volvara {
+      font-family: var(--ff-mono);
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: var(--muted);
+      transition: color var(--transition);
+    }
+    .footer-volvara:hover { color: var(--gold); }
+    .footer-volvara span { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .about, .sourdough-content, .bar-section, .location {
+        grid-template-columns: 1fr;
+      }
+      .about-img-accent { display: none; }
+      .about-badge { left: 16px; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+
+      .gallery-grid .g1 { grid-column: span 12; min-height: 320px; grid-row: span 1; }
+      .gallery-grid .g2 { grid-column: span 6; }
+      .gallery-grid .g3 { grid-column: span 6; }
+      .gallery-grid .g4 { grid-column: span 6; }
+      .gallery-grid .g5 { grid-column: span 6; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-lang  { display: none; }
+      .hamburger { display: flex; }
+
+      .hero-title { line-height: 0.88; }
+      .about-features { grid-template-columns: 1fr; }
+      .sourdough-stats { grid-template-columns: 1fr 1fr; }
+      .menu-header { flex-direction: column; align-items: flex-start; }
+      .menu-grid.active { grid-template-columns: 1fr; }
+      .menu-item--sub, .menu-item--full { grid-column: 1; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+
+      .gallery-grid .g1 { grid-column: span 12; }
+      .gallery-grid .g2 { grid-column: span 12; }
+      .gallery-grid .g3 { grid-column: span 12; }
+      .gallery-grid .g4 { grid-column: span 6; }
+      .gallery-grid .g5 { grid-column: span 6; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="nav-logo" aria-label="AUNA Kitchen & Bar">
+      <img src="assets/logo-white.png" alt="AUNA Kitchen & Bar" class="nav-logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about" data-i18n data-pt="Sobre" data-en="About">Sobre</a></li>
+      <li><a href="#menu" data-i18n data-pt="Menu" data-en="Menu">Menu</a></li>
+      <li><a href="#bar" data-i18n data-pt="Bar" data-en="Bar">Bar</a></li>
+      <li><a href="#location" data-i18n data-pt="Localização" data-en="Location">Localização</a></li>
+    </ul>
+    <button class="nav-lang" id="langToggle" aria-label="Switch language">EN</button>
+    <div class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" data-i18n data-pt="Sobre" data-en="About">Sobre</a>
+    <a href="#menu" data-i18n data-pt="Menu" data-en="Menu">Menu</a>
+    <a href="#bar" data-i18n data-pt="Bar" data-en="Bar">Bar</a>
+    <a href="#location" data-i18n data-pt="Localização" data-en="Location">Localização</a>
+    <button class="mob-lang" id="mobLangToggle">EN</button>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <img src="assets/hero.jpg" alt="Pizza sourdough AUNA Kitchen & Bar" class="hero-img" loading="eager">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span data-i18n data-pt="Portimão · Praia da Rocha" data-en="Portimão · Praia da Rocha">Portimão · Praia da Rocha</span>
+      </div>
+      <h1 class="hero-title" data-i18n data-pt="A Melhor<br>Pizza<br><em>Sourdough</em>" data-en="The Best<br>Sourdough<br><em>Pizza</em>">
+        A Melhor<br>Pizza<br><em>Sourdough</em>
+      </h1>
+      <p class="hero-sub" data-i18n
+         data-pt="Massa de fermentação lenta, ingredientes frescos e um forno que não perdoa. Abertos todos os dias até às 22h."
+         data-en="Slow-fermented dough, fresh ingredients and an unforgiving oven. Open every day until 10 pm.">
+        Massa de fermentação lenta, ingredientes frescos e um forno que não perdoa. Abertos todos os dias até às 22h.
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/351925698762" target="_blank" rel="noopener" class="btn btn-primary">
+          <span data-i18n data-pt="Fazer Reserva" data-en="Book a Table">Fazer Reserva</span>
+        </a>
+        <a href="#menu" class="btn btn-outline">
+          <span data-i18n data-pt="Ver Menu" data-en="See Menu">Ver Menu</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-visual">
+      <div class="about-badge">
+        <strong>22h</strong>
+        <span data-i18n data-pt="Fecho todos os dias" data-en="Close every day">Fecho todos os dias</span>
+      </div>
+      <img src="assets/pizza-duo.jpg" alt="Duas pizzas AUNA" class="about-img-main" loading="lazy">
+      <img src="assets/pizza-margherita.jpg" alt="Margherita AUNA" class="about-img-accent" loading="lazy">
+    </div>
+    <div class="about-text">
+      <div class="section-label" data-i18n data-pt="A Nossa História" data-en="Our Story">A Nossa História</div>
+      <h2 class="section-title" data-i18n data-pt="Feito com<br><em>tempo</em> e técnica" data-en="Made with<br><em>time</em> and craft">
+        Feito com<br><em>tempo</em> e técnica
+      </h2>
+      <p class="section-body" data-i18n
+         data-pt="Na AUNA acreditamos que uma boa pizza começa 48 horas antes de sair do forno. A nossa massa de fermentação lenta desenvolve sabores que não se conseguem apressar. Do forno para a mesa, cada pizza é uma experiência."
+         data-en="At AUNA we believe a great pizza starts 48 hours before it leaves the oven. Our slow-fermented dough develops flavours that can't be rushed. From oven to table, every pizza is an experience.">
+        Na AUNA acreditamos que uma boa pizza começa 48 horas antes de sair do forno. A nossa massa de fermentação lenta desenvolve sabores que não se conseguem apressar. Do forno para a mesa, cada pizza é uma experiência.
+      </p>
+      <div class="about-features">
+        <div class="about-feature">
+          <div class="about-feature-title" data-i18n data-pt="Massa Artesanal" data-en="Artisan Dough">Massa Artesanal</div>
+          <div class="about-feature-body" data-i18n data-pt="Fermentação lenta de 48h" data-en="48h slow fermentation">Fermentação lenta de 48h</div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-title" data-i18n data-pt="Ingredientes Frescos" data-en="Fresh Ingredients">Ingredientes Frescos</div>
+          <div class="about-feature-body" data-i18n data-pt="Seleccionados diariamente" data-en="Selected daily">Seleccionados diariamente</div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-title" data-i18n data-pt="Forno a Alta Temp." data-en="High-temp Oven">Forno a Alta Temp.</div>
+          <div class="about-feature-body" data-i18n data-pt="Crosta perfeita, interior macio" data-en="Perfect crust, soft inside">Crosta perfeita, interior macio</div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-title" data-i18n data-pt="Kitchen & Bar" data-en="Kitchen & Bar">Kitchen & Bar</div>
+          <div class="about-feature-body" data-i18n data-pt="Tapas, cocktails & mais" data-en="Tapas, cocktails & more">Tapas, cocktails & mais</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOURDOUGH HIGHLIGHT -->
+  <section class="sourdough">
+    <img src="assets/pizza-burrata.jpg" alt="Pizza sourdough AUNA" class="sourdough-bg" loading="lazy" aria-hidden="true">
+    <div class="sourdough-content">
+      <div>
+        <div class="section-label" data-i18n data-pt="O Processo" data-en="The Process">O Processo</div>
+        <h2 class="section-title" data-i18n data-pt="Sourdough<br><em>de Verdade</em>" data-en="Real<br><em>Sourdough</em>">
+          Sourdough<br><em>de Verdade</em>
+        </h2>
+        <p class="section-body" data-i18n
+           data-pt="Não usamos fermento industrial. A nossa massa vive, respira e fermenta lentamente — o que resulta numa crosta com carácter, alvéolos abertos e um sabor que fica na memória."
+           data-en="We don't use commercial yeast. Our dough is alive — it breathes and ferments slowly — resulting in a crust with character, open crumb and a flavour you won't forget.">
+          Não usamos fermento industrial. A nossa massa vive, respira e fermenta lentamente — o que resulta numa crosta com carácter, alvéolos abertos e um sabor que fica na memória.
+        </p>
+      </div>
+      <div class="sourdough-stats">
+        <div class="sourdough-stat">
+          <div class="sourdough-stat-num">48h</div>
+          <div class="sourdough-stat-label" data-i18n data-pt="Fermentação" data-en="Fermentation">Fermentação</div>
+        </div>
+        <div class="sourdough-stat">
+          <div class="sourdough-stat-num">450°</div>
+          <div class="sourdough-stat-label" data-i18n data-pt="Temperatura do Forno" data-en="Oven Temp">Temperatura do Forno</div>
+        </div>
+        <div class="sourdough-stat">
+          <div class="sourdough-stat-num">100%</div>
+          <div class="sourdough-stat-label" data-i18n data-pt="Ingredientes Frescos" data-en="Fresh Ingredients">Ingredientes Frescos</div>
+        </div>
+        <div class="sourdough-stat">
+          <div class="sourdough-stat-num">0</div>
+          <div class="sourdough-stat-label" data-i18n data-pt="Fermento Industrial" data-en="Commercial Yeast">Fermento Industrial</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="menu-section" id="menu">
+    <div class="menu-header">
+      <div>
+        <div class="section-label" data-i18n data-pt="O Que Servimos" data-en="What We Serve">O Que Servimos</div>
+        <h2 class="section-title" data-i18n data-pt="O <em>Menu</em>" data-en="The <em>Menu</em>">O <em>Menu</em></h2>
+      </div>
+      <div class="menu-tabs" role="tablist">
+        <button class="menu-tab active" data-tab="pizzas" role="tab" aria-selected="true" data-i18n data-pt="Pizzas" data-en="Pizzas">Pizzas</button>
+        <button class="menu-tab" data-tab="starters" role="tab" aria-selected="false" data-i18n data-pt="Entradas" data-en="Starters">Entradas</button>
+        <button class="menu-tab" data-tab="cocktails" role="tab" aria-selected="false" data-i18n data-pt="Cocktails" data-en="Cocktails">Cocktails</button>
+        <button class="menu-tab" data-tab="drinks" role="tab" aria-selected="false" data-i18n data-pt="Bebidas" data-en="Drinks">Bebidas</button>
+      </div>
+    </div>
+
+    <!-- PIZZAS -->
+    <div class="menu-grid active" id="tab-pizzas">
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Theree Cheese</div><div class="menu-item-desc" data-i18n data-pt="Marinara, mozzarella, gorgonzola e parmesão ralado" data-en="Marinara, mozzarella, gorgonzola and shaved parmesan">Marinara, mozzarella, gorgonzola e parmesão ralado</div></div><div class="menu-item-price">11€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Earth's Bounty</div><div class="menu-item-desc" data-i18n data-pt="Marinara, mozzarella, cogumelos, cebola roxa, pimento e tomate fresco" data-en="Marinara, mozzarella, mushrooms, red onion, bell peppers and fresh tomatoes">Marinara, mozzarella, cogumelos, cebola roxa, pimento e tomate fresco</div></div><div class="menu-item-price">12€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">The Gatherer</div><div class="menu-item-desc" data-i18n data-pt="Marinara, mozzarella, pepperoni, chouriço picante, bacon, cogumelos, cebola roxa, pimento e tomate" data-en="Marinara, mozzarella, pepperoni, spicy sausage, bacon, mushrooms, red onions, bell peppers and fresh tomatoes">Marinara, mozzarella, pepperoni, chouriço picante, bacon, cogumelos, cebola roxa, pimento e tomate</div></div><div class="menu-item-price">14€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">The Chick-In</div><div class="menu-item-desc" data-i18n data-pt="Molho de alho, mozzarella, cebola roxa, cogumelos e frango assado" data-en="Garlic sauce, mozzarella, red onion, mushrooms and roasted chicken breast">Molho de alho, mozzarella, cebola roxa, cogumelos e frango assado</div></div><div class="menu-item-price">13€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Queen Bee</div><div class="menu-item-desc" data-i18n data-pt="Marinara, pepperoni, chouriço picante, cebola roxa, mozzarella e mel picante" data-en="Marinara, pepperoni, spicy sausage, red onion, mozzarella, infused hot honey">Marinara, pepperoni, chouriço picante, cebola roxa, mozzarella e mel picante</div></div><div class="menu-item-price">13.50€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Pesto Chicken</div><div class="menu-item-desc" data-i18n data-pt="Molho pesto, mozzarella, frango assado e cebola roxa" data-en="Pesto sauce, mozzarella, roasted chicken breast and red onions">Molho pesto, mozzarella, frango assado e cebola roxa</div></div><div class="menu-item-price">13.50€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Pepperoni</div><div class="menu-item-desc" data-i18n data-pt="Marinara, mozzarella, pepperoni" data-en="Marinara, mozzarella, pepperoni">Marinara, mozzarella, pepperoni</div></div><div class="menu-item-price">12€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Margherita</div><div class="menu-item-desc" data-i18n data-pt="Marinara, mozzarella fresca, manjericão, fio de azeite" data-en="Marinara, fresh mozzarella, basil, olive oil drizzle">Marinara, mozzarella fresca, manjericão, fio de azeite</div></div><div class="menu-item-price">12€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">BBQ Chicken</div><div class="menu-item-desc" data-i18n data-pt="Molho BBQ, mozzarella, cebola roxa, frango assado, bacon" data-en="BBQ sauce, mozzarella, red onions, roasted chicken breast, bacon bites">Molho BBQ, mozzarella, cebola roxa, frango assado, bacon</div></div><div class="menu-item-price">13.50€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">La Tavola</div><div class="menu-item-desc" data-i18n data-pt="Marinara, mozzarella, salame italiano, cogumelos, cebola" data-en="Marinara, mozzarella, Italian salami, mushrooms, onions">Marinara, mozzarella, salame italiano, cogumelos, cebola</div></div><div class="menu-item-price">12.50€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">The Hotwheel</div><div class="menu-item-desc" data-i18n data-pt="Creme de sriracha, mozzarella, chouriço picante, cebola roxa, jalapeños frescos" data-en="Sriracha cream sauce, mozzarella, spicy sausage, red onion, fresh jalapeños, sriracha drizzle">Creme de sriracha, mozzarella, chouriço picante, cebola roxa, jalapeños frescos</div></div><div class="menu-item-price">13€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">The Black Tie</div><div class="menu-item-desc" data-i18n data-pt="Crosta com azeite de alho, mozzarella, gorgonzola, tâmaras, balsâmico reduzido" data-en="Garlic oil brushed crust, mozzarella, gorgonzola, dates, reduced balsamic glaze">Crosta com azeite de alho, mozzarella, gorgonzola, tâmaras, balsâmico reduzido</div></div><div class="menu-item-price">12€</div></div>
+      <div class="menu-item menu-item--full"><div class="menu-item-info"><div class="menu-item-name" data-i18n data-pt="+ Burrata em qualquer pizza" data-en="+ Add Burrata to any pizza">+ Burrata em qualquer pizza</div><div class="menu-item-desc" data-i18n data-pt="Adicionado no momento, directamente sobre a pizza" data-en="Added fresh, directly on top of your pizza">Adicionado no momento, directamente sobre a pizza</div></div><div class="menu-item-price">3.50€</div></div>
+    </div>
+
+    <!-- ENTRADAS / STARTERS -->
+    <div class="menu-grid" id="tab-starters">
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name" data-i18n data-pt="Camarões Panados (6)" data-en="Breaded Shrimp (6)">Camarões Panados (6)</div><div class="menu-item-desc" data-i18n data-pt="Com molho aioli de chilli doce" data-en="Served with sweet chili aioli">Com molho aioli de chilli doce</div></div><div class="menu-item-price">8.50€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name" data-i18n data-pt="Asas de Frango com Osso (150g)" data-en="Bone-In Chicken Wings (150g)">Asas de Frango com Osso (150g)</div><div class="menu-item-desc" data-i18n data-pt="À escolha: molho BBQ ou sriracha aioli" data-en="Choice of BBQ or sriracha aioli">À escolha: molho BBQ ou sriracha aioli</div></div><div class="menu-item-price">7.50€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name" data-i18n data-pt="Tâmaras com Bacon" data-en="Bacon-Wrapped Dates">Tâmaras com Bacon</div><div class="menu-item-desc" data-i18n data-pt="Recheadas com jalapeño, envoltas em bacon, redução de balsâmico" data-en="Stuffed with jalapeño, wrapped in bacon, topped with balsamic reduction">Recheadas com jalapeño, envoltas em bacon, redução de balsâmico</div></div><div class="menu-item-price">7€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name" data-i18n data-pt="Coxinha (8)" data-en="Stuffed Chicken Bread (8)">Coxinha (8)</div><div class="menu-item-desc" data-i18n data-pt="Croquete de frango desfiado, frito até dourar. Crocante por fora, macio por dentro, com sriracha" data-en="Brazilian shredded chicken croquette, crispy fried, sriracha aioli">Croquete de frango desfiado, frito até dourar. Crocante por fora, macio por dentro, com sriracha</div></div><div class="menu-item-price">7.50€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name" data-i18n data-pt="Bolinha de Queijo (8)" data-en="Mini Cheese Bread (8)">Bolinha de Queijo (8)</div><div class="menu-item-desc" data-i18n data-pt="Pão de queijo brasileiro" data-en="Brazilian cheese croquette bread">Pão de queijo brasileiro</div></div><div class="menu-item-price">6€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name" data-i18n data-pt="Batatas Fritas" data-en="Regular Fries">Batatas Fritas</div></div><div class="menu-item-price">4€</div></div>
+      <div class="menu-item menu-item--full"><div class="menu-item-info"><div class="menu-item-name" data-i18n data-pt="Batatas AUNA" data-en="AUNA Fries">Batatas AUNA</div><div class="menu-item-desc" data-i18n data-pt="A nossa versão — batatas fritas com bacon crocante e queijo derretido" data-en="Our version — fries topped with crispy bacon and melted cheese">A nossa versão — batatas fritas com bacon crocante e queijo derretido</div></div><div class="menu-item-price">6.50€</div></div>
+      <div class="menu-item menu-item--sub"><div class="menu-item-info"><div class="menu-item-name menu-item-name--sub" data-i18n data-pt="Saladas" data-en="Salads">Saladas</div></div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Caprese</div><div class="menu-item-desc" data-i18n data-pt="Mozzarella fresca, tomate, pesto, manjericão e redução de balsâmico" data-en="Fresh mozzarella, tomato, pesto, basil and balsamic reduction">Mozzarella fresca, tomate, pesto, manjericão e redução de balsâmico</div></div><div class="menu-item-price">9€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Caesar</div><div class="menu-item-desc" data-i18n data-pt="Alface romana, molho caesar, croutons, parmesão" data-en="Romaine lettuce, caesar dressing, croutons, parmesan cheese">Alface romana, molho caesar, croutons, parmesão</div></div><div class="menu-item-price">8€</div></div>
+    </div>
+
+    <!-- COCKTAILS -->
+    <div class="menu-grid" id="tab-cocktails">
+      <div class="menu-item menu-item--sub"><div class="menu-item-info"><div class="menu-item-name menu-item-name--sub" data-i18n data-pt="Cocktails Modernos" data-en="Modern Cocktails">Cocktails Modernos</div></div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Nothing to Say</div><div class="menu-item-desc" data-i18n data-pt="Bourbon, falernum, sumo de lima, lima seco" data-en="Bourbon, house falernum, lime juice, dried lime, rocks">Bourbon, falernum, sumo de lima, lima seco</div></div><div class="menu-item-price">10€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Paper Plane</div><div class="menu-item-desc" data-i18n data-pt="Bourbon, amaro, aperol, sumo de limão" data-en="Bourbon, amaro, aperol, lemon juice, lemon peel">Bourbon, amaro, aperol, sumo de limão</div></div><div class="menu-item-price">11€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">The Honey</div><div class="menu-item-desc" data-i18n data-pt="Bourbon, xarope de mel, sumo de limão" data-en="Bourbon, house honey syrup, lemon juice, lemon peel">Bourbon, xarope de mel, sumo de limão</div></div><div class="menu-item-price">10€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Whiskey Baxter</div><div class="menu-item-desc" data-i18n data-pt="Bourbon, curaçau de laranja, lima, angostura" data-en="Bourbon, orange curacao, house lime sour, angostura bitters">Bourbon, curaçau de laranja, lima, angostura</div></div><div class="menu-item-price">8€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">That's It!</div><div class="menu-item-desc" data-i18n data-pt="Rum escuro, licor de maracujá, falernum, sumo de lima" data-en="Dark rum, passion fruit liquor, house falernum, lime juice">Rum escuro, licor de maracujá, falernum, sumo de lima</div></div><div class="menu-item-price">11€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Dark &amp; Stormy</div><div class="menu-item-desc" data-i18n data-pt="Rum escuro, cerveja de gengibre, angostura, lima" data-en="Dark rum, ginger beer, angostura bitters, lime wedge">Rum escuro, cerveja de gengibre, angostura, lima</div></div><div class="menu-item-price">9€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Jalapeño Margarita</div><div class="menu-item-desc" data-i18n data-pt="Tequila com infusão de jalapeño, triple sec, lima, borda de sal" data-en="House infused jalapeño tequila, triple sec, lime sour, salt rim">Tequila com infusão de jalapeño, triple sec, lima, borda de sal</div></div><div class="menu-item-price">9€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Pineapple Express</div><div class="menu-item-desc" data-i18n data-pt="Vodka de ananás, crème de cassis, sumo de ananás, bitters de laranja" data-en="Pineapple vodka, crème de cassis, pineapple juice, orange bitters">Vodka de ananás, crème de cassis, sumo de ananás, bitters de laranja</div></div><div class="menu-item-price">10€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Caipirinha</div><div class="menu-item-desc" data-i18n data-pt="Cachaça brasileira, sumo de lima, xarope simples" data-en="Brazilian sugar cane liquor, lime juice, simple syrup">Cachaça brasileira, sumo de lima, xarope simples</div></div><div class="menu-item-price">7€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Smoke &amp; Honey</div><div class="menu-item-desc" data-i18n data-pt="Mezcal, xarope de mel, sumo de limão" data-en="Mezcal, house honey syrup, lemon juice, lemon peel">Mezcal, xarope de mel, sumo de limão</div></div><div class="menu-item-price">10€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Café con Leche</div><div class="menu-item-desc" data-i18n data-pt="Licor de café, creme de cacau escuro, natas, grãos de café" data-en="Coffee liqueur, dark crème de cacao, cream, espresso beans">Licor de café, creme de cacau escuro, natas, grãos de café</div></div><div class="menu-item-price">9€</div></div>
+      <div class="menu-item menu-item--sub"><div class="menu-item-info"><div class="menu-item-name menu-item-name--sub" data-i18n data-pt="Cocktails Clássicos" data-en="Classic Cocktails">Cocktails Clássicos</div></div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Manhattan <span class="menu-item-year">circa 1891</span></div><div class="menu-item-desc" data-i18n data-pt="Bourbon, vermute doce, angostura, cereja" data-en="Bourbon, sweet vermouth, angostura bitters, bordeaux cherry">Bourbon, vermute doce, angostura, cereja</div></div><div class="menu-item-price">11€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Boulevardier <span class="menu-item-year">circa 1921</span></div><div class="menu-item-desc" data-i18n data-pt="Bourbon, campari, vermute doce, casca de laranja" data-en="Bourbon, campari, sweet vermouth, orange peel">Bourbon, campari, vermute doce, casca de laranja</div></div><div class="menu-item-price">12€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Classic Daiquiri <span class="menu-item-year">circa 1921</span></div><div class="menu-item-desc" data-i18n data-pt="Rum light, lima, lima seco" data-en="Light rum, house lime sour, dried lime">Rum light, lima, lima seco</div></div><div class="menu-item-price">10€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Negroni <span class="menu-item-year">circa 1919</span></div><div class="menu-item-desc" data-i18n data-pt="Gin seco, campari, vermute doce, casca de laranja" data-en="Dry gin, campari, sweet vermouth, orange peel">Gin seco, campari, vermute doce, casca de laranja</div></div><div class="menu-item-price">9€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Bee's Knees <span class="menu-item-year">circa 1933</span></div><div class="menu-item-desc" data-i18n data-pt="Gin seco, xarope de mel, sumo de limão" data-en="Dry gin, house honey syrup, lemon juice, lemon peel">Gin seco, xarope de mel, sumo de limão</div></div><div class="menu-item-price">10€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Moscow Mule <span class="menu-item-year">circa 1946</span></div><div class="menu-item-desc" data-i18n data-pt="Vodka, cerveja de gengibre, lima" data-en="Vodka, ginger beer, lime wedge, copper mug">Vodka, cerveja de gengibre, lima</div></div><div class="menu-item-price">10€</div></div>
+      <div class="menu-item menu-item--sub"><div class="menu-item-info"><div class="menu-item-name menu-item-name--sub">Mocktails</div></div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name" data-i18n data-pt="Quase Mule" data-en="The Not Now Mule">Quase Mule</div><div class="menu-item-desc" data-i18n data-pt="Cerveja de gengibre, sumo de lima, gelo" data-en="Ginger beer, lime wedge, copper mug">Cerveja de gengibre, sumo de lima, gelo</div></div><div class="menu-item-price">6€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Tudo Verde</div><div class="menu-item-desc" data-i18n data-pt="Lima, xarope de açúcar, 7up, gelo, borda de sal" data-en="Lemon & lime soda, lime sour, salted rim">Lima, xarope de açúcar, 7up, gelo, borda de sal</div></div><div class="menu-item-price">7€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Nojito</div><div class="menu-item-desc" data-i18n data-pt="Hortelã fresca, lima, xarope de açúcar, água com gás" data-en="Fresh muddled mint & lime, soda, rocks">Hortelã fresca, lima, xarope de açúcar, água com gás</div></div><div class="menu-item-price">7€</div></div>
+    </div>
+
+    <!-- DRINKS -->
+    <div class="menu-grid" id="tab-drinks">
+      <div class="menu-item menu-item--sub"><div class="menu-item-info"><div class="menu-item-name menu-item-name--sub" data-i18n data-pt="Cervejas" data-en="Beers">Cervejas</div></div></div>
+      <div class="menu-item menu-item--full"><div class="menu-item-info"><div class="menu-item-name">Super Bock (33cl)</div><div class="menu-item-desc" data-i18n data-pt="O clássico português. Sempre gelada." data-en="The Portuguese classic. Always cold.">O clássico português. Sempre gelada.</div></div><div class="menu-item-price">2.30€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name" data-i18n data-pt="Imperial (20cl)" data-en="Draft Beer (20cl)">Imperial (20cl)</div></div><div class="menu-item-price">1.90€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name" data-i18n data-pt="Caneca (50cl)" data-en="Draft Beer (50cl)">Caneca (50cl)</div></div><div class="menu-item-price">4.40€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Franziskaner</div></div><div class="menu-item-price">6€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Corona</div></div><div class="menu-item-price">3.50€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Somersby (33cl)</div></div><div class="menu-item-price">3.50€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Somersby (50cl)</div></div><div class="menu-item-price">5€</div></div>
+      <div class="menu-item menu-item--sub"><div class="menu-item-info"><div class="menu-item-name menu-item-name--sub" data-i18n data-pt="Cafés" data-en="Coffee">Cafés</div></div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name" data-i18n data-pt="Café / Expresso" data-en="Espresso">Café / Expresso</div></div><div class="menu-item-price">1.20€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Abatanado</div></div><div class="menu-item-price">1.80€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Latte</div></div><div class="menu-item-price">2.60€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Cappuccino</div></div><div class="menu-item-price">2.80€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Mocha</div></div><div class="menu-item-price">2.80€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Latte Gelado</div></div><div class="menu-item-price">2.80€</div></div>
+      <div class="menu-item menu-item--full"><div class="menu-item-info"><div class="menu-item-name">Frapuccino</div><div class="menu-item-desc" data-i18n data-pt="Café gelado batido com gelo e leite" data-en="Blended iced coffee with milk">Café gelado batido com gelo e leite</div></div><div class="menu-item-price">4€</div></div>
+      <div class="menu-item menu-item--sub"><div class="menu-item-info"><div class="menu-item-name menu-item-name--sub" data-i18n data-pt="Bebidas" data-en="Soft Drinks">Bebidas</div></div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name" data-i18n data-pt="Água (50cl)" data-en="Still Water (50cl)">Água (50cl)</div></div><div class="menu-item-price">1.30€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name" data-i18n data-pt="Água com Gás" data-en="Sparkling Water">Água com Gás</div></div><div class="menu-item-price">2€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name" data-i18n data-pt="Água Tónica" data-en="Tonic Water">Água Tónica</div></div><div class="menu-item-price">2€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name" data-i18n data-pt="Refrigerantes" data-en="Soft Drinks">Refrigerantes</div><div class="menu-item-desc">Coca-Cola, Zero, Guaraná, Seven Up</div></div><div class="menu-item-price">2.50€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name" data-i18n data-pt="Sumo Compal" data-en="Juice">Sumo Compal</div><div class="menu-item-desc" data-i18n data-pt="Manga, laranja, maracujá, ananás" data-en="Mango, orange, passion fruit, pineapple">Manga, laranja, maracujá, ananás</div></div><div class="menu-item-price">2.50€</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Red Bull</div></div><div class="menu-item-price">3.50€</div></div>
+      <div class="menu-item menu-item--full"><div class="menu-item-info"><div class="menu-item-name" data-i18n data-pt="Cerveja de Gengibre" data-en="Ginger Beer">Cerveja de Gengibre</div><div class="menu-item-desc" data-i18n data-pt="Também disponível como base para mocktails" data-en="Also available as a base for mocktails">Também disponível como base para mocktails</div></div><div class="menu-item-price">2€</div></div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <div class="gallery-header">
+      <div class="section-label" data-i18n data-pt="Galeria" data-en="Gallery">Galeria</div>
+      <h2 class="section-title" data-i18n data-pt="Do Forno<br>para a <em>Mesa</em>" data-en="From the Oven<br>to the <em>Table</em>">
+        Do Forno<br>para a <em>Mesa</em>
+      </h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item g1">
+        <img src="assets/hero.jpg" alt="Pizza AUNA" loading="lazy">
+        <div class="g-overlay"></div>
+      </div>
+      <div class="gallery-item g2">
+        <img src="assets/pizza-burrata.jpg" alt="Pizza pepperoni com burrata" loading="lazy">
+        <div class="g-overlay"></div>
+      </div>
+      <div class="gallery-item g3">
+        <img src="assets/cocktail.jpg" alt="Cocktail jalapeño margarita" loading="lazy">
+        <div class="g-overlay"></div>
+      </div>
+      <div class="gallery-item g4">
+        <img src="assets/pizza-superbock.jpg" alt="Pizza AUNA com Super Bock" loading="lazy">
+        <div class="g-overlay"></div>
+      </div>
+      <div class="gallery-item g5">
+        <img src="assets/kitchen.jpg" alt="Cozinha AUNA" loading="lazy">
+        <div class="g-overlay"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAR -->
+  <section class="bar-section" id="bar">
+    <img src="assets/cocktail.jpg" alt="Bar AUNA — Cocktails" class="bar-img" loading="lazy">
+    <div>
+      <div class="section-label" data-i18n data-pt="O Bar" data-en="The Bar">O Bar</div>
+      <h2 class="section-title" data-i18n data-pt="Kitchen<br><em>& Bar</em>" data-en="Kitchen<br><em>& Bar</em>">
+        Kitchen<br><em>& Bar</em>
+      </h2>
+      <p class="section-body" data-i18n
+         data-pt="Não é só pizza. Depois de um bom jantar, fique pelo bar. Cocktails artesanais, cerveja gelada e um ambiente que convida a ficar mais uma hora."
+         data-en="It's not just pizza. After a great dinner, stay for a drink. Craft cocktails, cold beer and an atmosphere that makes you want to stay one more hour.">
+        Não é só pizza. Depois de um bom jantar, fique pelo bar. Cocktails artesanais, cerveja gelada e um ambiente que convida a ficar mais uma hora.
+      </p>
+      <div class="bar-drinks">
+        <div class="bar-drink-item">
+          <div class="bar-drink-dot"></div>
+          <div class="bar-drink-name">Jalapeño Margarita</div>
+          <div class="bar-drink-note" data-i18n data-pt="Picante & Refrescante" data-en="Spicy & Refreshing">Picante & Refrescante</div>
+        </div>
+        <div class="bar-drink-item">
+          <div class="bar-drink-dot"></div>
+          <div class="bar-drink-name">Happy Hour</div>
+          <div class="bar-drink-note" data-i18n data-pt="A partir das 16h" data-en="From 4 pm">A partir das 16h</div>
+        </div>
+        <div class="bar-drink-item">
+          <div class="bar-drink-dot"></div>
+          <div class="bar-drink-name">Super Bock</div>
+          <div class="bar-drink-note" data-i18n data-pt="Sempre gelada" data-en="Always cold">Sempre gelada</div>
+        </div>
+        <div class="bar-drink-item">
+          <div class="bar-drink-dot"></div>
+          <div class="bar-drink-name" data-i18n data-pt="Cocktails Clássicos" data-en="Classic Cocktails">Cocktails Clássicos</div>
+          <div class="bar-drink-note" data-i18n data-pt="& Sazonais" data-en="& Seasonal">& Sazonais</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <img src="assets/pizza-margherita.jpg" alt="" class="cta-bg" loading="lazy" aria-hidden="true">
+    <div class="cta-content">
+      <div class="section-label" style="justify-content:center" data-i18n data-pt="Reservas" data-en="Reservations">Reservas</div>
+      <h2 class="cta-title" data-i18n data-pt="Reserve<br>a sua <em>Mesa</em>" data-en="Book<br>your <em>Table</em>">
+        Reserve<br>a sua <em>Mesa</em>
+      </h2>
+      <p class="cta-sub" data-i18n
+         data-pt="Fale directamente com o chef. Abertos todos os dias até às 22h. Av. Tomás Cabreira, Edifício Elite, Praia da Rocha."
+         data-en="Speak directly with the chef. Open every day until 10 pm. Av. Tomás Cabreira, Elite Building, Praia da Rocha.">
+        Fale directamente com o chef. Abertos todos os dias até às 22h. Av. Tomás Cabreira, Edifício Elite, Praia da Rocha.
+      </p>
+      <div class="cta-actions">
+        <a href="https://wa.me/351925698762" target="_blank" rel="noopener" class="btn btn-wa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-i18n data-pt="WhatsApp" data-en="WhatsApp">WhatsApp</span>
+        </a>
+        <a href="tel:+351925698762" class="btn btn-outline">
+          <span data-i18n data-pt="+351 925 698 762" data-en="+351 925 698 762">+351 925 698 762</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="location" id="location">
+    <div class="location-details">
+      <div class="section-label" data-i18n data-pt="Onde Estamos" data-en="Find Us">Onde Estamos</div>
+      <h2 class="section-title" data-i18n data-pt="Praia da<br><em>Rocha</em>" data-en="Praia da<br><em>Rocha</em>">
+        Praia da<br><em>Rocha</em>
+      </h2>
+      <div>
+        <div class="location-block-label" data-i18n data-pt="Morada" data-en="Address">Morada</div>
+        <div class="location-block-value">
+          Av. Tomás Cabreira<br>
+          Edifício Elite, Praia da Rocha<br>
+          8500-802 Portimão
+        </div>
+      </div>
+      <div>
+        <div class="location-block-label" data-i18n data-pt="Horário" data-en="Hours">Horário</div>
+        <div class="location-block-value" data-i18n
+             data-pt="Todos os dias<br>12h00 – 22h00"
+             data-en="Every day<br>12:00 – 22:00">
+          Todos os dias<br>12h00 – 22h00
+        </div>
+      </div>
+      <div>
+        <div class="location-block-label" data-i18n data-pt="Contacto" data-en="Contact">Contacto</div>
+        <div class="location-block-value">
+          <a href="tel:+351925698762" style="color:var(--gold)">+351 925 698 762</a><br>
+          <a href="https://www.instagram.com/auna.bar/" target="_blank" rel="noopener" style="color:var(--muted);font-size:13px">@auna.bar</a>
+        </div>
+      </div>
+      <div>
+        <a href="https://www.google.com/maps/place/Auna+Kitchen+%26+Bar/@37.1197333,-8.5427168,742m/data=!3m2!1e3!4b1!4m6!3m5!1s0xd1b29663b9c0af1:0x1e140d07319b8996!8m2!3d37.1197333!4d-8.5427168" target="_blank" rel="noopener" class="btn btn-outline" style="align-self:flex-start">
+          <span data-i18n data-pt="Ver no Google Maps" data-en="Open in Google Maps">Ver no Google Maps</span>
+        </a>
+      </div>
+    </div>
+    <div class="map-embed">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d997.5!2d-8.5427168!3d37.1197333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1b29663b9c0af1%3A0x1e140d07319b8996!2sAuna+Kitchen+%26+Bar!5e0!3m2!1spt!2spt!4v1713092400000!5m2!1spt!2spt"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="AUNA Kitchen & Bar — Av. Tomás Cabreira, Edifício Elite, Praia da Rocha, Portimão"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <img src="assets/logo-white.png" alt="AUNA Kitchen & Bar" style="width:120px;margin-bottom:12px;opacity:0.9">
+        <p class="footer-brand-desc" data-i18n
+           data-pt="Pizza sourdough artesanal em Portimão. Av. Tomás Cabreira, Edifício Elite, Praia da Rocha. Abertos todos os dias até às 22h."
+           data-en="Artisan sourdough pizza in Portimão. Av. Tomás Cabreira, Elite Building, Praia da Rocha. Open every day until 10 pm.">
+          Pizza sourdough artesanal em Portimão. Av. Tomás Cabreira, Edifício Elite, Praia da Rocha. Abertos todos os dias até às 22h.
+        </p>
+      </div>
+      <div>
+        <div class="footer-col-title" data-i18n data-pt="Menu" data-en="Menu">Menu</div>
+        <ul class="footer-links">
+          <li><a href="#about" data-i18n data-pt="Sobre Nós" data-en="About Us">Sobre Nós</a></li>
+          <li><a href="#menu" data-i18n data-pt="Pizzas" data-en="Pizzas">Pizzas</a></li>
+          <li><a href="#menu" data-i18n data-pt="Entradas" data-en="Starters">Entradas</a></li>
+          <li><a href="#bar" data-i18n data-pt="Bar & Drinks" data-en="Bar & Drinks">Bar & Drinks</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title" data-i18n data-pt="Visita-nos" data-en="Visit Us">Visita-nos</div>
+        <ul class="footer-links">
+          <li><a href="tel:+351925698762">+351 925 698 762</a></li>
+          <li><a href="https://wa.me/351925698762" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/auna.bar/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#location" data-i18n data-pt="Como Chegar" data-en="Directions">Como Chegar</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 AUNA Kitchen & Bar — Portimão</span>
+      <a href="https://volvara.pt" target="_blank" rel="noopener" class="footer-volvara">
+        Site por <span>Volvara</span>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+  (function() {
+    'use strict';
+
+    // ── LANGUAGE TOGGLE ──
+    var lang = localStorage.getItem('auna-lang') || 'pt';
+
+    function applyLang(l) {
+      lang = l;
+      localStorage.setItem('auna-lang', l);
+      document.documentElement.lang = l;
+
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var txt = el.getAttribute('data-' + l);
+        if (!txt) return;
+        if (txt.indexOf('<') !== -1) {
+          el.innerHTML = txt;
+        } else {
+          el.textContent = txt;
+        }
+      });
+
+      var btnLabel = l === 'pt' ? 'EN' : 'PT';
+      var lt = document.getElementById('langToggle');
+      var ml = document.getElementById('mobLangToggle');
+      if (lt) lt.textContent = btnLabel;
+      if (ml) ml.textContent = btnLabel;
+    }
+
+    function toggleLang() {
+      applyLang(lang === 'pt' ? 'en' : 'pt');
+    }
+
+    document.getElementById('langToggle').addEventListener('click', toggleLang);
+    document.getElementById('mobLangToggle').addEventListener('click', function() {
+      toggleLang();
+      closeMobileMenu();
+    });
+
+    applyLang(lang);
+
+    // ── NAV SCROLL ──
+    var nav = document.getElementById('nav');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 60) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // ── HAMBURGER ──
+    var ham = document.getElementById('hamburger');
+    var mob = document.getElementById('mobileMenu');
+
+    function closeMobileMenu() {
+      ham.classList.remove('open');
+      mob.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    ham.addEventListener('click', function() {
+      var isOpen = mob.classList.toggle('open');
+      ham.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    mob.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', closeMobileMenu);
+    });
+
+    // ── HERO PARALLAX LOAD ──
+    var hero = document.querySelector('.hero');
+    var heroImg = hero.querySelector('.hero-img');
+    if (heroImg.complete) {
+      hero.classList.add('loaded');
+    } else {
+      heroImg.addEventListener('load', function() {
+        hero.classList.add('loaded');
+      });
+    }
+
+    // ── MENU TABS ──
+    var tabs = document.querySelectorAll('.menu-tab');
+    tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var target = tab.getAttribute('data-tab');
+        tabs.forEach(function(t) {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        document.querySelectorAll('.menu-grid').forEach(function(g) {
+          g.classList.remove('active');
+        });
+        var targetGrid = document.getElementById('tab-' + target);
+        if (targetGrid) targetGrid.classList.add('active');
+
+        // re-apply lang after tab switch
+        applyLang(lang);
+      });
+    });
+
+    // ── INTERSECTION OBSERVER — fade in sections ──
+    if ('IntersectionObserver' in window) {
+      var style = document.createElement('style');
+      style.textContent = '.fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}.fade-in.visible{opacity:1;transform:none}';
+      document.head.appendChild(style);
+
+      var sections = document.querySelectorAll('.about, .sourdough, .menu-section, .gallery, .bar-section, .cta, .location');
+      sections.forEach(function(s) { s.classList.add('fade-in'); });
+
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      sections.forEach(function(s) { obs.observe(s); });
+    }
+
+  })();
+  </script>
+</body>
+</html>
