@@ -1208,9 +1208,9 @@
                 "posB": 12,
                 "jogA": "j005",
                 "jogB": "j001",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null,
+                "score_a": 0,
+                "score_b": 6,
+                "vencedor": "j001",
                 "bye": false
               },
               {
@@ -1260,7 +1260,7 @@
               {
                 "id": "qp_qf_3",
                 "jogA": "jmntiqp3bcz0c",
-                "jogB": null,
+                "jogB": "j001",
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null
@@ -1363,7 +1363,7 @@
                 "id": "qp_910",
                 "nome": "9º/10º Lugar",
                 "jogA": "j002",
-                "jogB": null,
+                "jogB": "j005",
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null
