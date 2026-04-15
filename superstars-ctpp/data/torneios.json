@@ -853,7 +853,16 @@
             "jmntiqp3bcz0c",
             "jmnulp1rji487"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmnzwqmlhl9we",
+              "ja": "j001",
+              "jb": "jmntiqp3bcz0c",
+              "score_a": 6,
+              "score_b": 1,
+              "vencedor": "j001"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         },
