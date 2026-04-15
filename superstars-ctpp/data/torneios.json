@@ -1506,9 +1506,9 @@
                 "nome": "13º/14º Lugar",
                 "jogA": "j004",
                 "jogB": "jmntipxsi5f0s",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 2,
+                "score_b": 3,
+                "vencedor": "jmntipxsi5f0s"
               }
             ]
           }
