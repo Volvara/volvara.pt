@@ -1474,9 +1474,9 @@
                 "id": "qb_sf_1",
                 "jogA": "jmnulp1rji487",
                 "jogB": "jmntipxsi5f0s",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 5,
+                "score_b": 3,
+                "vencedor": "jmnulp1rji487"
               },
               {
                 "id": "qb_sf_2",
@@ -1495,7 +1495,7 @@
               {
                 "id": "qb_final",
                 "nome": "Final (11º/12º)",
-                "jogA": null,
+                "jogA": "jmnulp1rji487",
                 "jogB": null,
                 "score_a": null,
                 "score_b": null,
@@ -1504,7 +1504,7 @@
               {
                 "id": "qb_1314",
                 "nome": "13º/14º Lugar",
-                "jogA": null,
+                "jogA": "jmntipxsi5f0s",
                 "jogB": null,
                 "score_a": null,
                 "score_b": null,
