@@ -1364,9 +1364,9 @@
                 "nome": "9º/10º Lugar",
                 "jogA": "j002",
                 "jogB": "j005",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 2,
+                "score_b": 4,
+                "vencedor": "j005"
               }
             ]
           }
