@@ -964,7 +964,16 @@
             "jmnulp1rji487",
             "j002"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmnzti46nmmid",
+              "ja": "jmnvd7pc2bbhk",
+              "jb": "jmnulp1rji487",
+              "score_a": 6,
+              "score_b": 0,
+              "vencedor": "jmnvd7pc2bbhk"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         }
