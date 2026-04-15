@@ -1,0 +1,2840 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Admin · Super Stars CTPP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0D1B2A;color:#E8E4DE;font-size:15px;line-height:1.5}
+:root{
+  --g:#2D6A4F;--gl:#40916C;--gp:rgba(45,106,79,.15);
+  --go:#F4A828;--gop:rgba(244,168,40,.15);
+  --red:#C0392B;--redp:rgba(192,57,43,.15);
+  --ni:#0D1B2A;--sl:#1B2B3A;--mi:#243447;--hi:#2d3f52;
+  --tx:#E8E4DE;--mu:rgba(232,228,222,.5);
+  --bd:rgba(232,228,222,.1);--bd2:rgba(232,228,222,.18);
+  --r:8px;--rl:12px;
+}
+
+/* ── LAYOUT ─────────── */
+#app{min-height:100vh;display:flex;flex-direction:column}
+
+/* ── ADMIN NAV ──────── */
+.admin-nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(13,27,42,.98);
+  border-bottom:1px solid var(--bd);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;
+  gap:0;min-height:54px;
+  backdrop-filter:blur(10px);
+}
+.admin-brand{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.2rem;letter-spacing:.08em;line-height:1;
+  display:flex;align-items:center;gap:8px;
+  flex-shrink:0;padding-right:16px;border-right:1px solid var(--bd);
+}
+.admin-brand .v1{color:#F7F4EF}.admin-brand .v2{color:var(--go)}
+.admin-tag{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);background:var(--bd);padding:2px 7px;border-radius:20px;font-weight:500}
+.admin-nav-links{display:flex;align-items:center;margin-left:8px;flex:1}
+.nav-btn{background:none;border:none;color:var(--mu);font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:16px 12px;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s;display:flex;align-items:center;gap:6px}
+.nav-btn:hover{color:var(--tx)}.nav-btn.active{color:var(--go);border-bottom-color:var(--go)}
+.nav-icon{font-size:14px}.nav-lbl{display:inline}
+.btn-logout{background:none;border:1px solid var(--bd2);color:var(--mu);border-radius:6px;padding:7px 10px;cursor:pointer;font-size:15px;margin-left:8px;flex-shrink:0;transition:all .2s;display:flex;align-items:center;justify-content:center}
+.btn-logout:hover{color:var(--red);border-color:var(--red)}
+.btn-logout svg{width:16px;height:16px;display:block}
+/* HAMBURGER MOBILE */
+.admin-nav-right{display:flex;align-items:center;gap:0;margin-left:auto}
+.admin-burger{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--tx);flex-shrink:0}
+.admin-mobile{display:none;position:fixed;top:54px;left:0;right:0;bottom:0;z-index:99;background:rgba(13,27,42,.98);backdrop-filter:blur(16px);flex-direction:column;align-items:stretch;padding:12px 0 24px;border-top:1px solid var(--bd)}
+.admin-mobile.open{display:flex}
+.admin-mobile .nav-btn{font-size:1rem;letter-spacing:.08em;padding:18px 28px;border-bottom:1px solid var(--bd);margin-bottom:0;width:100%;text-align:left;justify-content:flex-start}
+.admin-mobile .nav-btn:last-child{border-bottom:none}
+.admin-mobile .nav-btn.active{color:var(--go);border-bottom:1px solid var(--bd);background:rgba(244,168,40,.06);border-left:3px solid var(--go);padding-left:25px}
+@media(max-width:600px){
+  .admin-nav-links{display:none}
+  .admin-burger{display:flex;align-items:center}
+}
+@media(min-width:601px){.admin-mobile{display:none!important}}
+
+/* ── PAGE ───────────── */
+.page{max-width:820px;margin:0 auto;padding:28px 20px 80px;width:100%}
+.page-title{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.06em;color:#F7F4EF;margin-bottom:24px}
+.section-title{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);margin-bottom:12px;margin-top:24px;font-weight:500}
+
+/* ── LOGIN ──────────── */
+.login-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:24px;min-height:100vh}
+.login-box{background:var(--sl);border:1px solid var(--bd2);border-radius:var(--rl);padding:36px 32px;width:100%;max-width:380px;text-align:center}
+.login-logo{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:.06em;line-height:1;margin-bottom:6px}
+.login-logo .v1{color:#F7F4EF}.login-logo .v2{color:var(--go)}
+.login-sub{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);margin-bottom:24px}
+.login-note{font-size:12px;color:rgba(232,228,222,.3);margin-top:14px}
+
+/* ── FORMS & INPUTS ─── */
+.inp{width:100%;padding:10px 14px;background:var(--mi);border:1px solid var(--bd2);border-radius:var(--r);color:var(--tx);font-family:'DM Sans',sans-serif;font-size:14px;margin-bottom:12px;transition:border-color .2s;-webkit-appearance:none}
+.inp:focus{outline:none;border-color:var(--go)}
+.inp-score{font-family:'DM Mono',monospace;font-size:1.6rem;font-weight:500;text-align:center;padding:10px;color:var(--go)}
+.inp-sm{padding:7px 10px;font-size:13px;margin-bottom:0}
+.field-label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);display:block;margin-bottom:6px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:0}
+@media(max-width:500px){.field-row{grid-template-columns:1fr}}
+
+/* ── BUTTONS ──────────  */
+.btn{display:inline-block;width:auto;padding:12px 20px;border-radius:50px;border:none;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;letter-spacing:.03em;transition:all .2s;text-align:center}
+.btn-gold{background:var(--go);color:var(--ni)}
+.btn-gold:hover{background:#f7b840;transform:translateY(-1px)}
+.btn-gold:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn-sm{padding:6px 14px;border-radius:20px;border:none;font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;white-space:nowrap}
+.btn-green{background:var(--gp);color:var(--gl);border:1px solid rgba(64,145,108,.3)}
+.btn-green:hover{background:rgba(45,106,79,.25)}
+.btn-red{background:var(--redp);color:#e05545;border:1px solid rgba(192,57,43,.3)}
+.btn-red:hover{background:rgba(192,57,43,.25)}
+.btn-danger{background:rgba(120,0,0,.3);color:#ff4455;border:1px solid rgba(180,0,0,.4)}
+.btn-danger:hover{background:rgba(180,0,0,.4)}
+.btn-edit-jogo{background:rgba(244,168,40,.12);color:var(--go);border:1px solid rgba(244,168,40,.25);border-radius:6px;padding:3px 8px;font-size:13px;cursor:pointer;transition:background .15s}
+.btn-edit-jogo:hover{background:rgba(244,168,40,.25)}
+.btn-del{background:none;border:none;color:var(--mu);font-size:16px;cursor:pointer;padding:4px 8px;border-radius:4px;line-height:1}
+.btn-del:hover{color:var(--red);background:var(--redp)}
+
+/* ── CARDS ─────────── */
+.form-card{background:var(--sl);border:1px solid var(--bd2);border-radius:var(--rl);padding:20px;margin-bottom:16px}
+.form-title{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);margin-bottom:14px;font-weight:500}
+
+/* ── STATS ──────────── */
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
+@media(max-width:600px){.stat-grid{grid-template-columns:1fr 1fr}}
+.stat{background:var(--sl);border:1px solid var(--bd);border-radius:var(--r);padding:16px;text-align:center}
+.stat-n{font-family:'DM Mono',monospace;font-size:1.9rem;font-weight:500;color:var(--go);line-height:1;margin-bottom:4px}
+.stat-l{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mu)}
+
+/* ── DASH ETAPAS ─────── */
+.dash-etapa{display:flex;gap:0;align-items:stretch;background:var(--sl);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;margin-bottom:10px}
+.dash-etapa-bar{width:4px;flex-shrink:0}
+.dash-etapa-body{flex:1;padding:14px 16px}
+.dash-etapa-name{font-weight:600;color:var(--tx);font-size:14px;margin-bottom:3px}
+.dash-etapa-det{font-size:12.5px;color:var(--mu)}
+.badge-open{display:inline-block;background:var(--gp);color:var(--gl);border:1px solid rgba(64,145,108,.3);padding:2px 8px;border-radius:20px;font-size:11px;letter-spacing:.06em;margin-top:6px}
+.badge-pend{display:inline-block;background:var(--bd);color:var(--mu);padding:2px 8px;border-radius:20px;font-size:11px;letter-spacing:.06em;margin-top:6px}
+
+/* ── ACTION GRID ─────── */
+.action-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:400px){.action-grid{grid-template-columns:1fr}}
+.action-btn{background:var(--sl);border:1px solid var(--bd2);border-radius:var(--r);padding:18px 16px;font-family:'DM Sans',sans-serif;font-size:13.5px;color:var(--tx);cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:10px;font-weight:500}
+.action-btn:hover{background:var(--mi);border-color:var(--go);color:var(--go)}
+.action-btn span{font-size:1.3rem}
+
+/* ── SCORE INPUT ─────── */
+.score-row{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:end}
+.score-player label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);margin-bottom:6px}
+.score-vs{font-size:1rem;font-weight:700;color:var(--mu);text-align:center;padding-bottom:0;letter-spacing:.1em;align-self:center}
+
+/* ── RESULTS ─────────── */
+.result-row{display:flex;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--bd);font-size:13.5px}
+.result-row:last-child{border-bottom:none}
+.res-num{width:22px;height:22px;border-radius:50%;background:var(--bd);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--mu);flex-shrink:0}
+.res-name{flex:1;color:var(--mu)}
+.res-win{color:var(--tx);font-weight:600}
+.res-score{font-family:'DM Mono',monospace;font-size:13px;color:var(--go);flex-shrink:0;padding:0 6px}
+
+/* ── RANKING TABLE ─── */
+.rtable{width:100%;border-collapse:collapse;font-size:13.5px}
+.rtable th{font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);padding:8px 12px;border-bottom:1px solid var(--bd);text-align:left;font-weight:500}
+.rtable th:last-child,.rtable td:last-child{text-align:right}
+.rtable td{padding:11px 12px;border-bottom:1px solid var(--bd)}
+.rtable tr:last-child td{border-bottom:none}
+.rtable tr:hover td{background:rgba(255,255,255,.02)}
+.rpos{width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+.r1{background:var(--go);color:#5a3500}.r2{background:#9BA4B4;color:#1a2030}.r3{background:#8B6340;color:white}.rn{background:var(--bd);color:var(--mu)}
+.rpts{font-family:'DM Mono',monospace;font-weight:500;color:var(--gl)}
+.row-inactive td{opacity:.45}
+
+/* ── JOGADORES ─────── */
+.status-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:6px}
+
+/* ── ETAPAS ADMIN ──── */
+.etapa-admin-card{display:flex;gap:0;background:var(--sl);border:1px solid var(--bd);border-radius:var(--rl);overflow:hidden;margin-bottom:14px}
+.etapa-admin-bar{width:5px;flex-shrink:0}
+.etapa-admin-body{flex:1;padding:18px 20px}
+.etapa-admin-title{font-weight:700;font-size:14px;color:var(--tx);margin-bottom:4px}
+.etapa-admin-det{font-size:12.5px;color:var(--mu);margin-bottom:10px}
+.etapa-admin-row{display:flex;align-items:center;margin-bottom:8px}
+.ins-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+
+
+.ins-del:hover{color:#ff6b7a}
+.ins-sup{background:var(--gop);color:#c07d0a;border-color:rgba(244,168,40,.25)}
+
+/* ── MSGS ───────────── */
+.msg{padding:10px 16px;border-radius:var(--r);font-size:13.5px;margin-bottom:14px;font-weight:500}
+.msg-ok{background:var(--gp);color:var(--gl);border:1px solid rgba(64,145,108,.3)}
+.msg-error{background:var(--redp);color:#e05545;border:1px solid rgba(192,57,43,.3)}
+.msg-float{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:200;min-width:280px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.5)}
+
+/* ── EMPTY ──────────── */
+.empty{font-size:13.5px;color:var(--mu);padding:20px 0}
+
+.pat-banner{padding:12px 20px;font-size:13.5px;font-weight:600;text-align:center;border-bottom:2px solid}
+.pat-banner-warn{background:rgba(244,168,40,.15);color:#F4A828;border-color:rgba(244,168,40,.4)}
+.pat-banner-crit{background:rgba(220,20,60,.15);color:#ff6b7a;border-color:rgba(220,20,60,.4)}
+
+/* TORNEIO */
+.torneio-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;border-bottom:1px solid var(--bd);padding-bottom:10px}
+.torneio-tab{background:none;border:1px solid var(--bd2);color:var(--mu);border-radius:50px;padding:7px 18px;font-size:12.5px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
+.torneio-tab:hover{color:var(--tx)}.torneio-tab.active{background:var(--go);border-color:var(--go);color:#1a1000;font-weight:700}
+.cs-list{display:flex;flex-direction:column;gap:8px;margin:12px 0}
+.cs-row{display:flex;align-items:center;gap:10px}
+.cs-num{font-size:12px;color:var(--go);font-weight:700;width:40px;flex-shrink:0;font-family:'DM Mono',monospace}
+.grupos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:8px}
+.grupo-card{background:rgba(255,255,255,.04);border:1px solid var(--bd);border-radius:10px;overflow:hidden}
+.grupo-card-full{background:rgba(255,255,255,.03);border:1px solid var(--bd);border-radius:12px;padding:18px;margin-bottom:14px}
+.grupo-hdr{background:rgba(244,168,40,.12);border-bottom:1px solid var(--bd);padding:8px 14px;font-size:12px;font-weight:700;color:var(--go);text-transform:uppercase;letter-spacing:.06em}
+.grupo-jog{padding:8px 14px;font-size:13.5px;color:var(--tx);border-bottom:1px solid rgba(255,255,255,.04)}
+.grupo-jog:last-child{border-bottom:none}
+.grupo-cs{color:var(--go);font-weight:700}
+.grupo-classif{background:rgba(255,255,255,.03);border:1px solid var(--bd);border-radius:8px;padding:12px}
+.res-row{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.res-row:last-child{border-bottom:none}
+.res-name{flex:1;font-size:13px;color:var(--mu)}.res-win{color:var(--cr);font-weight:600}
+.res-score{font-family:'DM Mono',monospace;font-size:12.5px;color:var(--go);background:rgba(244,168,40,.08);border:1px solid rgba(244,168,40,.2);border-radius:5px;padding:2px 8px}
+/* Quadros */
+.quadro-section{margin-bottom:24px}
+.ronda-block{background:rgba(255,255,255,.02);border:1px solid var(--bd);border-radius:10px;padding:14px;margin-bottom:10px}
+.ronda-titulo{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);margin-bottom:10px;font-weight:600}
+.jogo-row{margin-bottom:8px;border:1px solid var(--bd);border-radius:8px;padding:10px 12px}
+.jogo-row.jogo-done{border-color:rgba(45,106,79,.3);background:rgba(45,106,79,.06)}
+.jogo-row.jogo-bye{border-color:rgba(255,255,255,.06);background:rgba(255,255,255,.02);opacity:.6}
+.jogo-label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--go);margin-bottom:6px}
+.jogo-inner{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.jogo-nome{flex:1;font-size:13px;color:var(--mu);min-width:80px}.jogo-win{color:var(--cr);font-weight:700}
+.jogo-score-area{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.jogo-score-done{font-family:'DM Mono',monospace;color:var(--go);font-size:14px;min-width:60px;text-align:center}
+.jogo-bye-badge{background:rgba(255,255,255,.08);color:var(--mu);font-size:11px;padding:2px 8px;border-radius:4px;letter-spacing:.04em}
+.badge-done{background:rgba(45,106,79,.2);color:var(--gl);border:1px solid rgba(45,106,79,.35);padding:8px 16px;border-radius:8px;font-size:13.5px;display:inline-block}
+
+/* ── BRACKET VISUAL ──────────────────────────────── */
+.bracket-section{margin-bottom:32px}
+.bracket-title{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--go);font-weight:700;margin-bottom:14px;padding-bottom:6px;border-bottom:1px solid var(--bd)}
+.bracket-wrap{display:flex;gap:0;overflow-x:auto;padding-bottom:12px;min-width:600px}
+.bracket-col{display:flex;flex-direction:column;min-width:200px;flex-shrink:0}
+.bracket-col-title{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);text-align:center;padding:6px 8px 10px;font-weight:600}
+.bracket-slots{display:flex;flex-direction:column;flex:1}
+.bracket-slot{display:flex;align-items:center;flex:1;position:relative;padding:4px 0}
+.bracket-match{border:1px solid var(--bd);border-radius:8px;padding:6px 8px;background:rgba(255,255,255,.03);width:100%;margin:0 6px;transition:border-color .2s}
+.bracket-match:hover{border-color:var(--bd2)}
+.bracket-match.bk-done{border-color:rgba(45,106,79,.35);background:rgba(45,106,79,.06)}
+.bracket-match.bk-bye{opacity:.5;border-style:dashed}
+.bk-player{padding:5px 6px;border-radius:4px;font-size:12.5px;color:var(--mu);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:140px;display:flex;align-items:center;gap:6px}
+.bk-player.bk-win{background:rgba(244,168,40,.12);color:var(--go);font-weight:700}
+.bk-player.bk-tbd{color:rgba(255,255,255,.25);font-style:italic}
+.bk-divider{height:1px;background:var(--bd);margin:3px 0}
+.bk-score-row{display:flex;align-items:center;gap:4px;padding:4px 6px}
+.bk-score-inp{width:44px;padding:3px 5px;background:rgba(255,255,255,.06);border:1px solid var(--bd2);border-radius:4px;color:var(--tx);font-family:'DM Mono',monospace;font-size:12px;text-align:center}
+.bk-score-done{font-family:'DM Mono',monospace;font-size:12px;color:var(--go);min-width:50px;text-align:center;padding:3px 6px;background:rgba(244,168,40,.08);border-radius:4px}
+.bk-btns{display:flex;gap:4px;margin-top:4px;padding:0 6px 4px}
+/* connector lines using borders */
+.bracket-conn{display:flex;align-items:center;width:14px;flex-shrink:0}
+.bracket-conn-line{width:100%;height:0;border-top:2px solid var(--bd)}
+/* vertical connectors via JS-rendered SVG between cols */
+.bracket-sep{position:relative;width:14px;flex-shrink:0;display:flex;flex-direction:column}
+/* losers bracket section */
+.bracket-losers{margin-top:20px;background:rgba(255,255,255,.02);border:1px solid var(--bd);border-radius:10px;padding:14px;overflow-x:auto}
+.bracket-losers-title{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);font-weight:600;margin-bottom:10px}
+.bracket-losers-grid{display:flex;gap:16px;flex-wrap:wrap}
+.bracket-single{min-width:200px}
+.bracket-single-title{font-size:10px;color:var(--mu);margin-bottom:6px;letter-spacing:.06em}
+.swap-grid-wrap{background:rgba(13,27,42,.6);border:1px solid rgba(244,168,40,.3);border-radius:10px;padding:16px;margin-bottom:20px}
+.swap-grid-title{font-size:13px;font-weight:700;color:var(--go);margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em}
+.swap-grid-section{margin-bottom:12px}
+.swap-grid-label{font-size:11px;color:var(--mu);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+.swap-grid{display:flex;flex-wrap:wrap;gap:6px}
+.swap-pos-cell{cursor:pointer;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:5px 10px;min-width:70px;text-align:center;transition:all .15s}
+.swap-pos-cell:hover{background:rgba(244,168,40,.2);border-color:var(--go)}
+.swap-pos-cell.selected{background:var(--go);border-color:var(--go)}
+.swap-pos-cell.selected .swap-pos-num,.swap-pos-cell.selected .swap-pos-name{color:#000}
+.swap-pos-num{display:block;font-size:11px;color:var(--mu);font-family:'DM Mono',monospace}
+.swap-pos-name{display:block;font-size:12px;color:var(--cr-lgt, #f4f1ec);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:70px}
+
+.grupo-stats-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px}
+.grupo-stats-hdr th{padding:4px 6px;text-align:center;font-size:10px;text-transform:uppercase;letter-spacing:.04em;color:var(--mu);border-bottom:1px solid rgba(255,255,255,.1);font-family:'DM Mono',monospace}
+.grupo-stats-hdr .gs-nome{text-align:left}
+.grupo-stats-row td{padding:5px 6px;text-align:center;border-bottom:1px solid rgba(255,255,255,.04);font-family:'DM Mono',monospace;font-size:12px}
+.grupo-stats-row .gs-nome{text-align:left;font-family:'DM Sans','DM Mono',sans-serif;font-weight:600;color:#e8f0f7}
+.gs-advance{background:rgba(45,106,79,.12)}
+.gs-advance .gs-nome{color:#fff}
+.gs-out{opacity:.65}
+.gs-pos{color:var(--mu);font-size:11px;min-width:24px}
+.gs-pos-col{font-size:11px;color:var(--mu)}
+.gs-pos-val,.gs-neu{color:var(--mu)}
+.gs-pos-v{color:#4ade80}
+.gs-neg{color:#f87171}
+
+.losers-section{margin-top:24px;padding:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px}
+.losers-section-title{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--go);letter-spacing:.07em;margin-bottom:16px}
+.losers-grid{display:flex;flex-direction:column;gap:20px}
+.losers-block{max-width:280px}
+.losers-block-title{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:.07em;color:var(--go);text-transform:uppercase;margin-bottom:8px}
+
+.losers-mini-wrap{display:flex;gap:8px;align-items:flex-start;flex-wrap:nowrap}
+.losers-mini-col{min-width:130px}
+.losers-mini-title{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--mu);margin-bottom:4px;font-family:'DM Mono',monospace}
+.losers-block-bracket{max-width:480px}
+
+.losers-bracket-wrap{display:flex;gap:0;align-items:flex-start}
+.losers-bracket-col{display:flex;flex-direction:column;gap:6px;min-width:160px;padding:0 8px;border-left:1px solid rgba(255,255,255,.07)}
+.losers-bracket-col:first-child{border-left:none;padding-left:0}
+.losers-col-title{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--go);font-family:'Bebas Neue',sans-serif;font-size:13px;margin-bottom:6px}
+.losers-final-labeled{display:flex;flex-direction:column}
+.losers-final-label{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--mu);margin-bottom:3px;font-family:'DM Mono',monospace}
+
+.ins-pill{display:inline-flex;align-items:center;gap:0;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.12);font-size:13px;font-weight:600;transition:border-color .15s}
+.ins-pill.ins-pago{border-color:rgba(45,106,79,.6);background:rgba(45,106,79,.15)}
+.ins-pill.ins-dev{border-color:rgba(244,168,40,.3);background:rgba(244,168,40,.06)}
+.ins-pill.ins-sup{opacity:.55}
+.ins-pag-btn{border:none;cursor:pointer;font-size:12px;font-weight:700;padding:5px 8px;transition:background .15s;line-height:1;background:transparent}
+.ins-pago .ins-pag-btn{color:#4ade80;background:rgba(45,106,79,.25)}
+.ins-pago .ins-pag-btn:hover{background:rgba(45,106,79,.4)}
+.ins-dev .ins-pag-btn{color:var(--go);background:rgba(244,168,40,.15)}
+.ins-dev .ins-pag-btn:hover{background:rgba(244,168,40,.25)}
+.ins-nome{padding:5px 8px;color:#e8f0f7}
+.ins-pago .ins-nome{color:#fff}
+.ins-del{border:none;cursor:pointer;background:transparent;color:var(--mu);padding:5px 8px;font-size:14px;line-height:1;transition:color .15s}
+.ins-del:hover{color:#f87171}
+.ins-pag-counter{font-size:12px;font-family:'DM Mono',monospace;margin-left:8px;padding:3px 9px;border-radius:10px;background:rgba(255,255,255,.06);color:var(--mu)}
+.ins-pag-counter.all-paid{background:rgba(45,106,79,.2);color:#4ade80}
+.ins-pag-counter.none-paid{background:rgba(244,168,40,.1);color:var(--go)}
+
+.edit-grupos-grid{display:flex;flex-wrap:wrap;gap:14px;margin-top:16px}
+.edit-grupo-col{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px;min-width:160px;flex:1}
+.edit-grupo-hdr{font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--go);letter-spacing:.06em;margin-bottom:10px}
+.edit-grupo-row{display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.edit-grupo-row:last-child{border-bottom:none}
+.edit-grupo-nome{font-size:13px;color:#e8f0f7;font-weight:500}
+.btn-red-sm{background:transparent;border:none;color:var(--mu);cursor:pointer;font-size:16px;padding:0 4px;line-height:1;transition:color .15s}
+.btn-red-sm:hover{color:#f87171}
+.edit-grupo-add{display:flex;gap:6px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.edit-grupo-body{min-height:40px}
+.edit-warn{background:rgba(244,168,40,.1);border:1px solid rgba(244,168,40,.3);border-radius:8px;padding:8px 12px;font-size:12px;color:var(--go);margin-bottom:12px}
+</style>
+</head>
+<body>
+<div id="pat-expiry-banner" style="display:none"></div>
+<div id="app"></div>
+<script>
+(function(){
+'use strict';
+
+// ── ESTADO ──────────────────────────────────────────────────────────────
+var state = {
+  authed: false,
+  pat: null,
+  jogadores: [],
+  etapas: [],
+  jogos: [],       // legacy — kept for compatibility
+  torneios: [],    // new format
+  config: {},
+  editingJogId: null,
+  editingJogoId: null,
+  view: 'login', // login | dashboard | torneio | jogadores | etapas
+  etapaActiva: null,
+  torneioActivo: null,  // id do torneio activo
+  torneioView: 'sorteio', // sorteio | grupos | quadros | classificacao
+  swapMode: false,          // modo de swap de posições nos quadros
+  swapSel: null,            // posição seleccionada para swap {quadro, pos}
+  saving: false,
+  msg: null
+};
+
+var REPO_OWNER = 'Volvara';
+var REPO_NAME  = 'volvara.pt';
+var DATA_PATH  = 'superstars-ctpp/data';
+
+// ── CRYPTO (AES-GCM via SubtleCrypto) ───────────────────────────────────
+async function deriveKey(password) {
+  var enc = new TextEncoder();
+  var keyMat = await crypto.subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveKey']);
+  return crypto.subtle.deriveKey(
+    { name:'PBKDF2', salt: enc.encode('superstars-ctpp-2026'), iterations:100000, hash:'SHA-256' },
+    keyMat, { name:'AES-GCM', length:256 }, false, ['encrypt','decrypt']
+  );
+}
+async function encrypt(plaintext, password) {
+  var key = await deriveKey(password);
+  var iv  = crypto.getRandomValues(new Uint8Array(12));
+  var enc = new TextEncoder();
+  var ct  = await crypto.subtle.encrypt({name:'AES-GCM',iv}, key, enc.encode(plaintext));
+  var buf = new Uint8Array(iv.byteLength + ct.byteLength);
+  buf.set(iv, 0); buf.set(new Uint8Array(ct), iv.byteLength);
+  return btoa(String.fromCharCode(...buf));
+}
+async function decrypt(b64, password) {
+  var key = await deriveKey(password);
+  var buf = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+  var iv  = buf.slice(0,12);
+  var ct  = buf.slice(12);
+  var pt  = await crypto.subtle.decrypt({name:'AES-GCM',iv}, key, ct);
+  return new TextDecoder().decode(pt);
+}
+
+// ── GITHUB API ───────────────────────────────────────────────────────────
+async function ghGet(path) {
+  var r = await fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+path+'?t='+Date.now(), {
+    headers:{ Authorization:'Bearer '+state.pat, Accept:'application/vnd.github.v3+json' }
+  });
+  if(!r.ok) throw new Error('GH GET '+path+' → '+r.status);
+  return r.json();
+}
+async function ghPut(path, content, message, sha) {
+  var body = { message, content: btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2)))), committer:{name:'Director CTPP',email:'admin@superstars.pt'} };
+  if(sha) body.sha = sha;
+  var r = await fetch('https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/'+path, {
+    method:'PUT', headers:{ Authorization:'Bearer '+state.pat, Accept:'application/vnd.github.v3+json', 'Content-Type':'application/json' },
+    body: JSON.stringify(body)
+  });
+  if(!r.ok) { var e=await r.json(); throw new Error(e.message||'GH PUT falhou'); }
+  var result = await r.json();
+  // Guardar SHA actualizado após commit bem sucedido
+  if(result.content && result.content.sha) {
+    var key = path.split('/').pop().replace('.json','');
+    if(state._sha) state._sha[key] = result.content.sha;
+  }
+  return result;
+}
+async function loadData() {
+  // Sequencial para melhor diagnóstico de erros
+  function parse(f){ var b64=(f.content||'').replace(/\n/g,''); return JSON.parse(decodeURIComponent(escape(atob(b64)))); }
+  var jF = await ghGet(DATA_PATH+'/jogadores.json');
+  var eF = await ghGet(DATA_PATH+'/etapas.json');
+  var tF = await ghGet(DATA_PATH+'/torneios.json');
+  var cF = await ghGet(DATA_PATH+'/config.json');
+  state.jogadores = parse(jF).jogadores;
+  state.etapas    = parse(eF).etapas;
+  state.torneios  = parse(tF).torneios || [];
+  state.config    = parse(cF);
+  state._sha = { jogadores:jF.sha, etapas:eF.sha, torneios:tF.sha, config:cF.sha };
+  // Show PAT expiry banner now that config is loaded
+  if(state.config && state.config.pat_expiry) {
+    var daysLeft = Math.ceil((new Date(state.config.pat_expiry) - new Date()) / 86400000);
+    if(daysLeft <= 30) {
+      var banner = document.getElementById('pat-expiry-banner');
+      if(banner){
+        banner.textContent = daysLeft <= 0
+          ? '⛔ O token GitHub expirou! O admin não consegue guardar dados. Regenera o PAT.'
+          : '⚠️ O token GitHub expira em '+daysLeft+' dias ('+state.config.pat_expiry+'). Renova antes que expire.';
+        banner.className = 'pat-banner ' + (daysLeft <= 7 ? 'pat-banner-crit' : 'pat-banner-warn');
+        banner.style.display = 'block';
+      }
+    }
+  }
+}
+async function saveResultados(msg) {
+  var d = await ghGet(DATA_PATH+'/resultados.json');
+  await ghPut(DATA_PATH+'/resultados.json', {jogos:state.jogos}, msg, d.sha);
+  state._sha.resultados = d.sha;
+}
+async function saveJogadores(msg) {
+  var d = await ghGet(DATA_PATH+'/jogadores.json');
+  await ghPut(DATA_PATH+'/jogadores.json', {jogadores:state.jogadores}, msg, d.sha);
+}
+async function doTogglePagamento(etapaId, jogId) {
+  var e = state.etapas.find(function(x){return x.id===etapaId;});
+  if(!e||state.saving) return;
+  if(!e.pagamentos) e.pagamentos = [];
+  var idx = e.pagamentos.indexOf(jogId);
+  if(idx === -1) e.pagamentos.push(jogId);
+  else e.pagamentos.splice(idx, 1);
+  state.saving = true;
+  render(); // optimistic update
+  try {
+    await saveEtapas('Pagamento '+jogId+' etapa '+etapaId);
+  } catch(err) {
+    // Rollback
+    if(idx === -1) e.pagamentos.pop();
+    else e.pagamentos.splice(idx, 0, jogId);
+    showMsg('Erro ao guardar pagamento: '+err.message,'error');
+  }
+  state.saving = false;
+  render();
+}
+
+async function saveEtapas(msg) {
+  var d = await ghGet(DATA_PATH+'/etapas.json');
+  await ghPut(DATA_PATH+'/etapas.json', {etapas:state.etapas}, msg, d.sha);
+}
+
+// ── RANKING ENGINE ────────────────────────────────────────────────────────
+function calcRanking(cat, etapaId) {
+  var jogs = state.jogadores.filter(function(j){
+    return j.tipo==='senior';
+  });
+  var s = {};
+  jogs.forEach(function(j){
+    s[j.id]={nome:j.nome,pts:0,enc:0,vitorias:0,derrotas:0,games_g:0,games_p:0};
+  });
+  var jogosFiltrados = etapaId && etapaId!=='todas'
+    ? state.jogos.filter(function(g){return g.etapa===etapaId;})
+    : state.jogos;
+  jogosFiltrados.forEach(function(g){
+    if(!s[g.ja]||!s[g.jb]) return;
+    var sa=parseInt(g.score_a)||0, sb=parseInt(g.score_b)||0;
+    s[g.ja].enc++; s[g.jb].enc++;
+    s[g.ja].games_g+=sa; s[g.ja].games_p+=sb;
+    s[g.jb].games_g+=sb; s[g.jb].games_p+=sa;
+    if(g.vencedor===g.ja){ s[g.ja].pts+=3; s[g.ja].vitorias++; s[g.jb].pts+=1; s[g.jb].derrotas++; }
+    else { s[g.jb].pts+=3; s[g.jb].vitorias++; s[g.ja].pts+=1; s[g.ja].derrotas++; }
+  });
+  return Object.values(s).map(function(r){
+    r.dif_enc=r.vitorias-r.derrotas; r.dif_games=r.games_g-r.games_p; return r;
+  }).sort(function(a,b){ return (b.pts-a.pts)||(b.dif_games-a.dif_games)||(b.dif_enc-a.dif_enc); });
+}
+
+// ── HELPERS ────────────────────────────────────────────────────────────────
+function nomeById(id){ var j=state.jogadores.find(function(x){return x.id===id;}); return j?j.nome:id; }
+function showMsg(txt,type){ state.msg={txt,type}; render(); setTimeout(function(){state.msg=null;render();},3500); }
+function fmtData(d){ if(!d) return ''; var p=d.split('-'); return p[2]+'/'+p[1]+'/'+p[0]; }
+function labelEtapa(e){ return (e.numero||'?')+'ª Etapa Super Stars'; }
+function genId(prefix){ return prefix+(Date.now().toString(36)+Math.random().toString(36).slice(2,6)); }
+
+// ── RENDER PRINCIPAL ──────────────────────────────────────────────────────
+function render(){
+  var root = document.getElementById('app');
+  if(!root) return;
+  if(state.view==='login')      root.innerHTML = viewLogin();
+  else if(state.view==='dashboard') root.innerHTML = viewDashboard();
+  else if(state.view==='torneio')    root.innerHTML = viewTorneio();
+  else if(state.view==='jogadores') root.innerHTML = viewJogadores();
+  else if(state.view==='etapas')    root.innerHTML = viewEtapas();
+  bindEvents();
+}
+
+// ── VIEW: LOGIN ─────────────────────────────────────────────────────────
+function viewLogin(){
+  return '<div class="login-wrap">'+
+    '<div class="login-box">'+
+      '<div class="login-logo"><span class="v1">SUPER</span><span class="v2">STARS</span></div>'+
+      '<div class="login-sub">Painel do Director · CTPP</div>'+
+      (state.msg?'<div class="msg msg-'+state.msg.type+'">'+state.msg.txt+'</div>':'')+
+      '<input type="password" id="pw-input" class="inp" placeholder="Password" autocomplete="current-password">'+
+      '<button class="btn btn-gold" id="btn-login">Entrar</button>'+
+      '<div class="login-note">Funciona em qualquer dispositivo · Sem instalação</div>'+
+    '</div>'+
+  '</div>';
+}
+
+// ── VIEW: DASHBOARD ─────────────────────────────────────────────────────
+function viewDashboard(){
+  var proximas = state.etapas.filter(function(e){return e.estado==='aberta'||e.estado==='pendente';}).slice(0,3);
+  var concluidas = state.etapas.filter(function(e){return e.estado==='concluida';}).length;
+  var totalInscritos = state.etapas.reduce(function(s,e){return s+(e.inscritos?e.inscritos.length:0);},0);
+
+  var prox = proximas.map(function(e){
+    var cor = '#2D6A4F';
+    var badge = e.estado==='aberta'?'<span class="badge-open">Inscrições abertas</span>':'<span class="badge-pend">Em breve</span>';
+    return '<div class="dash-etapa">'+
+      '<div class="dash-etapa-bar" style="background:'+cor+'"></div>'+
+      '<div class="dash-etapa-body">'+
+        '<div class="dash-etapa-name">'+labelEtapa(e)+'</div>'+
+        '<div class="dash-etapa-det">'+fmtData(e.data)+' · '+e.hora+(e.tipo==='senior'?' · '+e.inscritos.length+'/'+e.limite+' inscritos':'')+'</div>'+
+        badge+
+      '</div>'+
+      '<button class="btn-sm btn-green" data-act="goTorneio" data-etapa="'+e.id+'">Inserir</button>'+
+    '</div>';
+  }).join('');
+
+  return navbar('dashboard')+
+  (state.msg?'<div class="msg msg-'+state.msg.type+' msg-float">'+state.msg.txt+'</div>':'')+
+  '<div class="page">'+
+    '<div class="page-title">Dashboard</div>'+
+    '<div class="stat-grid">'+
+      '<div class="stat"><div class="stat-n">'+concluidas+'</div><div class="stat-l">Etapas concluídas</div></div>'+
+      '<div class="stat"><div class="stat-n">'+state.jogadores.filter(function(j){return j.ativo;}).length+'</div><div class="stat-l">Jogadores activos</div></div>'+
+      '<div class="stat"><div class="stat-n">'+state.jogos.length+'</div><div class="stat-l">Resultados inseridos</div></div>'+
+      '<div class="stat"><div class="stat-n">'+totalInscritos+'</div><div class="stat-l">Inscrições total</div></div>'+
+    '</div>'+
+    '<div class="section-title">Próximas Etapas</div>'+
+    (prox||'<div class="empty">Sem etapas por vir.</div>')+
+    '<div class="section-title" style="margin-top:28px">Acções Rápidas</div>'+
+    '<div class="action-grid">'+
+      '<button class="action-btn" data-act="goTorneio"><span>🎾</span>Inserir Resultado</button>'+
+      '<button class="action-btn" data-act="goJogadores"><span>👤</span>Jogadores</button>'+
+      '<button class="action-btn" data-act="goEtapas"><span>📅</span>Etapas</button>'+
+      '<button class="action-btn" data-act="exportCSV"><span>📊</span>Exportar CSV</button>'+
+    '</div>'+
+  '</div>';
+}
+
+
+// ── TORNEIO ENGINE ─────────────────────────────────────────────────────────
+// ── TORNEIO ENGINE — lógica pura, sem DOM ──────────────────────────────────
+// Usado tanto no admin como no site público
+
+var TorneioEngine = (function() {
+
+  var PONTUACAO = [18,16,14,13,12,11,10,9,8,7,6,5,4,3,2];
+
+  // ── POSIÇÕES FIXAS NOS QUADROS ──────────────────────────────────────────
+  // Quadro Principal (16 posições) por número de grupos
+  var QP_POSICOES = {
+    5: [ // 5 grupos × 2 = 10 jogadores
+      // [grupo_idx, classificacao(0=1º,1=2º)] → posição no quadro
+      {g:0, c:0, pos:1},  // 1ºG1 → pos1
+      {g:0, c:1, pos:9},  // 2ºG1 → pos9
+      {g:1, c:0, pos:16}, // 1ºG2 → pos16
+      {g:1, c:1, pos:8},  // 2ºG2 → pos8
+      {g:2, c:0, pos:5},  // 1ºG3 → pos5
+      {g:2, c:1, pos:13}, // 2ºG3 → pos13
+      {g:3, c:0, pos:12}, // 1ºG4 → pos12
+      {g:3, c:1, pos:4},  // 2ºG4 → pos4
+      {g:4, c:0, pos:3},  // 1ºG5 → pos3
+      {g:4, c:1, pos:11}, // 2ºG5 → pos11
+    ],
+    4: [ // 4 grupos × 2 = 8 jogadores
+      {g:0, c:0, pos:1},  {g:0, c:1, pos:8},
+      {g:1, c:0, pos:5},  {g:1, c:1, pos:4},
+      {g:2, c:0, pos:3},  {g:2, c:1, pos:6},
+      {g:3, c:0, pos:7},  {g:3, c:1, pos:2},
+    ],
+    3: [ // 3 grupos × 2 = 6 jogadores → quadro de 8
+      {g:0, c:0, pos:1},  {g:0, c:1, pos:8},
+      {g:1, c:0, pos:4},  {g:1, c:1, pos:5},
+      {g:2, c:0, pos:3},  {g:2, c:1, pos:6},
+    ],
+    2: [ // 2 grupos × 2 = 4 jogadores
+      {g:0, c:0, pos:1},  {g:0, c:1, pos:4},
+      {g:1, c:0, pos:3},  {g:1, c:1, pos:2},
+    ],
+  };
+
+  // Quadro B: 3ºs de cada grupo
+  var QB_POSICOES = {
+    5: [ // 5 terceiros → quadro de 8
+      {g:0, pos:1}, {g:1, pos:8}, {g:2, pos:3},
+      {g:3, pos:6}, {g:4, pos:4},
+    ],
+    4: [ // 4 terceiros → quadro de 4
+      {g:0, pos:1}, {g:1, pos:4}, {g:2, pos:3}, {g:3, pos:2},
+    ],
+    3: [ // 3 terceiros → quadro de 4
+      {g:0, pos:1}, {g:1, pos:4}, {g:2, pos:3},
+    ],
+    2: [ // 2 terceiros → jogo directo
+      {g:0, pos:1}, {g:1, pos:2},
+    ],
+  };
+
+  // ── RONDAS DO QUADRO PRINCIPAL ──────────────────────────────────────────
+  // Para cada tamanho de quadro, define os emparelhamentos por ronda
+  // Emparelhamento padrão: pos1 vs posN, pos2 vs posN-1, etc.
+  // Rondas: r1(oitavos), r2(quartos), r3(semis), r4(final) + disputa perdedores
+
+  function gerarRondasQP(numGrupos) {
+    var tamanho = numGrupos >= 4 ? 16 : 8;
+    var rondas = [];
+    var halfSize = tamanho / 2; // 8 ou 4
+
+    // R1: pos1vpos2, pos3vpos4, ..., pos(n-1)vposN
+    var r1jogos = [];
+    for(var i=0; i<halfSize; i++) {
+      var posA = i*2 + 1;
+      var posB = i*2 + 2;
+      r1jogos.push({id:'qp_r1_'+(i+1), posA:posA, posB:posB,
+        jogA:null, jogB:null, score_a:null, score_b:null, vencedor:null, bye:false});
+    }
+    rondas.push({id:'r1', nome:'Oitavos de Final', jogos:r1jogos});
+
+    // QF: W(R1_1)vW(R1_2), W(R1_3)vW(R1_4), W(R1_5)vW(R1_6), W(R1_7)vW(R1_8)
+    var qfJogos = [];
+    for(var i=0; i<halfSize/2; i++) {
+      qfJogos.push({id:'qp_qf_'+(i+1),
+        jogA:null, jogB:null, score_a:null, score_b:null, vencedor:null});
+    }
+    rondas.push({id:'r2', nome:'Quartos de Final', jogos:qfJogos});
+
+    // SF: W(QF1)vW(QF2), W(QF3)vW(QF4)
+    rondas.push({id:'r3', nome:'Meias Finais', jogos:[
+      {id:'qp_sf_1', jogA:null, jogB:null, score_a:null, score_b:null, vencedor:null},
+      {id:'qp_sf_2', jogA:null, jogB:null, score_a:null, score_b:null, vencedor:null},
+    ]});
+    // SF perdedores QF (5º-8º): L(QF1)vL(QF2), L(QF3)vL(QF4)
+    rondas.push({id:'r3p', nome:'Meias Finais (5º-8º)', jogos:[
+      {id:'qp_sfp_1', jogA:null, jogB:null, score_a:null, score_b:null, vencedor:null},
+      {id:'qp_sfp_2', jogA:null, jogB:null, score_a:null, score_b:null, vencedor:null},
+    ]});
+    // Finals
+    rondas.push({id:'r4', nome:'Finals', jogos:[
+      {id:'qp_final',  nome:'Final (1º/2º)',  jogA:null, jogB:null, score_a:null, score_b:null, vencedor:null},
+      {id:'qp_3lugar', nome:'3º/4º Lugar',    jogA:null, jogB:null, score_a:null, score_b:null, vencedor:null},
+      {id:'qp_56',     nome:'5º/6º Lugar',    jogA:null, jogB:null, score_a:null, score_b:null, vencedor:null},
+      {id:'qp_78',     nome:'7º/8º Lugar',    jogA:null, jogB:null, score_a:null, score_b:null, vencedor:null},
+      {id:'qp_910',    nome:'9º/10º Lugar',   jogA:null, jogB:null, score_a:null, score_b:null, vencedor:null},
+    ]});
+    return rondas;
+  }
+
+  function gerarRondasQB(numGrupos) {
+    var rondas = [];
+    // QF: pos1vpos2, pos3vpos4, pos5vpos6, pos7vpos8
+    rondas.push({id:'r1', nome:'Quartos de Final', jogos:[
+      {id:'qb_qf_1', posA:1, posB:2, jogA:null, jogB:null, score_a:null, score_b:null, vencedor:null},
+      {id:'qb_qf_2', posA:3, posB:4, jogA:null, jogB:null, score_a:null, score_b:null, vencedor:null},
+      {id:'qb_qf_3', posA:5, posB:6, jogA:null, jogB:null, score_a:null, score_b:null, vencedor:null},
+      {id:'qb_qf_4', posA:7, posB:8, jogA:null, jogB:null, score_a:null, score_b:null, vencedor:null},
+    ]});
+    // SF: W(QF1)vW(QF2), W(QF3)vW(QF4)
+    rondas.push({id:'r2', nome:'Meias Finais', jogos:[
+      {id:'qb_sf_1', jogA:null, jogB:null, score_a:null, score_b:null, vencedor:null},
+      {id:'qb_sf_2', jogA:null, jogB:null, score_a:null, score_b:null, vencedor:null},
+    ]});
+    // Finals: 11/12, 13/14
+    // Plus 13/14 losers bracket (L(SF1) vs L(SF2))
+    rondas.push({id:'r3', nome:'Finals', jogos:[
+      {id:'qb_final', nome:'Final (11º/12º)', jogA:null, jogB:null, score_a:null, score_b:null, vencedor:null},
+      {id:'qb_1314',  nome:'13º/14º Lugar',   jogA:null, jogB:null, score_a:null, score_b:null, vencedor:null},
+    ]});
+    return rondas;
+  }
+
+  // ── CALCULAR CLASSIFICAÇÃO DE GRUPO ────────────────────────────────────
+  function calcClassificacaoGrupo(grupo) {
+    var stats = {};
+    grupo.jogadores.forEach(function(id) {
+      stats[id] = {id:id, pts:0, v:0, d:0, jg:0, jp:0};
+    });
+    (grupo.jogos||[]).forEach(function(j) {
+      if(!stats[j.ja]||!stats[j.jb]) return;
+      var sa=parseInt(j.score_a)||0, sb=parseInt(j.score_b)||0;
+      stats[j.ja].jg+=sa; stats[j.ja].jp+=sb;
+      stats[j.jb].jg+=sb; stats[j.jb].jp+=sa;
+      if(j.vencedor===j.ja) {
+        stats[j.ja].pts+=3; stats[j.ja].v++;
+        stats[j.jb].pts+=1; stats[j.jb].d++;
+      } else if(j.vencedor===j.jb) {
+        stats[j.jb].pts+=3; stats[j.jb].v++;
+        stats[j.ja].pts+=1; stats[j.ja].d++;
+      }
+    });
+
+    var jogadores = grupo.jogadores.map(function(id){return stats[id];});
+    var n = jogadores.length;
+
+    // Agrupar por pts empatados
+    function difJogos(s) { return s.jg - s.jp; }
+
+    // Confronto directo entre um subconjunto
+    function confrontoDirecto(sub) {
+      var cd = {};
+      sub.forEach(function(s){ cd[s.id]={pts:0,jg:0,jp:0}; });
+      (grupo.jogos||[]).forEach(function(j){
+        if(!cd[j.ja]||!cd[j.jb]) return;
+        var sa=parseInt(j.score_a)||0, sb=parseInt(j.score_b)||0;
+        cd[j.ja].jg+=sa; cd[j.ja].jp+=sb;
+        cd[j.jb].jg+=sb; cd[j.jb].jp+=sa;
+        if(j.vencedor===j.ja){ cd[j.ja].pts+=3; cd[j.jb].pts+=1; }
+        else if(j.vencedor===j.jb){ cd[j.jb].pts+=3; cd[j.ja].pts+=1; }
+      });
+      return cd;
+    }
+
+    // Sort com critérios por tamanho do grupo
+    // Estratégia: sort iterativo — resolve cada grupo de empatados separadamente
+    function sortGrupo(arr) {
+      if(arr.length <= 1) return arr;
+      // 1. Sort inicial por pts
+      var sorted = arr.slice().sort(function(a,b){ return b.pts-a.pts; });
+      // 2. Encontrar grupos de empatados consecutivos e resolver cada um
+      var result = [];
+      var i = 0;
+      while(i < sorted.length) {
+        var grupo_emp = [sorted[i]];
+        while(i+grupo_emp.length < sorted.length && sorted[i+grupo_emp.length].pts === sorted[i].pts) {
+          grupo_emp.push(sorted[i+grupo_emp.length]);
+        }
+        if(grupo_emp.length === 1) {
+          result.push(grupo_emp[0]);
+        } else {
+          result = result.concat(resolverEmpate(grupo_emp));
+        }
+        i += grupo_emp.length;
+      }
+      return result;
+    }
+
+    function resolverEmpate(sub) {
+      if(sub.length <= 1) return sub;
+      // Todos os sub jogadores empatados em pts
+      var isGrupo3TodosEmpatados = (sub.length === 3 && n === 3);
+      
+      if(isGrupo3TodosEmpatados) {
+        // Grupo de 3 todos empatados: 1º ±jogos, 2º confronto directo (só dos ainda empatados), 3º jg
+        // Step 1: sort by dif
+        var sorted_dif = sub.slice().sort(function(a,b){ return difJogos(b)-difJogos(a); });
+        // Step 2: resolver sub-empates de dif com confronto directo
+        var final_sorted = [];
+        var j = 0;
+        while(j < sorted_dif.length) {
+          var same_dif = [sorted_dif[j]];
+          while(j+same_dif.length < sorted_dif.length && difJogos(sorted_dif[j+same_dif.length])===difJogos(sorted_dif[j])) {
+            same_dif.push(sorted_dif[j+same_dif.length]);
+          }
+          if(same_dif.length > 1) {
+            // confronto directo apenas entre estes
+            var cd2 = confrontoDirecto(same_dif);
+            same_dif.sort(function(a,b){
+              if(cd2[b.id].pts !== cd2[a.id].pts) return cd2[b.id].pts - cd2[a.id].pts;
+              return b.jg - a.jg;
+            });
+          }
+          final_sorted = final_sorted.concat(same_dif);
+          j += same_dif.length;
+        }
+        return final_sorted;
+      } else {
+        // 2 empatados (qualquer grupo) ou 3+ empatados grupo 4:
+        // 1º confronto directo entre os empatados, 2º ±jogos, 3º jg total
+        var cd = confrontoDirecto(sub);
+        // Sub-sort: primeiro por confronto directo
+        var sorted_cd = sub.slice().sort(function(a,b){
+          if(cd[b.id].pts !== cd[a.id].pts) return cd[b.id].pts - cd[a.id].pts;
+          if(difJogos(b) !== difJogos(a)) return difJogos(b) - difJogos(a);
+          return b.jg - a.jg;
+        });
+        // Se ainda há sub-empates no confronto directo, resolver recursivamente com ±jogos
+        var result2 = [];
+        var j = 0;
+        while(j < sorted_cd.length) {
+          var sub2 = [sorted_cd[j]];
+          while(j+sub2.length < sorted_cd.length && cd[sorted_cd[j+sub2.length].id].pts === cd[sorted_cd[j].id].pts) {
+            sub2.push(sorted_cd[j+sub2.length]);
+          }
+          if(sub2.length > 1) {
+            // Sub-empate em confronto directo: usar ±jogos depois jg
+            sub2.sort(function(a,b){
+              if(difJogos(b)!==difJogos(a)) return difJogos(b)-difJogos(a);
+              return b.jg-a.jg;
+            });
+          }
+          result2 = result2.concat(sub2);
+          j += sub2.length;
+        }
+        return result2;
+      }
+    }
+
+    var ordenados = sortGrupo(jogadores);
+    return ordenados.map(function(s,i){return {pos:i+1, jogId:s.id};});
+  }
+
+  // ── GERAR POSIÇÕES DOS QUADROS A PARTIR DA CLASSIFICAÇÃO DOS GRUPOS ────
+  function gerarPosicoesQP(grupos, classificacoes) {
+    var n = grupos.length;
+    var map = QP_POSICOES[n] || QP_POSICOES[5];
+    var tamanho = n >= 4 ? 16 : 8;
+    var posicoes = [];
+    for(var i=1; i<=tamanho; i++) posicoes.push({pos:i, jogId:null, bye:true});
+
+    map.forEach(function(m) {
+      var cl = classificacoes[m.g];
+      if(!cl) return;
+      var jogador = cl.find(function(c){return c.pos===m.c+1;});
+      if(jogador) {
+        posicoes[m.pos-1] = {pos:m.pos, jogId:jogador.jogId, bye:false};
+      }
+    });
+    return posicoes;
+  }
+
+  function gerarPosicoesQB(grupos, classificacoes) {
+    var n = grupos.length;
+    var map = QB_POSICOES[n] || QB_POSICOES[5];
+    var tamanho = n >= 4 ? 8 : (n===3 ? 4 : 2);
+    var posicoes = [];
+    for(var i=1; i<=tamanho; i++) posicoes.push({pos:i, jogId:null, bye:true});
+
+    map.forEach(function(m) {
+      var cl = classificacoes[m.g];
+      if(!cl) return;
+      var jogador = cl.find(function(c){return c.pos===3;});
+      if(jogador) {
+        posicoes[m.pos-1] = {pos:m.pos, jogId:jogador.jogId, bye:false};
+      }
+    });
+    return posicoes;
+  }
+
+  // ── CALCULAR CLASSIFICAÇÃO FINAL ───────────────────────────────────────
+  // Recebe torneio completo, retorna [{pos, jogId, pts}]
+  function calcClassificacaoFinal(torneio) {
+    var n = torneio.grupos.reduce(function(t,g){return t+g.jogadores.length;}, 0);
+    var pontos = PONTUACAO.slice(0, n);
+    var classif = [];
+    var qp = torneio.quadroPrincipal;
+    var qb = torneio.quadroB;
+    var r4 = qp.rondas.find(function(r){return r.id==='r4';});
+    var r3qb = qb.rondas.find(function(r){return r.id==='r3';});
+
+    function addPos(pos, jogId) {
+      if(jogId && pos <= n) classif.push({pos:pos, jogId:jogId, pts:pontos[pos-1]||0});
+    }
+
+    if(r4) {
+      var final = r4.jogos.find(function(j){return j.id==='qp_final';});
+      var t34   = r4.jogos.find(function(j){return j.id==='qp_3lugar';});
+      var t56   = r4.jogos.find(function(j){return j.id==='qp_56';});
+      var t78   = r4.jogos.find(function(j){return j.id==='qp_78';});
+      var t910  = r4.jogos.find(function(j){return j.id==='qp_910';});
+      if(final) {
+        addPos(1, final.vencedor);
+        addPos(2, final.vencedor ? (final.jogA===final.vencedor?final.jogB:final.jogA) : null);
+      }
+      if(t34) {
+        addPos(3, t34.vencedor);
+        addPos(4, t34.vencedor ? (t34.jogA===t34.vencedor?t34.jogB:t34.jogA) : null);
+      }
+      if(t56) {
+        addPos(5, t56.vencedor);
+        addPos(6, t56.vencedor ? (t56.jogA===t56.vencedor?t56.jogB:t56.jogA) : null);
+      }
+      if(t78) {
+        addPos(7, t78.vencedor);
+        addPos(8, t78.vencedor ? (t78.jogA===t78.vencedor?t78.jogB:t78.jogA) : null);
+      }
+      if(t910) {
+        addPos(9, t910.vencedor);
+        addPos(10, t910.vencedor ? (t910.jogA===t910.vencedor?t910.jogB:t910.jogA) : null);
+      }
+    }
+    if(r3qb) {
+      var finalB = r3qb.jogos.find(function(j){return j.id==='qb_final';});
+      var t1314  = r3qb.jogos.find(function(j){return j.id==='qb_1314';});
+      if(finalB) {
+        addPos(11, finalB.vencedor);
+        addPos(12, finalB.vencedor ? (finalB.jogA===finalB.vencedor?finalB.jogB:finalB.jogA) : null);
+      }
+      if(t1314) {
+        addPos(13, t1314.vencedor);
+        addPos(14, t1314.vencedor ? (t1314.jogA===t1314.vencedor?t1314.jogB:t1314.jogA) : null);
+      }
+      // 15º (e 16º): perdedores dos QFs REAIS da QB (não byes)
+      var r1qb = qb.rondas.find(function(r){return r.id==='r1';});
+      if(r1qb) {
+        var posExtra = 15;
+        r1qb.jogos.forEach(function(qf) {
+          // Jogo real = tem ambos os jogadores E não é bye
+          var isReal = qf.jogA && qf.jogB && !qf.bye;
+          if(isReal && qf.vencedor) {
+            var perdedor = qf.jogA === qf.vencedor ? qf.jogB : qf.jogA;
+            if(perdedor && posExtra <= n) { addPos(posExtra, perdedor); posExtra++; }
+          }
+        });
+      }
+    }
+    return classif.sort(function(a,b){return a.pos-b.pos;});
+  }
+
+  // ── CRIAR TORNEIO NOVO ─────────────────────────────────────────────────
+  function criarTorneio(etapaId, numGrupos) {
+    var grupos = [];
+    for(var i=0; i<numGrupos; i++) {
+      grupos.push({id:'g'+(i+1), campo:i+1, jogadores:[], jogos:[], classificacao:[], classificacaoEditada:false});
+    }
+    return {
+      etapaId: etapaId,
+      estado: 'sorteio',
+      numGrupos: numGrupos,
+      cabecasDeSerie: [],
+      grupos: grupos,
+      quadroPrincipal: {posicoes:[], rondas: gerarRondasQP(numGrupos)},
+      quadroB: {posicoes:[], rondas: gerarRondasQB(numGrupos)},
+      classificacaoFinal: []
+    };
+  }
+
+  // ── SORTEIO ────────────────────────────────────────────────────────────
+  function executarSorteio(torneio, cabecasDeSerie, outrosJogadores) {
+    // Fase 1: distribuir CS aleatoriamente pelos grupos
+    var cs = cabecasDeSerie.slice();
+    var order = cs.map(function(_,i){return i;}).sort(function(){return Math.random()-0.5;});
+    order.forEach(function(gi, idx){
+      torneio.grupos[gi].jogadores = [cs[idx]];
+    });
+    // Fase 2: distribuir outros aleatoriamente
+    var outros = outrosJogadores.slice().sort(function(){return Math.random()-0.5;});
+    var slots = [];
+    torneio.grupos.forEach(function(g, gi){
+      var nSlots = (torneio.grupos[0].jogadores.length > 0 ? 2 : 3);
+      for(var s=0; s<2; s++) slots.push(gi);
+    });
+    slots.sort(function(){return Math.random()-0.5;});
+    var idx = 0;
+    slots.forEach(function(gi){
+      if(idx < outros.length) torneio.grupos[gi].jogadores.push(outros[idx++]);
+    });
+    torneio.estado = 'grupos';
+    torneio.cabecasDeSerie = cabecasDeSerie;
+    return torneio;
+  }
+
+  // ── AVANÇAR PARA QUADROS ───────────────────────────────────────────────
+  function avancarParaQuadros(torneio) {
+    var classificacoes = torneio.grupos.map(function(g){
+      return g.classificacaoEditada ? g.classificacao : calcClassificacaoGrupo(g);
+    });
+    torneio.grupos.forEach(function(g, i){
+      if(!g.classificacaoEditada) g.classificacao = classificacoes[i];
+    });
+    torneio.quadroPrincipal.posicoes = gerarPosicoesQP(torneio.grupos, classificacoes);
+    torneio.quadroB.posicoes         = gerarPosicoesQB(torneio.grupos, classificacoes);
+    // ALWAYS regenerate rondas from scratch with current engine logic
+    torneio.quadroPrincipal.rondas = gerarRondasQP(torneio.numGrupos);
+    torneio.quadroB.rondas         = gerarRondasQB(torneio.numGrupos);
+    // Fill players into R1 slots
+    preencherPrimeirasRondas(torneio);
+    torneio.estado = 'quadros';
+    return torneio;
+  }
+
+  function preencherPrimeirasRondas(torneio) {
+    var qp = torneio.quadroPrincipal;
+    var qb = torneio.quadroB;
+
+    // ── QP R1: pos1vpos2, pos3vpos4, ... ────────────────────────────────
+    var r1qp = qp.rondas.find(function(r){return r.id==='r1';});
+    if(r1qp) {
+      r1qp.jogos.forEach(function(jogo) {
+        var pA = qp.posicoes.find(function(p){return p.pos===jogo.posA;});
+        var pB = qp.posicoes.find(function(p){return p.pos===jogo.posB;});
+        jogo.jogA = pA ? pA.jogId : null;
+        jogo.jogB = pB ? pB.jogId : null;
+        // Bye: one side is null/bye
+        var aIsBye = !pA || pA.bye || !pA.jogId;
+        var bIsBye = !pB || pB.bye || !pB.jogId;
+        jogo.bye = aIsBye || bIsBye;
+        if(aIsBye && bIsBye) { jogo.vencedor = null; } // slot vazio
+        else if(aIsBye) { jogo.vencedor = jogo.jogB; }
+        else if(bIsBye) { jogo.vencedor = jogo.jogA; }
+      });
+      preencherQFdepoisR1(torneio);
+    }
+
+    // ── QB QF: pos1vpos2, pos3vpos4, pos5vpos6, pos7vpos8 ────────────────
+    var r1qb = qb.rondas.find(function(r){return r.id==='r1';});
+    if(r1qb) {
+      r1qb.jogos.forEach(function(jogo) {
+        var pA = qb.posicoes.find(function(p){return p.pos===jogo.posA;});
+        var pB = qb.posicoes.find(function(p){return p.pos===jogo.posB;});
+        jogo.jogA = pA ? pA.jogId : null;
+        jogo.jogB = pB ? pB.jogId : null;
+        var aIsBye = !pA || pA.bye || !pA.jogId;
+        var bIsBye = !pB || pB.bye || !pB.jogId;
+        jogo.bye = aIsBye || bIsBye;
+        if(aIsBye && bIsBye) { jogo.vencedor = null; }
+        else if(aIsBye) { jogo.vencedor = jogo.jogB; }
+        else if(bIsBye) { jogo.vencedor = jogo.jogA; }
+      });
+      preencherSFdoQB(torneio);
+    }
+  }
+
+  function preencherQFdepoisR1(torneio) {
+    var qp = torneio.quadroPrincipal;
+    var r1 = qp.rondas.find(function(r){return r.id==='r1';});
+    var r2 = qp.rondas.find(function(r){return r.id==='r2';});
+    if(!r1||!r2) return;
+    // QF pairs: W(R1_1)vW(R1_2), W(R1_3)vW(R1_4), W(R1_5)vW(R1_6), W(R1_7)vW(R1_8)
+    r2.jogos.forEach(function(jogo, qi) {
+      var j1 = r1.jogos[qi*2];
+      var j2 = r1.jogos[qi*2 + 1];
+      // Phantom slot = BYEvBYE (no players at all)
+      var j1phantom = j1 && !j1.jogA && !j1.jogB;
+      var j2phantom = j2 && !j2.jogA && !j2.jogB;
+      // Winner of a slot: use vencedor if set, else null
+      jogo.jogA = j1phantom ? null : (j1 ? j1.vencedor : null);
+      jogo.jogB = j2phantom ? null : (j2 ? j2.vencedor : null);
+      // Auto-bye QF ONLY if the source slot was a bye (not a real pending game)
+      // A real game has both jogA and jogB set and no bye flag — don't auto-advance
+      var j1isBye = !j1 || j1phantom || j1.bye;
+      var j2isBye = !j2 || j2phantom || j2.bye;
+      if(jogo.jogA && !jogo.jogB && j2isBye) jogo.vencedor = jogo.jogA;
+      if(jogo.jogB && !jogo.jogA && j1isBye) jogo.vencedor = jogo.jogB;
+    });
+  }
+
+  function preencherSFdoQB(torneio) {
+    var qb = torneio.quadroB;
+    var r1qb = qb.rondas.find(function(r){return r.id==='r1';});
+    var r2qb = qb.rondas.find(function(r){return r.id==='r2';});
+    if(!r1qb||!r2qb) return;
+    r2qb.jogos.forEach(function(sf, si) {
+      var qf1 = r1qb.jogos[si*2];
+      var qf2 = r1qb.jogos[si*2 + 1];
+      var qf1phantom = qf1 && !qf1.jogA && !qf1.jogB;
+      var qf2phantom = qf2 && !qf2.jogA && !qf2.jogB;
+      sf.jogA = qf1phantom ? null : (qf1 ? qf1.vencedor : null);
+      sf.jogB = qf2phantom ? null : (qf2 ? qf2.vencedor : null);
+      var qf1isBye = !qf1 || qf1phantom || qf1.bye;
+      var qf2isBye = !qf2 || qf2phantom || qf2.bye;
+      if(sf.jogA && !sf.jogB && qf2isBye) sf.vencedor = sf.jogA;
+      if(sf.jogB && !sf.jogA && qf1isBye) sf.vencedor = sf.jogB;
+    });
+  }
+
+  // ── REGISTAR RESULTADO NUMA RONDA ─────────────────────────────────────
+  function registarResultado(torneio, quadro, rondaId, jogoId, scoreA, scoreB) {
+    var q = quadro === 'principal' ? torneio.quadroPrincipal : torneio.quadroB;
+    var ronda = q.rondas.find(function(r){return r.id===rondaId;});
+    if(!ronda) return false;
+    var jogo = ronda.jogos.find(function(j){return j.id===jogoId;});
+    if(!jogo) return false;
+    jogo.score_a = scoreA;
+    jogo.score_b = scoreB;
+    jogo.vencedor = scoreA > scoreB ? jogo.jogA : jogo.jogB;
+    // Propagar vencedor para próxima ronda se possível
+    propagarVencedores(torneio, quadro, rondaId, jogoId, jogo.vencedor, jogo.jogA===jogo.vencedor?jogo.jogB:jogo.jogA);
+    return true;
+  }
+
+  function propagarVencedores(torneio, quadro, rondaId, jogoId, vencedor, perdedor) {
+    var q = quadro === 'principal' ? torneio.quadroPrincipal : torneio.quadroB;
+    // Propagação automática simples — pode ser expandida
+    // A implementação completa é feita na view do admin com recálculo completo
+  }
+
+  return {
+    PONTUACAO: PONTUACAO,
+    QP_POSICOES: QP_POSICOES,
+    QB_POSICOES: QB_POSICOES,
+    criarTorneio: criarTorneio,
+    executarSorteio: executarSorteio,
+    calcClassificacaoGrupo: calcClassificacaoGrupo,
+    gerarPosicoesQP: gerarPosicoesQP,
+    gerarPosicoesQB: gerarPosicoesQB,
+    avancarParaQuadros: avancarParaQuadros,
+    registarResultado: registarResultado,
+    calcClassificacaoFinal: calcClassificacaoFinal,
+    gerarRondasQP: gerarRondasQP,
+    gerarRondasQB: gerarRondasQB,
+    preencherQFdepoisR1: preencherQFdepoisR1,
+    preencherSFdoQB: preencherSFdoQB,
+    preencherPrimeirasRondas: preencherPrimeirasRondas,
+  };
+
+
+})();
+
+if(typeof module !== 'undefined') module.exports = TorneioEngine;
+
+
+// ── VIEW: TORNEIO ──────────────────────────────────────────────────────────
+// ── VIEW: TORNEIO (substitui viewResultados) ────────────────────────────
+
+function viewTorneio() {
+  // Auto-seleccionar se só há um torneio e nenhum está activo
+  if(!state.torneioActivo && state.torneios.length > 0) {
+    var auto = state.torneios[0];
+    state.torneioActivo = auto.etapaId;
+    state.etapaActiva   = auto.etapaId;
+    state.torneioView   = auto.estado==='quadros'?'quadros':auto.estado==='grupos'?'grupos':auto.estado==='sorteio'?'sorteio':'classificacao';
+  }
+  // Encontrar torneio activo ou criar novo
+  var etapa = state.etapaActiva ? state.etapas.find(function(e){return e.id===state.etapaActiva;}) : null;
+  var torneio = state.torneioActivo
+    ? state.torneios.find(function(t){return t.etapaId===state.torneioActivo;})
+    : null;
+
+  // Selector de etapas com torneio ou abertas
+  var etapasValidas = state.etapas.filter(function(e){
+    return e.estado==='aberta' || state.torneios.some(function(t){return t.etapaId===e.id;});
+  });
+  var etapaOptsHtml = etapasValidas.map(function(e){
+    var temTorneio = state.torneios.some(function(t){return t.etapaId===e.id;});
+    return '<option value="'+e.id+'"'+(state.torneioActivo===e.id?' selected':'')+'>'+
+      labelEtapa(e)+' — '+fmtData(e.data)+(temTorneio?' ✓':'')+'</option>';
+  }).join('');
+
+  var selectorHtml =
+    '<div class="form-card" style="margin-bottom:16px">'+
+      '<div class="form-title">Etapa</div>'+
+      '<div style="display:flex;gap:8px;flex-wrap:wrap">'+
+        '<select id="sel-etapa-torneio" class="inp" style="flex:1">'+
+          (etapaOptsHtml||'<option value="">Sem etapas abertas</option>')+
+        '</select>'+
+        '<button class="btn btn-gold" data-act="selEtapaTorneio">Seleccionar</button>'+
+      '</div>'+
+    '</div>';
+
+  if(!torneio) {
+    // Criar novo torneio para a etapa seleccionada
+    var etapaSelHtml = etapa ?
+      '<div class="form-card">'+
+        '<div class="form-title">Criar Torneio — '+labelEtapa(etapa)+'</div>'+
+        '<div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">'+
+          '<label class="field-label">Nº de Grupos:</label>'+
+          '<select id="num-grupos" class="inp inp-sm" style="width:100px">'+
+            [2,3,4,5].map(function(n){return '<option value="'+n+'"'+(n===5?' selected':'')+'>'+n+'</option>';}).join('')+
+          '</select>'+
+          '<button class="btn btn-gold" data-act="criarTorneio">Criar Torneio</button>'+
+        '</div>'+
+      '</div>' : '<div class="empty">Selecciona uma etapa para criar ou continuar um torneio.</div>';
+
+    return navbar('torneio')+msgHtml()+
+      '<div class="page"><div class="page-title">Torneio</div>'+
+      selectorHtml + etapaSelHtml + '</div>';
+  }
+
+  // Tabs de fase
+  var tabs = ['sorteio','grupos','quadros','classificacao'];
+  var tabLabels = {sorteio:'Sorteio',grupos:'Grupos',quadros:'Quadros',classificacao:'Classificação'};
+  var tabsHtml = '<div class="torneio-tabs">'+
+    tabs.map(function(t){
+      return '<button class="torneio-tab'+(state.torneioView===t?' active':'')+'" data-act="torneioTab" data-tab="'+t+'">'+tabLabels[t]+'</button>';
+    }).join('')+
+  '</div>';
+
+  var conteudo = '';
+  if(state.editGrupos) {
+    var etapaEdit = state.etapas.find(function(e){return e.id===torneio.etapaId;});
+    conteudo = viewEditGrupos(torneio, etapaEdit);
+  } else if(state.torneioView === 'sorteio')       conteudo = viewTorneioSorteio(torneio);
+  else if(state.torneioView === 'grupos')   conteudo = viewTorneioGrupos(torneio);
+  else if(state.torneioView === 'quadros')  conteudo = viewTorneioQuadros(torneio);
+  else conteudo = viewTorneioClassificacao(torneio);
+
+  return navbar('torneio')+msgHtml()+
+    '<div class="page">'+
+      '<div class="page-title">Torneio — '+labelEtapa(etapa||{numero:'?',tipo:'senior'})+'</div>'+
+      selectorHtml + tabsHtml + conteudo +
+    '</div>';
+}
+
+function msgHtml() {
+  return state.msg ? '<div class="msg msg-'+state.msg.type+' msg-float">'+state.msg.txt+'</div>' : '';
+}
+
+// ── SORTEIO ──────────────────────────────────────────────────────────────
+function viewTorneioSorteio(torneio) {
+  var etapa = state.etapas.find(function(e){return e.id===torneio.etapaId;});
+  var inscritos = etapa && etapa.inscritos ? etapa.inscritos.filter(function(id){
+    return state.jogadores.find(function(j){return j.id===id&&j.ativo;});
+  }) : [];
+
+  var nGrupos = torneio.numGrupos;
+  var cs = torneio.cabecasDeSerie || [];
+  var outros = inscritos.filter(function(id){return !cs.includes(id);});
+
+  // Lista de todos para seleccionar CS
+  var jogOpts = inscritos.map(function(id){
+    var j = state.jogadores.find(function(j){return j.id===id;});
+    return j ? '<option value="'+id+'">'+j.nome+'</option>' : '';
+  }).join('');
+
+  // CS seleccionados
+  var csHtml = '<div class="cs-list">';
+  for(var i=0; i<nGrupos; i++) {
+    var csId = cs[i] || '';
+    var csNome = csId ? (state.jogadores.find(function(j){return j.id===csId;})||{}).nome||csId : '';
+    csHtml += '<div class="cs-row">'+
+      '<span class="cs-num">CS '+(i+1)+'</span>'+
+      '<select class="inp inp-sm cs-select" data-cs-idx="'+i+'">'+
+        '<option value="">— seleccionar —</option>'+
+        inscritos.map(function(id){
+          var j=state.jogadores.find(function(jj){return jj.id===id;});
+          if(!j) return '';
+          // Disable if already assigned to a DIFFERENT CS slot
+          var usedInOther = (torneio.cabecasDeSerie||[]).some(function(cs,ci){ return ci!==i && cs===id; });
+          return '<option value="'+id+'"'+(csId===id?' selected':'')+(usedInOther?' disabled':'')+'>'+j.nome+(usedInOther?' (já CS)':'')+' </option>';
+        }).join('')+
+      '</select>'+
+    '</div>';
+  }
+  csHtml += '</div>';
+
+  // Grupos actuais (se sorteio já feito)
+  var gruposHtml = '';
+  if(torneio.grupos.some(function(g){return g.jogadores.length>0;})) {
+    gruposHtml = '<div class="section-title" style="margin-top:20px">Grupos Actuais</div>'+
+      '<div class="grupos-grid">'+
+      torneio.grupos.map(function(g,i){
+        var jogNomes = g.jogadores.map(function(id){
+          return (state.jogadores.find(function(j){return j.id===id;})||{}).nome||id;
+        });
+        return '<div class="grupo-card">'+
+          '<div class="grupo-hdr">Grupo '+(i+1)+' — Campo '+(i+1)+'</div>'+
+          jogNomes.map(function(n,ni){
+            var isCS = (torneio.cabecasDeSerie||[]).includes(g.jogadores[ni]);
+            return '<div class="grupo-jog'+(isCS?' grupo-cs':'')+'">'+n+(isCS?' ★':'')+'</div>';
+          }).join('')+
+        '</div>';
+      }).join('')+
+      '</div>';
+  }
+
+  var btnSortear = '<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">'+
+    '<button class="btn btn-gold" data-act="executarSorteio"'+(state.saving?' disabled':'')+'>🎲 Sortear Grupos</button>'+
+    '<button class="btn btn-sm" data-act="openEditGrupos"'+(state.saving?' disabled':'')+'>✏ Editar Grupos</button>'+
+    (torneio.grupos.some(function(g){return g.jogadores.length>0;}) ?
+      '<button class="btn btn-green" data-act="avancarGrupos">▶ Avançar para Fase de Grupos</button>' : '')+
+  '</div>';
+
+  return '<div class="form-card">'+
+    '<div class="form-title">Sorteio — '+nGrupos+' grupos de '+Math.ceil(inscritos.length/nGrupos)+' jogadores</div>'+
+    (function(){
+        var total = etapa ? (etapa.inscritos ? etapa.inscritos.length : 0) : 0;
+        var pagos = etapa ? (etapa.pagamentos||[]).filter(function(id){return etapa.inscritos&&etapa.inscritos.includes(id);}).length : 0;
+        var counterClass = pagos===total&&total>0?'all-paid':pagos===0?'none-paid':'';
+        return '<div class="field-label" style="margin-bottom:6px;display:flex;align-items:center">'+
+          'Inscritos'+
+          (total>0?'<span class="ins-pag-counter '+counterClass+'">'+pagos+'/'+total+' pagaram</span>':'')+
+        '</div>';
+      })()+
+    csHtml + btnSortear + gruposHtml +
+  '</div>';
+}
+
+// ── GRUPOS ────────────────────────────────────────────────────────────────
+function viewTorneioGrupos(torneio) {
+  var html = '';
+  torneio.grupos.forEach(function(grupo, gi) {
+    var jogs = grupo.jogadores.map(function(id){return state.jogadores.find(function(j){return j.id===id;})||{id:id,nome:id};});
+    var n = jogs.length;
+
+    // Round robin: todos os pares
+    var pares = [];
+    for(var a=0; a<n; a++) for(var b=a+1; b<n; b++) pares.push([jogs[a],jogs[b]]);
+
+    // Form de inserção de jogo
+    var jogOpts = jogs.map(function(j){return '<option value="'+j.id+'">'+j.nome+'</option>';}).join('');
+    var formJogo = '<div class="score-row" style="gap:8px;align-items:flex-end;flex-wrap:wrap">'+
+      '<div class="score-player"><label>Jogador A</label><select id="gj-ja-'+gi+'" class="inp inp-sm">'+jogOpts+'</select></div>'+
+      '<div class="score-vs" style="padding-bottom:6px">VS</div>'+
+      '<div class="score-player"><label>Jogador B</label><select id="gj-jb-'+gi+'" class="inp inp-sm">'+jogOpts+'</select></div>'+
+      '<div class="score-player"><label>Games A</label><input type="number" id="gj-sa-'+gi+'" class="inp inp-score" min="0" max="99" value="4"></div>'+
+      '<div class="score-vs" style="align-self:center;padding-bottom:0">–</div>'+
+      '<div class="score-player"><label>Games B</label><input type="number" id="gj-sb-'+gi+'" class="inp inp-score" min="0" max="99" value="4"></div>'+
+      '<button class="btn btn-gold btn-sm" data-act="addJogoGrupo" data-gi="'+gi+'" style="align-self:flex-end">+ Inserir</button>'+
+    '</div>';
+
+    // Jogos já inseridos
+    var jogosHtml = (grupo.jogos||[]).length > 0 ?
+      '<div style="margin-top:12px">'+
+        grupo.jogos.map(function(jg, ji){
+          var nA=(state.jogadores.find(function(j){return j.id===jg.ja;})||{}).nome||jg.ja;
+          var nB=(state.jogadores.find(function(j){return j.id===jg.jb;})||{}).nome||jg.jb;
+          var vA=jg.vencedor===jg.ja;
+          return '<div class="res-row">'+
+            '<span class="res-name'+(vA?' res-win':'')+'">'+nA+'</span>'+
+            '<span class="res-score">'+jg.score_a+' – '+jg.score_b+'</span>'+
+            '<span class="res-name'+(!vA?' res-win':'')+'">'+nB+'</span>'+
+            '<button class="btn-del" data-act="delJogoGrupo" data-gi="'+gi+'" data-ji="'+ji+'">×</button>'+
+          '</div>';
+        }).join('')+
+      '</div>' : '<div class="empty" style="font-size:13px">Sem jogos inseridos</div>';
+
+    // Classificação calculada/editável
+    var cl = grupo.classificacaoEditada ? grupo.classificacao : TorneioEngine.calcClassificacaoGrupo(grupo);
+    var clHtml = '<div class="grupo-classif" style="margin-top:12px">'+
+      '<div class="field-label" style="margin-bottom:6px">Classificação'+
+        (grupo.classificacaoEditada ? ' <span style="color:var(--cyl);font-size:11px">(editada)</span>' : '')+
+        ' <button class="btn-sm" data-act="editClassifGrupo" data-gi="'+gi+'" style="margin-left:8px">Editar</button>'+
+      '</div>'+
+      (function(){
+        // Recalculate stats for display
+        var stats = {};
+        grupo.jogadores.forEach(function(id){ stats[id]={v:0,d:0,jg:0,jp:0}; });
+        (grupo.jogos||[]).forEach(function(j){
+          if(!stats[j.ja]||!stats[j.jb]) return;
+          var sa=parseInt(j.score_a)||0, sb=parseInt(j.score_b)||0;
+          stats[j.ja].jg+=sa; stats[j.ja].jp+=sb;
+          stats[j.jb].jg+=sb; stats[j.jb].jp+=sa;
+          if(j.vencedor===j.ja){ stats[j.ja].v++; stats[j.jb].d++; }
+          else if(j.vencedor===j.jb){ stats[j.jb].v++; stats[j.ja].d++; }
+        });
+        var thead = '<tr class="grupo-stats-hdr">'+
+          '<th class="gs-pos">Pos</th>'+
+          '<th class="gs-nome">Jogador</th>'+
+          '<th>V</th><th>D</th><th>JG</th><th>JP</th><th>±J</th>'+
+        '</tr>';
+        var rows = cl.map(function(c,ci){
+          var nome=(state.jogadores.find(function(j){return j.id===c.jogId;})||{}).nome||c.jogId;
+          var s=stats[c.jogId]||{v:0,d:0,jg:0,jp:0};
+          var dif=s.jg-s.jp;
+          var difStr=(dif>0?'+':'')+dif;
+          var difCls=dif>0?'gs-pos':dif<0?'gs-neg':'gs-neu';
+          return '<tr class="grupo-stats-row'+(ci<2?' gs-advance':' gs-out')+'">'+
+            '<td class="gs-pos">'+(ci+1)+'</td>'+
+            '<td class="gs-nome">'+nome+'</td>'+
+            '<td>'+s.v+'</td>'+
+            '<td>'+s.d+'</td>'+
+            '<td>'+s.jg+'</td>'+
+            '<td>'+s.jp+'</td>'+
+            '<td class="'+difCls+'">'+difStr+'</td>'+
+          '</tr>';
+        }).join('');
+        return '<table class="grupo-stats-table"><thead>'+thead+'</thead><tbody>'+rows+'</tbody></table>';
+      })()+
+    '</div>';
+
+    html += '<div class="grupo-card-full">'+
+      '<div class="grupo-hdr">Grupo '+(gi+1)+' — Campo '+(gi+1)+'</div>'+
+      formJogo + jogosHtml + clHtml +
+    '</div>';
+  });
+
+  var btnAvancar = '<div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">'+
+    '<button class="btn btn-gold" data-act="avancarQuadros"'+(state.saving?' disabled':'')+'>▶ Gerar Quadros</button>'+
+    '<button class="btn btn-sm" data-act="openEditGrupos"'+(state.saving?' disabled':'')+'>✏ Editar Grupos</button>'+
+  '</div>';
+
+  return html + btnAvancar;
+}
+
+// ── QUADROS ───────────────────────────────────────────────────────────────
+// ── viewTorneioQuadros — bracket visual ──────────────────────────────────
+function viewTorneioQuadros(torneio) {
+  var qp = torneio.quadroPrincipal;
+  var qb = torneio.quadroB;
+
+  function nom(id) {
+    if(!id) return null;
+    return (state.jogadores.find(function(j){return j.id===id;})||{}).nome||id;
+  }
+
+  // ── Single match box ────────────────────────────────────────────────
+  function matchBox(jogo, quadro, rondaId, opts) {
+    opts = opts||{};
+    if(!jogo) return '<div class="bracket-match bk-bye"><div class="bk-player bk-tbd">—</div></div>';
+    var nA = nom(jogo.jogA), nB = nom(jogo.jogB);
+    var done = jogo.vencedor!=null;
+    var isBye = jogo.bye || (!jogo.jogA&&!jogo.jogB) || (jogo.jogA&&!jogo.jogB) || (!jogo.jogA&&jogo.jogB);
+    var winA = done&&jogo.vencedor===jogo.jogA;
+    var winB = done&&jogo.vencedor===jogo.jogB;
+
+    if(isBye && jogo.vencedor) {
+      // Auto-bye: show winner with bye tag
+      return '<div class="bracket-match bk-done">'+
+        '<div class="bk-player bk-win"><span>'+nom(jogo.vencedor)+'</span></div>'+
+        '<div class="bk-divider"></div>'+
+        '<div class="bk-player bk-tbd" style="font-size:11px">BYE</div>'+
+      '</div>';
+    }
+    if(!jogo.jogA && !jogo.jogB) {
+      return '<div class="bracket-match bk-bye"><div class="bk-player bk-tbd" style="font-size:11px">A definir</div></div>';
+    }
+
+    var labelA = nA || '—';
+    var labelB = nB || '—';
+    var clsA = nA ? (winA?'bk-win':'') : 'bk-tbd';
+    var clsB = nB ? (winB?'bk-win':'') : 'bk-tbd';
+
+    var scoreSection;
+    if(done) {
+      scoreSection = '<div class="bk-score-row">'+
+        '<span class="bk-score-done">'+jogo.score_a+' – '+jogo.score_b+'</span>'+
+        '<button class="btn-sm" data-act="editJogoQuadro" data-quadro="'+quadro+'" data-ronda="'+rondaId+'" data-jogo="'+jogo.id+'" style="margin-left:auto">✎</button>'+
+      '</div>';
+    } else {
+      scoreSection = '<div class="bk-score-row">'+
+        '<input type="number" class="bk-score-inp" id="sc-'+jogo.id+'-a" min="0" max="99" value="'+(jogo.score_a!=null?jogo.score_a:6)+'">'+
+        '<span style="color:var(--mu);font-size:12px">–</span>'+
+        '<input type="number" class="bk-score-inp" id="sc-'+jogo.id+'-b" min="0" max="99" value="'+(jogo.score_b!=null?jogo.score_b:3)+'">'+
+        '<button class="btn-sm btn-gold" data-act="saveJogoQuadro" data-quadro="'+quadro+'" data-ronda="'+rondaId+'" data-jogo="'+jogo.id+'" style="margin-left:auto;width:auto">✓</button>'+
+      '</div>';
+    }
+
+    if(opts.label) {
+      labelA = '<span style="font-size:10px;color:var(--mu);margin-right:4px">'+opts.label+'</span>'+labelA;
+    }
+
+    return '<div class="bracket-match'+(done?' bk-done':'')+'">'+
+      '<div class="bk-player '+clsA+'">'+labelA+'</div>'+
+      '<div class="bk-divider"></div>'+
+      '<div class="bk-player '+clsB+'">'+labelB+'</div>'+
+      scoreSection+
+    '</div>';
+  }
+
+  // ── Get jogo from ronda ───────────────────────────────────────────────
+  function getJogo(q, rondaId, jogoId) {
+    var r = q.rondas.find(function(r){return r.id===rondaId;});
+    if(!r) return null;
+    return r.jogos.find(function(j){return j.id===jogoId;}) || null;
+  }
+
+  // ── Build bracket column ───────────────────────────────────────────────
+  function col(title, slots, extraCls) {
+    return '<div class="bracket-col'+(extraCls?' '+extraCls:'')+'">'+
+      '<div class="bracket-col-title">'+title+'</div>'+
+      '<div class="bracket-slots">'+
+        slots.map(function(s){
+          return '<div class="bracket-slot">'+
+            '<div class="bracket-conn"><div class="bracket-conn-line"></div></div>'+
+            s+
+            '<div class="bracket-conn"><div class="bracket-conn-line"></div></div>'+
+          '</div>';
+        }).join('')+
+      '</div>'+
+    '</div>';
+  }
+
+  // ── QP BRACKET ─────────────────────────────────────────────────────────
+  function renderQPBracket() {
+    var r1  = qp.rondas.find(function(r){return r.id==='r1';});
+    var r2  = qp.rondas.find(function(r){return r.id==='r2';});
+    var r3  = qp.rondas.find(function(r){return r.id==='r3';});
+    var r4  = qp.rondas.find(function(r){return r.id==='r4';});
+    var fJogo = r4 ? r4.jogos.find(function(j){return j.id==='qp_final';}) : null;
+
+    return '<div class="bracket-section">'+
+      '<div class="bracket-title">Quadro Principal</div>'+
+      '<div class="bracket-wrap">'+
+        (r1 ? col('Oitavos', r1.jogos.map(function(j){return matchBox(j,'principal','r1');})) : '')+
+        (r2 ? col('Quartos de Final', r2.jogos.map(function(j){return matchBox(j,'principal','r2');})) : '')+
+        (r3 ? col('Meias Finais', r3.jogos.map(function(j){return matchBox(j,'principal','r3');})) : '')+
+        col('Final', [matchBox(fJogo,'principal','r4')])+
+      '</div>'+
+    '</div>';
+  }
+
+  function renderQBBracket() {
+    var r1qb = qb.rondas.find(function(r){return r.id==='r1';});
+    var r2qb = qb.rondas.find(function(r){return r.id==='r2';});
+    var r3qb = qb.rondas.find(function(r){return r.id==='r3';});
+    var finalB = r3qb ? r3qb.jogos.find(function(j){return j.id==='qb_final';}) : null;
+
+    return '<div class="bracket-section">'+
+      '<div class="bracket-title">Quadro B (11º – 15º)</div>'+
+      '<div class="bracket-wrap">'+
+        (r1qb ? col('Quartos de Final', r1qb.jogos.map(function(j){return matchBox(j,'b','r1');})) : '')+
+        (r2qb ? col('Meias Finais', r2qb.jogos.map(function(j){return matchBox(j,'b','r2');})) : '')+
+        col('Final QB', [matchBox(finalB,'b','r3')])+
+      '</div>'+
+    '</div>';
+  }
+
+function renderLosers() {
+    var r3p = qp.rondas.find(function(r){return r.id==='r3p';});
+    var r4  = qp.rondas.find(function(r){return r.id==='r4';});
+    var r3qb = qb.rondas.find(function(r){return r.id==='r3';});
+    var r1qb = qb.rondas.find(function(r){return r.id==='r1';});
+
+    var t34   = r4 ? r4.jogos.find(function(j){return j.id==='qp_3lugar';}) : null;
+    var sfp1  = r3p ? r3p.jogos[0] : null;  // SF1 (5/6 pool)
+    var sfp2  = r3p ? r3p.jogos[1] : null;  // SF2 (5/6 pool)
+    var t56   = r4 ? r4.jogos.find(function(j){return j.id==='qp_56';}) : null;  // Final 5/6
+    var t78   = r4 ? r4.jogos.find(function(j){return j.id==='qp_78';}) : null;  // Jogo 7/8 (L SF1 vs L SF2)
+    var t910  = r4 ? r4.jogos.find(function(j){return j.id==='qp_910';}) : null;
+    var t1314 = r3qb ? r3qb.jogos.find(function(j){return j.id==='qb_1314';}) : null;
+
+    // Single vertical block (1 jogo)
+    function singleBlock(label, jogo, quadro, rondaId) {
+      if(!jogo) return '';
+      return '<div class="losers-block">'+
+        '<div class="losers-block-title">'+label+'</div>'+
+        matchBox(jogo, quadro, rondaId)+
+      '</div>';
+    }
+
+    // 15º+
+    var lugar15Html = '';
+    if(r1qb) {
+      var posExtra = 15;
+      r1qb.jogos.forEach(function(qf){
+        var isReal = qf.jogA && qf.jogB && !qf.bye;
+        if(isReal && qf.vencedor) {
+          var perd = qf.jogA===qf.vencedor ? qf.jogB : qf.jogA;
+          if(perd) {
+            lugar15Html += '<div class="losers-block">'+
+              '<div class="losers-block-title">'+posExtra+'º Lugar</div>'+
+              '<div class="bk-match"><div class="bk-player bk-winner"><span>'+nomeById(perd)+'</span></div></div>'+
+            '</div>';
+            posExtra++;
+          }
+        }
+      });
+    }
+
+    // 5/6 bracket: SF1+SF2 → Final 5/6
+    // Structure: col "Meias" (sfp1 above sfp2) + col "5º/6º" (t56)
+    var bracket56 = '';
+    if(sfp1 || sfp2 || t56) {
+      var sfCol = col('Meias Finais 5/6', [
+        matchBox(sfp1,'principal','r3p'),
+        matchBox(sfp2,'principal','r3p')
+      ]);
+      var finalCol = col('5º / 6º Lugar', [
+        matchBox(t56,'principal','r4')
+      ]);
+      bracket56 = '<div class="losers-block-bracket">'+
+        '<div class="losers-block-title">5º / 6º Lugar</div>'+
+        '<div class="bracket-wrap">'+sfCol+finalCol+'</div>'+
+      '</div>';
+    }
+
+    if(!t34 && !bracket56 && !t78 && !t910 && !t1314 && !lugar15Html) return '';
+
+    return '<div class="losers-section">'+
+      '<div class="losers-section-title">Posições por Lugar</div>'+
+      '<div class="losers-grid">'+
+        singleBlock('3º / 4º Lugar', t34, 'principal','r4')+
+        bracket56+
+        singleBlock('7º / 8º Lugar', t78, 'principal','r4')+
+        singleBlock('9º / 10º Lugar', t910, 'principal','r4')+
+        singleBlock('13º / 14º Lugar', t1314, 'b','r3')+
+        lugar15Html+
+      '</div>'+
+    '</div>';
+  }
+
+  function renderSwapGrid() {
+    if(!state.swapMode) return '';
+    var qp = torneio.quadroPrincipal;
+    var qb = torneio.quadroB;
+    function posGrid(quadro, posicoes, title) {
+      var cells = posicoes.map(function(p) {
+        var nome = p.bye||!p.jogId ? 'BYE' : (state.jogadores.find(function(j){return j.id===p.jogId;})||{}).nome||'?';
+        var isSelected = state.swapSel && state.swapSel.quadro===quadro && state.swapSel.pos===p.pos;
+        return '<div class="swap-pos-cell'+(isSelected?' selected':'')+
+          '" data-act="selSwap" data-quadro="'+quadro+'" data-pos="'+p.pos+'">'+
+          '<span class="swap-pos-num">'+p.pos+'</span>'+
+          '<span class="swap-pos-name">'+(nome.split(' ')[0])+'</span>'+
+        '</div>';
+      }).join('');
+      return '<div class="swap-grid-section">'+
+        '<div class="swap-grid-label">'+title+'</div>'+
+        '<div class="swap-grid">'+cells+'</div>'+
+      '</div>';
+    }
+    return '<div class="swap-grid-wrap">'+
+      '<div class="swap-grid-title">Selecciona duas posições para trocar</div>'+
+      posGrid('principal', qp.posicoes||[], 'Quadro Principal')+
+      posGrid('b', qb.posicoes||[], 'Quadro B')+
+    '</div>';
+  }
+
+  // Swap toggle button
+  var swapToggleBtn = '<div style="margin-bottom:14px">'+
+    '<button class="btn btn-sm '+(state.swapMode?'btn-gold':'')+
+    '" data-act="iniciarSwap">'+
+    (state.swapMode ? '✕ Cancelar Troca' : '↕ Mover Posições nos Quadros')+
+    '</button>'+
+    (state.swapMode
+      ? '<span style="margin-left:10px;font-size:12px;color:var(--go)">'+
+          (state.swapSel
+            ? '→ Selecciona a 2ª posição ('+state.swapSel.quadro.toUpperCase()+' pos '+state.swapSel.pos+')'
+            : '→ Selecciona a 1ª posição a trocar')+
+        '</span>'
+      : '')+
+  '</div>';
+
+  return swapToggleBtn + renderSwapGrid() + renderQPBracket() + renderQBBracket() + renderLosers();
+}
+
+
+// ── CLASSIFICAÇÃO ─────────────────────────────────────────────────────────
+function viewTorneioClassificacao(torneio) {
+  var cl = torneio.classificacaoFinal || TorneioEngine.calcClassificacaoFinal(torneio);
+  var pontos = TorneioEngine.PONTUACAO;
+  var n = torneio.grupos.reduce(function(t,g){return t+g.jogadores.length;},0);
+  var medals = ['🥇','🥈','🥉'];
+
+  var rows = '';
+  for(var i=0; i<n; i++) {
+    var c = cl.find(function(x){return x.pos===i+1;});
+    var jogNome = c ? (state.jogadores.find(function(j){return j.id===c.jogId;})||{}).nome||c.jogId : '—';
+    var pts = pontos[i] || 0;
+    rows += '<tr>'+
+      '<td>'+(medals[i]||i+1+'º')+'</td>'+
+      '<td><strong>'+jogNome+'</strong></td>'+
+      '<td class="rpts">'+pts+'</td>'+
+    '</tr>';
+  }
+
+  var btnConcluir = torneio.estado !== 'concluido'
+    ? '<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">'+
+        '<button class="btn btn-gold" data-act="concluirTorneio"'+(state.saving?' disabled':'')+
+        '>✓ Concluir e Guardar Classificação</button>'+
+        '<button class="btn btn-red" data-act="resetarEtapa"'+(state.saving?' disabled':'')+
+        ' style="opacity:.85">↺ Reset Etapa</button>'+
+      '</div>'
+    : '<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">'+
+        '<span class="badge-done">Torneio concluído ✓</span>'+
+        '<button class="btn btn-gold" data-act="concluirTorneio"'+(state.saving?' disabled':'')+
+        ' style="font-size:12px">↻ Recalcular Classificação</button>'+
+        '<button class="btn btn-red" data-act="resetarEtapa"'+(state.saving?' disabled':'')+
+        ' style="font-size:12px;opacity:.7">↺ Reiniciar</button>'+
+      '</div>';
+
+  return '<div class="form-card">'+
+    '<div class="form-title">Classificação Final</div>'+
+    '<div style="overflow-x:auto">'+
+      '<table class="rtable"><thead><tr><th>Pos</th><th>Jogador</th><th>Pts Temporada</th></tr></thead>'+
+      '<tbody>'+rows+'</tbody></table>'+
+    '</div>'+
+    '<div style="margin-top:16px">'+btnConcluir+'</div>'+
+  '</div>';
+}
+
+
+// ── VIEW: JOGADORES ────────────────────────────────────────────────────────
+function viewJogadores(){
+  var cats = [{key:'senior',label:'Super Stars Senior'}];
+  var tables = cats.map(function(cat){
+    var jogs = state.jogadores.filter(function(j){
+      return j.tipo==='senior';
+    });
+    var rows = jogs.map(function(j){
+      var isEditing = state.editingJogId === j.id;
+      return '<tr class="'+(j.ativo?'':'row-inactive')+'">'+
+        '<td>'+
+          (isEditing
+            ? '<input class="inp inp-sm" id="edit-nome-'+j.id+'" value="'+j.nome.replace(/"/g,'&quot;')+'" style="width:100%" />'
+            : j.nome)+
+        '</td>'+
+        '<td><span class="status-dot" style="background:'+(j.ativo?'#27AE60':'#888')+'"></span>'+(j.ativo?'Activo':'Inactivo')+'</td>'+
+        '<td style="display:flex;gap:6px;flex-wrap:wrap">'+
+          (isEditing
+            ? '<button class="btn-sm btn-green" data-act="saveEditJog" data-id="'+j.id+'">Guardar</button>'+
+              '<button class="btn-sm" data-act="cancelEditJog">Cancelar</button>'
+            : '<button class="btn-sm" data-act="editJog" data-id="'+j.id+'">Editar</button>'+
+              '<button class="btn-sm '+(j.ativo?'btn-red':'btn-green')+'" data-act="toggleJog" data-id="'+j.id+'">'+(j.ativo?'Desactivar':'Activar')+'</button>'+
+              '<button class="btn-sm btn-danger" data-act="deleteJog" data-id="'+j.id+'">Apagar</button>'
+          )+
+        '</td>'+
+      '</tr>';
+    }).join('');
+    return '<div class="section-title" style="margin-top:20px">'+cat.label+'</div>'+
+      '<table class="rtable"><thead><tr><th>Nome</th><th>Estado</th><th></th></tr></thead><tbody>'+
+      (rows||'<tr><td colspan="3" style="text-align:center;color:var(--mu)">Sem jogadores</td></tr>')+
+      '</tbody></table>';
+  }).join('');
+
+  return navbar('jogadores')+
+  (state.msg?'<div class="msg msg-'+state.msg.type+' msg-float">'+state.msg.txt+'</div>':'')+
+  '<div class="page">'+
+    '<div class="page-title">Jogadores</div>'+
+    '<div class="form-card">'+
+      '<div class="form-title">Adicionar Jogador</div>'+
+      '<div style="display:flex;gap:8px;width:100%">'+
+        '<input type="text" id="new-nome" class="inp" placeholder="Nome do jogador" style="flex:1;min-width:0">'+
+        '<button class="btn btn-green" data-act="addJogador" style="flex-shrink:0;white-space:nowrap">+ Adicionar</button>'+
+      '</div>'+
+    '</div>'+
+    tables+
+  '</div>';
+}
+
+// ── VIEW: ETAPAS ────────────────────────────────────────────────────────
+function viewEtapas(){
+  var rows = state.etapas.map(function(e){
+    var cor = '#2D6A4F';
+    var estadoOpts = ['pendente','aberta','concluida'].map(function(s){
+      return '<option value="'+s+'"'+(e.estado===s?' selected':'')+'>'+s+'</option>';
+    }).join('');
+    var inscritos = e.inscritos&&e.inscritos.length?
+      '<div class="ins-list">'+e.inscritos.map(function(id,i){
+        var pagou = (e.pagamentos||[]).includes(id);
+        return '<span class="ins-pill'+(e.limite&&i>=e.limite?' ins-sup':'')+
+          (pagou?' ins-pago':' ins-dev')+'">'+
+          '<button class="ins-pag-btn" data-act="togglePagamento" data-etapa="'+e.id+'" data-id="'+id+'" title="'+(pagou?'Marcar como não pago':'Marcar como pago')+'">'+
+            (pagou?'✓':'€')+
+          '</button>'+
+          '<span class="ins-nome">'+nomeById(id)+'</span>'+
+          '<button class="ins-del" data-act="removeInscrito" data-etapa="'+e.id+'" data-id="'+id+'" title="Remover inscrição">×</button>'+
+        '</span>';
+      }).join('')+'</div>':'<span style="color:var(--mu);font-size:13px">Sem inscritos</span>';
+
+    return '<div class="etapa-admin-card">'+
+      '<div class="etapa-admin-bar" style="background:'+cor+'"></div>'+
+      '<div class="etapa-admin-body">'+
+        '<div class="etapa-admin-title">'+labelEtapa(e)+'</div>'+
+        '<div class="etapa-admin-det">'+fmtData(e.data)+' · '+e.hora+(e.limite?' · máx '+e.limite:'')+'</div>'+
+        '<div class="etapa-admin-row">'+
+          '<label class="field-label" style="margin:0 10px 0 0">Estado:</label>'+
+          '<select class="inp inp-sm" data-act="setEstado" data-id="'+e.id+'" style="width:auto">'+estadoOpts+'</select>'+
+        '</div>'+
+        '<div style="margin-top:10px">'+
+          '<div class="field-label" style="margin-bottom:6px;display:flex;align-items:center;gap:8px">Inscritos'+(e.limite?' ('+e.inscritos.length+'/'+e.limite+')':'')+
+            (function(){var total=e.inscritos?e.inscritos.length:0,pagos=(e.pagamentos||[]).filter(function(id){return e.inscritos&&e.inscritos.includes(id);}).length;if(!total)return '';var cls=pagos===total?'all-paid':pagos===0?'none-paid':'';return '<span class=\"ins-pag-counter '+cls+'\">'+pagos+'/'+total+' pagaram</span>';})()+
+          '</div>'+
+          inscritos+
+        '</div>'+
+        '<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;align-items:center">'+
+          '<select id="add-ins-'+e.id+'" class="inp inp-sm" style="flex:1;min-width:140px">'+
+            state.jogadores.filter(function(j){
+              return j.ativo&&j.tipo==='senior'&&
+                !(e.inscritos||[]).includes(j.id);
+            }).map(function(j){return '<option value="'+j.id+'">'+j.nome+'</option>';}).join('')+
+          '</select>'+
+          '<button class="btn-sm btn-green" data-act="addInscrito" data-etapa="'+e.id+'">+ Inscrever</button>'+
+        '</div>'+
+      '</div>'+
+    '</div>';
+  }).join('');
+
+  return navbar('etapas')+
+  (state.msg?'<div class="msg msg-'+state.msg.type+' msg-float">'+state.msg.txt+'</div>':'')+
+  '<div class="page">'+
+    '<div class="page-title">Etapas & Inscrições</div>'+
+    rows+
+  '</div>';
+}
+
+// ── NAVBAR ─────────────────────────────────────────────────────────────────
+function navbar(active){
+  var links = [
+    {id:'dashboard',label:'Dashboard',icon:'⊞'},
+    {id:'torneio',label:'Torneio',icon:'🏆'},
+    {id:'jogadores',label:'Jogadores',icon:'👤'},
+    {id:'etapas',label:'Etapas',icon:'📅'}
+  ];
+  var LOGOUT_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>';
+  var BURGER_SVG = '<svg id="admin-burger-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/></svg>';
+  var items = links.map(function(l){
+    return '<button class="nav-btn'+(active===l.id?' active':'')+'" data-act="nav" data-view="'+l.id+'">'+
+      '<span class="nav-icon">'+l.icon+'</span><span class="nav-lbl">'+l.label+'</span>'+
+    '</button>';
+  }).join('');
+  var mobileItems = links.map(function(l){
+    return '<button class="nav-btn'+(active===l.id?' active':'')+'" data-act="mobileAdminNav" data-view="'+l.id+'">'+
+      '<span class="nav-icon">'+l.icon+'</span><span class="nav-lbl">'+l.label+'</span>'+
+    '</button>';
+  }).join('');
+  return '<nav class="admin-nav">'+
+    '<div class="admin-brand"><span class="v1">SUPER</span><span class="v2">STARS</span><span class="admin-tag">Admin</span></div>'+
+    '<div class="admin-nav-links">'+items+'</div>'+
+    '<div class="admin-nav-right">'+
+      '<button class="admin-burger" id="admin-burger-btn" aria-label="Menu">'+BURGER_SVG+'</button>'+
+      '<button class="btn-logout" data-act="logout" title="Sair">'+LOGOUT_SVG+'</button>'+
+    '</div>'+
+  '</nav>'+
+  '<div class="admin-mobile" id="admin-mobile">'+mobileItems+'</div>';
+}
+
+// ── EVENT BINDING ──────────────────────────────────────────────────────────
+function bindEvents(){
+  // Login — {once:true} prevents accumulation
+  var btnLogin = document.getElementById('btn-login');
+  if(btnLogin) btnLogin.addEventListener('click', doLogin, {once:true});
+  var pwInput = document.getElementById('pw-input');
+  if(pwInput) pwInput.addEventListener('keydown', function(e){ if(e.key==='Enter') doLogin(); }, {once:true});
+
+  // Burger — mobile nav toggle (no stopPropagation — capture listener handles nav)
+  var burgerBtn = document.getElementById('admin-burger-btn');
+  if(burgerBtn) burgerBtn.addEventListener('click', function(){
+    var mob=document.getElementById('admin-mobile');
+    var icon=document.getElementById('admin-burger-icon');
+    if(!mob) return;
+    var open=mob.classList.toggle('open');
+    if(icon) icon.innerHTML=open
+      ?'<line x1="4" y1="4" x2="18" y2="18"/><line x1="18" y1="4" x2="4" y2="18"/>'
+      :'<line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/>';
+  }, {once:true}, {once:true});
+
+  // CS selects for sorteio
+  document.querySelectorAll('.cs-select').forEach(function(sel){
+    sel.addEventListener('change', function(){
+      var idx = parseInt(this.getAttribute('data-cs-idx'));
+      var t = torneioActivo();
+      if(!t) return;
+      if(!t.cabecasDeSerie) t.cabecasDeSerie = [];
+      while(t.cabecasDeSerie.length <= idx) t.cabecasDeSerie.push(null);
+      var newVal = this.value || null;
+      var alreadyIdx = t.cabecasDeSerie.findIndex(function(cs,i){ return i!==idx && cs===newVal; });
+      if(newVal && alreadyIdx !== -1) {
+        showMsg('Este jogador já é CS '+(alreadyIdx+1)+'. Escolhe um jogador diferente.','error');
+        this.value = t.cabecasDeSerie[idx] || '';
+        return;
+      }
+      t.cabecasDeSerie[idx] = newVal;
+      render();
+    });
+  });
+
+  // Edit jogador inline — Enter/Escape
+  document.querySelectorAll('[id^="edit-nome-"]').forEach(function(inp){
+    var id = inp.id.replace('edit-nome-','');
+    inp.addEventListener('keydown', function(e){
+      if(e.key==='Enter')  doSaveEditJog(id);
+      if(e.key==='Escape'){ state.editingJogId=null; render(); }
+    });
+  });
+
+  // Etapa selector
+  var selEtapa = document.getElementById('sel-etapa');
+  if(selEtapa) selEtapa.addEventListener('change', function(){ state.etapaActiva=this.value; render(); });
+  else if(state.etapas.length && !state.etapaActiva) {
+    var aberta = state.etapas.find(function(e){return e.estado==='aberta';});
+    if(aberta) state.etapaActiva = aberta.id;
+    else if(state.etapas[0]) state.etapaActiva = state.etapas[0].id;
+  }
+
+  // setEstado via change (selects don't bubble click)
+  document.querySelectorAll('[data-act="setEstado"]').forEach(function(el){
+    el.addEventListener('change', function(){ doSetEstado(this.getAttribute('data-id'), this.value); }, {once:true});
+  });
+}
+
+// ── ACTIONS ────────────────────────────────────────────────────────────────
+async function saveTorneios(msg) {
+  var d = await ghGet(DATA_PATH+'/torneios.json');
+  state._sha.torneios = d.sha;
+  await ghPut(DATA_PATH+'/torneios.json', {torneios:state.torneios}, msg, d.sha);
+  var r = await ghGet(DATA_PATH+'/torneios.json');
+  state._sha.torneios = r.sha;
+}
+
+// ── HELPERS ──────────────────────────────────────────────────────────────
+function torneioActivo() {
+  if(!state.torneioActivo) return null;
+  return state.torneios.find(function(t){return t.etapaId===state.torneioActivo;});
+}
+
+// ── TORNEIO ACTIONS ───────────────────────────────────────────────────────
+function doSelEtapaTorneio() {
+  var sel = document.getElementById('sel-etapa-torneio');
+  if(!sel||!sel.value) return;
+  state.torneioActivo = sel.value;
+  state.etapaActiva   = sel.value;
+  // Find existing torneio or null
+  var existing = state.torneios.find(function(t){return t.etapaId===sel.value;});
+  state.torneioView = existing ? (existing.estado==='sorteio'?'sorteio':existing.estado==='grupos'?'grupos':existing.estado==='quadros'?'quadros':'classificacao') : 'sorteio';
+  render();
+}
+
+function doCriarTorneio() {
+  if(!state.torneioActivo) { showMsg('Selecciona uma etapa.','error'); return; }
+  var sel = document.getElementById('num-grupos');
+  var n = parseInt(sel ? sel.value : 5) || 5;
+  var novo = TorneioEngine.criarTorneio(state.torneioActivo, n);
+  state.torneios.push(novo);
+  state.torneioView = 'sorteio';
+  render();
+  showMsg('Torneio criado. Selecciona as Cabeças de Série.','ok');
+}
+
+function doExecutarSorteio() {
+  var t = torneioActivo();
+  if(!t) return;
+  var cs = (t.cabecasDeSerie||[]).filter(Boolean);
+  if(cs.length < t.numGrupos) { showMsg('Selecciona '+t.numGrupos+' cabeças de série.','error'); return; }
+  var etapa = state.etapas.find(function(e){return e.id===t.etapaId;});
+  var inscritos = etapa && etapa.inscritos ? etapa.inscritos : [];
+  var outros = inscritos.filter(function(id){return !cs.includes(id);});
+  TorneioEngine.executarSorteio(t, cs, outros);
+  render();
+  showMsg('Sorteio realizado! Verifica os grupos.','ok');
+}
+
+function doAvancarGrupos() {
+  var t = torneioActivo();
+  if(!t) return;
+  t.estado = 'grupos';
+  state.torneioView = 'grupos';
+  render();
+}
+
+async function doAddJogoGrupo(gi) {
+  var t = torneioActivo();
+  if(!t||state.saving) return;
+  var grupo = t.grupos[gi];
+  var ja  = document.getElementById('gj-ja-'+gi).value;
+  var jb  = document.getElementById('gj-jb-'+gi).value;
+  var sca = parseInt(document.getElementById('gj-sa-'+gi).value)||0;
+  var scb = parseInt(document.getElementById('gj-sb-'+gi).value)||0;
+  if(ja===jb){ showMsg('Selecciona jogadores diferentes.','error'); return; }
+  if(sca===0&&scb===0){ showMsg('Score 0-0 inválido.','error'); return; }
+  if(sca===scb){ showMsg('Empate não permitido.','error'); return; }
+  var vencedor = sca>scb?ja:jb;
+  if(!grupo.jogos) grupo.jogos = [];
+  // Max jogos = combinações possíveis: C(n,2) = n*(n-1)/2
+  var n = grupo.jogadores.length;
+  var maxJogos = n*(n-1)/2;
+  if(grupo.jogos.length >= maxJogos) {
+    showMsg('Grupo já tem todos os jogos possíveis ('+maxJogos+' no máximo para '+n+' jogadores).','error'); return;
+  }
+  // Block duplicate pair
+  var jaJogaram = grupo.jogos.some(function(g){
+    return (g.ja===ja&&g.jb===jb)||(g.ja===jb&&g.jb===ja);
+  });
+  if(jaJogaram){ showMsg('Estes dois jogadores já jogaram neste grupo.','error'); return; }
+  grupo.jogos.push({id:'gj'+genId(''),ja:ja,jb:jb,score_a:sca,score_b:scb,vencedor:vencedor});
+  grupo.classificacaoEditada = false; // recalculate
+  state.saving=true;
+  try {
+    await saveTorneios('Jogo G'+(gi+1)+': '+nomeById(ja)+' '+sca+'-'+scb+' '+nomeById(jb));
+    showMsg('Resultado guardado.','ok');
+  } catch(e) { grupo.jogos.pop(); showMsg('Erro: '+e.message,'error'); }
+  state.saving=false; render();
+}
+
+async function doDelJogoGrupo(gi, ji) {
+  var t = torneioActivo();
+  if(!t||state.saving) return;
+  var grupo = t.grupos[gi];
+  var jogo = grupo.jogos[ji];
+  if(!confirm('Eliminar resultado?')) return;
+  grupo.jogos.splice(ji,1);
+  grupo.classificacaoEditada = false;
+  state.saving=true;
+  try {
+    await saveTorneios('Eliminar jogo G'+(gi+1));
+    showMsg('Resultado eliminado.','ok');
+  } catch(e) { grupo.jogos.splice(ji,0,jogo); showMsg('Erro: '+e.message,'error'); }
+  state.saving=false; render();
+}
+
+async function doEditClassifGrupo(gi) {
+  var t = torneioActivo();
+  if(!t||state.saving) return;
+  var grupo = t.grupos[gi];
+  var cl = grupo.classificacaoEditada ? grupo.classificacao : TorneioEngine.calcClassificacaoGrupo(grupo);
+  var jogMap = {};
+  grupo.jogadores.forEach(function(id){
+    var j = state.jogadores.find(function(jj){return jj.id===id;});
+    if(j) jogMap[j.nome.trim().toLowerCase()] = j;
+  });
+  var nomes = cl.map(function(c){
+    return (state.jogadores.find(function(j){return j.id===c.jogId;})||{}).nome||c.jogId;
+  });
+  var novo = prompt('Classificação Grupo '+(gi+1)+'\nNomes por ordem, separados por vírgula:\n\nActual: '+nomes.join(', '));
+  if(!novo) return;
+  var novaNomes = novo.split(',').map(function(s){return s.trim();});
+  var novaClassif = novaNomes.map(function(nome,i){
+    var key = nome.trim().toLowerCase();
+    var jog = jogMap[key];
+    if(!jog) {
+      var k = Object.keys(jogMap).find(function(kk){return kk.startsWith(key)||key.startsWith(kk);});
+      if(k) jog = jogMap[k];
+    }
+    return jog ? {pos:i+1,jogId:jog.id} : null;
+  }).filter(Boolean);
+  if(novaClassif.length !== grupo.jogadores.length) {
+    var invalidos = novaNomes.filter(function(n){
+      var key = n.trim().toLowerCase();
+      return !jogMap[key] && !Object.keys(jogMap).find(function(kk){return kk.startsWith(key)||key.startsWith(kk);});
+    });
+    alert('Não reconhecido: '+invalidos.join(', ')+'\n\nNomes válidos: '+Object.keys(jogMap).map(function(k){return jogMap[k].nome;}).join(', '));
+    return;
+  }
+  grupo.classificacao = novaClassif;
+  grupo.classificacaoEditada = true;
+  state.saving=true; render();
+  try {
+    await saveTorneios('Classif manual grupo '+(gi+1));
+    showMsg('Classificação Grupo '+(gi+1)+' guardada.','ok');
+  } catch(e) { showMsg('Erro: '+e.message,'error'); }
+  state.saving=false; render();
+}
+
+async function doAvancarQuadros() {
+  var t = torneioActivo();
+  if(!t||state.saving) return;
+  TorneioEngine.avancarParaQuadros(t);
+  state.torneioView = 'quadros';
+  state.saving=true;
+  try {
+    await saveTorneios('Gerar quadros etapa '+t.etapaId);
+    showMsg('Quadros gerados!','ok');
+  } catch(e) { showMsg('Erro: '+e.message,'error'); }
+  state.saving=false; render();
+}
+
+async function doSaveJogoQuadro(quadro, rondaId, jogoId) {
+  var t = torneioActivo();
+  if(!t||state.saving) return;
+  var q = quadro==='principal' ? t.quadroPrincipal : t.quadroB;
+  var ronda = q.rondas.find(function(r){return r.id===rondaId;});
+  if(!ronda) return;
+  var jogo = ronda.jogos.find(function(j){return j.id===jogoId;});
+  if(!jogo) return;
+  var sa = parseInt(document.getElementById('sc-'+jogoId+'-a').value)||0;
+  var sb = parseInt(document.getElementById('sc-'+jogoId+'-b').value)||0;
+  if(sa===0&&sb===0){ showMsg('Score 0-0 inválido.','error'); return; }
+  if(sa===sb){ showMsg('Empate não permitido.','error'); return; }
+  var jogoAntigo = JSON.parse(JSON.stringify(jogo));
+  jogo.score_a=sa; jogo.score_b=sb; jogo.vencedor=sa>sb?jogo.jogA:jogo.jogB;
+  // Propagar para próxima ronda
+  propagarResultado(t, quadro, rondaId, jogoId);
+  state.saving=true;
+  try {
+    var nA=nomeById(jogo.jogA), nB=nomeById(jogo.jogB);
+    await saveTorneios('Resultado '+quadro+' '+rondaId+': '+nA+' '+sa+'-'+sb+' '+nB);
+    showMsg('Resultado guardado.','ok');
+  } catch(e) {
+    Object.assign(jogo, jogoAntigo);
+    showMsg('Erro: '+e.message,'error');
+  }
+  state.saving=false; render();
+}
+
+function doEditJogoQuadro(quadro, rondaId, jogoId) {
+  var t = torneioActivo();
+  if(!t) return;
+  var q = quadro==='principal' ? t.quadroPrincipal : t.quadroB;
+  var ronda = q.rondas.find(function(r){return r.id===rondaId;});
+  if(!ronda) return;
+  var jogo = ronda.jogos.find(function(j){return j.id===jogoId;});
+  if(!jogo) return;
+  // Reset para permitir reedição
+  jogo.score_a=null; jogo.score_b=null; jogo.vencedor=null;
+  render();
+}
+
+// Propagação simples: se há ronda seguinte e o jogo tem posição conhecida, preencher
+  function propagarResultado(torneio, quadro, rondaId, jogoId) {
+    var q = quadro==='principal' ? torneio.quadroPrincipal : torneio.quadroB;
+
+    function perdedor(jogo) {
+      if(!jogo||!jogo.vencedor) return null;
+      return jogo.vencedor===jogo.jogA ? jogo.jogB : jogo.jogA;
+    }
+
+    // ── QP: R1 → QF ──────────────────────────────────────────────────────
+    if(quadro==='principal' && rondaId==='r1') {
+      TorneioEngine.preencherQFdepoisR1(torneio);
+      // 9/10: perdedores dos 2 jogos reais de R1
+      var r1  = q.rondas.find(function(r){return r.id==='r1';});
+      var r4  = q.rondas.find(function(r){return r.id==='r4';});
+      if(r1&&r4) {
+        var t910 = r4.jogos.find(function(j){return j.id==='qp_910';});
+        if(t910) {
+          var reais = r1.jogos.filter(function(j){return !j.bye && j.vencedor;});
+          var perds = reais.map(function(j){return perdedor(j);}).filter(Boolean);
+          if(perds.length>=1) t910.jogA = perds[0];
+          if(perds.length>=2) t910.jogB = perds[1];
+        }
+      }
+    }
+
+    // ── QP: QF → SF + SF_perd ────────────────────────────────────────────
+    if(quadro==='principal' && rondaId==='r2') {
+      // Re-sync QF slots from R1 in case they were not filled (old bracket data)
+      TorneioEngine.preencherQFdepoisR1(torneio);
+      var r2 = q.rondas.find(function(r){return r.id==='r2';});
+      var r3 = q.rondas.find(function(r){return r.id==='r3';});
+      var r3p= q.rondas.find(function(r){return r.id==='r3p';});
+      if(r2&&r3) {
+        // SF1: W(QF1) vs W(QF2)
+        if(r2.jogos[0]&&r2.jogos[0].vencedor) r3.jogos[0].jogA = r2.jogos[0].vencedor;
+        if(r2.jogos[1]&&r2.jogos[1].vencedor) r3.jogos[0].jogB = r2.jogos[1].vencedor;
+        // SF2: W(QF3) vs W(QF4)
+        if(r2.jogos[2]&&r2.jogos[2].vencedor) r3.jogos[1].jogA = r2.jogos[2].vencedor;
+        if(r2.jogos[3]&&r2.jogos[3].vencedor) r3.jogos[1].jogB = r2.jogos[3].vencedor;
+      }
+      if(r2&&r3p) {
+        // SF_perd1: L(QF1) vs L(QF2)
+        if(r2.jogos[0]&&r2.jogos[0].vencedor) r3p.jogos[0].jogA = perdedor(r2.jogos[0]);
+        if(r2.jogos[1]&&r2.jogos[1].vencedor) r3p.jogos[0].jogB = perdedor(r2.jogos[1]);
+        // SF_perd2: L(QF3) vs L(QF4)
+        if(r2.jogos[2]&&r2.jogos[2].vencedor) r3p.jogos[1].jogA = perdedor(r2.jogos[2]);
+        if(r2.jogos[3]&&r2.jogos[3].vencedor) r3p.jogos[1].jogB = perdedor(r2.jogos[3]);
+      }
+    }
+
+    // ── QP: SF → Final + 3º/4º ────────────────────────────────────────────
+    if(quadro==='principal' && rondaId==='r3') {
+      // Re-sync SF slots from QF in case any are missing
+      TorneioEngine.preencherQFdepoisR1(torneio); // ensures QF → SF slots are correct
+      var r3c = q.rondas.find(function(r){return r.id==='r3';});
+      var r4c = q.rondas.find(function(r){return r.id==='r4';});
+      if(r3c&&r4c) {
+        var fin = r4c.jogos.find(function(j){return j.id==='qp_final';});
+        var t34 = r4c.jogos.find(function(j){return j.id==='qp_3lugar';});
+        if(fin) {
+          if(r3c.jogos[0]&&r3c.jogos[0].vencedor) fin.jogA = r3c.jogos[0].vencedor;
+          if(r3c.jogos[1]&&r3c.jogos[1].vencedor) fin.jogB = r3c.jogos[1].vencedor;
+        }
+        if(t34) {
+          if(r3c.jogos[0]&&r3c.jogos[0].vencedor) t34.jogA = perdedor(r3c.jogos[0]);
+          if(r3c.jogos[1]&&r3c.jogos[1].vencedor) t34.jogB = perdedor(r3c.jogos[1]);
+        }
+      }
+    }
+
+    // ── QP: SF_perd → 5/6 + 7/8 ──────────────────────────────────────────
+    if(quadro==='principal' && rondaId==='r3p') {
+      var r3p2= q.rondas.find(function(r){return r.id==='r3p';});
+      var r4p = q.rondas.find(function(r){return r.id==='r4';});
+      if(r3p2&&r4p) {
+        var t56 = r4p.jogos.find(function(j){return j.id==='qp_56';});
+        var t78 = r4p.jogos.find(function(j){return j.id==='qp_78';});
+        if(t56) {
+          if(r3p2.jogos[0]&&r3p2.jogos[0].vencedor) t56.jogA = r3p2.jogos[0].vencedor;
+          if(r3p2.jogos[1]&&r3p2.jogos[1].vencedor) t56.jogB = r3p2.jogos[1].vencedor;
+        }
+        if(t78) {
+          if(r3p2.jogos[0]&&r3p2.jogos[0].vencedor) t78.jogA = perdedor(r3p2.jogos[0]);
+          if(r3p2.jogos[1]&&r3p2.jogos[1].vencedor) t78.jogB = perdedor(r3p2.jogos[1]);
+        }
+      }
+    }
+
+    // ── QB: QF → SF ───────────────────────────────────────────────────────
+    if(quadro==='b' && rondaId==='r1') {
+      TorneioEngine.preencherSFdoQB(torneio);
+    }
+
+    // ── QB: SF → Final + 13/14 ────────────────────────────────────────────
+    if(quadro==='b' && rondaId==='r2') {
+      // Re-sync QB SF from QF
+      TorneioEngine.preencherSFdoQB(torneio);
+      var r2qb = q.rondas.find(function(r){return r.id==='r2';});
+      var r3qb = q.rondas.find(function(r){return r.id==='r3';});
+      if(r2qb&&r3qb) {
+        var fqb   = r3qb.jogos.find(function(j){return j.id==='qb_final';});
+        var t1314 = r3qb.jogos.find(function(j){return j.id==='qb_1314';});
+        if(fqb) {
+          if(r2qb.jogos[0]&&r2qb.jogos[0].vencedor) fqb.jogA = r2qb.jogos[0].vencedor;
+          if(r2qb.jogos[1]&&r2qb.jogos[1].vencedor) fqb.jogB = r2qb.jogos[1].vencedor;
+        }
+        if(t1314) {
+          if(r2qb.jogos[0]&&r2qb.jogos[0].vencedor) t1314.jogA = perdedor(r2qb.jogos[0]);
+          if(r2qb.jogos[1]&&r2qb.jogos[1].vencedor) t1314.jogB = perdedor(r2qb.jogos[1]);
+        }
+      }
+    }
+  }
+
+
+
+function doIniciarSwap() {
+  state.swapMode = !state.swapMode;
+  state.swapSel = null;
+  render();
+}
+
+function doSelSwap(quadro, pos) {
+  if(!state.swapSel) {
+    state.swapSel = {quadro: quadro, pos: pos};
+    render();
+    return;
+  }
+  // Second click — do the swap
+  var t = torneioActivo();
+  if(!t) return;
+  var posicoes = quadro === 'principal' ? t.quadroPrincipal.posicoes : t.quadroB.posicoes;
+  var selPosicoes = state.swapSel.quadro === 'principal' ? t.quadroPrincipal.posicoes : t.quadroB.posicoes;
+  var pA = selPosicoes.find(function(p){return p.pos===state.swapSel.pos;});
+  var pB = posicoes.find(function(p){return p.pos===pos;});
+  if(!pA||!pB) { state.swapSel=null; render(); return; }
+  // Swap jogIds
+  var tmpId = pA.jogId; var tmpBye = pA.bye;
+  pA.jogId = pB.jogId; pA.bye = pB.bye;
+  pB.jogId = tmpId;    pB.bye = tmpBye;
+  // Rebuild bracket from new positions
+  TorneioEngine.preencherPrimeirasRondas(t);
+  state.swapSel = null;
+  state.swapMode = false;
+  state.saving = true;
+  render();
+  saveTorneios('Swap posições nos quadros').then(function(){
+    showMsg('Posições trocadas e quadros actualizados.','ok');
+  }).catch(function(e){
+    showMsg('Erro ao guardar: '+e.message,'error');
+  }).finally(function(){
+    state.saving=false; render();
+  });
+}
+
+function doMoverPosicao(quadro, posFrom, posTo) {
+  var t = torneioActivo();
+  if(!t) return;
+  var posicoes = quadro === 'principal' ? t.quadroPrincipal.posicoes : t.quadroB.posicoes;
+  var pFrom = posicoes.find(function(p){return p.pos===posFrom;});
+  var pTo   = posicoes.find(function(p){return p.pos===posTo;});
+  if(!pFrom||!pTo) return;
+  var tmpId=pFrom.jogId; var tmpBye=pFrom.bye;
+  pFrom.jogId=pTo.jogId; pFrom.bye=pTo.bye;
+  pTo.jogId=tmpId;       pTo.bye=tmpBye;
+  TorneioEngine.preencherPrimeirasRondas(t);
+  render();
+}
+async function doResetarEtapa() {
+  var t = torneioActivo();
+  if(!t||state.saving||state._resetting) return;
+  state._resetting = true;
+  var etapa = state.etapas.find(function(e){return e.id===t.etapaId;});
+  var label = etapa ? labelEtapa(etapa) : t.etapaId;
+  if(!confirm('⚠️ RESET TOTAL — '+label+'\n\nIsto vai apagar:\n• Todos os resultados dos grupos\n• Os quadros completos\n• O sorteio (posições nos grupos)\n\nAs inscrições ficam preservadas.\n\nEsta acção não pode ser desfeita. Confirmar?')) return;
+  // Reset completo: limpar jogadores dos grupos, jogos, classificação e CS
+  t.grupos.forEach(function(g) {
+    g.jogadores = [];
+    g.jogos = [];
+    g.classificacao = [];
+    g.classificacaoEditada = false;
+  });
+  t.cabecasDeSerie = [];
+  // Reset quadros
+  t.quadroPrincipal = { posicoes: [], rondas: [] };
+  t.quadroB         = { posicoes: [], rondas: [] };
+  t.estado = 'sorteio';
+  t.classificacaoFinal = [];
+  state.torneioView = 'sorteio';
+  state.saving=true;
+  try {
+    await saveTorneios('Reset etapa '+t.etapaId);
+    showMsg('Etapa resetada. Podes fazer novo sorteio.','ok');
+  } catch(e) { showMsg('Erro: '+e.message,'error'); }
+  state.saving=false; state._resetting=false; render();
+}
+
+async function doConcluirTorneio() {
+  var t = torneioActivo();
+  if(!t||state.saving) return;
+  var cl = TorneioEngine.calcClassificacaoFinal(t);
+  if(!cl.length){ showMsg('Sem classificação para guardar. Completa todos os jogos.','error'); return; }
+  var n = t.grupos.reduce(function(s,g){return s+g.jogadores.length;},0);
+  // Count expected positions: some may be structurally unfillable (e.g. no real QF loser)
+  var expectedMax = n;
+  // Check if all QB QFs are byes — if so, max fillable positions is less
+  var r1qbCheck = t.quadroB.rondas ? t.quadroB.rondas.find(function(r){return r.id==='r1';}) : null;
+  var hasRealQBQF = r1qbCheck && r1qbCheck.jogos.some(function(j){return j.jogA&&j.jogB&&!j.bye;});
+  if(!hasRealQBQF) expectedMax = n - 1; // 15th place structurally unavailable via QF
+  if(cl.length < expectedMax) {
+    if(!confirm('Classificação incompleta: '+cl.length+'/'+expectedMax+' lugares preenchidos.\nJogos por completar nos quadros. Confirmar mesmo assim?')) return;
+  }
+  t.classificacaoFinal = cl;
+  t.estado = 'concluido';
+  state.saving=true;
+  try {
+    await saveTorneios('Concluir torneio '+t.etapaId);
+    showMsg('Torneio concluído! '+cl.length+'/'+n+' posições guardadas.','ok');
+    state.torneioView = 'classificacao';
+  } catch(e) { showMsg('Erro: '+e.message,'error'); }
+  state.saving=false; render();
+}
+
+async function doLogin(){
+  if(state._loggingIn) return;  // previne dupla invocação
+  state._loggingIn = true;
+  // Capturar password ANTES de qualquer render()
+  var pwEl = document.getElementById('pw-input');
+  var pw = pwEl ? pwEl.value.trim() : '';
+  if(!pw){
+    state._loggingIn = false;
+    showMsg('Introduz a password.','error');
+    return;
+  }
+  var encPat = state.config_raw ? state.config_raw.pat_encrypted : null;
+  if(!encPat){
+    state._loggingIn = false;
+    showMsg('Config não carregou. Tenta de novo.','error');
+    return;
+  }
+  // Passo 1: desencriptar
+  var pat;
+  try {
+    pat = await decrypt(encPat, pw);
+  } catch(e) {
+    state._loggingIn = false;
+    showMsg('Password incorrecta.','error');
+    return;
+  }
+  // Passo 2: validar token
+  try {
+    var r = await fetch('https://api.github.com/user', { headers:{Authorization:'Bearer '+pat, Accept:'application/vnd.github.v3+json'} });
+    if(!r.ok) {
+      state._loggingIn = false;
+      showMsg('Token GitHub inválido. Regenera o PAT.','error');
+      return;
+    }
+  } catch(e) {
+    state._loggingIn = false;
+    showMsg('Sem ligação ao GitHub.','error');
+    return;
+  }
+  // Passo 3: carregar dados
+  state.pat = pat; state.authed = true;
+  showMsg('Login OK. A carregar dados…','ok');
+  try {
+    await loadData();
+  } catch(e) {
+    state._loggingIn = false;
+    var msg = e.message || 'erro desconhecido';
+    if(msg.indexOf('Failed to fetch')>=0) msg = 'Sem resposta do GitHub. Verifica a ligação ou se o PAT expirou.';
+    showMsg('Erro ao carregar dados: '+msg,'error');
+    state.authed=false; state.pat=null;
+    return;
+  }
+  state._loggingIn = false;
+  // Pre-select torneio if only one exists
+  if(state.torneios.length === 1) {
+    var t = state.torneios[0];
+    state.torneioActivo = t.etapaId;
+    state.etapaActiva   = t.etapaId;
+    state.torneioView   = t.estado==='quadros'?'quadros':t.estado==='grupos'?'grupos':t.estado==='sorteio'?'sorteio':'classificacao';
+  }
+  state.view='dashboard'; render();
+}
+
+function doLogout(){
+  state.pat=null; state.authed=false; state.view='login'; render();
+}
+
+async function doSaveResultado(){
+  if(state.saving) return;
+  var ja  = document.getElementById('sel-ja').value;
+  var jb  = document.getElementById('sel-jb').value;
+  var sca = parseInt(document.getElementById('sc-a').value)||0;
+  var scb = parseInt(document.getElementById('sc-b').value)||0;
+  if(ja===jb){ showMsg('Selecciona dois jogadores diferentes.','error'); return; }
+  if(sca===0&&scb===0){ showMsg('Score 0–0 não é válido.','error'); return; }
+  if(sca===scb){ showMsg('Empate não permitido — há sempre um vencedor.','error'); return; }
+  var vencedor = sca>scb?ja:jb;
+  // Disable save button during save
+  var saveBtn = document.getElementById('btn-save-res');
+  if(saveBtn){ saveBtn.disabled=true; saveBtn.textContent='A guardar…'; }
+
+  if(state.editingJogoId !== null) {
+    var idx = state.jogos.findIndex(function(g){return g.id===state.editingJogoId;});
+    if(idx === -1){ showMsg('Jogo não encontrado.','error'); return; }
+    var jogoAntigo = Object.assign({}, state.jogos[idx]);
+    state.jogos[idx] = Object.assign({}, state.jogos[idx], {ja:ja,jb:jb,score_a:sca,score_b:scb,vencedor:vencedor});
+    state.editingJogoId = null;
+    state.saving=true;
+    try {
+      var nA = (state.jogadores.find(function(j){return j.id===ja;})||{}).nome||ja;
+      var nB = (state.jogadores.find(function(j){return j.id===jb;})||{}).nome||jb;
+      await saveResultados('Editar resultado: '+nA+' '+sca+'-'+scb+' '+nB);
+      state.saving=false; render();
+      showMsg('Resultado actualizado.','ok');
+    } catch(e) {
+      state.jogos[idx] = jogoAntigo;
+      state.saving=false; render();
+      showMsg('Erro: '+e.message,'error');
+    }
+    return;
+  }
+
+  // New game
+  var jogo = {id:'g'+genId(''),etapa:state.etapaActiva,ja:ja,jb:jb,score_a:sca,score_b:scb,vencedor:vencedor};
+  state.jogos.push(jogo);
+  state.saving=true;
+  try {
+    await saveResultados('Resultado: '+nomeById(ja)+' '+sca+'-'+scb+' '+nomeById(jb));
+    state.saving=false; render();
+    showMsg('Resultado guardado! Site actualiza em ~30s.','ok');
+  } catch(e) {
+    state.jogos.pop();
+    state.saving=false; render();
+    showMsg('Erro: '+e.message,'error');
+  }
+}
+
+function doEditJogo(idx) {
+  var etapa = state.etapaActiva
+    ? state.etapas.find(function(e){return e.id===state.etapaActiva;})
+    : null;
+  if(!etapa) return;
+  var jogosEtapa = state.jogos.filter(function(g){return g.etapa===state.etapaActiva;});
+  var jogo = jogosEtapa[idx];
+  if(!jogo) return;
+  state.editingJogoId = jogo.id;
+  render(); // re-render with pre-filled form
+  // Scroll to form
+  setTimeout(function(){
+    var form = document.getElementById('btn-save-res');
+    if(form) form.scrollIntoView({behavior:'smooth', block:'center'});
+  }, 80);
+}
+
+function doCancelEditJogo() {
+  state.editingJogoId = null;
+  render();
+}
+
+async function doDelJogo(idx){
+  var etapaJogos = state.jogos.filter(function(g){return g.etapa===state.etapaActiva;});
+  var jogo = etapaJogos[idx];
+  if(!jogo||!confirm('Eliminar resultado '+nomeById(jogo.ja)+' vs '+nomeById(jogo.jb)+'?')) return;
+  var allIdx = state.jogos.indexOf(jogo);
+  state.jogos.splice(allIdx,1);
+  state.saving=true;
+  try {
+    await saveResultados('Del resultado: '+nomeById(jogo.ja)+' vs '+nomeById(jogo.jb));
+    state.saving=false; render();
+    showMsg('Resultado eliminado.','ok');
+  } catch(e) {
+    state.jogos.splice(allIdx,0,jogo);
+    state.saving=false; render();
+    showMsg('Erro: '+e.message,'error');
+  }
+}
+
+async function doAddJogador(){
+  var nome = document.getElementById('new-nome').value.trim();
+  if(!nome){ showMsg('Introduz o nome do jogador.','error'); return; }
+  var jog = {id:'j'+genId(''),nome:nome,tipo:'senior',escalao:null,ativo:true};
+  state.jogadores.push(jog);
+  // Don't full render while saving — just disable btn to avoid flicker
+  var addBtn = document.querySelector('[data-act="addJogador"]');
+  if(addBtn) { addBtn.disabled=true; addBtn.textContent='A guardar…'; }
+  var inp = document.getElementById('new-nome');
+  if(inp) inp.disabled=true;
+  try {
+    await saveJogadores('Novo jogador: '+nome);
+    if(inp) { inp.value=''; inp.disabled=false; }
+    if(addBtn) { addBtn.disabled=false; addBtn.textContent='+ Adicionar'; }
+    render(); // re-render table with new player
+    showMsg(nome+' adicionado com sucesso.','ok');
+  } catch(e) {
+    state.jogadores.pop();
+    if(inp) inp.disabled=false;
+    if(addBtn) { addBtn.disabled=false; addBtn.textContent='+ Adicionar'; }
+    showMsg('Erro: '+e.message,'error');
+  }
+}
+
+function doEditJog(id) {
+  state.editingJogId = id;
+  render();
+  // Focus the input after render
+  setTimeout(function(){
+    var inp = document.getElementById('edit-nome-'+id);
+    if(inp){ inp.focus(); inp.select(); }
+  }, 50);
+}
+
+async function doSaveEditJog(id) {
+  var inp = document.getElementById('edit-nome-'+id);
+  if(!inp) return;
+  var novoNome = inp.value.trim();
+  if(!novoNome){ showMsg('O nome não pode estar vazio.','error'); return; }
+  var jog = state.jogadores.find(function(j){return j.id===id;});
+  if(!jog) return;
+  var nomeAntigo = jog.nome;
+  jog.nome = novoNome;
+  state.editingJogId = null;
+  state.saving = true; render();
+  try {
+    await saveJogadores('Editar jogador: '+nomeAntigo+' → '+novoNome);
+    showMsg('Nome actualizado.','ok');
+  } catch(e) {
+    jog.nome = nomeAntigo; // rollback
+    showMsg('Erro: '+e.message,'error');
+  }
+  state.saving = false; render();
+}
+
+async function doDeleteJog(id) {
+  var jog = state.jogadores.find(function(j){return j.id===id;});
+  if(!jog) return;
+  var jogosDoJogador = state.jogos.filter(function(g){return g.ja===id||g.jb===id;}).length;
+  var confirmMsg = 'Apagar "'+jog.nome+'" definitivamente?'
+    +(jogosDoJogador>0?'\n\n⚠️ Isto vai apagar também '+jogosDoJogador+' jogo(s) desta época e remover as suas stats do ranking.':'')
+    +'\n\nEsta acção não pode ser desfeita.';
+  if(!confirm(confirmMsg)) return;
+  // Remove player
+  state.jogadores = state.jogadores.filter(function(j){return j.id!==id;});
+  // Remove all their games
+  state.jogos = state.jogos.filter(function(g){return g.ja!==id&&g.jb!==id;});
+  state.saving = true; render();
+  try {
+    await saveJogadores('Apagar jogador: '+jog.nome);
+    await saveResultados('Apagar jogos de: '+jog.nome);
+    showMsg(jog.nome+' apagado e stats removidas.','ok');
+  } catch(e) {
+    showMsg('Erro ao apagar: '+e.message,'error');
+  }
+  state.saving = false; render();
+}
+
+async function doToggleJog(id){
+  var jog = state.jogadores.find(function(j){return j.id===id;});
+  if(!jog) return;
+  jog.ativo = !jog.ativo;
+  state.saving=true;
+  try {
+    await saveJogadores((jog.ativo?'Activar':'Desactivar')+': '+jog.nome);
+    state.saving=false; render();
+    showMsg(jog.nome+(jog.ativo?' activado':' desactivado')+'.','ok');
+  } catch(e) {
+    jog.ativo=!jog.ativo;
+    state.saving=false; render();
+    showMsg('Erro: '+e.message,'error');
+  }
+}
+
+async function doRemoveInscrito(etapaId, jogId) {
+  var etapa = state.etapas.find(function(e){return e.id===etapaId;});
+  if(!etapa||!etapa.inscritos) return;
+  var nome = nomeById(jogId);
+  if(!confirm('Remover "'+nome+'" da lista de inscritos?')) return;
+  etapa.inscritos = etapa.inscritos.filter(function(id){return id!==jogId;});
+  state.saving=true;
+  try {
+    await saveEtapas('Remover inscrito: '+nome+' de '+labelEtapa(etapa));
+    showMsg(nome+' removido dos inscritos.','ok');
+  } catch(e) {
+    etapa.inscritos.push(jogId); // rollback
+    showMsg('Erro: '+e.message,'error');
+  }
+  state.saving=false; render();
+}
+
+async function doAddInscrito(etapaId){
+  var sel = document.getElementById('add-ins-'+etapaId);
+  if(!sel||!sel.value) return;
+  var etapa = state.etapas.find(function(e){return e.id===etapaId;});
+  if(!etapa) return;
+  if(!etapa.inscritos) etapa.inscritos=[];
+  if(etapa.inscritos.includes(sel.value)){
+    showMsg('Jogador já está inscrito nesta etapa.','error'); return;
+  }
+  var isSuplente = etapa.limite && etapa.inscritos.length >= etapa.limite;
+  etapa.inscritos.push(sel.value);
+  state.saving=true;
+  var addInsBtn = document.querySelector('[data-act="addInscrito"][data-etapa="'+etapaId+'"]');
+  if(addInsBtn) addInsBtn.disabled=true;
+  try {
+    await saveEtapas('Inscrito: '+nomeById(sel.value)+' em '+labelEtapa(etapa));
+    state.saving=false; render();
+    showMsg(nomeById(sel.value)+(isSuplente?' adicionado como suplente.':' inscrito.'),'ok');
+  } catch(e) {
+    etapa.inscritos.pop();
+    state.saving=false; render();
+    showMsg('Erro: '+e.message,'error');
+  }
+}
+
+async function doSetEstado(etapaId, estado){
+  var etapa = state.etapas.find(function(e){return e.id===etapaId;});
+  if(!etapa) return;
+  var old = etapa.estado;
+  etapa.estado=estado;
+  try {
+    await saveEtapas('Estado '+labelEtapa(etapa)+': '+estado);
+    showMsg('Estado actualizado.','ok');
+  } catch(e) {
+    etapa.estado=old;
+    showMsg('Erro: '+e.message,'error');
+  }
+  render();
+}
+
+function doExportCSV(){
+  var cats=['senior','vermelha','verde','laranja'];
+  var csv='Categoria,Posição,Nome,Pts,V,D,±Enc,J,±J\n';
+  cats.forEach(function(cat){
+    var label='Super Stars Senior';
+    calcRanking(cat,'todas').forEach(function(r,i){
+      csv+='"'+label+'",'+(i+1)+',"'+r.nome+'",'+r.pts+','+r.vitorias+','+r.derrotas+','+r.dif_enc+','+r.enc+','+r.dif_games+'\n';
+    });
+  });
+  var a=document.createElement('a');
+  a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
+  a.download='ranking-superstars-'+new Date().toISOString().slice(0,10)+'.csv';
+  a.click();
+}
+
+// ── SETUP ────────────────────────────────────────────────────────────────
+async function init(){
+  // ── PERMANENT CLICK HANDLER — capture:true, registered ONCE, immune to renders ──
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('[data-act]');
+
+    // Mobile menu: close on outside click (no data-act needed)
+    var mob = document.getElementById('admin-mobile');
+    var burgerBtn = document.getElementById('admin-burger-btn');
+    if(mob && mob.classList.contains('open') && burgerBtn &&
+       !mob.contains(e.target) && !burgerBtn.contains(e.target)) {
+      mob.classList.remove('open');
+      var icon = document.getElementById('admin-burger-icon');
+      if(icon) icon.innerHTML = '<line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/>';
+    }
+
+    if(!el) return;
+    var act = el.getAttribute('data-act');
+
+    // Login button handled separately in bindEvents — skip here
+    if(act === 'login') return;
+
+    // Block all actions when not authed (except handled by bindEvents)
+    if(!state.authed) return;
+
+    if(act==='nav') { state.view=el.getAttribute('data-view'); render(); }
+    else if(act==='logout') doLogout();
+    else if(act==='mobileAdminNav') {
+      state.view=el.getAttribute('data-view');
+      var m=document.getElementById('admin-mobile');
+      if(m) m.classList.remove('open');
+      var ic=document.getElementById('admin-burger-icon');
+      if(ic) ic.innerHTML='<line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/>';
+      render();
+    }
+    else if(act==='goTorneio')        { state.view='torneio'; state.etapaActiva=el.getAttribute('data-etapa'); render(); }
+    else if(act==='goJogadores')      { state.view='jogadores'; render(); }
+    else if(act==='goEtapas')         { state.view='etapas'; render(); }
+    else if(act==='exportCSV')        doExportCSV();
+    else if(act==='delJogo')          doDelJogo(parseInt(el.getAttribute('data-idx')));
+    else if(act==='addJogador')       doAddJogador();
+    else if(act==='toggleJog')        doToggleJog(el.getAttribute('data-id'));
+    else if(act==='editJog')          doEditJog(el.getAttribute('data-id'));
+    else if(act==='editJogo')         doEditJogo(parseInt(el.getAttribute('data-idx')));
+    else if(act==='saveEditJog')      doSaveEditJog(el.getAttribute('data-id'));
+    else if(act==='cancelEditJog')    { state.editingJogId=null; render(); }
+    else if(act==='deleteJog')        doDeleteJog(el.getAttribute('data-id'));
+    else if(act==='addInscrito')      doAddInscrito(el.getAttribute('data-etapa'));
+    else if(act==='removeInscrito')   doRemoveInscrito(el.getAttribute('data-etapa'), el.getAttribute('data-id'));
+      else if(act==='togglePagamento') doTogglePagamento(el.getAttribute('data-etapa'), el.getAttribute('data-id'));
+      else if(act==='openEditGrupos')   { state.editGrupos=true; render(); }
+      else if(act==='cancelEditGrupos') { state.editGrupos=false; render(); }
+      else if(act==='addToGrupo') {
+        var gi = parseInt(el.getAttribute('data-gi'));
+        var sel = document.getElementById('sel-grupo-'+gi);
+        var jogId = sel ? sel.value : '';
+        if(jogId) doAddToGrupo(gi, jogId);
+      }
+      else if(act==='removeFromGrupo')  doRemoveFromGrupo(parseInt(el.getAttribute('data-gi')), el.getAttribute('data-id'));
+      else if(act==='saveEditGrupos')   doSaveEditGrupos();
+    else if(act==='selEtapaTorneio')  doSelEtapaTorneio();
+    else if(act==='criarTorneio')     doCriarTorneio();
+    else if(act==='executarSorteio')  doExecutarSorteio();
+    else if(act==='avancarGrupos')    doAvancarGrupos();
+    else if(act==='torneioTab') {
+      state.torneioView = el.getAttribute('data-tab');
+      if(el.getAttribute('data-tab') === 'quadros') {
+        var _ta = torneioActivo();
+        if(_ta) {
+          TorneioEngine.preencherQFdepoisR1(_ta);
+          TorneioEngine.preencherSFdoQB(_ta);
+        }
+      }
+      render();
+    }
+    else if(act==='addJogoGrupo')     doAddJogoGrupo(parseInt(el.getAttribute('data-gi')));
+    else if(act==='delJogoGrupo')     doDelJogoGrupo(parseInt(el.getAttribute('data-gi')),parseInt(el.getAttribute('data-ji')));
+    else if(act==='editClassifGrupo') doEditClassifGrupo(parseInt(el.getAttribute('data-gi')));
+    else if(act==='avancarQuadros')   doAvancarQuadros();
+    else if(act==='saveJogoQuadro')   doSaveJogoQuadro(el.getAttribute('data-quadro'),el.getAttribute('data-ronda'),el.getAttribute('data-jogo'));
+    else if(act==='editJogoQuadro')   doEditJogoQuadro(el.getAttribute('data-quadro'),el.getAttribute('data-ronda'),el.getAttribute('data-jogo'));
+    else if(act==='concluirTorneio')  doConcluirTorneio();
+    else if(act==='resetarEtapa')     doResetarEtapa();
+    else if(act==='iniciarSwap')      doIniciarSwap();
+    else if(act==='selSwap')          doSelSwap(el.getAttribute('data-quadro'), parseInt(el.getAttribute('data-pos')));
+  }, true); // capture:true — fires before any child stopPropagation
+  var urls = [
+    'https://raw.githubusercontent.com/'+REPO_OWNER+'/'+REPO_NAME+'/main/superstars-ctpp/data/config.json',
+    '../data/config.json',
+    './data/config.json'
+  ];
+  for(var i=0;i<urls.length;i++){
+    try {
+      var r = await fetch(urls[i]);
+      if(r.ok){ state.config_raw = await r.json(); break; }
+    } catch(e){}
+  }
+  render();
+}
+
+window.updateEscalaoVis = function(){};
+init();
+
+
+function viewEditGrupos(torneio, etapa) {
+  var inscritos = etapa ? (etapa.inscritos||[]) : [];
+  // Build set of all assigned jogadores
+  var assigned = {};
+  torneio.grupos.forEach(function(g){ g.jogadores.forEach(function(id){ assigned[id]=true; }); });
+  // Unassigned = inscritos not in any group
+  var unassigned = inscritos.filter(function(id){ return !assigned[id]; });
+
+  function jogNome(id) {
+    return (state.jogadores.find(function(j){return j.id===id;})||{}).nome||id;
+  }
+
+  var gruposCols = torneio.grupos.map(function(g, gi){
+    var jogRows = g.jogadores.map(function(id){
+      return '<div class="edit-grupo-row">'+
+        '<span class="edit-grupo-nome">'+jogNome(id)+'</span>'+
+        '<button class="btn-icon btn-red-sm" data-act="removeFromGrupo" data-gi="'+gi+'" data-id="'+id+'" title="Remover">×</button>'+
+      '</div>';
+    }).join('');
+
+    var opts = unassigned.map(function(id){
+      return '<option value="'+id+'">'+jogNome(id)+'</option>';
+    }).join('');
+
+    var addRow = unassigned.length
+      ? '<div class="edit-grupo-add">'+
+          '<select class="inp inp-sm edit-grupo-sel" id="sel-grupo-'+gi+'" data-gi="'+gi+'">'+
+            '<option value="">+ Adicionar jogador</option>'+opts+
+          '</select>'+
+          '<button class="btn btn-sm btn-green" data-act="addToGrupo" data-gi="'+gi+'" data-id="">Adicionar</button>'+
+        '</div>'
+      : '<div style="font-size:11px;color:var(--mu);margin-top:6px">Todos os inscritos atribuídos</div>';
+
+    return '<div class="edit-grupo-col">'+
+      '<div class="edit-grupo-hdr">Grupo '+(gi+1)+'</div>'+
+      '<div class="edit-grupo-body">'+jogRows+'</div>'+
+      addRow+
+    '</div>';
+  }).join('');
+
+  var warn = unassigned.length
+    ? '<div class="edit-warn">'+unassigned.length+' inscrito(s) sem grupo: '+unassigned.map(jogNome).join(', ')+'</div>'
+    : '';
+
+  return '<div class="form-card">'+
+    '<div class="form-title">Editar Grupos</div>'+
+    warn+
+    '<div class="edit-grupos-grid">'+gruposCols+'</div>'+
+    '<div style="display:flex;gap:10px;margin-top:16px">'+
+      '<button class="btn btn-gold" data-act="saveEditGrupos"'+(state.saving?' disabled':'')+'>💾 Guardar Grupos</button>'+
+      '<button class="btn btn-sm" data-act="cancelEditGrupos">Cancelar</button>'+
+    '</div>'+
+  '</div>';
+}
+
+
+function doAddToGrupo(gi, id) {
+  // id comes from button data-id, but we read the select value
+  var sel = document.getElementById('sel-grupo-'+gi);
+  var jogId = sel ? sel.value : id;
+  if(!jogId) return;
+  var t = torneioActivo();
+  if(!t) return;
+  // Remove from any existing group first
+  t.grupos.forEach(function(g){ g.jogadores = g.jogadores.filter(function(x){return x!==jogId;}); });
+  t.grupos[gi].jogadores.push(jogId);
+  render();
+}
+
+function doRemoveFromGrupo(gi, id) {
+  var t = torneioActivo();
+  if(!t) return;
+  t.grupos[gi].jogadores = t.grupos[gi].jogadores.filter(function(x){return x!==id;});
+  render();
+}
+
+async function doSaveEditGrupos() {
+  var t = torneioActivo();
+  if(!t||state.saving) return;
+  // Clear jogos and classificacao for all groups (new composition = fresh start)
+  t.grupos.forEach(function(g){
+    g.jogos = [];
+    g.classificacao = [];
+    g.classificacaoEditada = false;
+  });
+  t.cabecasDeSerie = [];
+  state.editGrupos = false;
+  state.saving = true;
+  render();
+  try {
+    await saveTorneios('Editar grupos manualmente');
+    showMsg('Grupos guardados com sucesso.','ok');
+  } catch(e) {
+    showMsg('Erro ao guardar: '+e.message,'error');
+  }
+  state.saving = false;
+  render();
+}
+
+})();
+
+</script>
+</body>
+</html>
