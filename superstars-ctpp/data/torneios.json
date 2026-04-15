@@ -890,7 +890,16 @@
             "jmntiou1qw765",
             "j004"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmnzx254r12ml",
+              "ja": "jmntir2jlvvot",
+              "jb": "jmntiou1qw765",
+              "score_a": 4,
+              "score_b": 0,
+              "vencedor": "jmntir2jlvvot"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         },
