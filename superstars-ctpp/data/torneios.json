@@ -1437,9 +1437,9 @@
                 "posB": 4,
                 "jogA": "j004",
                 "jogB": "jmntipxsi5f0s",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null,
+                "score_a": 6,
+                "score_b": 3,
+                "vencedor": "j004",
                 "bye": false
               },
               {
@@ -1473,7 +1473,7 @@
               {
                 "id": "qb_sf_1",
                 "jogA": "jmntiomivpeaw",
-                "jogB": null,
+                "jogB": "j004",
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null
