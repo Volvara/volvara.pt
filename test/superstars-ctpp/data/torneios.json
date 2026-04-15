@@ -889,7 +889,16 @@
             "jmntipxsi5f0s",
             "j005"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmo0huvlog22b",
+              "ja": "jmnvd7pc2bbhk",
+              "jb": "jmntipxsi5f0s",
+              "score_a": 7,
+              "score_b": 2,
+              "vencedor": "jmnvd7pc2bbhk"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         }
