@@ -980,10 +980,8 @@
     }
 
     function pubCol(title, matches) {
-      // Wrap each match in a .pub-slot for vertical alignment across rounds
-      var slots = matches.map(function(m){ return '<div class="pub-slot">'+m+'</div>'; });
       return '<div class="pub-bracket-col"><div class="pub-ronda-title">'+title+'</div>'+
-        '<div class="pub-slots">'+slots.join('')+'</div></div>';
+        matches.join('')+'</div>';
     }
 
     function singleBlock(label, jogo, place) {
@@ -1011,7 +1009,7 @@
       if(r3) html+=pubCol(t('meias'),r3.jogos.map(pubMatch));
       if(fJogo) html+='<div class="pub-bracket-col pub-col-final">'+
         '<div class="pub-ronda-title">'+t('final12')+'</div>'+
-        '<div class="pub-slots"><div class="pub-slot pub-slot-final">'+pubFinal(fJogo,'🥇',null)+'</div></div>'+
+        pubFinal(fJogo,'🥇',null)+
       '</div>';
       html+='</div></div></div>';
     }
@@ -1039,7 +1037,7 @@
       if(finalB) {
         html += '<div class="pub-bracket-col pub-col-final">'+
           '<div class="pub-ronda-title">'+(getLang()==='en'?'Final 11th':'Final 11º')+'</div>'+
-          '<div class="pub-slots"><div class="pub-slot pub-slot-final">'+pubFinalLabeled(finalB, null, qbFinalPos)+'</div></div>'+
+          pubFinalLabeled(finalB, null, qbFinalPos)+
         '</div>';
       }
       html+='</div></div></div>';
@@ -1088,59 +1086,30 @@
       }
 
       // 5/6 needs SF context first
-      function place56Block(t78jogo) {
-      if(!sfp1 && !sfp2 && !t56 && !t78jogo) return '';
+      function place56Block() {
+      if(!sfp1 && !sfp2 && !t56) return '';
       var en = getLang()==='en';
-
-      // Col 1: Meias Finais — sfp1 top slot, sfp2 bottom slot (like QB)
-      var sfCol = '<div class="pub-bracket-col"><div class="pub-ronda-title">'+(en?'Semi-Finals':'Meias Finais')+'</div>'+
-        '<div class="pub-slots">'+
-          '<div class="pub-slot">'+pubMatch(sfp1)+'</div>'+
-          '<div class="pub-slot">'+pubMatch(sfp2)+'</div>'+
-        '</div></div>';
-
-      // Col 2: Finais — t56 top, t78 bottom (pub-col-final with champion cells)
-      function finalSlot56(j, winBadge, loseBadge) {
-        if(!j) return '<div class="pub-slot pub-slot-final">'+pubMatch(null)+'</div>';
-        var done = j.vencedor != null;
-        var winA = done && j.vencedor === j.jogA;
-        var mHtml = '<div class="pub-match">'+
-          '<div class="pub-player'+(winA&&done?' pub-winner':'')+'">'+
-            '<span class="pub-pname">'+pNome(j.jogA)+'</span>'+
-            (j.score_a!=null ? '<span class="pub-score'+(winA?' pub-score-w':'')+'">'+j.score_a+'</span>' : '')+
-          '</div>'+
-          '<div class="pub-player'+(!winA&&done?' pub-winner':'')+'">'+
-            '<span class="pub-pname">'+pNome(j.jogB)+'</span>'+
-            (j.score_b!=null ? '<span class="pub-score'+((!winA)?' pub-score-w':'')+'">'+j.score_b+'</span>' : '')+
-          '</div>'+
-        '</div>';
-        var champName = done ? pNome(j.vencedor) : null;
-        var champCell = champName ? '<div class="pub-champion-cell">'+
-          '<div class="pub-player pub-winner pub-champion">'+
-            '<span class="pub-pname">'+champName+'</span>'+
-            '<span class="pub-place-badge">'+winBadge+'</span>'+
-          '</div></div>' : '';
-        return '<div class="pub-slot pub-slot-final"><div class="pub-final-wrap">'+mHtml+champCell+'</div></div>';
-      }
-
-      var finCol = '<div class="pub-bracket-col pub-col-final"><div class="pub-ronda-title">'+(en?'Finals':'Finais')+'</div>'+
-        '<div class="pub-slots">'+
-          finalSlot56(t56,    en?'5th':'5º', en?'6th':'6º')+
-          finalSlot56(t78jogo, en?'7th':'7º', en?'8th':'8º')+
-        '</div></div>';
-
-      return '<div class="pub-bracket-wrap pub-bracket-5678">'+
-        '<div class="pub-bracket-label">'+(en?'5th – 8th Place':'5º – 8º Lugar')+'</div>'+
-        '<div class="pub-bracket-scroll"><div class="pub-bracket-inner">'+
-          sfCol + finCol +
-        '</div></div>'+
+      // SF col: sfp1 + sfp2 (both matches, space-around centres them)
+      var sfCol = '<div class="pub-bracket-col">'+
+        '<div class="pub-ronda-title">'+(en?'Semis 5/6':'Meias 5/6')+'</div>'+
+        pubMatch(sfp1)+pubMatch(sfp2)+
+      '</div>';
+      // Final col: single match, align-self:center centres it between the two SFs
+      var finalCol = '<div class="pub-bracket-col pub-col-final">'+
+        '<div class="pub-ronda-title">'+(en?'5th / 6th':'5º / 6º')+'</div>'+
+        pubFinal(t56, null, en?'5th':'5º')+
+      '</div>';
+      return '<div class="pub-bracket-wrap pub-bracket-56">'+
+        '<div class="pub-bracket-label">'+(en?'5th / 6th Place':'5º / 6º Lugar')+'</div>'+
+        '<div class="pub-bracket-scroll"><div class="pub-bracket-inner">'+sfCol+finalCol+'</div></div>'+
       '</div>';
     }
 
       html+='<div class="pub-places-wrap"><div class="pub-bracket-label">'+ t('posicoesLugar') +'</div>';
       html+='<div class="pub-places-list">';
       html+=placeCard(t('lugar3_4'), t34, getLang()==='en'?'3rd':'3º', getLang()==='en'?'4th':'4º');
-      html+=place56Block(t78);
+      html+=place56Block();
+      html+=placeCard(t('lugar7_8'), t78, getLang()==='en'?'7th':'7º', getLang()==='en'?'8th':'8º');
       html+=placeCard(t('lugar9_10'), t910, getLang()==='en'?'9th':'9º', getLang()==='en'?'10th':'10º');
       // 11/12 — QB final (if present)
       if(finalQB) html+=placeCard(getLang()==='en'?'11th / 12th Place':'11º / 12º Lugar', finalQB, getLang()==='en'?'11th':'11º', getLang()==='en'?'12th':'12º');
