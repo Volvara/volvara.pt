@@ -980,10 +980,13 @@
     }
 
     function pubCol(title, matches, roundIndex) {
-      var pt = roundIndex ? Math.round(84 * (Math.pow(2, roundIndex) - 1) / 2) : 0;
-      var style = pt ? ' style="padding-top:'+pt+'px"' : '';
-      return '<div class="pub-bracket-col"'+style+'><div class="pub-ronda-title">'+title+'</div>'+
-        matches.join('')+'</div>';
+      var mt = roundIndex ? Math.round(84 * (Math.pow(2, roundIndex) - 1) / 2) : 0;
+      var wrapStyle = mt ? ' style="margin-top:'+mt+'px"' : '';
+      return '<div class="pub-bracket-col">'+
+        '<div class="pub-ronda-title">'+title+'</div>'+
+        '<div class="pub-matches-wrap"'+wrapStyle+'>'+
+        matches.join('')+
+        '</div></div>';
     }
 
     function singleBlock(label, jogo, place) {
