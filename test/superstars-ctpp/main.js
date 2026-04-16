@@ -891,7 +891,7 @@
       var medals = ['🥇','🥈','🥉'];
       torneio.classificacaoFinal.forEach(function(c) {
         var nome = (JOGADORES.find(function(j){return j.id===c.jogId;})||{}).nome||c.jogId;
-        html += '<div class="res-classif-row">'+
+        html += '<div class="res-classif-row" data-pos="'+(c.pos)+'">'+
           '<span class="res-classif-pos">'+(medals[c.pos-1]||c.pos+'º')+'</span>'+
           '<span class="res-classif-nome">'+nome+'</span>'+
           '<span class="res-classif-pts">'+c.pts+' pts</span>'+
@@ -945,15 +945,24 @@
     }
 
     // pubFinal: match + winner step forward with medal/place label
+    function pubFinalLabeled(j, medal, placeLabel) {
+      var lbl = placeLabel ? '<div class="pub-final-lbl" style="margin-top:8px">'+placeLabel+'</div>' : '';
+      return lbl + pubFinal(j, medal, null);
+    }
+
     function pubFinal(j, medal, placeLabel) {
       if(!j) return pubMatch(j);
       var matchHtml = pubMatch(j);
       var done = j.vencedor != null;
       var winnerNome = done ? pNome(j.vencedor) : '—';
+      // Medal sizes: 🥇 big, 🥈 medium, 🥉 medium, rest small
+      var isTop3 = medal && (medal==='🥇'||medal==='🥈'||medal==='🥉');
+      var medalSize = medal==='🥇'?'1.8rem':medal==='🥈'?'1.5rem':medal==='🥉'?'1.4rem':'1.1rem';
+      var nameSize  = medal==='🥇'?'15px':medal==='🥈'?'14px':'13px';
       var champCell = '<div class="pub-champion-cell">' +
-        (medal ? '<span class="pub-champion-medal">' + medal + '</span>' : '') +
-        '<div class="pub-player pub-winner pub-champion">' +
-          '<span class="pub-pname">' + winnerNome + '</span>' +
+        (medal ? '<span class="pub-champion-medal" style="font-size:'+medalSize+'">' + medal + '</span>' : '') +
+        '<div class="pub-player pub-winner pub-champion" style="'+(isTop3?'padding:9px 14px;':'')+' font-size:'+nameSize+'">' +
+          '<span class="pub-pname" style="'+(medal==='🥇'?'color:#fff;font-weight:700;':medal==='🥈'?'font-weight:700;':'')+'">'+winnerNome+'</span>' +
           (placeLabel ? '<span class="pub-champion-place">' + placeLabel + '</span>' : '') +
         '</div>' +
       '</div>';
@@ -994,24 +1003,29 @@
     // ── QB main draw ──────────────────────────────────────────────────
     var qb = torneio.quadroB;
     if(qb && qb.rondas && qb.rondas.length) {
-      var r1qb=qb.rondas.find(function(r){return r.id==='r1';}),  // só 15 jog
+      var r1qb=qb.rondas.find(function(r){return r.id==='r1';}),
           r2qb=qb.rondas.find(function(r){return r.id==='r2';}),
           r3qb=qb.rondas.find(function(r){return r.id==='r3';});
       var finalB=r3qb?r3qb.jogos.find(function(j){return j.id==='qb_final';}):null;
       var t3lqb=r3qb?r3qb.jogos.find(function(j){return j.id==='qb_3lugar';}):null;
-      // Determine QB base position label dynamically
       var n = torneio.classificacaoFinal ? torneio.classificacaoFinal.length :
               (torneio.numInscritos || (torneio.grupos||[]).reduce(function(s,g){return s+(g.jogadores||[]).length;},0));
       var qbLabel = n >= 13 ? t('quadroB') :
                     n >= 9  ? (getLang()==='en'?'9th/10th':'9º/10º') : t('quadroB');
-      html+='<div class="pub-bracket-wrap"><div class="pub-bracket-label">'+qbLabel+'</div>';
-      html+='<div class="pub-bracket-scroll"><div class="pub-bracket-inner">';
-      if(r1qb) html+=pubCol(t('quartos'),r1qb.jogos.map(pubMatch));  // 15 jog only
-      if(r2qb) html+=pubCol(t('meias'),r2qb.jogos.map(pubMatch));
       var qbFinalPos = n >= 13 ? (getLang()==='en'?'11th':'11º') :
                        n >= 11 ? (getLang()==='en'?'9th':'9º') : (getLang()==='en'?'9th':'9º');
-      if(finalB) html+=pubCol(t('finalQB'),[pubFinal(finalB,null,qbFinalPos)]);
-      if(t3lqb)  html+=pubCol(getLang()==='en'?'3rd Place QB':'3º Lugar QB',[pubFinal(t3lqb,null,null)]);
+      var qbThirdPos = n >= 13 ? (getLang()==='en'?'13th':'13º') : (getLang()==='en'?'11th':'11º');
+      html+='<div class="pub-bracket-wrap"><div class="pub-bracket-label">'+qbLabel+'</div>';
+      html+='<div class="pub-bracket-scroll"><div class="pub-bracket-inner">';
+      if(r1qb) html+=pubCol(t('quartos'),r1qb.jogos.map(pubMatch));
+      if(r2qb) html+=pubCol(t('meias'),r2qb.jogos.map(pubMatch));
+      // Final + 3º lugar side by side in one column (both are place-match finals)
+      if(finalB||t3lqb) {
+        var finalsCol = '';
+        if(finalB) finalsCol += pubFinalLabeled(finalB, null, qbFinalPos);
+        if(t3lqb)  finalsCol += pubFinalLabeled(t3lqb, null, qbThirdPos);
+        html += pubCol(getLang()==='en'?'Finals':'Finais', [finalsCol]);
+      }
       html+='</div></div></div>';
     }
 
