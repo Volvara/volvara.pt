@@ -457,6 +457,31 @@ input[type=number] { -moz-appearance:textfield; }
 .pub-places-wrap { margin-top:20px; }
 /* ── Remove old place-block/bracket ─────────────────────────────────── */
 .pub-place-block, .pub-place-bracket { display:none; }
+
+/* ── Final column: match + champion side-by-side, champion visible on mobile ── */
+.pub-col-final { min-width:0; flex:0 0 auto; padding:0 6px; border-left:1px solid rgba(255,255,255,.07); }
+.pub-col-final-match { display:flex; flex-direction:column; gap:12px; }
+.pub-col-final .pub-final-wrap { display:flex; flex-direction:row; align-items:center; gap:0; flex-wrap:nowrap; }
+.pub-col-final .pub-match { min-width:160px; flex-shrink:0; }
+/* Champion cell: always visible, full border */
+.pub-champion { border:1px solid rgba(244,168,40,.4) !important; border-radius:6px !important; background:rgba(244,168,40,.1) !important; min-width:90px; flex-shrink:0; }
+/* pub-match-final: slightly larger for finals */
+.pub-match-final { min-width:160px; }
+/* Mobile: champion wraps below match if needed */
+@media(max-width:640px) {
+  .pub-col-final .pub-final-wrap { flex-direction:column; align-items:flex-start; gap:6px; }
+  .pub-champion-cell { padding-left:0; padding-top:4px; }
+  .pub-champion-cell::before { display:none; }
+}
+/* ── place-card: compact, no empty space ──────────────────────────────── */
+.pub-place-card .pub-player:empty { display:none; }
+.pub-place-card .pub-match { min-height:0; }
+/* 5/6 place-card-lg: full width, SF as mini-brackets */
+.pub-place-card-lg { max-width:100%; }
+.pub-place-sf-wrap { max-width:100%; }
+.pub-place-sf { min-width:140px; }
+/* ── Remove old place-block/bracket classes ───────────────────────────── */
+.pub-place-block, .pub-place-bracket, .pub-place-block > *, .pub-place-bracket > * { display:none !important; }
 </style>
 </head>
 <body>
@@ -587,7 +612,7 @@ input[type=number] { -moz-appearance:textfield; }
 </footer>
 
 <div id="player-modal" class="player-modal"></div>
-<script src="main.js?v=20260416d"></script>
+<script src="main.js?v=20260416e"></script>
 
 <script>
 // ── PT/EN TOGGLE ──────────────────────────────────────────────────
