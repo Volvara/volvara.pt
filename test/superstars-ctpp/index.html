@@ -308,8 +308,7 @@ section:nth-child(even){background:rgba(255,255,255,.018)}
   letter-spacing:.06em; margin-bottom:12px; opacity:.8; }
 .pub-bracket-scroll { overflow-x:auto; padding-bottom:8px; }
 .pub-bracket-inner { display:flex; gap:0; min-width:max-content; }
-.pub-bracket-col { display:flex; flex-direction:column; justify-content:space-around;
-  min-width:180px; padding:0 8px; border-left:1px solid rgba(255,255,255,.07); }
+.pub-bracket-col { display:flex; flex-direction:column; justify-content:flex-start; min-width:160px; padding:0 6px; border-left:1px solid rgba(255,255,255,.07); }
 .pub-bracket-col:first-child { border-left:none; }
 .pub-ronda-title { font-size:11px; text-transform:uppercase; letter-spacing:.08em;
   color:var(--gold,#F4A828); font-family:'Bebas Neue',sans-serif; font-size:14px;
@@ -497,6 +496,18 @@ input[type=number] { -moz-appearance:textfield; }
 .pub-place-card-lg .pub-bracket-inner { background:transparent; }
 /* ── Hide old place-sf classes (replaced by bracket) ─────────────────── */
 .pub-place-sf-wrap, .pub-place-sf, .pub-place-sf-lbl { display:none !important; }
+
+/* ── Bracket slot alignment ───────────────────────────────────────────── */
+.pub-slots { display:flex; flex-direction:column; flex:1; }
+.pub-slot { flex:1; display:flex; align-items:center; min-height:60px; }
+.pub-slot .pub-match { width:100%; }
+/* Final slot: vertically centred in its half of the column */
+.pub-slot-final { justify-content:flex-start; align-items:flex-start; padding-top:0; }
+/* Ronda title: always at top, consistent across all columns */
+.pub-ronda-title { margin-bottom:8px; }
+/* pub-col-final slots */
+.pub-col-final .pub-slots { flex:1; }
+.pub-col-final .pub-slot { align-items:flex-start; padding-top:0; }
 </style>
 </head>
 <body>
@@ -627,7 +638,7 @@ input[type=number] { -moz-appearance:textfield; }
 </footer>
 
 <div id="player-modal" class="player-modal"></div>
-<script src="main.js?v=20260416f"></script>
+<script src="main.js?v=20260416g"></script>
 
 <script>
 // ── PT/EN TOGGLE ──────────────────────────────────────────────────
