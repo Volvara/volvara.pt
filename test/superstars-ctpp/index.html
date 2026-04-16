@@ -294,6 +294,7 @@ section:nth-child(even){background:rgba(255,255,255,.018)}
 .res-nome { font-weight:600; color:#e8f0f7; }
 .res-pts { font-weight:700; color:var(--gold,#F4A828); font-family:'DM Mono',monospace; }
 .res-grupo-jogos { padding:10px 12px; border-top:1px solid rgba(255,255,255,.06); }
+.res-grupo-jogo-nome { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .res-jogo-row { display:flex; align-items:center; gap:6px; padding:4px 0; font-size:12px; }
 .res-jogo-player { flex:1; color:#9ab; }
 .res-jogo-player.res-w { color:#e8f0f7; font-weight:700; }
@@ -516,6 +517,23 @@ input[type=number] { -moz-appearance:textfield; }
 .res-grupo-card .res-grupo-jogos { margin-top:auto; }
 /* Table fills available space — equal height across cards in same row */
 .res-grupo-card > .res-grupo-table { flex:1; }
+
+/* Final column — match stays normal size, not stretched */
+.pub-col-final .pub-slots { flex:0 0 auto; justify-content:center; }
+.pub-col-final .pub-slot { flex:0 0 auto; min-height:0; }
+.pub-slot-final { justify-content:flex-start; align-items:flex-start; }
+
+/* ── Place cards — compact match style ───────────────────────────────── */
+.pub-place-card { max-width:300px; }
+.pub-place-card .pub-player { padding:7px 12px; gap:8px; }
+.pub-place-row-right { display:flex; align-items:center; gap:8px; flex-shrink:0; }
+.pub-place-row-right .pub-score { font-family:'DM Mono',monospace; font-size:13px; color:rgba(255,255,255,.4); }
+.pub-place-row-right .pub-score-w { color:var(--go,#F4A828); font-weight:700; }
+.pub-place-row-right .pub-place-badge { font-family:'DM Mono',monospace; font-size:11px; font-weight:700; color:rgba(244,168,40,.9); letter-spacing:.02em; }
+
+/* ── Grupo table rows: fixed height regardless of card stretch ────────── */
+.res-grupo-table tbody tr { height:36px; }
+.res-grupo-table td:nth-child(2) { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:120px; }
 </style>
 </head>
 <body>
@@ -646,7 +664,7 @@ input[type=number] { -moz-appearance:textfield; }
 </footer>
 
 <div id="player-modal" class="player-modal"></div>
-<script src="main.js?v=20260416i"></script>
+<script src="main.js?v=20260416k"></script>
 
 <script>
 // ── PT/EN TOGGLE ──────────────────────────────────────────────────
