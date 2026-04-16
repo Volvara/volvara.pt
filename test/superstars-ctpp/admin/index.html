@@ -1750,14 +1750,12 @@ function viewTorneioQuadros(torneio) {
     var r3qb = qb.rondas.find(function(r){return r.id==='r3';});
     var finalB = r3qb ? r3qb.jogos.find(function(j){return j.id==='qb_final';}) : null;
 
-    var t3lqb = r3qb ? r3qb.jogos.find(function(j){return j.id==='qb_3lugar';}) : null;
     return '<div class="bracket-section">'+
-      '<div class="bracket-title">Quadro B (11º – 15º)</div>'+
+      '<div class="bracket-title">Quadro B</div>'+
       '<div class="bracket-wrap">'+
         (r1qb ? col('Quartos de Final', r1qb.jogos.map(function(j){return matchBox(j,'b','r1');})) : '')+
         (r2qb ? col('Meias Finais', r2qb.jogos.map(function(j){return matchBox(j,'b','r2');})) : '')+
         col('Final QB', [matchBox(finalB,'b','r3')])+
-        (t3lqb ? col('3º/4º QB', [matchBox(t3lqb,'b','r3')]) : '')+
       '</div>'+
     '</div>';
   }
