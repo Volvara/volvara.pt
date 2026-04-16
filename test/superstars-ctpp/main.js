@@ -1033,12 +1033,12 @@
       if(r1qb) html+=pubCol(t('quartos'),r1qb.jogos.map(pubMatch));
       if(r2qb) html+=pubCol(t('meias'),r2qb.jogos.map(pubMatch));
       // Final + 3º lugar side by side in one column (both are place-match finals)
-      if(finalB||t3lqb) {
+      if(finalB) {
+        // Only show qb_final (11th) in bracket — qb_3lugar (13th) shown in Positions section
         html += '<div class="pub-bracket-col pub-col-final">'+
-          '<div class="pub-ronda-title">'+(getLang()==='en'?'Finals':'Finais')+'</div>'+
+          '<div class="pub-ronda-title">'+(getLang()==='en'?'Final 11th':'Final 11º')+'</div>'+
           '<div class="pub-col-final-match">'+
-            (finalB ? pubFinalLabeled(finalB, null, qbFinalPos) : '')+
-            (t3lqb  ? pubFinalLabeled(t3lqb, null, qbThirdPos)  : '')+
+            pubFinalLabeled(finalB, null, qbFinalPos)+
           '</div>'+
         '</div>';
       }
@@ -1070,11 +1070,12 @@
           if(!id) return '';
           var pos = isWinner ? winPos : losePos;
           var score = isWinner ? jogo.score_a : jogo.score_b;
-          var suffix = done
-            ? (pos ? '<span class="pub-place-badge">'+pos+'</span>' : '')
-            : (score!=null ? '<span class="pub-score">'+score+'</span>' : '');
+          // Always show score; also show place badge when done
+          var scoreHtml = score!=null ? '<span class="pub-score'+(isWinner&&done?' pub-score-w':'')+'">'+score+'</span>' : '';
+          var badgeHtml = done && pos ? '<span class="pub-place-badge">'+pos+'</span>' : '';
           return '<div class="pub-player'+(isWinner&&done?' pub-winner':'')+'">'+
-            '<span class="pub-pname">'+pNome(id)+'</span>'+suffix+
+            '<span class="pub-pname">'+pNome(id)+'</span>'+
+            '<span class="pub-place-row-right">'+scoreHtml+badgeHtml+'</span>'+
           '</div>';
         }
         var winA = done && jogo.vencedor===jogo.jogA;
@@ -1089,31 +1090,40 @@
       // 5/6 needs SF context first
       function place56Block() {
         if(!sfp1&&!sfp2&&!t56) return '';
+        // Real bracket like QP/QB: SF A + SF B → Final 5/6
+        // Uses same pub-bracket-wrap / pub-bracket-scroll / pub-bracket-inner pattern
+        var sfLabel5 = getLang()==='en'?'5th/6th SF A':'Meia A';
+        var sfLabel6 = getLang()==='en'?'5th/6th SF B':'Meia B';
+        var finalLabel = getLang()==='en'?'5th / 6th':'5º / 6º';
         var html56 = '<div class="pub-place-card pub-place-card-lg">'+
           '<div class="pub-place-lbl">'+t('lugar5_6')+'</div>'+
-          '<div class="pub-place-sf-wrap">'+
-            '<div class="pub-place-sf">'+
-              '<div class="pub-place-sf-lbl">'+(getLang()==='en'?'5th/6th SF A':'Meia 5/6 A')+'</div>'+
-              (sfp1?'<div class="pub-match">'+
-                '<div class="pub-player'+(sfp1.vencedor===sfp1.jogA?' pub-winner':'')+'"><span class="pub-pname">'+pNome(sfp1.jogA)+'</span>'+(sfp1.score_a!=null?'<span class="pub-score'+(sfp1.vencedor===sfp1.jogA?' pub-score-w':'')+'">'+sfp1.score_a+'</span>':'')+'</div>'+
-                '<div class="pub-player'+(sfp1.vencedor===sfp1.jogB?' pub-winner':'')+'"><span class="pub-pname">'+pNome(sfp1.jogB)+'</span>'+(sfp1.score_b!=null?'<span class="pub-score'+(sfp1.vencedor===sfp1.jogB?' pub-score-w':'')+'">'+sfp1.score_b+'</span>':'')+'</div>'+
-              '</div>':'<div class="pub-match"><div class="pub-player pub-bye"><span class="pub-pname">—</span></div></div>')+
+          '<div class="pub-bracket-scroll"><div class="pub-bracket-inner pub-56-inner">';
+        // SF A column
+        html56 += pubCol(sfLabel5, [sfp1 ? pubMatch(sfp1) : pubMatch(null)]);
+        // SF B column
+        html56 += pubCol(sfLabel6, [sfp2 ? pubMatch(sfp2) : pubMatch(null)]);
+        // Final column — use pub-col-final so winner cell is visible
+        if(t56) {
+          var win56 = t56.vencedor != null;
+          var w56A = win56 && t56.vencedor===t56.jogA;
+          var finalMatch56 = '<div class="pub-match">'+
+            '<div class="pub-player'+(w56A&&win56?' pub-winner':'')+'"><span class="pub-pname">'+pNome(t56.jogA)+'</span>'+(t56.score_a!=null?'<span class="pub-score'+(w56A?' pub-score-w':'')+'">'+t56.score_a+'</span>':'')+'</div>'+
+            '<div class="pub-player'+(!w56A&&win56?' pub-winner':'')+'"><span class="pub-pname">'+pNome(t56.jogB)+'</span>'+(t56.score_b!=null?'<span class="pub-score'+((!w56A)?' pub-score-w':'')+'">'+t56.score_b+'</span>':'')+'</div>'+
+          '</div>';
+          // Winner cell with position
+          var winner56Nome = win56 ? pNome(t56.vencedor) : null;
+          var winner56Cell = win56 ? '<div class="pub-champion-cell">'+
+            '<div class="pub-player pub-winner pub-champion">'+
+              '<span class="pub-pname">'+winner56Nome+'</span>'+
+              '<span class="pub-place-badge">'+(getLang()==='en'?'5th':'5º')+'</span>'+
             '</div>'+
-            '<div class="pub-place-sf">'+
-              '<div class="pub-place-sf-lbl">'+(getLang()==='en'?'5th/6th SF B':'Meia 5/6 B')+'</div>'+
-              (sfp2?'<div class="pub-match">'+
-                '<div class="pub-player'+(sfp2.vencedor===sfp2.jogA?' pub-winner':'')+'"><span class="pub-pname">'+pNome(sfp2.jogA)+'</span>'+(sfp2.score_a!=null?'<span class="pub-score'+(sfp2.vencedor===sfp2.jogA?' pub-score-w':'')+'">'+sfp2.score_a+'</span>':'')+'</div>'+
-                '<div class="pub-player'+(sfp2.vencedor===sfp2.jogB?' pub-winner':'')+'"><span class="pub-pname">'+pNome(sfp2.jogB)+'</span>'+(sfp2.score_b!=null?'<span class="pub-score'+(sfp2.vencedor===sfp2.jogB?' pub-score-w':'')+'">'+sfp2.score_b+'</span>':'')+'</div>'+
-              '</div>':'<div class="pub-match"><div class="pub-player pub-bye"><span class="pub-pname">—</span></div></div>')+
-            '</div>'+
-            (t56?'<div class="pub-place-sf">'+
-              '<div class="pub-place-sf-lbl">'+t('lugar5_6s')+'</div>'+
-              '<div class="pub-match">'+
-                '<div class="pub-player'+(t56.vencedor===t56.jogA?' pub-winner':'')+'"><span class="pub-pname">'+pNome(t56.jogA)+'</span>'+(t56.vencedor===t56.jogA?'<span class="pub-place-badge">5º</span>':'')+'</div>'+
-                '<div class="pub-player'+(t56.vencedor===t56.jogB?' pub-winner':'')+'"><span class="pub-pname">'+pNome(t56.jogB)+'</span>'+(t56.vencedor===t56.jogB?'<span class="pub-place-badge">5º</span>':'')+'</div>'+
-              '</div>'+
-            '</div>':'')
-          +'</div></div>';
+          '</div>' : '';
+          html56 += '<div class="pub-bracket-col pub-col-final">'+
+            '<div class="pub-ronda-title">'+finalLabel+'</div>'+
+            '<div class="pub-col-final-match"><div class="pub-final-wrap">'+finalMatch56+winner56Cell+'</div></div>'+
+          '</div>';
+        }
+        html56 += '</div></div></div>';
         return html56;
       }
 
