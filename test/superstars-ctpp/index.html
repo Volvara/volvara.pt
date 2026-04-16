@@ -307,8 +307,8 @@ section:nth-child(even){background:rgba(255,255,255,.018)}
 .pub-bracket-wrap { }
 .pub-bracket-label { font-family:'Bebas Neue',sans-serif; font-size:17px; color:#fff;
   letter-spacing:.06em; margin-bottom:12px; opacity:.8; }
-.pub-bracket-scroll { overflow-x:auto; padding-bottom:8px; }
-.pub-bracket-inner { display:flex; gap:0; min-width:max-content; }
+.pub-bracket-scroll { overflow-x:auto; overflow-y:hidden; padding-bottom:6px; }
+.pub-bracket-inner { display:flex; gap:0; min-width:max-content; align-items:center; }
 .pub-bracket-col { display:flex; flex-direction:column; justify-content:flex-start; min-width:160px; padding:0 6px; border-left:1px solid rgba(255,255,255,.07); }
 .pub-bracket-col:first-child { border-left:none; }
 .pub-ronda-title { font-size:11px; text-transform:uppercase; letter-spacing:.08em;
@@ -459,7 +459,7 @@ input[type=number] { -moz-appearance:textfield; }
 .pub-place-block, .pub-place-bracket { display:none; }
 
 /* ── Final column: match + champion side-by-side, champion visible on mobile ── */
-.pub-col-final { min-width:0; flex:0 0 auto; padding:0 6px; border-left:1px solid rgba(255,255,255,.07); }
+.pub-col-final { flex:0 0 auto; padding:0 6px; border-left:1px solid rgba(255,255,255,.07); align-self:center; }
 .pub-col-final-match { display:flex; flex-direction:column; gap:12px; }
 .pub-col-final .pub-final-wrap { display:flex; flex-direction:row; align-items:center; gap:0; flex-wrap:nowrap; }
 .pub-col-final .pub-match { min-width:160px; flex-shrink:0; }
@@ -489,7 +489,7 @@ input[type=number] { -moz-appearance:textfield; }
 .pub-place-row-right .pub-score-w { color:var(--go,#F4A828); }
 .pub-place-row-right .pub-place-badge { font-family:'DM Mono',monospace; font-size:10px; color:rgba(244,168,40,.7); letter-spacing:.04em; }
 /* ── 5/6 bracket inner: min col width for SF ─────────────────────────── */
-.pub-56-inner .pub-bracket-col { min-width:150px; }
+.pub-56-inner .pub-bracket-col { min-width:140px; }
 .pub-56-inner .pub-col-final { min-width:0; }
 /* ── pub-place-card-lg: no max-width, full available ─────────────────── */
 .pub-place-card-lg { max-width:100%; }
@@ -507,8 +507,8 @@ input[type=number] { -moz-appearance:textfield; }
 /* Ronda title: always at top, consistent across all columns */
 .pub-ronda-title { margin-bottom:8px; }
 /* pub-col-final slots */
-.pub-col-final .pub-slots { flex:0 0 auto; display:flex; flex-direction:column; gap:0; justify-content:center; height:100%; }
-.pub-col-final .pub-slot { flex:0 0 auto; display:flex; align-items:center; min-height:0; }
+.pub-col-final .pub-slots { display:flex; flex-direction:column; gap:0; }
+.pub-col-final .pub-slot { display:flex; align-items:center; }
 
 /* ── Grupo table: nome cell never wraps — consistent row height ───────── */
 .res-grupo-table td:nth-child(2) { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:130px; }
@@ -519,8 +519,8 @@ input[type=number] { -moz-appearance:textfield; }
 .res-grupo-card > .res-grupo-table { flex:1; }
 
 /* Final column — match stays normal size, not stretched */
-.pub-col-final .pub-slots { flex:0 0 auto; display:flex; flex-direction:column; gap:0; justify-content:center; height:100%; }
-.pub-col-final .pub-slot { flex:0 0 auto; display:flex; align-items:center; min-height:0; }
+.pub-col-final .pub-slots { display:flex; flex-direction:column; gap:0; }
+.pub-col-final .pub-slot { display:flex; align-items:center; }
 .pub-slot-final { display:flex; align-items:center; }
 
 /* ── Place cards — compact match style ───────────────────────────────── */
@@ -556,6 +556,23 @@ input[type=number] { -moz-appearance:textfield; }
 .pub-bracket-5678 .pub-bracket-label { font-family:'Bebas Neue',sans-serif; font-size:15px; color:#fff; letter-spacing:.06em; margin-bottom:10px; opacity:.8; }
 /* Hide old pub-place-card-lg (replaced) */
 .pub-place-card-lg { display:none !important; }
+
+.pub-bracket-5678 .pub-bracket-scroll { overflow-x:auto; overflow-y:hidden; }
+.pub-bracket-5678 .pub-bracket-col { min-width:140px; }
+.pub-bracket-5678 .pub-col-final { min-width:200px; }
+
+/* ── Place card rows: name | score | badge (3-col flex) ──────────────── */
+.pub-place-card .pub-player { display:grid; grid-template-columns:1fr auto auto; align-items:center; gap:0; padding:7px 12px; }
+.pub-place-card .pub-pname { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.pub-place-card .pub-score { font-family:'DM Mono',monospace; font-size:13px; color:rgba(255,255,255,.4); text-align:right; padding:0 10px; min-width:28px; }
+.pub-place-card .pub-score-w { color:var(--go,#F4A828); }
+.pub-place-card .pub-place-badge { font-family:'DM Mono',monospace; font-size:11px; font-weight:700; color:rgba(244,168,40,.9); text-align:right; min-width:28px; }
+.pub-place-row-right { display:contents; }
+
+/* ── Bracket final col: champion cell can extend beyond scroll area ──── */
+.pub-bracket-5678 .pub-bracket-scroll { overflow-x:auto; overflow-y:visible; }
+.pub-bracket-5678 { overflow:visible; }
+.pub-bracket-5678 .pub-bracket-inner { overflow:visible; }
 </style>
 </head>
 <body>
@@ -686,7 +703,7 @@ input[type=number] { -moz-appearance:textfield; }
 </footer>
 
 <div id="player-modal" class="player-modal"></div>
-<script src="main.js?v=20260416l"></script>
+<script src="main.js?v=20260416m"></script>
 
 <script>
 // ── PT/EN TOGGLE ──────────────────────────────────────────────────
