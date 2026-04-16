@@ -979,8 +979,10 @@
       return '<div class="pub-final-wrap">'+matchHtml+champCell+'</div>';
     }
 
-    function pubCol(title, matches) {
-      return '<div class="pub-bracket-col"><div class="pub-ronda-title">'+title+'</div>'+
+    function pubCol(title, matches, roundIndex) {
+      var pt = roundIndex ? Math.round(84 * (Math.pow(2, roundIndex) - 1) / 2) : 0;
+      var style = pt ? ' style="padding-top:'+pt+'px"' : '';
+      return '<div class="pub-bracket-col"'+style+'><div class="pub-ronda-title">'+title+'</div>'+
         matches.join('')+'</div>';
     }
 
@@ -1004,9 +1006,9 @@
       var fJogo=r4?r4.jogos.find(function(j){return j.id==='qp_final';}):null;
       html+='<div class="pub-bracket-wrap"><div class="pub-bracket-label">'+ t('quadroPrincipal') +'</div>';
       html+='<div class="pub-bracket-scroll"><div class="pub-bracket-inner">';
-      if(r1) html+=pubCol(t('oitavos'),r1.jogos.map(pubMatch));   // QP16 only
-      if(r2) html+=pubCol(t('quartos'),r2.jogos.map(pubMatch));   // QP16 + QP8
-      if(r3) html+=pubCol(t('meias'),r3.jogos.map(pubMatch));
+      if(r1) html+=pubCol(t('oitavos'),r1.jogos.map(pubMatch),0);   // QP16 only
+      if(r2) html+=pubCol(t('quartos'),r2.jogos.map(pubMatch),r1?1:0);   // QP16 + QP8
+      if(r3) html+=pubCol(t('meias'),r3.jogos.map(pubMatch),r1?2:1);
       if(fJogo) html+='<div class="pub-bracket-col pub-col-final">'+
         '<div class="pub-ronda-title">'+t('final12')+'</div>'+
         pubFinal(fJogo,'🥇',null)+
@@ -1031,8 +1033,8 @@
       var qbThirdPos = n >= 13 ? (getLang()==='en'?'13th':'13º') : (getLang()==='en'?'11th':'11º');
       html+='<div class="pub-bracket-wrap"><div class="pub-bracket-label">'+qbLabel+'</div>';
       html+='<div class="pub-bracket-scroll"><div class="pub-bracket-inner">';
-      if(r1qb) html+=pubCol(t('quartos'),r1qb.jogos.map(pubMatch));
-      if(r2qb) html+=pubCol(t('meias'),r2qb.jogos.map(pubMatch));
+      if(r1qb) html+=pubCol(t('quartos'),r1qb.jogos.map(pubMatch),0);
+      if(r2qb) html+=pubCol(t('meias'),r2qb.jogos.map(pubMatch),r1qb?1:0);
       // Final + 3º lugar side by side in one column (both are place-match finals)
       if(finalB) {
         html += '<div class="pub-bracket-col pub-col-final">'+
@@ -1090,10 +1092,7 @@
       if(!sfp1 && !sfp2 && !t56) return '';
       var en = getLang()==='en';
       // SF col: sfp1 + sfp2 (both matches, space-around centres them)
-      var sfCol = '<div class="pub-bracket-col">'+
-        '<div class="pub-ronda-title">'+(en?'Semis 5/6':'Meias 5/6')+'</div>'+
-        pubMatch(sfp1)+pubMatch(sfp2)+
-      '</div>';
+      var sfCol = pubCol(en?'Semis 5/6':'Meias 5/6', [pubMatch(sfp1),pubMatch(sfp2)], 0);
       // Final col: single match, align-self:center centres it between the two SFs
       var finalCol = '<div class="pub-bracket-col pub-col-final">'+
         '<div class="pub-ronda-title">'+(en?'5th / 6th':'5º / 6º')+'</div>'+
@@ -1107,7 +1106,7 @@
 
       html+='<div class="pub-places-wrap"><div class="pub-bracket-label">'+ t('posicoesLugar') +'</div>';
       html+='<div class="pub-places-s1">';
-      html+=placeCard(t('lugar3_4'), t34, getLang()==='en'?'3rd':'3º', getLang()==='en'?'4th':'4º');
+      html+=placeCard(t('lugar3_4'), t34, '🥉', getLang()==='en'?'4th':'4º');
       html+='</div>';
       // ── Section 2: 5/6 draw ──────────────────────────────────────
       html+='<div class="pub-places-s2">';
