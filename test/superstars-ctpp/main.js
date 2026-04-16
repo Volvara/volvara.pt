@@ -980,7 +980,10 @@
     }
 
     function pubCol(title, matches) {
-      return '<div class="pub-bracket-col"><div class="pub-ronda-title">'+title+'</div>'+matches.join('')+'</div>';
+      // Wrap each match in a .pub-slot for vertical alignment across rounds
+      var slots = matches.map(function(m){ return '<div class="pub-slot">'+m+'</div>'; });
+      return '<div class="pub-bracket-col"><div class="pub-ronda-title">'+title+'</div>'+
+        '<div class="pub-slots">'+slots.join('')+'</div></div>';
     }
 
     function singleBlock(label, jogo, place) {
@@ -1008,7 +1011,7 @@
       if(r3) html+=pubCol(t('meias'),r3.jogos.map(pubMatch));
       if(fJogo) html+='<div class="pub-bracket-col pub-col-final">'+
         '<div class="pub-ronda-title">'+t('final12')+'</div>'+
-        '<div class="pub-col-final-match">'+pubFinal(fJogo,'🥇',null)+'</div>'+
+        '<div class="pub-slots"><div class="pub-slot pub-slot-final">'+pubFinal(fJogo,'🥇',null)+'</div></div>'+
       '</div>';
       html+='</div></div></div>';
     }
@@ -1034,12 +1037,9 @@
       if(r2qb) html+=pubCol(t('meias'),r2qb.jogos.map(pubMatch));
       // Final + 3º lugar side by side in one column (both are place-match finals)
       if(finalB) {
-        // Only show qb_final (11th) in bracket — qb_3lugar (13th) shown in Positions section
         html += '<div class="pub-bracket-col pub-col-final">'+
           '<div class="pub-ronda-title">'+(getLang()==='en'?'Final 11th':'Final 11º')+'</div>'+
-          '<div class="pub-col-final-match">'+
-            pubFinalLabeled(finalB, null, qbFinalPos)+
-          '</div>'+
+          '<div class="pub-slots"><div class="pub-slot pub-slot-final">'+pubFinalLabeled(finalB, null, qbFinalPos)+'</div></div>'+
         '</div>';
       }
       html+='</div></div></div>';
@@ -1120,7 +1120,7 @@
           '</div>' : '';
           html56 += '<div class="pub-bracket-col pub-col-final">'+
             '<div class="pub-ronda-title">'+finalLabel+'</div>'+
-            '<div class="pub-col-final-match"><div class="pub-final-wrap">'+finalMatch56+winner56Cell+'</div></div>'+
+            '<div class="pub-slots"><div class="pub-slot pub-slot-final"><div class="pub-final-wrap">'+finalMatch56+winner56Cell+'</div></div></div>'+
           '</div>';
         }
         html56 += '</div></div></div>';
