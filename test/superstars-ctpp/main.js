@@ -1044,32 +1044,66 @@
       var t910 =r4c ?r4c.jogos.find(function(j){return j.id==='qp_910';}):null;
       var t1314=r3qb2?r3qb2.jogos.find(function(j){return j.id==='qb_1314';}):null;
 
-      html+='<div class="pub-places-wrap"><div class="pub-bracket-label">'+ t('posicoesLugar') +'</div>';
-      html+='<div class="pub-places-grid">';
-
-      // 3/4 — simples
-      html+=singleBlock(t('lugar3_4'),t34,'🥉');
-
-      // 5/6 — bracket: SF1+SF2 → Final 5/6
-      if(sfp1||sfp2||t56) {
-        html+='<div class="pub-place-bracket">'+
-          '<div class="pub-place-label">'+ t('lugar5_6') +'</div>'+
-          '<div class="pub-bracket-scroll"><div class="pub-bracket-inner">'+
-            pubCol(t('meias56'),[pubMatch(sfp1),pubMatch(sfp2)])+
-            pubCol(t('lugar5_6s'),[pubFinal(t56,null,getLang()==='en'?'5th':'5º')])+
-          '</div></div></div>';
+      // ── Posições por Lugar — clean ordered list ──────────────────────────
+      function placeCard(label, jogo, winPos, losePos) {
+        if(!jogo) return '';
+        var done = jogo.vencedor != null;
+        var lbl = '<div class="pub-place-lbl">'+label+'</div>';
+        function playerRow(id, isWinner) {
+          if(!id) return '<div class="pub-player pub-bye"><span class="pub-pname">—</span></div>';
+          var pos = isWinner ? winPos : losePos;
+          return '<div class="pub-player'+(isWinner&&done?' pub-winner':'')+'">'+
+            '<span class="pub-pname">'+pNome(id)+'</span>'+
+            (done&&pos?'<span class="pub-place-badge">'+pos+'</span>':'<span class="pub-score">'+(isWinner?jogo.score_a:jogo.score_b)+'</span>')+
+          '</div>';
+        }
+        var winA = done && jogo.vencedor===jogo.jogA;
+        return '<div class="pub-place-card">'+lbl+
+          '<div class="pub-match">'+
+            playerRow(jogo.jogA, winA)+
+            playerRow(jogo.jogB, !winA)+
+          '</div>'+
+        '</div>';
       }
 
-      // 7/8 — simples (perdedores das meias)
-      html+=singleBlock(t('lugar7_8'),t78,getLang()==='en'?'7th':'7º');
+      // 5/6 needs SF context first
+      function place56Block() {
+        if(!sfp1&&!sfp2&&!t56) return '';
+        var html56 = '<div class="pub-place-card pub-place-card-lg">'+
+          '<div class="pub-place-lbl">'+t('lugar5_6')+'</div>'+
+          '<div class="pub-place-sf-wrap">'+
+            '<div class="pub-place-sf">'+
+              '<div class="pub-place-sf-lbl">'+(getLang()==='en'?'5th/6th SF A':'Meia 5/6 A')+'</div>'+
+              (sfp1?'<div class="pub-match">'+
+                '<div class="pub-player'+(sfp1.vencedor===sfp1.jogA?' pub-winner':'')+'"><span class="pub-pname">'+pNome(sfp1.jogA)+'</span></div>'+
+                '<div class="pub-player'+(sfp1.vencedor===sfp1.jogB?' pub-winner':'')+'"><span class="pub-pname">'+pNome(sfp1.jogB)+'</span></div>'+
+              '</div>':'<div class="pub-match"><div class="pub-player pub-bye"><span class="pub-pname">—</span></div></div>')+
+            '</div>'+
+            '<div class="pub-place-sf">'+
+              '<div class="pub-place-sf-lbl">'+(getLang()==='en'?'5th/6th SF B':'Meia 5/6 B')+'</div>'+
+              (sfp2?'<div class="pub-match">'+
+                '<div class="pub-player'+(sfp2.vencedor===sfp2.jogA?' pub-winner':'')+'"><span class="pub-pname">'+pNome(sfp2.jogA)+'</span></div>'+
+                '<div class="pub-player'+(sfp2.vencedor===sfp2.jogB?' pub-winner':'')+'"><span class="pub-pname">'+pNome(sfp2.jogB)+'</span></div>'+
+              '</div>':'<div class="pub-match"><div class="pub-player pub-bye"><span class="pub-pname">—</span></div></div>')+
+            '</div>'+
+            (t56?'<div class="pub-place-sf">'+
+              '<div class="pub-place-sf-lbl">'+t('lugar5_6s')+'</div>'+
+              '<div class="pub-match">'+
+                '<div class="pub-player'+(t56.vencedor===t56.jogA?' pub-winner':'')+'"><span class="pub-pname">'+pNome(t56.jogA)+'</span>'+(t56.vencedor===t56.jogA?'<span class="pub-place-badge">5º</span>':'')+'</div>'+
+                '<div class="pub-player'+(t56.vencedor===t56.jogB?' pub-winner':'')+'"><span class="pub-pname">'+pNome(t56.jogB)+'</span>'+(t56.vencedor===t56.jogB?'<span class="pub-place-badge">5º</span>':'')+'</div>'+
+              '</div>'+
+            '</div>':'')
+          +'</div></div>';
+        return html56;
+      }
 
-      // 9/10 — simples
-      html+=singleBlock(t('lugar9_10'),t910,getLang()==='en'?'9th':'9º');
-
-      // 13/14 — simples
-      html+=singleBlock(t('lugar13_14'),t1314,getLang()==='en'?'13th':'13º');
-
-      // 15º+
+      html+='<div class="pub-places-wrap"><div class="pub-bracket-label">'+ t('posicoesLugar') +'</div>';
+      html+='<div class="pub-places-list">';
+      html+=placeCard(t('lugar3_4'), t34, getLang()==='en'?'3rd':'3º', getLang()==='en'?'4th':'4º');
+      html+=place56Block();
+      html+=placeCard(t('lugar7_8'), t78, getLang()==='en'?'7th':'7º', getLang()==='en'?'8th':'8º');
+      html+=placeCard(t('lugar9_10'), t910, getLang()==='en'?'9th':'9º', getLang()==='en'?'10th':'10º');
+      html+=placeCard(t('lugar13_14'), t1314, getLang()==='en'?'13th':'13º', getLang()==='en'?'14th':'14º');
       if(r1qb2) {
         var posExtra=15;
         r1qb2.jogos.forEach(function(qfj){
@@ -1077,14 +1111,16 @@
           if(isReal&&qfj.vencedor){
             var perd=qfj.jogA===qfj.vencedor?qfj.jogB:qfj.jogA;
             if(perd){
-              html+='<div class="pub-place-block"><div class="pub-place-label">'+ordinal(posExtra)+' '+(getLang()==='en'?'Place':'Lugar')+'</div>'+
-                '<div class="pub-match"><div class="pub-player pub-winner pub-champion"><span class="pub-pname">'+pNome(perd)+'</span><span class="pub-champion-place">'+ordinal(posExtra)+'</span></div></div></div>';
+              html+='<div class="pub-place-card"><div class="pub-place-lbl">'+ordinal(posExtra)+'</div>'+
+                '<div class="pub-match"><div class="pub-player pub-winner">'+
+                '<span class="pub-pname">'+pNome(perd)+'</span>'+
+                '<span class="pub-place-badge">'+ordinal(posExtra)+'</span>'+
+                '</div></div></div>';
               posExtra++;
             }
           }
         });
       }
-
       html+='</div></div>';
     }
 
