@@ -2269,10 +2269,11 @@ function doEditJogoQuadro(quadro, rondaId, jogoId) {
       if(!jogo||!jogo.vencedor) return null;
       return jogo.vencedor===jogo.jogA ? jogo.jogB : jogo.jogA;
     }
+    // setJogo: only set a slot if the new value is non-null (never overwrite with null)
     function setJogo(jogo, A, B) {
       if(!jogo) return;
-      if(A !== undefined) jogo.jogA = A;
-      if(B !== undefined) jogo.jogB = B;
+      if(A != null) jogo.jogA = A;
+      if(B != null) jogo.jogB = B;
     }
 
     // ── QP: R1 → QF (only QP16) ──────────────────────────────────────────
