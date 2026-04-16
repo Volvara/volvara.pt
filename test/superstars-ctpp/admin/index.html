@@ -922,7 +922,7 @@ var TorneioEngine = (function() {
           if(aIsBye && bIsBye)      { jogo.vencedor = null; }
           else if(aIsBye)            { jogo.vencedor = jogo.jogB; }
           else if(bIsBye)            { jogo.vencedor = jogo.jogA; }
-          else                       { jogo.vencedor = null; }
+          else                       { if(!jogo.vencedor) jogo.vencedor = null; }
         });
         preencherQFdepoisR1(torneio);
       }
@@ -957,7 +957,7 @@ var TorneioEngine = (function() {
           if(aIsBye && bIsBye)  { jogo.vencedor = null; }
           else if(aIsBye)        { jogo.vencedor = jogo.jogB; }
           else if(bIsBye)        { jogo.vencedor = jogo.jogA; }
-          else                   { jogo.vencedor = null; }
+          else                   { if(!jogo.vencedor) jogo.vencedor = null; }
         });
         // Se QB tem QF (15 jog), propagar para SF
         if(numInscritos === 15) preencherSFdoQB(torneio);
@@ -975,13 +975,16 @@ var TorneioEngine = (function() {
       var j2 = r1.jogos[qi*2+1];
       var j1phantom = j1 && !j1.jogA && !j1.jogB;
       var j2phantom = j2 && !j2.jogA && !j2.jogB;
-      jogo.jogA = j1phantom ? null : (j1 ? j1.vencedor : null);
-      jogo.jogB = j2phantom ? null : (j2 ? j2.vencedor : null);
+      // Only fill jogA/jogB if not already set (preserve existing data)
+      if(!jogo.jogA) jogo.jogA = j1phantom ? null : (j1 ? j1.vencedor : null);
+      if(!jogo.jogB) jogo.jogB = j2phantom ? null : (j2 ? j2.vencedor : null);
       var j1isBye = !j1 || j1phantom || j1.bye;
       var j2isBye = !j2 || j2phantom || j2.bye;
-      if(jogo.jogA && !jogo.jogB && j2isBye) jogo.vencedor = jogo.jogA;
-      else if(jogo.jogB && !jogo.jogA && j1isBye) jogo.vencedor = jogo.jogB;
-      else jogo.vencedor = null;
+      // Only auto-set vencedor for bye cases, never reset existing vencedor
+      if(!jogo.vencedor) {
+        if(jogo.jogA && !jogo.jogB && j2isBye) jogo.vencedor = jogo.jogA;
+        else if(jogo.jogB && !jogo.jogA && j1isBye) jogo.vencedor = jogo.jogB;
+      }
     });
   }
 
@@ -995,13 +998,14 @@ var TorneioEngine = (function() {
       var qf2 = r1qb.jogos[si*2+1];
       var qf1p = qf1 && !qf1.jogA && !qf1.jogB;
       var qf2p = qf2 && !qf2.jogA && !qf2.jogB;
-      sf.jogA = qf1p ? null : (qf1 ? qf1.vencedor : null);
-      sf.jogB = qf2p ? null : (qf2 ? qf2.vencedor : null);
+      if(!sf.jogA) sf.jogA = qf1p ? null : (qf1 ? qf1.vencedor : null);
+      if(!sf.jogB) sf.jogB = qf2p ? null : (qf2 ? qf2.vencedor : null);
       var qf1bye = !qf1 || qf1p || qf1.bye;
       var qf2bye = !qf2 || qf2p || qf2.bye;
-      if(sf.jogA && !sf.jogB && qf2bye) sf.vencedor = sf.jogA;
-      else if(sf.jogB && !sf.jogA && qf1bye) sf.vencedor = sf.jogB;
-      else sf.vencedor = null;
+      if(!sf.vencedor) {
+        if(sf.jogA && !sf.jogB && qf2bye) sf.vencedor = sf.jogA;
+        else if(sf.jogB && !sf.jogA && qf1bye) sf.vencedor = sf.jogB;
+      }
     });
   }
 
@@ -2559,6 +2563,8 @@ async function doLogin(){
   showMsg('Login OK. A carregar dados…','ok');
   try {
     await loadData();
+    // Fix any matches with scores but no vencedor (from old bug)
+    fixBrokenVencedores();
   } catch(e) {
     state._loggingIn = false;
     var msg = e.message || 'erro desconhecido';
