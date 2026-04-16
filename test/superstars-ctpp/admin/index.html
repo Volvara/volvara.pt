@@ -1390,7 +1390,7 @@ function viewTorneio() {
   var etapasAbertas = etapasValidas.filter(function(e){
     return state.etapas.some(function(x){ return x.id===e.id && x.estado==='aberta'; });
   });
-  etapaOptsHtml = etapasAbertas.map(function(e){
+  var etapaOptsHtml = etapasAbertas.map(function(e){
     var temTorneio = state.torneios.some(function(t){return t.etapaId===e.id;});
     return '<option value="'+e.id+'"'+(state.torneioActivo===e.id?' selected':'')+'>'+
       labelEtapa(e)+' — '+fmtData(e.data)+(temTorneio?' ✓':'')+
