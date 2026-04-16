@@ -391,12 +391,12 @@ section:nth-child(even){background:rgba(255,255,255,.018)}
 /* BRACKET FINAL — winner step + champion cell */
 .pub-final-wrap { display:flex; align-items:center; gap:0; }
 .pub-final-wrap .pub-match { flex-shrink:0; }
-.pub-champion-cell { display:flex; align-items:center; padding-left:12px; }
-.pub-champion-cell::before { content:''; display:block; width:24px; height:2px; background:var(--go,#F4A828); margin-right:0; }
-.pub-champion { background:rgba(244,168,40,.18) !important; border:1px solid rgba(244,168,40,.5); border-radius:0 8px 8px 0 !important; min-width:110px; }
+.pub-champion-cell { display:flex; align-items:center; padding-left:8px; }
+.pub-champion-cell::before { content:''; display:block; width:16px; height:1px; background:rgba(244,168,40,.5); margin-right:0; }
+.pub-champion { background:rgba(244,168,40,.1) !important; border:1px solid rgba(244,168,40,.4); border-radius:6px !important; min-width:90px; }
 .pub-champion .pub-pname { color:#fff !important; font-weight:700; }
 .pub-champion-medal { font-size:1.2rem; margin-right:6px; }
-.pub-champion-place { font-size:10px; font-family:'DM Mono',monospace; letter-spacing:.08em; color:rgba(244,168,40,.8); margin-left:6px; white-space:nowrap; }
+.pub-champion-place { font-size:10px; font-family:'DM Mono',monospace; letter-spacing:.04em; color:rgba(244,168,40,.7); margin-left:4px; white-space:nowrap; }
 @media(max-width:600px){
   .pub-final-wrap { flex-wrap:wrap; }
   .pub-champion-cell { padding-left:8px; width:100%; margin-top:4px; }
@@ -439,6 +439,24 @@ input[type=number] { -moz-appearance:textfield; }
 /* ── QB finals column: stack vertically with gap ─────────────────────── */
 .pub-bracket-col .pub-final-lbl { margin-top:16px; }
 .pub-bracket-col .pub-final-lbl:first-child { margin-top:0; }
+
+/* ── Places — clean ordered list ────────────────────────────────────── */
+.pub-places-list { display:flex; flex-direction:column; gap:8px; margin-top:10px; max-width:560px; }
+.pub-place-card { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07); border-radius:8px; overflow:hidden; }
+.pub-place-lbl { font-family:'Bebas Neue',sans-serif; font-size:12px; letter-spacing:.08em; color:var(--go,#F4A828); padding:5px 12px 4px; border-bottom:1px solid rgba(255,255,255,.06); opacity:.8; text-transform:uppercase; }
+.pub-place-badge { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.04em; color:rgba(244,168,40,.8); white-space:nowrap; }
+.pub-place-card .pub-match { margin-bottom:0; border-radius:0; border:none; background:transparent; }
+.pub-place-card .pub-player { padding:6px 12px; }
+.pub-place-card-lg { max-width:560px; }
+.pub-place-sf-wrap { display:flex; gap:0; overflow-x:auto; scrollbar-width:thin; scrollbar-color:var(--go,#F4A828) rgba(255,255,255,.04); }
+.pub-place-sf-wrap::-webkit-scrollbar { height:4px; }
+.pub-place-sf-wrap::-webkit-scrollbar-thumb { background:var(--go); border-radius:2px; }
+.pub-place-sf { flex:0 0 auto; min-width:160px; border-right:1px solid rgba(255,255,255,.07); }
+.pub-place-sf:last-child { border-right:none; }
+.pub-place-sf-lbl { font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:rgba(255,255,255,.3); padding:4px 10px; }
+.pub-places-wrap { margin-top:20px; }
+/* ── Remove old place-block/bracket ─────────────────────────────────── */
+.pub-place-block, .pub-place-bracket { display:none; }
 </style>
 </head>
 <body>
@@ -569,7 +587,7 @@ input[type=number] { -moz-appearance:textfield; }
 </footer>
 
 <div id="player-modal" class="player-modal"></div>
-<script src="main.js?v=20260416c"></script>
+<script src="main.js?v=20260416d"></script>
 
 <script>
 // ── PT/EN TOGGLE ──────────────────────────────────────────────────
