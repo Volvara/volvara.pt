@@ -500,7 +500,43 @@ function labelEtapa(e){ return (e.numero||'?')+'ª Etapa Super Stars'; }
 function genId(prefix){ return prefix+(Date.now().toString(36)+Math.random().toString(36).slice(2,6)); }
 
 // ── RENDER PRINCIPAL ──────────────────────────────────────────────────────
+function fixBrokenVencedores() {
+  var t = torneioActivo();
+  if(!t) return false;
+  var fixed = false;
+  [t.quadroPrincipal, t.quadroB].forEach(function(q){
+    if(!q||!q.rondas) return;
+    q.rondas.forEach(function(r){
+      r.jogos.forEach(function(j){
+        if(j.score_a!=null && j.score_b!=null && j.jogA && j.jogB && !j.vencedor) {
+          j.vencedor = j.score_a > j.score_b ? j.jogA : j.jogB;
+          fixed = true;
+        }
+      });
+    });
+  });
+  if(fixed) {
+    // Re-propagate all rondas in order
+    var t2 = torneioActivo();
+    if(t2) {
+      ['r1','r2','r3','r3p'].forEach(function(rid){
+        ['principal','b'].forEach(function(q){
+          var quad = q==='principal' ? t2.quadroPrincipal : t2.quadroB;
+          if(!quad||!quad.rondas) return;
+          var ronda = quad.rondas.find(function(r){return r.id===rid;});
+          if(!ronda) return;
+          ronda.jogos.forEach(function(j){
+            if(j.vencedor) propagarResultado(t2, q, rid, j.id);
+          });
+        });
+      });
+    }
+  }
+  return fixed;
+}
+
 function render(){
+  fixBrokenVencedores();
   var root = document.getElementById('app');
   if(!root) return;
   if(state.view==='login')      root.innerHTML = viewLogin();
@@ -2253,9 +2289,27 @@ function doEditJogoQuadro(quadro, rondaId, jogoId) {
   if(!ronda) return;
   var jogo = ronda.jogos.find(function(j){return j.id===jogoId;});
   if(!jogo) return;
+  var oldVencedor = jogo.vencedor;
   // Reset para permitir reedição
   jogo.score_a=null; jogo.score_b=null; jogo.vencedor=null;
+  // Cascade: clear downstream slots that had this player as source
+  if(oldVencedor) clearDownstream(t, quadro, rondaId, jogoId, oldVencedor);
   render();
+}
+
+function clearDownstream(torneio, quadro, rondaId, jogoId, jogadorId) {
+  var q = quadro==='principal' ? torneio.quadroPrincipal : torneio.quadroB;
+  // Clear this player from ALL subsequent rondas
+  if(!q||!q.rondas) return;
+  var found = false;
+  q.rondas.forEach(function(r){
+    if(r.id === rondaId) { found = true; return; }
+    if(!found) return;
+    r.jogos.forEach(function(j){
+      if(j.jogA === jogadorId) { j.jogA = null; j.score_a=null; j.score_b=null; j.vencedor=null; }
+      if(j.jogB === jogadorId) { j.jogB = null; j.score_a=null; j.score_b=null; j.vencedor=null; }
+    });
+  });
 }
 
 // Propagação simples: se há ronda seguinte e o jogo tem posição conhecida, preencher
