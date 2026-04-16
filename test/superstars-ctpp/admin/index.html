@@ -1387,7 +1387,9 @@ function viewTorneio() {
     var temTorneio = state.torneios.some(function(t){return t.etapaId===e.id;});
     var torneio = state.torneios.find(function(t){return t.etapaId===e.id;});
     var concluida = torneio && torneio.estado === 'concluido';
-    if(concluida && e.id !== state.torneioActivo) return '';
+    // Show: all etapas abertas; concluidas only if currently selected
+    var etapaIsAberta = (function(){ var et = state.etapas.find(function(x){return x.id===e.id;}); return et && et.estado==='aberta'; })();
+    if(concluida && !etapaIsAberta && e.id !== state.torneioActivo) return '';
     return '<option value="'+e.id+'"'+(state.torneioActivo===e.id?' selected':'')+(concluida?' disabled':'')+'>'+
       labelEtapa(e)+' — '+fmtData(e.data)+(temTorneio?' ✓':'')+(concluida?' 🔒':'')+
     '</option>';
