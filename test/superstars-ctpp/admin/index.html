@@ -1363,7 +1363,12 @@ function calcClassificacaoGrupo(grupo) {
 function viewTorneio() {
   // Auto-seleccionar se só há um torneio e nenhum está activo
   if(!state.torneioActivo && state.torneios.length > 0) {
-    var auto = state.torneios[0];
+    // Prefer the active (aberta) etapa over concluded ones
+    var aberta = state.torneios.find(function(t){
+      var e = state.etapas.find(function(e){return e.id===t.etapaId;});
+      return e && e.estado === 'aberta';
+    });
+    var auto = aberta || state.torneios[state.torneios.length-1]; // latest if none aberta
     state.torneioActivo = auto.etapaId;
     state.etapaActiva   = auto.etapaId;
     state.torneioView   = auto.estado==='quadros'?'quadros':auto.estado==='grupos'?'grupos':auto.estado==='sorteio'?'sorteio':'classificacao';
