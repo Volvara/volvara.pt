@@ -946,8 +946,8 @@
 
     // pubFinal: match + winner step forward with medal/place label
     function pubFinalLabeled(j, medal, placeLabel) {
-      // placeLabel shown as col title only — not repeated inside match
-      return pubFinal(j, medal, null);
+      // placeLabel passed to pubFinal for champion cell (non-medal finals like QB)
+      return pubFinal(j, medal, placeLabel);
     }
 
     function pubFinal(j, medal, placeLabel) {
