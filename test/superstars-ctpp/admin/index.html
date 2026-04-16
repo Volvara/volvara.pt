@@ -340,6 +340,9 @@ input[type=number] { appearance:auto; -moz-appearance:number-input; }
 .bracket-wrap::-webkit-scrollbar { height:5px; }
 .bracket-section::-webkit-scrollbar-thumb,
 .bracket-wrap::-webkit-scrollbar-thumb { background:var(--go); border-radius:3px; }
+
+
+.etapa-empty-warning { background:rgba(220,20,60,.1); border:1px solid rgba(220,20,60,.25); border-radius:6px; padding:8px 12px; color:var(--cr,#DC143C); font-size:12.5px; margin-bottom:8px; }
 </style>
 </head>
 <body>
@@ -1368,7 +1371,7 @@ function viewTorneio() {
       var e = state.etapas.find(function(e){return e.id===t.etapaId;});
       return e && e.estado === 'aberta';
     });
-    var auto = aberta || state.torneios[state.torneios.length-1]; // latest if none aberta
+    var auto = aberta || null; // only auto-select if there's an aberta etapa // latest if none aberta
     state.torneioActivo = auto.etapaId;
     state.etapaActiva   = auto.etapaId;
     state.torneioView   = auto.estado==='quadros'?'quadros':auto.estado==='grupos'?'grupos':auto.estado==='sorteio'?'sorteio':'classificacao';
@@ -1383,15 +1386,14 @@ function viewTorneio() {
   var etapasValidas = state.etapas.filter(function(e){
     return e.estado==='aberta' || state.torneios.some(function(t){return t.etapaId===e.id;});
   });
-  var etapaOptsHtml = etapasValidas.map(function(e){
+  // Only show etapas com estado=aberta
+  var etapasAbertas = etapasValidas.filter(function(e){
+    return state.etapas.some(function(x){ return x.id===e.id && x.estado==='aberta'; });
+  });
+  etapaOptsHtml = etapasAbertas.map(function(e){
     var temTorneio = state.torneios.some(function(t){return t.etapaId===e.id;});
-    var torneio = state.torneios.find(function(t){return t.etapaId===e.id;});
-    var concluida = torneio && torneio.estado === 'concluido';
-    // Show: all etapas abertas; concluidas only if currently selected
-    var etapaIsAberta = (function(){ var et = state.etapas.find(function(x){return x.id===e.id;}); return et && et.estado==='aberta'; })();
-    if(concluida && !etapaIsAberta && e.id !== state.torneioActivo) return '';
-    return '<option value="'+e.id+'"'+(state.torneioActivo===e.id?' selected':'')+(concluida?' disabled':'')+'>'+
-      labelEtapa(e)+' — '+fmtData(e.data)+(temTorneio?' ✓':'')+(concluida?' 🔒':'')+
+    return '<option value="'+e.id+'"'+(state.torneioActivo===e.id?' selected':'')+'>'+
+      labelEtapa(e)+' — '+fmtData(e.data)+(temTorneio?' ✓':'')+
     '</option>';
   }).join('');
 
