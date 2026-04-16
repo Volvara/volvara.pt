@@ -1106,9 +1106,15 @@
     }
 
       html+='<div class="pub-places-wrap"><div class="pub-bracket-label">'+ t('posicoesLugar') +'</div>';
-      html+='<div class="pub-places-list">';
+      html+='<div class="pub-places-s1">';
       html+=placeCard(t('lugar3_4'), t34, getLang()==='en'?'3rd':'3º', getLang()==='en'?'4th':'4º');
+      html+='</div>';
+      // ── Section 2: 5/6 draw ──────────────────────────────────────
+      html+='<div class="pub-places-s2">';
       html+=place56Block();
+      html+='</div>';
+      // ── Section 3: jogos simples compactos ───────────────────────
+      html+='<div class="pub-places-s3">';
       html+=placeCard(t('lugar7_8'), t78, getLang()==='en'?'7th':'7º', getLang()==='en'?'8th':'8º');
       html+=placeCard(t('lugar9_10'), t910, getLang()==='en'?'9th':'9º', getLang()==='en'?'10th':'10º');
       // 11/12 — QB final (if present)
@@ -1132,6 +1138,7 @@
           }
         });
       }
+      html+='</div>';  // close s3
       html+='</div></div>';
     }
 
