@@ -428,7 +428,15 @@
   // ── ETAPAS COM TORNEIOS CONCLUÍDOS ────────────────────────────────────────
   function etapasComTorneio() {
     return ETAPAS_RAW.filter(function(e){
-      return TORNEIOS.some(function(t){return t.etapaId===e.id && t.classificacaoFinal && t.classificacaoFinal.length;});
+      // Include etapas with: completed torneio OR active torneio (grupos/quadros)
+      return TORNEIOS.some(function(t){
+        if(t.etapaId !== e.id) return false;
+        // Completed: has classificacaoFinal
+        if(t.classificacaoFinal && t.classificacaoFinal.length) return true;
+        // Active: has grupos with players (sorteio done)
+        if(Array.isArray(t.grupos) && t.grupos.some(function(g){return g.jogadores && g.jogadores.length > 0;})) return true;
+        return false;
+      });
     });
   }
 
@@ -730,7 +738,13 @@
     // Resultados: só etapas abertas (em curso) ou concluidas com torneio
     var etapasComT = ETAPAS_RAW.filter(function(e) {
       if(e.estado !== 'aberta' && e.estado !== 'concluida') return false;
-      return TORNEIOS.some(function(t){ return t.etapaId===e.id; });
+      // Include if torneio exists with grupos assigned (even before results)
+      return TORNEIOS.some(function(t){
+        if(t.etapaId !== e.id) return false;
+        if(t.classificacaoFinal && t.classificacaoFinal.length) return true;
+        if(Array.isArray(t.grupos) && t.grupos.some(function(g){return g.jogadores && g.jogadores.length > 0;})) return true;
+        return false;
+      });
     });
 
     if(!etapasComT.length) {
