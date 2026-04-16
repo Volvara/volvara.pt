@@ -1269,8 +1269,8 @@
                 "id": "qp_qf_4",
                 "jogA": "j003",
                 "jogB": "jmntir2jlvvot",
-                "score_a": null,
-                "score_b": null,
+                "score_a": 3,
+                "score_b": 5,
                 "vencedor": null
               }
             ]
