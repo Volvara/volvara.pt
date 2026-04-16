@@ -900,7 +900,16 @@
             "j004",
             "jmnulp1rji487"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmo1dpzb812a8",
+              "ja": "jmntii5ehdkwg",
+              "jb": "j004",
+              "score_a": 7,
+              "score_b": 0,
+              "vencedor": "jmntii5ehdkwg"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         }
