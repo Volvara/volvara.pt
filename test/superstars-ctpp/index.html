@@ -401,6 +401,44 @@ section:nth-child(even){background:rgba(255,255,255,.018)}
   .pub-final-wrap { flex-wrap:wrap; }
   .pub-champion-cell { padding-left:8px; width:100%; margin-top:4px; }
 }
+
+/* ── Scrollbar branding ─────────────────────────────────────────────── */
+.pub-bracket-scroll::-webkit-scrollbar { height:5px; }
+.pub-bracket-scroll::-webkit-scrollbar-track { background:rgba(255,255,255,.04); border-radius:3px; }
+.pub-bracket-scroll::-webkit-scrollbar-thumb { background:var(--go,#F4A828); border-radius:3px; opacity:.6; }
+.pub-bracket-scroll { scrollbar-width:thin; scrollbar-color:var(--go,#F4A828) rgba(255,255,255,.04); }
+.rank-scroll-wrap::-webkit-scrollbar { height:5px; width:5px; }
+.rank-scroll-wrap::-webkit-scrollbar-track { background:rgba(255,255,255,.04); }
+.rank-scroll-wrap::-webkit-scrollbar-thumb { background:var(--go,#F4A828); border-radius:3px; }
+.rank-scroll-wrap { scrollbar-width:thin; scrollbar-color:var(--go,#F4A828) rgba(255,255,255,.04); }
+
+/* ── Podium — 1st/2nd/3rd highlight ─────────────────────────────────── */
+.res-classif-row[data-pos="1"] { background:linear-gradient(135deg,rgba(244,168,40,.18),rgba(244,168,40,.06)); border-color:rgba(244,168,40,.4); }
+.res-classif-row[data-pos="2"] { background:linear-gradient(135deg,rgba(180,180,200,.14),rgba(180,180,200,.04)); border-color:rgba(180,180,200,.3); }
+.res-classif-row[data-pos="3"] { background:linear-gradient(135deg,rgba(201,123,75,.14),rgba(201,123,75,.04)); border-color:rgba(201,123,75,.3); }
+.res-classif-row[data-pos="1"] .res-classif-pos { font-size:26px; }
+.res-classif-row[data-pos="2"] .res-classif-pos { font-size:23px; }
+.res-classif-row[data-pos="3"] .res-classif-pos { font-size:21px; }
+.res-classif-row[data-pos="1"] .res-classif-nome { font-size:16px; color:#fff; }
+.res-classif-row[data-pos="2"] .res-classif-nome { font-size:15px; }
+
+/* ── Admin number inputs — show spinners on mobile ───────────────────── */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance:inner-spin-button!important; opacity:1!important; margin-left:4px; }
+input[type=number] { -moz-appearance:textfield; }
+@media (max-width:768px) {
+  input[type=number] { -moz-appearance:number-input; font-size:16px; padding:8px 6px; }
+  input[type=number]::-webkit-inner-spin-button { -webkit-appearance:inner-spin-button!important; opacity:1!important; width:28px; height:28px; }
+}
+
+/* ── Remove excessive bottom margins ────────────────────────────────── */
+.res-brackets-wrap { margin-bottom:24px; }
+.res-classif-wrap { margin-bottom:24px; }
+.res-grupos-wrap { margin-bottom:20px; }
+
+/* ── QB finals column: stack vertically with gap ─────────────────────── */
+.pub-bracket-col .pub-final-lbl { margin-top:16px; }
+.pub-bracket-col .pub-final-lbl:first-child { margin-top:0; }
 </style>
 </head>
 <body>
@@ -531,7 +569,7 @@ section:nth-child(even){background:rgba(255,255,255,.018)}
 </footer>
 
 <div id="player-modal" class="player-modal"></div>
-<script src="main.js?v=20260416b"></script>
+<script src="main.js?v=20260416c"></script>
 
 <script>
 // ── PT/EN TOGGLE ──────────────────────────────────────────────────
