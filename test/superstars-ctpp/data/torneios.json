@@ -1245,8 +1245,8 @@
                 "id": "qp_qf_1",
                 "jogA": "j001",
                 "jogB": "jmntihrfco8zm",
-                "score_a": null,
-                "score_b": null,
+                "score_a": 5,
+                "score_b": 1,
                 "vencedor": null
               },
               {
