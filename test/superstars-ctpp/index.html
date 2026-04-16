@@ -308,16 +308,14 @@ section:nth-child(even){background:rgba(255,255,255,.018)}
 .pub-bracket-label { font-family:'Bebas Neue',sans-serif; font-size:17px; color:#fff;
   letter-spacing:.06em; margin-bottom:12px; opacity:.8; }
 .pub-bracket-scroll { overflow-x:auto; overflow-y:hidden; padding-bottom:6px; }
-.pub-bracket-inner { display:flex; gap:0; min-width:max-content; align-items:stretch; }
-.pub-bracket-col { display:flex; flex-direction:column; justify-content:space-around; min-width:160px; padding:0 6px; border-left:1px solid rgba(255,255,255,.07); flex:1; }
+.pub-bracket-inner { display:flex; gap:0; min-width:max-content; align-items:flex-start; }
+.pub-bracket-col { display:flex; flex-direction:column; justify-content:flex-start; min-width:160px; padding:0 6px; border-left:1px solid rgba(255,255,255,.07); }
 .pub-bracket-col:first-child { border-left:none; }
 .pub-ronda-title { font-size:11px; text-transform:uppercase; letter-spacing:.08em;
   color:var(--gold,#F4A828); font-family:'Bebas Neue',sans-serif; font-size:14px;
   margin-bottom:12px; padding:0 4px; }
-.pub-match { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
-  border-radius:8px; margin-bottom:12px; overflow:hidden; }
-.pub-player { display:flex; align-items:center; justify-content:space-between;
-  padding:7px 12px; gap:6px; border-bottom:1px solid rgba(255,255,255,.06); transition:background .15s; }
+.pub-match { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:8px; margin-bottom:12px; overflow:hidden; height:72px; box-sizing:border-box; flex-shrink:0; }
+.pub-player { display:flex; align-items:center; justify-content:space-between; padding:0 12px; gap:6px; border-bottom:1px solid rgba(255,255,255,.06); transition:background .15s; height:36px; box-sizing:border-box; flex-shrink:0; }
 .pub-player:last-child { border-bottom:none; }
 .pub-player.pub-winner { background:rgba(45,106,79,.25); }
 .pub-player.pub-bye { opacity:.4; }
@@ -459,7 +457,7 @@ input[type=number] { -moz-appearance:textfield; }
 .pub-place-block, .pub-place-bracket { display:none; }
 
 /* ── Final column: match + champion side-by-side, champion visible on mobile ── */
-.pub-col-final { display:flex; flex-direction:column; justify-content:center; min-width:0; padding:0 6px; border-left:1px solid rgba(255,255,255,.07); align-self:center; flex:0 0 auto; }
+.pub-col-final { display:flex; flex-direction:column; justify-content:flex-start; min-width:0; padding:0 6px; border-left:1px solid rgba(255,255,255,.07); align-self:center; flex:0 0 auto; }
 .pub-col-final-match { display:flex; flex-direction:column; gap:12px; }
 .pub-col-final .pub-final-wrap { display:flex; flex-direction:row; align-items:center; gap:0; flex-wrap:nowrap; }
 .pub-col-final .pub-match { min-width:160px; flex-shrink:0; }
@@ -598,7 +596,7 @@ input[type=number] { -moz-appearance:textfield; }
 /* ── pub-match: fixed uniform height ─── */
 .pub-match { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:8px; margin-bottom:12px; overflow:hidden; }
 /* ── bracket-inner: stretch all cols to same height ─── */
-.pub-bracket-inner { display:flex; gap:0; min-width:max-content; align-items:stretch; }
+.pub-bracket-inner { display:flex; gap:0; min-width:max-content; align-items:flex-start; }
 
 /* ── Posições por Lugar — 3 secções ──────────────────────────── */
 .pub-places-wrap { margin-top:28px; }
@@ -617,6 +615,11 @@ input[type=number] { -moz-appearance:textfield; }
 /* Section 2: 5/6 draw as full bracket-wrap */
 .pub-bracket-56 { }
 .pub-bracket-56 .pub-bracket-label { font-family:'Bebas Neue',sans-serif; font-size:14px; letter-spacing:.06em; color:rgba(255,255,255,.7); margin-bottom:8px; }
+.pub-place-card { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07); border-radius:10px; overflow:hidden; width:260px; }
+
+.pub-place-card .pub-player { height:36px; box-sizing:border-box; padding:0 12px; border-bottom:1px solid rgba(255,255,255,.05); display:grid; grid-template-columns:1fr auto auto; gap:0 6px; align-items:center; }
+.pub-place-card .pub-player:last-child { border-bottom:none; }
+.pub-places-s3 { display:flex; flex-wrap:wrap; gap:16px; align-items:flex-start; }
 </style>
 </head>
 <body>
@@ -747,7 +750,7 @@ input[type=number] { -moz-appearance:textfield; }
 </footer>
 
 <div id="player-modal" class="player-modal"></div>
-<script src="main.js?v=20260416o"></script>
+<script src="main.js?v=20260416p"></script>
 
 <script>
 // ── PT/EN TOGGLE ──────────────────────────────────────────────────
