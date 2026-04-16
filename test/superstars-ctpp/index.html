@@ -482,6 +482,21 @@ input[type=number] { -moz-appearance:textfield; }
 .pub-place-sf { min-width:140px; }
 /* ── Remove old place-block/bracket classes ───────────────────────────── */
 .pub-place-block, .pub-place-bracket, .pub-place-block > *, .pub-place-bracket > * { display:none !important; }
+
+/* ── Place card: score + badge row ───────────────────────────────────── */
+.pub-place-row-right { display:flex; align-items:center; gap:6px; flex-shrink:0; }
+.pub-place-row-right .pub-score { font-family:'DM Mono',monospace; font-size:13px; color:rgba(255,255,255,.45); min-width:16px; text-align:right; }
+.pub-place-row-right .pub-score-w { color:var(--go,#F4A828); }
+.pub-place-row-right .pub-place-badge { font-family:'DM Mono',monospace; font-size:10px; color:rgba(244,168,40,.7); letter-spacing:.04em; }
+/* ── 5/6 bracket inner: min col width for SF ─────────────────────────── */
+.pub-56-inner .pub-bracket-col { min-width:150px; }
+.pub-56-inner .pub-col-final { min-width:0; }
+/* ── pub-place-card-lg: no max-width, full available ─────────────────── */
+.pub-place-card-lg { max-width:100%; }
+.pub-place-card-lg .pub-bracket-scroll { border-radius:0; }
+.pub-place-card-lg .pub-bracket-inner { background:transparent; }
+/* ── Hide old place-sf classes (replaced by bracket) ─────────────────── */
+.pub-place-sf-wrap, .pub-place-sf, .pub-place-sf-lbl { display:none !important; }
 </style>
 </head>
 <body>
@@ -612,7 +627,7 @@ input[type=number] { -moz-appearance:textfield; }
 </footer>
 
 <div id="player-modal" class="player-modal"></div>
-<script src="main.js?v=20260416e"></script>
+<script src="main.js?v=20260416f"></script>
 
 <script>
 // ── PT/EN TOGGLE ──────────────────────────────────────────────────
