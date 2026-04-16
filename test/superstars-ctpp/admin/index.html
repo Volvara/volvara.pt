@@ -1359,8 +1359,12 @@ function viewTorneio() {
   });
   var etapaOptsHtml = etapasValidas.map(function(e){
     var temTorneio = state.torneios.some(function(t){return t.etapaId===e.id;});
-    return '<option value="'+e.id+'"'+(state.torneioActivo===e.id?' selected':'')+'>'+
-      labelEtapa(e)+' — '+fmtData(e.data)+(temTorneio?' ✓':'')+'</option>';
+    var torneio = state.torneios.find(function(t){return t.etapaId===e.id;});
+    var concluida = torneio && torneio.estado === 'concluido';
+    if(concluida && e.id !== state.torneioActivo) return '';
+    return '<option value="'+e.id+'"'+(state.torneioActivo===e.id?' selected':'')+(concluida?' disabled':'')+'>'+
+      labelEtapa(e)+' — '+fmtData(e.data)+(temTorneio?' ✓':'')+(concluida?' 🔒':'')+
+    '</option>';
   }).join('');
 
   var selectorHtml =
@@ -1716,12 +1720,14 @@ function viewTorneioQuadros(torneio) {
     var r3qb = qb.rondas.find(function(r){return r.id==='r3';});
     var finalB = r3qb ? r3qb.jogos.find(function(j){return j.id==='qb_final';}) : null;
 
+    var t3lqb = r3qb ? r3qb.jogos.find(function(j){return j.id==='qb_3lugar';}) : null;
     return '<div class="bracket-section">'+
       '<div class="bracket-title">Quadro B (11º – 15º)</div>'+
       '<div class="bracket-wrap">'+
         (r1qb ? col('Quartos de Final', r1qb.jogos.map(function(j){return matchBox(j,'b','r1');})) : '')+
         (r2qb ? col('Meias Finais', r2qb.jogos.map(function(j){return matchBox(j,'b','r2');})) : '')+
         col('Final QB', [matchBox(finalB,'b','r3')])+
+        (t3lqb ? col('3º/4º QB', [matchBox(t3lqb,'b','r3')]) : '')+
       '</div>'+
     '</div>';
   }
@@ -1738,7 +1744,7 @@ function renderLosers() {
     var t56   = r4 ? r4.jogos.find(function(j){return j.id==='qp_56';}) : null;  // Final 5/6
     var t78   = r4 ? r4.jogos.find(function(j){return j.id==='qp_78';}) : null;  // Jogo 7/8 (L SF1 vs L SF2)
     var t910  = r4 ? r4.jogos.find(function(j){return j.id==='qp_910';}) : null;
-    var t1314 = r3qb ? r3qb.jogos.find(function(j){return j.id==='qb_1314';}) : null;
+    var t1314 = r3qb ? r3qb.jogos.find(function(j){return j.id==='qb_3lugar';}) : null;
 
     // Single vertical block (1 jogo)
     function singleBlock(label, jogo, quadro, rondaId) {
@@ -2293,6 +2299,8 @@ function doEditJogoQuadro(quadro, rondaId, jogoId) {
   if(!ronda) return;
   var jogo = ronda.jogos.find(function(j){return j.id===jogoId;});
   if(!jogo) return;
+  // Confirm before clearing result
+  if(!confirm('Limpar este resultado? Os resultados seguintes que dependam deste também serão apagados.')) return;
   var oldVencedor = jogo.vencedor;
   // Reset para permitir reedição
   jogo.score_a=null; jogo.score_b=null; jogo.vencedor=null;
@@ -2465,6 +2473,8 @@ function doMoverPosicao(quadro, posFrom, posTo) {
   render();
 }
 async function doResetarEtapa() {
+  if(!confirm('ATENÇÃO: Apagar todos os resultados desta etapa?')) return;
+  if(!confirm('Confirmação final: apagar tudo?')) return;
   var t = torneioActivo();
   if(!t||state.saving||state._resetting) return;
   state._resetting = true;
@@ -2494,6 +2504,7 @@ async function doResetarEtapa() {
 }
 
 async function doConcluirTorneio() {
+  if(!confirm('Concluir este torneio e guardar a classificação final? Esta acção não pode ser desfeita facilmente.')) return;
   var t = torneioActivo();
   if(!t||state.saving) return;
   var cl = TorneioEngine.calcClassificacaoFinal(t);
