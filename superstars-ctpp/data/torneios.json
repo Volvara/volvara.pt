@@ -840,7 +840,16 @@
             "jmo31xwfs5xxs",
             "jmo31y6xvq7nx"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmo3haokmxwwi",
+              "ja": "jmntiomivpeaw",
+              "jb": "jmo31xwfs5xxs",
+              "score_a": 4,
+              "score_b": 3,
+              "vencedor": "jmntiomivpeaw"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         },
