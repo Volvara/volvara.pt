@@ -153,6 +153,13 @@
       "tipo": "senior",
       "escalao": null,
       "ativo": true
+    },
+    {
+      "id": "jmo32jj00ixl0",
+      "nome": "Hugo Popken",
+      "tipo": "senior",
+      "escalao": null,
+      "ativo": true
     }
   ]
 }
