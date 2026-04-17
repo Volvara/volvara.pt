@@ -798,7 +798,7 @@
     },
     {
       "etapaId": "e002",
-      "estado": "quadros",
+      "estado": "concluido",
       "numGrupos": 4,
       "numInscritos": 8,
       "cabecasDeSerie": [
@@ -1115,7 +1115,48 @@
         "posicoes": [],
         "rondas": []
       },
-      "classificacaoFinal": []
+      "classificacaoFinal": [
+        {
+          "pos": 1,
+          "jogId": "j003",
+          "pts": 18
+        },
+        {
+          "pos": 2,
+          "jogId": "j002",
+          "pts": 16
+        },
+        {
+          "pos": 3,
+          "jogId": "j005",
+          "pts": 14
+        },
+        {
+          "pos": 4,
+          "jogId": "jmntipxsi5f0s",
+          "pts": 13
+        },
+        {
+          "pos": 5,
+          "jogId": "jmntihrfco8zm",
+          "pts": 12
+        },
+        {
+          "pos": 6,
+          "jogId": "jmntiomivpeaw",
+          "pts": 11
+        },
+        {
+          "pos": 7,
+          "jogId": "jmntir2jlvvot",
+          "pts": 10
+        },
+        {
+          "pos": 8,
+          "jogId": "jmntiqp3bcz0c",
+          "pts": 9
+        }
+      ]
     }
   ]
 }
