@@ -1105,6 +1105,10 @@ var TorneioEngine = (function() {
     torneio.quadroB.rondas = gerarRondasQB(numInscritos);
     preencherPrimeirasRondas(torneio);
     torneio.estado = 'quadros';
+    // Para 9 jog: 3ºG1 fica em 9º directo — calcular já
+    if(numInscritos === 9) {
+      torneio.classificacaoFinal = calcClassificacaoFinal(torneio);
+    }
     return torneio;
   }
 
@@ -1143,10 +1147,10 @@ var TorneioEngine = (function() {
       if(t910)   { addPos(9, t910.vencedor);   addPos(10, loser(t910)); }
     }
 
-    // 10 jog: QB é só 1 SF = final 9/10
-    if(n === 10 && r2qb) {
-      var sf1 = r2qb.jogos.find(function(j){return j.id==='qb_sf_1';});
-      if(sf1) { addPos(9, sf1.vencedor); addPos(10, loser(sf1)); }
+    // 10 jog: QB é final directa 9/10 (r3/qb_final)
+    if(n === 10 && r3qb) {
+      var f910 = r3qb.jogos.find(function(j){return j.id==='qb_final';});
+      if(f910) { addPos(9, f910.vencedor); addPos(10, loser(f910)); }
     }
 
     // 9 jog: 3ºG1 fica em 9º directo
