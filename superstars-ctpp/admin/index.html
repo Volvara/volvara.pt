@@ -705,47 +705,38 @@ var TorneioEngine = (function() {
   // Valor: array de {g:idx_grupo, pos:pos_no_quadroB}
   // Os 3ºs de grupos que não existem (grupo de 2) ficam como BYE
   var QB_POSICOES = {
-    // 15 jog: QF(pos1-8) com BYEs
-    // QF: pos1v2(3ºG1 vs BYE), pos3v4(3ºG3 vs 3ºG5), pos5v6(BYE vs 3ºG4), pos7v8(BYE vs 3ºG2)
+    // 15 jog: QF(pos1-8) com BYEs — pos3↔pos6 trocadas
+    // QF1: 3ºG1 vs BYE | QF2: 3ºG4 vs 3ºG5 | QF3: BYE vs 3ºG3 | QF4: BYE vs 3ºG2
     15: [
       {g:0, pos:1},  // 3ºG1 → pos1
-      {g:2, pos:3},  // 3ºG3 → pos3
+      {g:3, pos:3},  // 3ºG4 → pos3  (era 3ºG3)
       {g:4, pos:4},  // 3ºG5 → pos4
-      {g:3, pos:6},  // 3ºG4 → pos6
+      {g:2, pos:6},  // 3ºG3 → pos6  (era 3ºG4)
       {g:1, pos:8},  // 3ºG2 → pos8
       // pos2,5,7 ficam BYE
     ],
-    // 14 jog: SF directas (sem QF), 3ºG5 ausente
-    // SF: 3ºG1 vs 3ºG3, 3ºG4 vs 3ºG2
+    // 14 jog: SF directas — SF1: 3ºG1 vs 3ºG4 | SF2: 3ºG3 vs 3ºG2
     14: [
       {g:0, pos:1},  // 3ºG1
-      {g:2, pos:2},  // 3ºG3
-      {g:3, pos:3},  // 3ºG4
+      {g:3, pos:2},  // 3ºG4  (era 3ºG3)
+      {g:2, pos:3},  // 3ºG3  (era 3ºG4)
       {g:1, pos:4},  // 3ºG2
     ],
-    // 13 jog: SF com BYE, 3ºG4 e 3ºG5 ausentes
-    // SF: 3ºG1 vs BYE, 3ºG4(ausente→BYE) vs 3ºG2 → wait, G4 tem 2 jog → sem 3º
-    // SF: 3ºG1 vs BYE, 3ºG3 vs 3ºG2  (G4 e G5 não têm 3ºs)
+    // 13 jog: SF com BYE — G4 e G5 sem 3ºs, sem mudança
     13: [
       {g:0, pos:1},  // 3ºG1
       {g:2, pos:3},  // 3ºG3
       {g:1, pos:4},  // 3ºG2
       // pos2 BYE → 3ºG1 avança directo para final
     ],
-    // 12 jog: 4 grupos, todos com 3 jog → 4 terceiros → SF directas
-    // SF: 3ºG1 vs 3ºG3, 3ºG4 vs 3ºG2
+    // 12 jog: SF directas — SF1: 3ºG1 vs 3ºG4 | SF2: 3ºG3 vs 3ºG2
     12: [
       {g:0, pos:1},  // 3ºG1
-      {g:2, pos:2},  // 3ºG3
-      {g:3, pos:3},  // 3ºG4
+      {g:3, pos:2},  // 3ºG4  (era 3ºG3)
+      {g:2, pos:3},  // 3ºG3  (era 3ºG4)
       {g:1, pos:4},  // 3ºG2
     ],
-    // 11 jog: G4 tem 2 jog → sem 3ºG4
-    // SF: 3ºG1 vs BYE, 3ºG4(ausente→BYE) vs 3ºG2... 
-    // Mas G4=2 jog → sem 3ºG4. Fica: 3ºG1 vs BYE, 3ºG3 vs 3ºG2... 
-    // Na verdade com 11: G1,G2,G3=3jog, G4=2jog. 3ºs existentes: G1,G2,G3
-    // SF: 3ºG1 vs BYE, 3ºG4(BYE) vs 3ºG2 → perdedor de sf2 (3ºG3 vs 3ºG2) fica em 11º
-    // Reinterpretando: SF(3ºG1 vs BYE, 3ºG3 vs 3ºG2) → perdedor sf2 = 11º
+    // 11 jog: SF com BYE — G4 sem 3º, sem mudança
     11: [
       {g:0, pos:1},  // 3ºG1 → pos1 (pos2=BYE)
       {g:2, pos:3},  // 3ºG3
