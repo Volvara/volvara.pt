@@ -1068,6 +1068,12 @@ var TorneioEngine = (function() {
     // Distribuir restantes respeitando maxJogadores
     var outros = outrosJogadores.slice().sort(function(){return Math.random()-0.5;});
     // Criar lista de slots disponíveis por grupo
+    // If maxJogadores not set (old torneio), recalculate from estrutura
+    if(!grupos[0].maxJogadores) {
+      var ni2 = cabecasDeSerie.length + outrosJogadores.length;
+      var est2 = TorneioEngine.calcEstrutura(ni2);
+      if(est2) grupos.forEach(function(g,gi){ g.maxJogadores = est2.tamGrupos[gi] || 3; });
+    }
     var slots = [];
     grupos.forEach(function(g, gi){
       var max = g.maxJogadores || 3;
@@ -1085,8 +1091,10 @@ var TorneioEngine = (function() {
 
   // ── AVANÇAR PARA QUADROS ────────────────────────────────────────────────
   function avancarParaQuadros(torneio) {
+    // Fallback: count from grupos if numInscritos not stored
     var numInscritos = torneio.numInscritos ||
       torneio.grupos.reduce(function(s,g){return s+g.jogadores.length;},0);
+    torneio.numInscritos = numInscritos; // ensure stored
     var classificacoes = torneio.grupos.map(function(g){
       return g.classificacaoEditada ? g.classificacao : calcClassificacaoGrupo(g);
     });
@@ -1109,6 +1117,7 @@ var TorneioEngine = (function() {
   function calcClassificacaoFinal(torneio) {
     var numInscritos = torneio.numInscritos ||
       torneio.grupos.reduce(function(t,g){return t+g.jogadores.length;}, 0);
+    torneio.numInscritos = torneio.numInscritos || numInscritos;
     var n = numInscritos;
     var pontos = PONTUACAO.slice(0, n);
     var classif = [];
