@@ -1046,8 +1046,8 @@
       var t3lqb=r3qb?r3qb.jogos.find(function(j){return j.id==='qb_3lugar';}):null;
       var n = torneio.classificacaoFinal ? torneio.classificacaoFinal.length :
               (torneio.numInscritos || (torneio.grupos||[]).reduce(function(s,g){return s+(g.jogadores||[]).length;},0));
-      var qbLabel = n >= 13 ? t('quadroB') :
-                    n >= 9  ? (getLang()==='en'?'9th/10th':'9º/10º') : t('quadroB');
+      var qbLabel = n >= 11 ? t('quadroB') :
+                    n === 10 ? (getLang()==='en'?'9th/10th':'9º/10º') : t('quadroB');
       var qbFinalPos = n >= 13 ? (getLang()==='en'?'11th':'11º') :
                        n >= 11 ? (getLang()==='en'?'9th':'9º') : (getLang()==='en'?'9th':'9º');
       var qbThirdPos = n >= 13 ? (getLang()==='en'?'13th':'13º') : (getLang()==='en'?'11th':'11º');
@@ -1058,7 +1058,7 @@
       // Final + 3º lugar side by side in one column (both are place-match finals)
       if(finalB) {
         html += '<div class="pub-bracket-col pub-col-final">'+
-          '<div class="pub-ronda-title">'+( n<=10 ? (getLang()==='en'?'9th/10th':'9º/10º') : (getLang()==='en'?'Final 11th':'Final 11º') )+'</div>'+
+          '<div class="pub-ronda-title">'+(n<=10?(getLang()==='en'?'9th/10th':'9º/10º'):n<=12?(getLang()==='en'?'Final 9th':'Final 9º'):(getLang()==='en'?'Final 11th':'Final 11º'))+'</div>'+
           pubFinalLabeled(finalB, null, qbFinalPos)+
         '</div>';
       }
@@ -1137,7 +1137,7 @@
       html+=placeCard(t('lugar7_8'), t78, getLang()==='en'?'7th':'7º', getLang()==='en'?'8th':'8º');
       html+=placeCard(t('lugar9_10'), t910, getLang()==='en'?'9th':'9º', getLang()==='en'?'10th':'10º');
       // 11/12 — QB final (if present)
-      if(finalQB && n >= 11) html+=placeCard(getLang()==='en'?'11th / 12th Place':'11º / 12º Lugar', finalQB, getLang()==='en'?'11th':'11º', getLang()==='en'?'12th':'12º');
+      if(finalQB && n >= 13) html+=placeCard(getLang()==='en'?'11th / 12th Place':'11º / 12º Lugar', finalQB, getLang()==='en'?'11th':'11º', getLang()==='en'?'12th':'12º');
       // 13/14 — QB 3rd place
       html+=placeCard(t('lugar13_14'), t1314, getLang()==='en'?'13th':'13º', getLang()==='en'?'14th':'14º');
       if(r1qb2) {
