@@ -209,7 +209,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0D1B2A;color:
 .jogo-row.jogo-done{border-color:rgba(45,106,79,.3);background:rgba(45,106,79,.06)}
 .jogo-row.jogo-bye{border-color:rgba(255,255,255,.06);background:rgba(255,255,255,.02);opacity:.6}
 .jogo-label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--go);margin-bottom:6px}
-.jogo-inner{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.jogo-inner{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
 .jogo-nome{flex:1;font-size:13px;color:var(--mu);min-width:80px}.jogo-win{color:var(--cr);font-weight:700}
 .jogo-score-area{display:flex;align-items:center;gap:6px;flex-shrink:0}
 .jogo-score-done{font-family:'DM Mono',monospace;color:var(--go);font-size:14px;min-width:60px;text-align:center}
@@ -259,7 +259,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0D1B2A;color:
 .swap-pos-num{display:block;font-size:11px;color:var(--mu);font-family:'DM Mono',monospace}
 .swap-pos-name{display:block;font-size:12px;color:var(--cr-lgt, #f4f1ec);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:70px}
 
-.grupo-stats-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px}
+.grupo-stats-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px;table-layout:fixed}
 .grupo-stats-hdr th{padding:4px 6px;text-align:center;font-size:10px;text-transform:uppercase;letter-spacing:.04em;color:var(--mu);border-bottom:1px solid rgba(255,255,255,.1);font-family:'DM Mono',monospace}
 .grupo-stats-hdr .gs-nome{text-align:left}
 .grupo-stats-row td{padding:5px 6px;text-align:center;border-bottom:1px solid rgba(255,255,255,.04);font-family:'DM Mono',monospace;font-size:12px}
@@ -338,6 +338,12 @@ input[type=number] { -moz-appearance:number-input; appearance:auto; }
 
 
 .etapa-empty-warning { background:rgba(220,20,60,.1); border:1px solid rgba(220,20,60,.25); border-radius:6px; padding:8px 12px; color:var(--cr,#DC143C); font-size:12.5px; margin-bottom:8px; }
+.grupo-stats-table td{text-align:center;padding:4px 6px;border-bottom:1px solid rgba(255,255,255,.06)}
+.gs-pos{color:var(--mu);font-size:11px;width:24px}
+.gs-nome{text-align:left!important;width:auto}
+.grupo-stats-table th:nth-child(n+3),.grupo-stats-table td:nth-child(n+3){width:36px}
+.jogo-nome:first-of-type { text-align:right; }
+.jogo-nome + .jogo-score-area + .jogo-nome { text-align:left; }
 </style>
 </head>
 <body>
