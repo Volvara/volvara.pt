@@ -882,7 +882,16 @@
             "j001",
             "j006"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmo2xgtl2l3s7",
+              "ja": "j001",
+              "jb": "j006",
+              "score_a": 3,
+              "score_b": 4,
+              "vencedor": "j006"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         }
