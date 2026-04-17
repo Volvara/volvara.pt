@@ -1142,7 +1142,13 @@
         ],
         "rondas": []
       },
-      "classificacaoFinal": []
+      "classificacaoFinal": [
+        {
+          "pos": 9,
+          "jogId": "jmntiou1qw765",
+          "pts": 8
+        }
+      ]
     }
   ]
 }
