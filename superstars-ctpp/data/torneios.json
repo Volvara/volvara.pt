@@ -1443,9 +1443,9 @@
                 "posB": 4,
                 "jogA": "jmntiou1qw765",
                 "jogB": "j002",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null,
+                "score_a": 2,
+                "score_b": 4,
+                "vencedor": "j002",
                 "bye": false
               },
               {
@@ -1481,7 +1481,7 @@
                 "posA": 1,
                 "posB": 2,
                 "jogA": "j004",
-                "jogB": null,
+                "jogB": "j002",
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null
