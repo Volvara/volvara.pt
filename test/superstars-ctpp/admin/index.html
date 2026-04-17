@@ -322,14 +322,8 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0D1B2A;color:
 
 /* Number input spinners — always visible */
 input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance:inner-spin-button!important;
-  opacity:1!important;
-  background:var(--go);
-  border-radius:0 4px 4px 0;
-  cursor:pointer;
-  width:24px;
-}
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance:none; margin:0; }
+input[type=number] { -moz-appearance:textfield; }
 input[type=number] { appearance:auto; -moz-appearance:number-input; }
 @media(max-width:768px){
   input[type=number] { font-size:16px; padding:10px 8px; }
@@ -2522,19 +2516,14 @@ async function doResetarEtapa() {
   var etapa = state.etapas.find(function(e){return e.id===t.etapaId;});
   var label = etapa ? labelEtapa(etapa) : t.etapaId;
   if(!confirm('⚠️ RESET TOTAL — '+label+'\n\nIsto vai apagar:\n• Todos os resultados dos grupos\n• Os quadros completos\n• O sorteio (posições nos grupos)\n\nAs inscrições ficam preservadas.\n\nEsta acção não pode ser desfeita. Confirmar?')) return;
-  // Reset completo: limpar jogadores dos grupos, jogos, classificação e CS
-  t.grupos.forEach(function(g) {
-    g.jogadores = [];
-    g.jogos = [];
-    g.classificacao = [];
-    g.classificacaoEditada = false;
-  });
-  t.cabecasDeSerie = [];
-  // Reset quadros
-  t.quadroPrincipal = { posicoes: [], rondas: [] };
-  t.quadroB         = { posicoes: [], rondas: [] };
-  t.estado = 'sorteio';
-  t.classificacaoFinal = [];
+  // Reset completo: recriar torneio de raiz com numInscritos actual
+  var etapaReset = state.etapas.find(function(e){return e.id===t.etapaId;});
+  var niReset = etapaReset && etapaReset.inscritos ? etapaReset.inscritos.length : (t.numInscritos||15);
+  var novo = TorneioEngine.criarTorneio(t.etapaId, niReset);
+  if(!novo) { showMsg('Erro: número de inscritos inválido ('+niReset+').','error'); state._resetting=false; return; }
+  // Replace torneio in-place preserving array reference
+  var idx2 = state.torneios.findIndex(function(x){return x.etapaId===t.etapaId;});
+  if(idx2 !== -1) state.torneios[idx2] = novo;
   state.torneioView = 'sorteio';
   state.saving=true;
   try {
