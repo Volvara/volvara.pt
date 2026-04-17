@@ -906,7 +906,16 @@
             "j002",
             "j006"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmo30637jpvix",
+              "ja": "jmnvd7pc2bbhk",
+              "jb": "j002",
+              "score_a": 4,
+              "score_b": 2,
+              "vencedor": "jmnvd7pc2bbhk"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         }
