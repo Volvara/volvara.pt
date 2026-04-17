@@ -1251,9 +1251,9 @@
                 "id": "qp_qf_1",
                 "jogA": "jmntihrfco8zm",
                 "jogB": "j003",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 3,
+                "score_b": 4,
+                "vencedor": "j003"
               },
               {
                 "id": "qp_qf_2",
@@ -1287,7 +1287,7 @@
             "jogos": [
               {
                 "id": "qp_sf_1",
-                "jogA": null,
+                "jogA": "j003",
                 "jogB": null,
                 "score_a": null,
                 "score_b": null,
@@ -1309,7 +1309,7 @@
             "jogos": [
               {
                 "id": "qp_sfp_1",
-                "jogA": null,
+                "jogA": "jmntihrfco8zm",
                 "jogB": null,
                 "score_a": null,
                 "score_b": null,
