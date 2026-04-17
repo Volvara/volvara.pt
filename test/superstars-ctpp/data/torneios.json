@@ -854,7 +854,16 @@
             "jmntiou1qw765",
             "jmntipxsi5f0s"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmo26ssfywsje",
+              "ja": "j001",
+              "jb": "jmntiou1qw765",
+              "score_a": 6,
+              "score_b": 1,
+              "vencedor": "j001"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false,
           "maxJogadores": 3
