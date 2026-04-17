@@ -832,7 +832,17 @@
     gruposComJogadores.forEach(function(g, gi) {
       var gi_real = gruposArr.indexOf(g);
       // Classificação
-      var classif = g.classificacaoEditada ? g.classificacao : calcGrupoClassif(g);
+      var classif;
+      if(g.classificacaoEditada && g.classificacao && g.classificacao.length) {
+        // Manual order: enrich with calculated stats from jogos
+        var statsCalc = {};
+        calcGrupoClassif(g).forEach(function(s){ statsCalc[s.jogId] = s; });
+        classif = g.classificacao.map(function(c){
+          return statsCalc[c.jogId] || {jogId:c.jogId, pts:0, vitorias:0, derrotas:0, jogos:0, sg:0, jg:0, jp:0};
+        });
+      } else {
+        classif = calcGrupoClassif(g);
+      }
       html += '<div class="res-grupo-card">';
       html += '<div class="res-grupo-header">'+(getLang()==='en'?'Group':'Grupo')+' '+(gi_real+1)+'</div>';
 
