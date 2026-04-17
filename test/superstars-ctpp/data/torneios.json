@@ -1004,9 +1004,9 @@
                 "posB": 2,
                 "jogA": "j003",
                 "jogB": "j002",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null,
+                "score_a": 4,
+                "score_b": 3,
+                "vencedor": "j003",
                 "bye": false
               },
               {
@@ -1050,7 +1050,7 @@
             "jogos": [
               {
                 "id": "qp_sf_1",
-                "jogA": null,
+                "jogA": "j003",
                 "jogB": null,
                 "score_a": null,
                 "score_b": null,
@@ -1072,7 +1072,7 @@
             "jogos": [
               {
                 "id": "qp_sfp_1",
-                "jogA": null,
+                "jogA": "j002",
                 "jogB": null,
                 "score_a": null,
                 "score_b": null,
