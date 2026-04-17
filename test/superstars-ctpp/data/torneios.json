@@ -798,43 +798,17 @@
     },
     {
       "etapaId": "e002",
-      "estado": "grupos",
+      "estado": "sorteio",
       "numGrupos": 4,
-      "numInscritos": 9,
-      "cabecasDeSerie": [
-        "jmntir2jlvvot",
-        "j003",
-        "jmntihrfco8zm",
-        "j005"
-      ],
+      "numInscritos": 8,
+      "cabecasDeSerie": [],
       "grupos": [
         {
           "id": "g1",
           "campo": 1,
-          "maxJogadores": 3,
-          "jogadores": [
-            "j005",
-            "jmntiomivpeaw",
-            "jmntiou1qw765"
-          ],
-          "jogos": [
-            {
-              "id": "gjmo2yjzawtwxk",
-              "ja": "j005",
-              "jb": "jmntiomivpeaw",
-              "score_a": 4,
-              "score_b": 3,
-              "vencedor": "j005"
-            },
-            {
-              "id": "gjmo2yk5ufs4qu",
-              "ja": "j005",
-              "jb": "jmntiou1qw765",
-              "score_a": 4,
-              "score_b": 2,
-              "vencedor": "j005"
-            }
-          ],
+          "maxJogadores": 2,
+          "jogadores": [],
+          "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
         },
@@ -842,20 +816,8 @@
           "id": "g2",
           "campo": 2,
           "maxJogadores": 2,
-          "jogadores": [
-            "jmntir2jlvvot",
-            "jmntipxsi5f0s"
-          ],
-          "jogos": [
-            {
-              "id": "gjmo2ykd000neg",
-              "ja": "jmntir2jlvvot",
-              "jb": "jmntipxsi5f0s",
-              "score_a": 4,
-              "score_b": 2,
-              "vencedor": "jmntir2jlvvot"
-            }
-          ],
+          "jogadores": [],
+          "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
         },
@@ -863,20 +825,8 @@
           "id": "g3",
           "campo": 3,
           "maxJogadores": 2,
-          "jogadores": [
-            "j003",
-            "jmntiqp3bcz0c"
-          ],
-          "jogos": [
-            {
-              "id": "gjmo2ykk0paq3g",
-              "ja": "j003",
-              "jb": "jmntiqp3bcz0c",
-              "score_a": 4,
-              "score_b": 3,
-              "vencedor": "j003"
-            }
-          ],
+          "jogadores": [],
+          "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
         },
@@ -884,20 +834,8 @@
           "id": "g4",
           "campo": 4,
           "maxJogadores": 2,
-          "jogadores": [
-            "jmntihrfco8zm",
-            "j002"
-          ],
-          "jogos": [
-            {
-              "id": "gjmo2yks0hw58z",
-              "ja": "jmntihrfco8zm",
-              "jb": "j002",
-              "score_a": 4,
-              "score_b": 2,
-              "vencedor": "jmntihrfco8zm"
-            }
-          ],
+          "jogadores": [],
+          "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
         }
