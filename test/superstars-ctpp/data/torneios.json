@@ -933,8 +933,21 @@
               "vencedor": "jmntihrfco8zm"
             }
           ],
-          "classificacao": [],
-          "classificacaoEditada": false
+          "classificacao": [
+            {
+              "pos": 1,
+              "jogId": "jmntiqp3bcz0c"
+            },
+            {
+              "pos": 2,
+              "jogId": "j003"
+            },
+            {
+              "pos": 3,
+              "jogId": "jmntihrfco8zm"
+            }
+          ],
+          "classificacaoEditada": true
         }
       ],
       "quadroPrincipal": {
