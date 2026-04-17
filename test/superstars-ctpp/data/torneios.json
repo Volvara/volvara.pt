@@ -816,7 +816,16 @@
             "jmntihrfco8zm",
             "j004"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmo26rzn2gi0j",
+              "ja": "jmntii5ehdkwg",
+              "jb": "jmntihrfco8zm",
+              "score_a": 6,
+              "score_b": 1,
+              "vencedor": "jmntii5ehdkwg"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false,
           "maxJogadores": 3
