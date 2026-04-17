@@ -2,7 +2,7 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
 <title>Admin · Super Stars CTPP</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,7 +89,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0D1B2A;color:
 .btn-gold{background:var(--go);color:var(--ni)}
 .btn-gold:hover{background:#f7b840;transform:translateY(-1px)}
 .btn-gold:disabled{opacity:.5;cursor:not-allowed;transform:none}
-.btn-sm{padding:6px 14px;border-radius:20px;border:none;font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;white-space:nowrap}
+.btn-sm{padding:10px 14px;border-radius:20px;border:none;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;white-space:nowrap}
 .btn-green{background:var(--gp);color:var(--gl);border:1px solid rgba(64,145,108,.3)}
 .btn-green:hover{background:rgba(45,106,79,.25)}
 .btn-red{background:var(--redp);color:#e05545;border:1px solid rgba(192,57,43,.3)}
@@ -233,7 +233,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0D1B2A;color:
 .bk-player.bk-tbd{color:rgba(255,255,255,.25);font-style:italic}
 .bk-divider{height:1px;background:var(--bd);margin:3px 0}
 .bk-score-row{display:flex;align-items:center;gap:4px;padding:4px 6px}
-.bk-score-inp{width:44px;padding:3px 5px;background:rgba(255,255,255,.06);border:1px solid var(--bd2);border-radius:4px;color:var(--tx);font-family:'DM Mono',monospace;font-size:12px;text-align:center}
+.bk-score-inp{width:52px;padding:6px 4px;background:rgba(255,255,255,.06);border:1px solid var(--bd2);border-radius:4px;color:var(--tx);font-family:'DM Mono',monospace;font-size:16px;text-align:center}
 .bk-score-done{font-family:'DM Mono',monospace;font-size:12px;color:var(--go);min-width:50px;text-align:center;padding:3px 6px;background:rgba(244,168,40,.08);border-radius:4px}
 .bk-btns{display:flex;gap:4px;margin-top:4px;padding:0 6px 4px}
 /* connector lines using borders */
@@ -344,6 +344,12 @@ input[type=number] { -moz-appearance:number-input; appearance:auto; }
 .grupo-stats-table th:nth-child(n+3),.grupo-stats-table td:nth-child(n+3){width:36px}
 .jogo-nome:first-of-type { text-align:right; }
 .jogo-nome + .jogo-score-area + .jogo-nome { text-align:left; }
+input,select,textarea{font-size:16px!important;}
+@supports(padding:max(0px)){
+  .nav{padding-top:max(0px,env(safe-area-inset-top));}
+  .volvara-footer{padding-bottom:max(8px,env(safe-area-inset-bottom));}
+}
+button,a,[data-act]{-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
 </style>
 </head>
 <body>
@@ -1961,7 +1967,12 @@ function viewJogadores(){
         '</td>'+
       '</tr>';
     }).join('');
+    var total  = jogs.length;
+    var ativos = jogs.filter(function(j){return j.ativo;}).length;
+    var counter = '<div style="font-size:12px;color:var(--mu);margin:6px 0 8px">'+
+      total+' jogadores &nbsp;·&nbsp; '+ativos+' activos</div>';
     return '<div class="section-title" style="margin-top:20px">'+cat.label+'</div>'+
+      counter+
       '<table class="rtable"><thead><tr><th>Nome</th><th>Estado</th><th></th></tr></thead><tbody>'+
       (rows||'<tr><td colspan="3" style="text-align:center;color:var(--mu)">Sem jogadores</td></tr>')+
       '</tbody></table>';
