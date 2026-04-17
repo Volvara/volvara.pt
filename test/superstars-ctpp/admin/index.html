@@ -320,14 +320,15 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:#0D1B2A;color:
 .edit-grupo-body{min-height:40px}
 .edit-warn{background:rgba(244,168,40,.1);border:1px solid rgba(244,168,40,.3);border-radius:8px;padding:8px 12px;font-size:12px;color:var(--go);margin-bottom:12px}
 
-/* Number input spinners — always visible */
+/* Number input spinners — desktop only, hidden on mobile */
 input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button { -webkit-appearance:none; margin:0; }
-input[type=number] { -moz-appearance:textfield; }
-input[type=number] { appearance:auto; -moz-appearance:number-input; }
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance:inner-spin-button; opacity:1; margin-left:4px; }
+input[type=number] { -moz-appearance:number-input; appearance:auto; }
 @media(max-width:768px){
-  input[type=number] { font-size:16px; padding:10px 8px; }
-  input[type=number]::-webkit-inner-spin-button { width:32px; }
+  input[type=number] { font-size:16px; }
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button { -webkit-appearance:none; width:0; margin:0; opacity:0; }
+  input[type=number] { -moz-appearance:textfield; appearance:textfield; }
 }
 /* Bracket scrollbar */
 .bracket-section::-webkit-scrollbar,
