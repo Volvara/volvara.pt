@@ -1022,7 +1022,7 @@
           },
           {
             "pos": 2,
-            "jogId": "j006",
+            "jogId": "j005",
             "bye": false
           },
           {
@@ -1032,27 +1032,27 @@
           },
           {
             "pos": 4,
-            "jogId": "j005",
+            "jogId": "j006",
             "bye": false
           },
           {
             "pos": 5,
-            "jogId": "jmntiqp3bcz0c",
+            "jogId": "jmntihrfco8zm",
             "bye": false
           },
           {
             "pos": 6,
-            "jogId": "jmntipxsi5f0s",
+            "jogId": "jmntiqp3bcz0c",
             "bye": false
           },
           {
             "pos": 7,
-            "jogId": "j001",
+            "jogId": "jmntipxsi5f0s",
             "bye": false
           },
           {
             "pos": 8,
-            "jogId": "jmntihrfco8zm",
+            "jogId": "j001",
             "bye": false
           }
         ],
@@ -1066,7 +1066,7 @@
                 "posA": 1,
                 "posB": 2,
                 "jogA": "jmntir2jlvvot",
-                "jogB": "j006",
+                "jogB": "j005",
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null,
@@ -1077,7 +1077,7 @@
                 "posA": 3,
                 "posB": 4,
                 "jogA": "j003",
-                "jogB": "j005",
+                "jogB": "j006",
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null,
@@ -1087,8 +1087,8 @@
                 "id": "qp_qf_3",
                 "posA": 5,
                 "posB": 6,
-                "jogA": "jmntiqp3bcz0c",
-                "jogB": "jmntipxsi5f0s",
+                "jogA": "jmntihrfco8zm",
+                "jogB": "jmntiqp3bcz0c",
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null,
@@ -1098,8 +1098,8 @@
                 "id": "qp_qf_4",
                 "posA": 7,
                 "posB": 8,
-                "jogA": "j001",
-                "jogB": "jmntihrfco8zm",
+                "jogA": "jmntipxsi5f0s",
+                "jogB": "j001",
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null,
