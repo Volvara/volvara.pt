@@ -967,6 +967,14 @@
               "score_a": 5,
               "score_b": 0,
               "vencedor": "j001"
+            },
+            {
+              "id": "gjmo2t72iaysxp",
+              "ja": "j001",
+              "jb": "j005",
+              "score_a": 6,
+              "score_b": 1,
+              "vencedor": "j001"
             }
           ],
           "classificacao": [],
