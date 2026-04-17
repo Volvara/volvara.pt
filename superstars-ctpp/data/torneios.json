@@ -1298,9 +1298,9 @@
                 "id": "qp_sfp_2",
                 "jogA": "jmo31z2nmba95",
                 "jogB": "j005",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 4,
+                "score_b": 3,
+                "vencedor": "jmo31z2nmba95"
               }
             ]
           },
@@ -1330,7 +1330,7 @@
                 "id": "qp_56",
                 "nome": "5º/6º Lugar",
                 "jogA": "jmo32gk8n4wo4",
-                "jogB": null,
+                "jogB": "jmo31z2nmba95",
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null
@@ -1339,7 +1339,7 @@
                 "id": "qp_78",
                 "nome": "7º/8º Lugar",
                 "jogA": "jmo31xwfs5xxs",
-                "jogB": null,
+                "jogB": "j005",
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null
