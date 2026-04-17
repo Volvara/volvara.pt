@@ -950,7 +950,16 @@
             "jmntir2jlvvot",
             "jmntiomivpeaw"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmo26urrq34o8",
+              "ja": "jmntir2jlvvot",
+              "jb": "jmntiomivpeaw",
+              "score_a": 4,
+              "score_b": 2,
+              "vencedor": "jmntir2jlvvot"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false,
           "maxJogadores": 2
