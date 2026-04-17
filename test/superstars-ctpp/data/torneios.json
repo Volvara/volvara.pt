@@ -1074,9 +1074,9 @@
                 "id": "qp_sfp_1",
                 "jogA": "j002",
                 "jogB": "jmntiomivpeaw",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 2,
+                "score_b": 4,
+                "vencedor": "jmntiomivpeaw"
               },
               {
                 "id": "qp_sfp_2",
@@ -1113,7 +1113,7 @@
               {
                 "id": "qp_56",
                 "nome": "5º/6º Lugar",
-                "jogA": null,
+                "jogA": "jmntiomivpeaw",
                 "jogB": null,
                 "score_a": null,
                 "score_b": null,
@@ -1122,7 +1122,7 @@
               {
                 "id": "qp_78",
                 "nome": "7º/8º Lugar",
-                "jogA": null,
+                "jogA": "j002",
                 "jogB": null,
                 "score_a": null,
                 "score_b": null,
