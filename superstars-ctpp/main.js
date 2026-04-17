@@ -1058,7 +1058,7 @@
       // Final + 3º lugar side by side in one column (both are place-match finals)
       if(finalB) {
         html += '<div class="pub-bracket-col pub-col-final">'+
-          '<div class="pub-ronda-title">'+(n<=10?(getLang()==='en'?'9th/10th':'9º/10º'):n<=12?(getLang()==='en'?'Final 9th':'Final 9º'):(getLang()==='en'?'Final 11th':'Final 11º'))+'</div>'+
+          '<div class="pub-ronda-title">'+(n<=10?(getLang()==='en'?'9th/10th':'9º/10º'):(getLang()==='en'?'Final '+qbFinalPos:'Final '+qbFinalPos))+'</div>'+
           pubFinalLabeled(finalB, null, qbFinalPos)+
         '</div>';
       }
