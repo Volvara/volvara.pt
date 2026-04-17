@@ -1086,11 +1086,12 @@
         if(!jogo) return '';
         var done = jogo.vencedor != null;
         var lbl = '<div class="pub-place-lbl">'+label+'</div>';
-        function playerRow(id, isWinner) {
+        var winA = done && jogo.vencedor===jogo.jogA;
+        // score_a always belongs to jogA, score_b always to jogB
+        function playerRow(id, isJogA, isWinner) {
           if(!id) return '';
           var pos = isWinner ? winPos : losePos;
-          var score = isWinner ? jogo.score_a : jogo.score_b;
-          // Always show score; also show place badge when done
+          var score = isJogA ? jogo.score_a : jogo.score_b;
           var scoreHtml = score!=null ? '<span class="pub-score'+(isWinner&&done?' pub-score-w':'')+'">'+score+'</span>' : '';
           var badgeHtml = done && pos ? '<span class="pub-place-badge">'+pos+'</span>' : '';
           return '<div class="pub-player'+(isWinner&&done?' pub-winner':'')+'">'+
@@ -1098,11 +1099,10 @@
             '<span class="pub-place-row-right">'+scoreHtml+badgeHtml+'</span>'+
           '</div>';
         }
-        var winA = done && jogo.vencedor===jogo.jogA;
         return '<div class="pub-place-card">'+lbl+
           '<div class="pub-match">'+
-            playerRow(jogo.jogA, winA)+
-            playerRow(jogo.jogB, !winA)+
+            playerRow(jogo.jogA, true,  winA)+
+            playerRow(jogo.jogB, false, !winA)+
           '</div>'+
         '</div>';
       }
