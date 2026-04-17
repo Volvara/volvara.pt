@@ -1256,9 +1256,9 @@
                 "nome": "Final QB",
                 "jogA": "j004",
                 "jogB": "jmntiomivpeaw",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 1,
+                "score_b": 4,
+                "vencedor": "jmntiomivpeaw"
               },
               {
                 "id": "qb_3lugar",
