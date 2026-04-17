@@ -1097,9 +1097,9 @@
                 "nome": "Final (1º/2º)",
                 "jogA": "j001",
                 "jogB": "j005",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 6,
+                "score_b": 0,
+                "vencedor": "j001"
               },
               {
                 "id": "qp_3lugar",
