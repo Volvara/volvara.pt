@@ -818,7 +818,16 @@
             "jmntiomivpeaw",
             "j002"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmo2wbwsa3gym",
+              "ja": "jmntir2jlvvot",
+              "jb": "jmntiomivpeaw",
+              "score_a": 5,
+              "score_b": 3,
+              "vencedor": "jmntir2jlvvot"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         },
