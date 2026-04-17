@@ -1044,7 +1044,7 @@
           r3qb=qb.rondas.find(function(r){return r.id==='r3';});
       var finalB=r3qb?r3qb.jogos.find(function(j){return j.id==='qb_final';}):null;
       var t3lqb=r3qb?r3qb.jogos.find(function(j){return j.id==='qb_3lugar';}):null;
-      var n = torneio.classificacaoFinal ? torneio.classificacaoFinal.length :
+      var n = (torneio.classificacaoFinal && torneio.classificacaoFinal.length > 0) ? torneio.classificacaoFinal.length :
               (torneio.numInscritos || (torneio.grupos||[]).reduce(function(s,g){return s+(g.jogadores||[]).length;},0));
       var qbLabel = n >= 11 ? t('quadroB') :
                     n === 10 ? (getLang()==='en'?'9th/10th':'9º/10º') : t('quadroB');
