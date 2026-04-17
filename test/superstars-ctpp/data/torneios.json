@@ -930,7 +930,16 @@
             "j002",
             "j005"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmo25whsr5w1p",
+              "ja": "jmnulp1rji487",
+              "jb": "j002",
+              "score_a": 4,
+              "score_b": 2,
+              "vencedor": "jmnulp1rji487"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false,
           "maxJogadores": 3
