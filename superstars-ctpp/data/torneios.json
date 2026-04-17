@@ -905,7 +905,16 @@
             "j001",
             "jmntipxsi5f0s"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmo3hbvcis5y5",
+              "ja": "j001",
+              "jb": "jmntipxsi5f0s",
+              "score_a": 4,
+              "score_b": 0,
+              "vencedor": "j001"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         }
