@@ -967,7 +967,16 @@
             "j003",
             "jmntiomivpeaw"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmo25x7p7tvea",
+              "ja": "j003",
+              "jb": "jmntiomivpeaw",
+              "score_a": 5,
+              "score_b": 4,
+              "vencedor": "j003"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false,
           "maxJogadores": 2
