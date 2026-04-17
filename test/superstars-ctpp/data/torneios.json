@@ -929,7 +929,16 @@
             "j003",
             "j006"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmo26uk2024bt",
+              "ja": "j003",
+              "jb": "j006",
+              "score_a": 2,
+              "score_b": 4,
+              "vencedor": "j006"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false,
           "maxJogadores": 3
