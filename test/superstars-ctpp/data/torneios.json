@@ -798,7 +798,7 @@
     },
     {
       "etapaId": "e002",
-      "estado": "grupos",
+      "estado": "quadros",
       "numGrupos": 5,
       "numInscritos": 14,
       "cabecasDeSerie": [
@@ -844,7 +844,20 @@
               "vencedor": "jmntiqp3bcz0c"
             }
           ],
-          "classificacao": [],
+          "classificacao": [
+            {
+              "pos": 1,
+              "jogId": "j001"
+            },
+            {
+              "pos": 2,
+              "jogId": "jmntiqp3bcz0c"
+            },
+            {
+              "pos": 3,
+              "jogId": "j004"
+            }
+          ],
           "classificacaoEditada": false
         },
         {
@@ -882,7 +895,20 @@
               "vencedor": "jmnulp1rji487"
             }
           ],
-          "classificacao": [],
+          "classificacao": [
+            {
+              "pos": 1,
+              "jogId": "jmntii5ehdkwg"
+            },
+            {
+              "pos": 2,
+              "jogId": "jmnulp1rji487"
+            },
+            {
+              "pos": 3,
+              "jogId": "j005"
+            }
+          ],
           "classificacaoEditada": false
         },
         {
@@ -920,7 +946,20 @@
               "vencedor": "j003"
             }
           ],
-          "classificacao": [],
+          "classificacao": [
+            {
+              "pos": 1,
+              "jogId": "j003"
+            },
+            {
+              "pos": 2,
+              "jogId": "j006"
+            },
+            {
+              "pos": 3,
+              "jogId": "jmntipxsi5f0s"
+            }
+          ],
           "classificacaoEditada": false
         },
         {
@@ -958,7 +997,20 @@
               "vencedor": "j002"
             }
           ],
-          "classificacao": [],
+          "classificacao": [
+            {
+              "pos": 1,
+              "jogId": "jmntir2jlvvot"
+            },
+            {
+              "pos": 2,
+              "jogId": "j002"
+            },
+            {
+              "pos": 3,
+              "jogId": "jmntiou1qw765"
+            }
+          ],
           "classificacaoEditada": false
         },
         {
@@ -979,12 +1031,102 @@
               "vencedor": "jmntihrfco8zm"
             }
           ],
-          "classificacao": [],
+          "classificacao": [
+            {
+              "pos": 1,
+              "jogId": "jmntihrfco8zm"
+            },
+            {
+              "pos": 2,
+              "jogId": "jmntiomivpeaw"
+            }
+          ],
           "classificacaoEditada": false
         }
       ],
       "quadroPrincipal": {
-        "posicoes": [],
+        "posicoes": [
+          {
+            "pos": 1,
+            "jogId": "j001",
+            "bye": false
+          },
+          {
+            "pos": 2,
+            "jogId": null,
+            "bye": true
+          },
+          {
+            "pos": 3,
+            "jogId": "jmnulp1rji487",
+            "bye": false
+          },
+          {
+            "pos": 4,
+            "jogId": "j002",
+            "bye": false
+          },
+          {
+            "pos": 5,
+            "jogId": "j003",
+            "bye": false
+          },
+          {
+            "pos": 6,
+            "jogId": null,
+            "bye": true
+          },
+          {
+            "pos": 7,
+            "jogId": null,
+            "bye": true
+          },
+          {
+            "pos": 8,
+            "jogId": "jmntihrfco8zm",
+            "bye": false
+          },
+          {
+            "pos": 9,
+            "jogId": "jmntiqp3bcz0c",
+            "bye": false
+          },
+          {
+            "pos": 10,
+            "jogId": "jmntiomivpeaw",
+            "bye": false
+          },
+          {
+            "pos": 11,
+            "jogId": null,
+            "bye": true
+          },
+          {
+            "pos": 12,
+            "jogId": "jmntir2jlvvot",
+            "bye": false
+          },
+          {
+            "pos": 13,
+            "jogId": "j006",
+            "bye": false
+          },
+          {
+            "pos": 14,
+            "jogId": null,
+            "bye": true
+          },
+          {
+            "pos": 15,
+            "jogId": null,
+            "bye": true
+          },
+          {
+            "pos": 16,
+            "jogId": "jmntii5ehdkwg",
+            "bye": false
+          }
+        ],
         "rondas": [
           {
             "id": "r1",
@@ -994,19 +1136,19 @@
                 "id": "qp_r1_1",
                 "posA": 1,
                 "posB": 2,
-                "jogA": null,
+                "jogA": "j001",
                 "jogB": null,
                 "score_a": null,
                 "score_b": null,
-                "vencedor": null,
-                "bye": false
+                "vencedor": "j001",
+                "bye": true
               },
               {
                 "id": "qp_r1_2",
                 "posA": 3,
                 "posB": 4,
-                "jogA": null,
-                "jogB": null,
+                "jogA": "jmnulp1rji487",
+                "jogB": "j002",
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null,
@@ -1016,30 +1158,30 @@
                 "id": "qp_r1_3",
                 "posA": 5,
                 "posB": 6,
-                "jogA": null,
+                "jogA": "j003",
                 "jogB": null,
                 "score_a": null,
                 "score_b": null,
-                "vencedor": null,
-                "bye": false
+                "vencedor": "j003",
+                "bye": true
               },
               {
                 "id": "qp_r1_4",
                 "posA": 7,
                 "posB": 8,
                 "jogA": null,
-                "jogB": null,
+                "jogB": "jmntihrfco8zm",
                 "score_a": null,
                 "score_b": null,
-                "vencedor": null,
-                "bye": false
+                "vencedor": "jmntihrfco8zm",
+                "bye": true
               },
               {
                 "id": "qp_r1_5",
                 "posA": 9,
                 "posB": 10,
-                "jogA": null,
-                "jogB": null,
+                "jogA": "jmntiqp3bcz0c",
+                "jogB": "jmntiomivpeaw",
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null,
@@ -1050,33 +1192,33 @@
                 "posA": 11,
                 "posB": 12,
                 "jogA": null,
-                "jogB": null,
+                "jogB": "jmntir2jlvvot",
                 "score_a": null,
                 "score_b": null,
-                "vencedor": null,
-                "bye": false
+                "vencedor": "jmntir2jlvvot",
+                "bye": true
               },
               {
                 "id": "qp_r1_7",
                 "posA": 13,
                 "posB": 14,
-                "jogA": null,
+                "jogA": "j006",
                 "jogB": null,
                 "score_a": null,
                 "score_b": null,
-                "vencedor": null,
-                "bye": false
+                "vencedor": "j006",
+                "bye": true
               },
               {
                 "id": "qp_r1_8",
                 "posA": 15,
                 "posB": 16,
                 "jogA": null,
-                "jogB": null,
+                "jogB": "jmntii5ehdkwg",
                 "score_a": null,
                 "score_b": null,
-                "vencedor": null,
-                "bye": false
+                "vencedor": "jmntii5ehdkwg",
+                "bye": true
               }
             ]
           },
@@ -1086,7 +1228,7 @@
             "jogos": [
               {
                 "id": "qp_qf_1",
-                "jogA": null,
+                "jogA": "j001",
                 "jogB": null,
                 "score_a": null,
                 "score_b": null,
@@ -1094,8 +1236,8 @@
               },
               {
                 "id": "qp_qf_2",
-                "jogA": null,
-                "jogB": null,
+                "jogA": "j003",
+                "jogB": "jmntihrfco8zm",
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null
@@ -1103,15 +1245,15 @@
               {
                 "id": "qp_qf_3",
                 "jogA": null,
-                "jogB": null,
+                "jogB": "jmntir2jlvvot",
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null
               },
               {
                 "id": "qp_qf_4",
-                "jogA": null,
-                "jogB": null,
+                "jogA": "j006",
+                "jogB": "jmntii5ehdkwg",
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null
@@ -1216,7 +1358,28 @@
         ]
       },
       "quadroB": {
-        "posicoes": [],
+        "posicoes": [
+          {
+            "pos": 1,
+            "jogId": "j004",
+            "bye": false
+          },
+          {
+            "pos": 2,
+            "jogId": "jmntipxsi5f0s",
+            "bye": false
+          },
+          {
+            "pos": 3,
+            "jogId": "jmntiou1qw765",
+            "bye": false
+          },
+          {
+            "pos": 4,
+            "jogId": "j005",
+            "bye": false
+          }
+        ],
         "rondas": [
           {
             "id": "r2",
@@ -1226,21 +1389,23 @@
                 "id": "qb_sf_1",
                 "posA": 1,
                 "posB": 2,
-                "jogA": null,
-                "jogB": null,
+                "jogA": "j004",
+                "jogB": "jmntipxsi5f0s",
                 "score_a": null,
                 "score_b": null,
-                "vencedor": null
+                "vencedor": null,
+                "bye": false
               },
               {
                 "id": "qb_sf_2",
                 "posA": 3,
                 "posB": 4,
-                "jogA": null,
-                "jogB": null,
+                "jogA": "jmntiou1qw765",
+                "jogB": "j005",
                 "score_a": null,
                 "score_b": null,
-                "vencedor": null
+                "vencedor": null,
+                "bye": false
               }
             ]
           },
