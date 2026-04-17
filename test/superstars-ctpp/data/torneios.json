@@ -1168,18 +1168,18 @@
         ],
         "rondas": [
           {
-            "id": "r2",
-            "nome": "Meias Finais",
+            "id": "r3",
+            "nome": "Final 9º/10º",
             "jogos": [
               {
-                "id": "qb_sf_1",
+                "id": "qb_final",
                 "posA": 1,
                 "posB": 2,
                 "jogA": "j002",
                 "jogB": "jmntiou1qw765",
-                "score_a": 4,
-                "score_b": 2,
-                "vencedor": "j002",
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null,
                 "bye": false
               }
             ]
