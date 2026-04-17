@@ -1507,9 +1507,9 @@
                 "nome": "Final QB",
                 "jogA": "jmnulp1rji487",
                 "jogB": "j006",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 2,
+                "score_b": 4,
+                "vencedor": "j006"
               },
               {
                 "id": "qb_3lugar",
