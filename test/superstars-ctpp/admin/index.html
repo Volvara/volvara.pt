@@ -839,12 +839,11 @@ var TorneioEngine = (function() {
     // 8 jog ou 9 jog: sem QB (9 jog → 9º directo, tratado em classif)
     if(numInscritos <= 9 || map.length === 0) return [];
 
-    // 10 jog: Final directa (2 terceiros)
+    // 10 jog: Final directa 9/10 (só 2 terceiros: 3ºG1 vs 3ºG2)
     if(numInscritos === 10) {
-      rondas.push({id:'r2', nome:'Meias Finais', jogos:[
-        {id:'qb_sf_1', posA:1, posB:2, jogA:null, jogB:null, score_a:null, score_b:null, vencedor:null},
+      rondas.push({id:'r3', nome:'Final 9º/10º', jogos:[
+        {id:'qb_final', posA:1, posB:2, jogA:null, jogB:null, score_a:null, score_b:null, vencedor:null},
       ]});
-      // Não há final separada para 10 — sf_1 É a final 9/10
       return rondas;
     }
 
@@ -1758,12 +1757,14 @@ function viewTorneioQuadros(torneio) {
     var r3qb = qb.rondas.find(function(r){return r.id==='r3';});
     var finalB = r3qb ? r3qb.jogos.find(function(j){return j.id==='qb_final';}) : null;
 
+    var qbTitle = (!r1qb && !r2qb) ? '9º / 10º Lugar' : 'Quadro B';
+    var finalLabel = (!r1qb && !r2qb) ? '9º/10º' : 'Final QB';
     return '<div class="bracket-section">'+
-      '<div class="bracket-title">Quadro B</div>'+
+      '<div class="bracket-title">'+qbTitle+'</div>'+
       '<div class="bracket-wrap">'+
         (r1qb ? col('Quartos de Final', r1qb.jogos.map(function(j){return matchBox(j,'b','r1');})) : '')+
         (r2qb ? col('Meias Finais', r2qb.jogos.map(function(j){return matchBox(j,'b','r2');})) : '')+
-        col('Final QB', [matchBox(finalB,'b','r3')])+
+        col(finalLabel, [matchBox(finalB,'b','r3')])+
       '</div>'+
     '</div>';
   }
