@@ -1,0 +1,127 @@
+{
+  "etapas": [
+    {
+      "id": "e001",
+      "numero": 1,
+      "tipo": "senior",
+      "escalao": null,
+      "data": "2026-04-12",
+      "hora": "08:30",
+      "limite": 15,
+      "estado": "concluida",
+      "inscritos": [
+        "j001",
+        "j002",
+        "j003",
+        "j004",
+        "j005",
+        "j006",
+        "jmntihrfco8zm",
+        "jmntii5ehdkwg",
+        "jmntiomivpeaw",
+        "jmntiou1qw765",
+        "jmntipxsi5f0s",
+        "jmntiqp3bcz0c",
+        "jmntir2jlvvot"
+      ],
+      "pagamentos": [
+        "jmnulp1rji487",
+        "jmntiomivpeaw",
+        "j005",
+        "j002",
+        "j006",
+        "jmntiou1qw765",
+        "jmntipxsi5f0s",
+        "jmntihrfco8zm",
+        "j003",
+        "j004",
+        "jmntii5ehdkwg",
+        "jmntir2jlvvot",
+        "jmntiqp3bcz0c",
+        "jmnvd7pc2bbhk",
+        "j001"
+      ]
+    },
+    {
+      "id": "e002",
+      "numero": 2,
+      "tipo": "senior",
+      "escalao": null,
+      "data": "2026-04-19",
+      "hora": "08:30",
+      "limite": 15,
+      "estado": "aberta",
+      "inscritos": [
+        "j002",
+        "j003",
+        "j005",
+        "jmntihrfco8zm",
+        "jmntipxsi5f0s",
+        "jmntiqp3bcz0c",
+        "jmntiomivpeaw",
+        "jmntir2jlvvot"
+      ],
+      "pagamentos": [
+        "j001",
+        "j002",
+        "j003",
+        "j004",
+        "j005",
+        "j006",
+        "jmntihrfco8zm",
+        "jmntiou1qw765",
+        "jmntipxsi5f0s",
+        "jmntiqp3bcz0c",
+        "jmntir2jlvvot",
+        "jmntiomivpeaw",
+        "jmntii5ehdkwg",
+        "jmnvd7pc2bbhk",
+        "jmnulp1rji487"
+      ]
+    },
+    {
+      "id": "e003",
+      "numero": 3,
+      "tipo": "senior",
+      "escalao": null,
+      "data": "2026-05-10",
+      "hora": "08:30",
+      "limite": 15,
+      "estado": "pendente",
+      "inscritos": []
+    },
+    {
+      "id": "e004",
+      "numero": 4,
+      "tipo": "senior",
+      "escalao": null,
+      "data": "2026-05-17",
+      "hora": "08:30",
+      "limite": 15,
+      "estado": "pendente",
+      "inscritos": []
+    },
+    {
+      "id": "e005",
+      "numero": 5,
+      "tipo": "senior",
+      "escalao": null,
+      "data": "2026-06-07",
+      "hora": "08:30",
+      "limite": 15,
+      "estado": "pendente",
+      "inscritos": []
+    },
+    {
+      "id": "e006",
+      "numero": 6,
+      "tipo": "senior",
+      "escalao": null,
+      "data": "2026-06-28",
+      "hora": "08:30",
+      "limite": 15,
+      "estado": "pendente",
+      "inscritos": []
+    }
+  ]
+}
