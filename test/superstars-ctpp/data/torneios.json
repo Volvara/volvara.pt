@@ -1235,9 +1235,9 @@
                 "nome": "Final QB",
                 "jogA": "jmntiomivpeaw",
                 "jogB": "j002",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 4,
+                "score_b": 2,
+                "vencedor": "jmntiomivpeaw"
               }
             ]
           }
