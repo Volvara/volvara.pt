@@ -798,17 +798,36 @@
     },
     {
       "etapaId": "e002",
-      "estado": "sorteio",
+      "estado": "grupos",
       "numGrupos": 5,
       "numInscritos": 15,
-      "cabecasDeSerie": [],
+      "cabecasDeSerie": [
+        "j001",
+        "j003",
+        "jmntihrfco8zm",
+        "jmo31xwfs5xxs",
+        "jmo32gk8n4wo4"
+      ],
       "grupos": [
         {
           "id": "g1",
           "campo": 1,
           "maxJogadores": 3,
-          "jogadores": [],
-          "jogos": [],
+          "jogadores": [
+            "jmo32gk8n4wo4",
+            "jmntiqp3bcz0c",
+            "jmntipxsi5f0s"
+          ],
+          "jogos": [
+            {
+              "id": "gjmo331be4kbys",
+              "ja": "jmo32gk8n4wo4",
+              "jb": "jmntiqp3bcz0c",
+              "score_a": 6,
+              "score_b": 3,
+              "vencedor": "jmo32gk8n4wo4"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         },
@@ -816,7 +835,11 @@
           "id": "g2",
           "campo": 2,
           "maxJogadores": 3,
-          "jogadores": [],
+          "jogadores": [
+            "j001",
+            "jmntiou1qw765",
+            "jmo31yptyfq51"
+          ],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -825,7 +848,11 @@
           "id": "g3",
           "campo": 3,
           "maxJogadores": 3,
-          "jogadores": [],
+          "jogadores": [
+            "jmo31xwfs5xxs",
+            "jmo31y6xvq7nx",
+            "jmo31z2nmba95"
+          ],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -834,7 +861,11 @@
           "id": "g4",
           "campo": 4,
           "maxJogadores": 3,
-          "jogadores": [],
+          "jogadores": [
+            "jmntihrfco8zm",
+            "jmo32jj00ixl0",
+            "j005"
+          ],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -843,7 +874,11 @@
           "id": "g5",
           "campo": 5,
           "maxJogadores": 3,
-          "jogadores": [],
+          "jogadores": [
+            "j003",
+            "j002",
+            "jmntiomivpeaw"
+          ],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
