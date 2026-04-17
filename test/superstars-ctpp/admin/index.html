@@ -2170,7 +2170,9 @@ function doCriarTorneio() {
   state.torneios.push(novo);
   state.torneioView = 'sorteio';
   render();
-  showMsg('Torneio criado. Selecciona as Cabeças de Série.','ok');
+  saveTorneios('Criar torneio '+state.torneioActivo).then(function(){
+    showMsg('Torneio criado. Selecciona as Cabeças de Série.','ok');
+  });
 }
 
 function doExecutarSorteio() {
@@ -2183,7 +2185,9 @@ function doExecutarSorteio() {
   var outros = inscritos.filter(function(id){return !cs.includes(id);});
   TorneioEngine.executarSorteio(t, cs, outros);
   render();
-  showMsg('Sorteio realizado! Verifica os grupos.','ok');
+  saveTorneios('Sorteio etapa '+t.etapaId).then(function(){
+    showMsg('Sorteio realizado! Verifica os grupos.','ok');
+  });
 }
 
 function doAvancarGrupos() {
