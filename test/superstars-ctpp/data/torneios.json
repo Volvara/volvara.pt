@@ -1124,9 +1124,9 @@
                 "nome": "7º/8º Lugar",
                 "jogA": "j002",
                 "jogB": "jmntipxsi5f0s",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 4,
+                "score_b": 3,
+                "vencedor": "j002"
               }
             ]
           }
