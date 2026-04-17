@@ -814,9 +814,9 @@
           "campo": 1,
           "maxJogadores": 3,
           "jogadores": [
-            "jmntiomivpeaw",
-            "jmo31yptyfq51",
-            "j002"
+            "j003",
+            "jmo32gk8n4wo4",
+            "jmo31xwfs5xxs"
           ],
           "jogos": [],
           "classificacao": [],
@@ -827,9 +827,9 @@
           "campo": 2,
           "maxJogadores": 3,
           "jogadores": [
-            "j003",
-            "jmo32jj00ixl0",
-            "jmo31y6xvq7nx"
+            "j001",
+            "jmo31z2nmba95",
+            "jmntipxsi5f0s"
           ],
           "jogos": [],
           "classificacao": [],
@@ -840,9 +840,9 @@
           "campo": 3,
           "maxJogadores": 3,
           "jogadores": [
-            "j005",
-            "jmo32gk8n4wo4",
-            "jmntiou1qw765"
+            "jmntiqp3bcz0c",
+            "jmo32jj00ixl0",
+            "j002"
           ],
           "jogos": [],
           "classificacao": [],
@@ -853,8 +853,9 @@
           "campo": 4,
           "maxJogadores": 3,
           "jogadores": [
-            "j001",
-            "jmntipxsi5f0s"
+            "j005",
+            "jmo31y6xvq7nx",
+            "jmo31yptyfq51"
           ],
           "jogos": [],
           "classificacao": [],
@@ -865,9 +866,8 @@
           "campo": 5,
           "maxJogadores": 3,
           "jogadores": [
-            "jmntiqp3bcz0c",
-            "jmo31xwfs5xxs",
-            "jmo31z2nmba95"
+            "jmntiomivpeaw",
+            "jmntiou1qw765"
           ],
           "jogos": [],
           "classificacao": [],
