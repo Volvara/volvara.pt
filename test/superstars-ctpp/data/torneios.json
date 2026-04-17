@@ -1169,9 +1169,9 @@
                 "nome": "3º/4º Lugar",
                 "jogA": "j006",
                 "jogB": "jmntiqp3bcz0c",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 4,
+                "score_b": 3,
+                "vencedor": "j006"
               },
               {
                 "id": "qp_56",
