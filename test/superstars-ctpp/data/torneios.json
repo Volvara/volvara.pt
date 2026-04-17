@@ -798,7 +798,7 @@
     },
     {
       "etapaId": "e002",
-      "estado": "grupos",
+      "estado": "quadros",
       "numGrupos": 5,
       "cabecasDeSerie": [
         "jmntii5ehdkwg",
@@ -842,7 +842,20 @@
               "vencedor": "jmntihrfco8zm"
             }
           ],
-          "classificacao": [],
+          "classificacao": [
+            {
+              "pos": 1,
+              "jogId": "jmntii5ehdkwg"
+            },
+            {
+              "pos": 2,
+              "jogId": "jmntihrfco8zm"
+            },
+            {
+              "pos": 3,
+              "jogId": "j004"
+            }
+          ],
           "classificacaoEditada": false,
           "maxJogadores": 3
         },
@@ -880,7 +893,20 @@
               "vencedor": "jmntipxsi5f0s"
             }
           ],
-          "classificacao": [],
+          "classificacao": [
+            {
+              "pos": 1,
+              "jogId": "j001"
+            },
+            {
+              "pos": 2,
+              "jogId": "jmntipxsi5f0s"
+            },
+            {
+              "pos": 3,
+              "jogId": "jmntiou1qw765"
+            }
+          ],
           "classificacaoEditada": false,
           "maxJogadores": 3
         },
@@ -918,7 +944,20 @@
               "vencedor": "jmntiqp3bcz0c"
             }
           ],
-          "classificacao": [],
+          "classificacao": [
+            {
+              "pos": 1,
+              "jogId": "jmntiqp3bcz0c"
+            },
+            {
+              "pos": 2,
+              "jogId": "j005"
+            },
+            {
+              "pos": 3,
+              "jogId": "j002"
+            }
+          ],
           "classificacaoEditada": false,
           "maxJogadores": 3
         },
@@ -939,7 +978,16 @@
               "vencedor": "j006"
             }
           ],
-          "classificacao": [],
+          "classificacao": [
+            {
+              "pos": 1,
+              "jogId": "j006"
+            },
+            {
+              "pos": 2,
+              "jogId": "j003"
+            }
+          ],
           "classificacaoEditada": false,
           "maxJogadores": 3
         },
@@ -960,18 +1008,410 @@
               "vencedor": "jmntir2jlvvot"
             }
           ],
-          "classificacao": [],
+          "classificacao": [
+            {
+              "pos": 1,
+              "jogId": "jmntir2jlvvot"
+            },
+            {
+              "pos": 2,
+              "jogId": "jmntiomivpeaw"
+            }
+          ],
           "classificacaoEditada": false,
           "maxJogadores": 2
         }
       ],
       "quadroPrincipal": {
-        "posicoes": [],
-        "rondas": []
+        "posicoes": [
+          {
+            "pos": 1,
+            "jogId": "jmntii5ehdkwg",
+            "bye": false
+          },
+          {
+            "pos": 2,
+            "jogId": null,
+            "bye": true
+          },
+          {
+            "pos": 3,
+            "jogId": "jmntipxsi5f0s",
+            "bye": false
+          },
+          {
+            "pos": 4,
+            "jogId": "j003",
+            "bye": false
+          },
+          {
+            "pos": 5,
+            "jogId": "jmntiqp3bcz0c",
+            "bye": false
+          },
+          {
+            "pos": 6,
+            "jogId": null,
+            "bye": true
+          },
+          {
+            "pos": 7,
+            "jogId": null,
+            "bye": true
+          },
+          {
+            "pos": 8,
+            "jogId": "jmntir2jlvvot",
+            "bye": false
+          },
+          {
+            "pos": 9,
+            "jogId": "jmntihrfco8zm",
+            "bye": false
+          },
+          {
+            "pos": 10,
+            "jogId": "jmntiomivpeaw",
+            "bye": false
+          },
+          {
+            "pos": 11,
+            "jogId": null,
+            "bye": true
+          },
+          {
+            "pos": 12,
+            "jogId": "j006",
+            "bye": false
+          },
+          {
+            "pos": 13,
+            "jogId": "j005",
+            "bye": false
+          },
+          {
+            "pos": 14,
+            "jogId": null,
+            "bye": true
+          },
+          {
+            "pos": 15,
+            "jogId": null,
+            "bye": true
+          },
+          {
+            "pos": 16,
+            "jogId": "j001",
+            "bye": false
+          }
+        ],
+        "rondas": [
+          {
+            "id": "r1",
+            "nome": "Oitavos de Final",
+            "jogos": [
+              {
+                "id": "qp_r1_1",
+                "posA": 1,
+                "posB": 2,
+                "jogA": "jmntii5ehdkwg",
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": "jmntii5ehdkwg",
+                "bye": true
+              },
+              {
+                "id": "qp_r1_2",
+                "posA": 3,
+                "posB": 4,
+                "jogA": "jmntipxsi5f0s",
+                "jogB": "j003",
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null,
+                "bye": false
+              },
+              {
+                "id": "qp_r1_3",
+                "posA": 5,
+                "posB": 6,
+                "jogA": "jmntiqp3bcz0c",
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": "jmntiqp3bcz0c",
+                "bye": true
+              },
+              {
+                "id": "qp_r1_4",
+                "posA": 7,
+                "posB": 8,
+                "jogA": null,
+                "jogB": "jmntir2jlvvot",
+                "score_a": null,
+                "score_b": null,
+                "vencedor": "jmntir2jlvvot",
+                "bye": true
+              },
+              {
+                "id": "qp_r1_5",
+                "posA": 9,
+                "posB": 10,
+                "jogA": "jmntihrfco8zm",
+                "jogB": "jmntiomivpeaw",
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null,
+                "bye": false
+              },
+              {
+                "id": "qp_r1_6",
+                "posA": 11,
+                "posB": 12,
+                "jogA": null,
+                "jogB": "j006",
+                "score_a": null,
+                "score_b": null,
+                "vencedor": "j006",
+                "bye": true
+              },
+              {
+                "id": "qp_r1_7",
+                "posA": 13,
+                "posB": 14,
+                "jogA": "j005",
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": "j005",
+                "bye": true
+              },
+              {
+                "id": "qp_r1_8",
+                "posA": 15,
+                "posB": 16,
+                "jogA": null,
+                "jogB": "j001",
+                "score_a": null,
+                "score_b": null,
+                "vencedor": "j001",
+                "bye": true
+              }
+            ]
+          },
+          {
+            "id": "r2",
+            "nome": "Quartos de Final",
+            "jogos": [
+              {
+                "id": "qp_qf_1",
+                "jogA": "jmntii5ehdkwg",
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null
+              },
+              {
+                "id": "qp_qf_2",
+                "jogA": "jmntiqp3bcz0c",
+                "jogB": "jmntir2jlvvot",
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null
+              },
+              {
+                "id": "qp_qf_3",
+                "jogA": null,
+                "jogB": "j006",
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null
+              },
+              {
+                "id": "qp_qf_4",
+                "jogA": "j005",
+                "jogB": "j001",
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null
+              }
+            ]
+          },
+          {
+            "id": "r3",
+            "nome": "Meias Finais",
+            "jogos": [
+              {
+                "id": "qp_sf_1",
+                "jogA": null,
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null
+              },
+              {
+                "id": "qp_sf_2",
+                "jogA": null,
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null
+              }
+            ]
+          },
+          {
+            "id": "r3p",
+            "nome": "Meias Finais (5º-8º)",
+            "jogos": [
+              {
+                "id": "qp_sfp_1",
+                "jogA": null,
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null
+              },
+              {
+                "id": "qp_sfp_2",
+                "jogA": null,
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null
+              }
+            ]
+          },
+          {
+            "id": "r4",
+            "nome": "Finals",
+            "jogos": [
+              {
+                "id": "qp_final",
+                "nome": "Final (1º/2º)",
+                "jogA": null,
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null
+              },
+              {
+                "id": "qp_3lugar",
+                "nome": "3º/4º Lugar",
+                "jogA": null,
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null
+              },
+              {
+                "id": "qp_56",
+                "nome": "5º/6º Lugar",
+                "jogA": null,
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null
+              },
+              {
+                "id": "qp_78",
+                "nome": "7º/8º Lugar",
+                "jogA": null,
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null
+              },
+              {
+                "id": "qp_910",
+                "nome": "9º/10º Lugar",
+                "jogA": null,
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null
+              }
+            ]
+          }
+        ]
       },
       "quadroB": {
-        "posicoes": [],
-        "rondas": []
+        "posicoes": [
+          {
+            "pos": 1,
+            "jogId": "j004",
+            "bye": false
+          },
+          {
+            "pos": 2,
+            "jogId": "j002",
+            "bye": false
+          },
+          {
+            "pos": 3,
+            "jogId": null,
+            "bye": true
+          },
+          {
+            "pos": 4,
+            "jogId": "jmntiou1qw765",
+            "bye": false
+          }
+        ],
+        "rondas": [
+          {
+            "id": "r2",
+            "nome": "Meias Finais",
+            "jogos": [
+              {
+                "id": "qb_sf_1",
+                "posA": 1,
+                "posB": 2,
+                "jogA": "j004",
+                "jogB": "j002",
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null,
+                "bye": false
+              },
+              {
+                "id": "qb_sf_2",
+                "posA": 3,
+                "posB": 4,
+                "jogA": null,
+                "jogB": "jmntiou1qw765",
+                "score_a": null,
+                "score_b": null,
+                "vencedor": "jmntiou1qw765",
+                "bye": true
+              }
+            ]
+          },
+          {
+            "id": "r3",
+            "nome": "Finals QB",
+            "jogos": [
+              {
+                "id": "qb_final",
+                "nome": "Final QB",
+                "jogA": null,
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null
+              },
+              {
+                "id": "qb_3lugar",
+                "nome": "3º Lugar QB",
+                "jogA": null,
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null
+              }
+            ]
+          }
+        ]
       },
       "classificacaoFinal": [],
       "numInscritos": 14
