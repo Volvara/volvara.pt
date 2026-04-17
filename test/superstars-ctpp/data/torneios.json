@@ -825,6 +825,14 @@
               "score_a": 4,
               "score_b": 0,
               "vencedor": "j001"
+            },
+            {
+              "id": "gjmo2y13an6m5x",
+              "ja": "j001",
+              "jb": "jmntiomivpeaw",
+              "score_a": 5,
+              "score_b": 3,
+              "vencedor": "j001"
             }
           ],
           "classificacao": [],
