@@ -1219,9 +1219,9 @@
                 "posB": 4,
                 "jogA": "jmntiomivpeaw",
                 "jogB": "j002",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null,
+                "score_a": 4,
+                "score_b": 2,
+                "vencedor": "jmntiomivpeaw",
                 "bye": false
               }
             ]
@@ -1233,8 +1233,8 @@
               {
                 "id": "qb_final",
                 "nome": "Final QB",
-                "jogA": null,
-                "jogB": null,
+                "jogA": "jmntiou1qw765",
+                "jogB": "jmntiomivpeaw",
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null
