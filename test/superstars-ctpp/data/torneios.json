@@ -1245,9 +1245,9 @@
                 "id": "qp_qf_3",
                 "jogA": "jmntihrfco8zm",
                 "jogB": "jmnulp1rji487",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 4,
+                "score_b": 5,
+                "vencedor": "jmnulp1rji487"
               },
               {
                 "id": "qp_qf_4",
@@ -1273,7 +1273,7 @@
               },
               {
                 "id": "qp_sf_2",
-                "jogA": null,
+                "jogA": "jmnulp1rji487",
                 "jogB": null,
                 "score_a": null,
                 "score_b": null,
@@ -1295,7 +1295,7 @@
               },
               {
                 "id": "qp_sfp_2",
-                "jogA": null,
+                "jogA": "jmntihrfco8zm",
                 "jogB": null,
                 "score_a": null,
                 "score_b": null,
