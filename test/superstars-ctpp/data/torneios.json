@@ -854,7 +854,16 @@
             "j006",
             "j004"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmo25uf6xrptk",
+              "ja": "jmntii5ehdkwg",
+              "jb": "j006",
+              "score_a": 6,
+              "score_b": 3,
+              "vencedor": "jmntii5ehdkwg"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false,
           "maxJogadores": 3
