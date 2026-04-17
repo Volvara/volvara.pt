@@ -888,7 +888,16 @@
             "jmntihrfco8zm",
             "j002"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmo2yks0hw58z",
+              "ja": "jmntihrfco8zm",
+              "jb": "j002",
+              "score_a": 4,
+              "score_b": 2,
+              "vencedor": "jmntihrfco8zm"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         }
