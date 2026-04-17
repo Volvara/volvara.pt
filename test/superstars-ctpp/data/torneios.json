@@ -934,8 +934,21 @@
               "vencedor": "jmntiomivpeaw"
             }
           ],
-          "classificacao": [],
-          "classificacaoEditada": false
+          "classificacao": [
+            {
+              "pos": 1,
+              "jogId": "jmntiomivpeaw"
+            },
+            {
+              "pos": 2,
+              "jogId": "j003"
+            },
+            {
+              "pos": 3,
+              "jogId": "j006"
+            }
+          ],
+          "classificacaoEditada": true
         },
         {
           "id": "g5",
