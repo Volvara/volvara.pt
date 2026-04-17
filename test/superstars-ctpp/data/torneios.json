@@ -915,6 +915,14 @@
               "score_a": 5,
               "score_b": 3,
               "vencedor": "j003"
+            },
+            {
+              "id": "gjmo2x3unf3dhs",
+              "ja": "j003",
+              "jb": "jmntiqp3bcz0c",
+              "score_a": 3,
+              "score_b": 5,
+              "vencedor": "jmntiqp3bcz0c"
             }
           ],
           "classificacao": [],
