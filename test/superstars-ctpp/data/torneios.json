@@ -894,6 +894,14 @@
               "score_a": 4,
               "score_b": 2,
               "vencedor": "j001"
+            },
+            {
+              "id": "gjmo2whfy2mwrs",
+              "ja": "j001",
+              "jb": "j004",
+              "score_a": 9,
+              "score_b": 0,
+              "vencedor": "j001"
             }
           ],
           "classificacao": [],
