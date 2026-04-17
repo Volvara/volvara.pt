@@ -1026,9 +1026,9 @@
                 "posB": 6,
                 "jogA": "jmntipxsi5f0s",
                 "jogB": "jmntihrfco8zm",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null,
+                "score_a": 2,
+                "score_b": 4,
+                "vencedor": "jmntihrfco8zm",
                 "bye": false
               },
               {
@@ -1058,7 +1058,7 @@
               },
               {
                 "id": "qp_sf_2",
-                "jogA": null,
+                "jogA": "jmntihrfco8zm",
                 "jogB": null,
                 "score_a": null,
                 "score_b": null,
@@ -1080,7 +1080,7 @@
               },
               {
                 "id": "qp_sfp_2",
-                "jogA": null,
+                "jogA": "jmntipxsi5f0s",
                 "jogB": null,
                 "score_a": null,
                 "score_b": null,
