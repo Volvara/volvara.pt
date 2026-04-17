@@ -980,13 +980,20 @@
     }
 
     function pubCol(title, matches, roundIndex) {
-      var mt = roundIndex ? Math.round(84 * (Math.pow(2, roundIndex) - 1) / 2) : 0;
-      var wrapStyle = mt ? ' style="margin-top:'+mt+'px"' : '';
+      // Tennis draw: first match margin-top + extra gap between subsequent matches
+      var pow2 = Math.pow(2, roundIndex||0);
+      var mt   = Math.round(84 * (pow2 - 1) / 2);   // margin-top of first match
+      var extraGap = Math.round(84 * (pow2 - 1));     // extra gap beyond GAP_MIN between matches
+      // Apply margin-top to first match, extraGap to rest
+      var html = matches.map(function(m, i) {
+        var topStyle = (i === 0 && mt > 0) ? ' style="margin-top:'+mt+'px"' :
+                       (i > 0 && extraGap > 0) ? ' style="margin-top:'+extraGap+'px"' : '';
+        return topStyle ? m.replace(/^<div class="pub-match"/, '<div class="pub-match"'+topStyle) : m;
+      }).join('');
       return '<div class="pub-bracket-col">'+
         '<div class="pub-ronda-title">'+title+'</div>'+
-        '<div class="pub-matches-wrap"'+wrapStyle+'>'+
-        matches.join('')+
-        '</div></div>';
+        html+
+        '</div>';
     }
 
     function singleBlock(label, jogo, place) {
