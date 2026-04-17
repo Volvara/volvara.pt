@@ -798,16 +798,26 @@
     },
     {
       "etapaId": "e002",
-      "estado": "sorteio",
+      "estado": "grupos",
       "numGrupos": 5,
       "numInscritos": 15,
-      "cabecasDeSerie": [],
+      "cabecasDeSerie": [
+        "jmntii5ehdkwg",
+        "j001",
+        "jmnvd7pc2bbhk",
+        "j003",
+        "jmntihrfco8zm"
+      ],
       "grupos": [
         {
           "id": "g1",
           "campo": 1,
           "maxJogadores": 3,
-          "jogadores": [],
+          "jogadores": [
+            "jmntihrfco8zm",
+            "jmntiou1qw765",
+            "jmntiqp3bcz0c"
+          ],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -816,7 +826,11 @@
           "id": "g2",
           "campo": 2,
           "maxJogadores": 3,
-          "jogadores": [],
+          "jogadores": [
+            "jmntii5ehdkwg",
+            "j004",
+            "jmntipxsi5f0s"
+          ],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -825,7 +839,11 @@
           "id": "g3",
           "campo": 3,
           "maxJogadores": 3,
-          "jogadores": [],
+          "jogadores": [
+            "jmnvd7pc2bbhk",
+            "jmntir2jlvvot",
+            "j002"
+          ],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -834,7 +852,11 @@
           "id": "g4",
           "campo": 4,
           "maxJogadores": 3,
-          "jogadores": [],
+          "jogadores": [
+            "j003",
+            "jmntiomivpeaw",
+            "j006"
+          ],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -843,7 +865,11 @@
           "id": "g5",
           "campo": 5,
           "maxJogadores": 3,
-          "jogadores": [],
+          "jogadores": [
+            "j001",
+            "jmnulp1rji487",
+            "j005"
+          ],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
