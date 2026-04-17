@@ -883,7 +883,16 @@
             "j002",
             "jmntiqp3bcz0c"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmo2on949h0er",
+              "ja": "j005",
+              "jb": "j002",
+              "score_a": 4,
+              "score_b": 2,
+              "vencedor": "j005"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         }
