@@ -166,7 +166,7 @@
   var API_BASE   = 'https://api.github.com/repos/'+REPO_OWNER+'/'+REPO_NAME+'/contents/superstars-ctpp/data/';
   // Cloudflare Worker URL — serves data with no CDN cache, PAT in Worker secrets
   // Set WORKER_BASE = '' to fall back to raw.githubusercontent.com
-  var WORKER_BASE = 'https://volvara.pt/api/superstars/';
+  var WORKER_BASE = 'https://volvara.pt/api/superstars/prod/';
   var CACHE_KEY  = 'superstars_cache';
   var CACHE_TTL  = 30 * 1000;  // 30s — refresh quickly with live polling
 
