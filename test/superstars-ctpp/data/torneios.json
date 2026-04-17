@@ -1269,9 +1269,9 @@
                 "id": "qp_sfp_1",
                 "jogA": "j006",
                 "jogB": "j003",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 5,
+                "score_b": 3,
+                "vencedor": "j006"
               },
               {
                 "id": "qp_sfp_2",
@@ -1308,7 +1308,7 @@
               {
                 "id": "qp_56",
                 "nome": "5º/6º Lugar",
-                "jogA": null,
+                "jogA": "j006",
                 "jogB": null,
                 "score_a": null,
                 "score_b": null,
@@ -1317,7 +1317,7 @@
               {
                 "id": "qp_78",
                 "nome": "7º/8º Lugar",
-                "jogA": null,
+                "jogA": "j003",
                 "jogB": null,
                 "score_a": null,
                 "score_b": null,
