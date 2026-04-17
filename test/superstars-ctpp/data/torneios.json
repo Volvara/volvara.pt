@@ -1397,9 +1397,9 @@
                 "nome": "Final QB",
                 "jogA": "j002",
                 "jogB": "jmntiqp3bcz0c",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 2,
+                "score_b": 4,
+                "vencedor": "jmntiqp3bcz0c"
               }
             ]
           }
