@@ -970,7 +970,16 @@
             "jmo31yptyfq51",
             "jmo31z2nmba95"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmo3a9loxiibr",
+              "ja": "j001",
+              "jb": "jmo31yptyfq51",
+              "score_a": 4,
+              "score_b": 2,
+              "vencedor": "j001"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         }
