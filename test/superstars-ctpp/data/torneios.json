@@ -840,7 +840,16 @@
             "j004",
             "jmntipxsi5f0s"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmo2sys36g3bw",
+              "ja": "jmntii5ehdkwg",
+              "jb": "j004",
+              "score_a": 6,
+              "score_b": 0,
+              "vencedor": "jmntii5ehdkwg"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         },
