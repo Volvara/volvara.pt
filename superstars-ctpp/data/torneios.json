@@ -798,25 +798,16 @@
     },
     {
       "etapaId": "e002",
-      "estado": "grupos",
+      "estado": "sorteio",
       "numGrupos": 4,
-      "numInscritos": 10,
-      "cabecasDeSerie": [
-        "j001",
-        "j003",
-        "jmntiqp3bcz0c",
-        "jmntiomivpeaw"
-      ],
+      "numInscritos": 9,
+      "cabecasDeSerie": [],
       "grupos": [
         {
           "id": "g1",
           "campo": 1,
           "maxJogadores": 3,
-          "jogadores": [
-            "j003",
-            "jmntiou1qw765",
-            "jmntipxsi5f0s"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -824,12 +815,8 @@
         {
           "id": "g2",
           "campo": 2,
-          "maxJogadores": 3,
-          "jogadores": [
-            "jmntiqp3bcz0c",
-            "jmo31xwfs5xxs",
-            "j002"
-          ],
+          "maxJogadores": 2,
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -838,10 +825,7 @@
           "id": "g3",
           "campo": 3,
           "maxJogadores": 2,
-          "jogadores": [
-            "jmntiomivpeaw",
-            "j005"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -850,10 +834,7 @@
           "id": "g4",
           "campo": 4,
           "maxJogadores": 2,
-          "jogadores": [
-            "j001",
-            "jmo31yptyfq51"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -998,24 +979,7 @@
       },
       "quadroB": {
         "posicoes": [],
-        "rondas": [
-          {
-            "id": "r3",
-            "nome": "Final 9º/10º",
-            "jogos": [
-              {
-                "id": "qb_final",
-                "posA": 1,
-                "posB": 2,
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              }
-            ]
-          }
-        ]
+        "rondas": []
       },
       "classificacaoFinal": []
     }
