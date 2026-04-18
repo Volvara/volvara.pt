@@ -798,16 +798,26 @@
     },
     {
       "etapaId": "e002",
-      "estado": "sorteio",
+      "estado": "grupos",
       "numGrupos": 5,
       "numInscritos": 13,
-      "cabecasDeSerie": [],
+      "cabecasDeSerie": [
+        "j001",
+        "j003",
+        "jmntiqp3bcz0c",
+        "jmntiomivpeaw",
+        "jmntipxsi5f0s"
+      ],
       "grupos": [
         {
           "id": "g1",
           "campo": 1,
           "maxJogadores": 3,
-          "jogadores": [],
+          "jogadores": [
+            "jmntiomivpeaw",
+            "jmo31y6xvq7nx",
+            "j005"
+          ],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -816,7 +826,11 @@
           "id": "g2",
           "campo": 2,
           "maxJogadores": 3,
-          "jogadores": [],
+          "jogadores": [
+            "j003",
+            "jmo32gk8n4wo4",
+            "jmntiou1qw765"
+          ],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -825,7 +839,11 @@
           "id": "g3",
           "campo": 3,
           "maxJogadores": 3,
-          "jogadores": [],
+          "jogadores": [
+            "jmntiqp3bcz0c",
+            "jmo31xwfs5xxs",
+            "jmo31yptyfq51"
+          ],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -834,7 +852,10 @@
           "id": "g4",
           "campo": 4,
           "maxJogadores": 2,
-          "jogadores": [],
+          "jogadores": [
+            "j001",
+            "j002"
+          ],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -843,7 +864,10 @@
           "id": "g5",
           "campo": 5,
           "maxJogadores": 2,
-          "jogadores": [],
+          "jogadores": [
+            "jmntipxsi5f0s",
+            "jmo31z2nmba95"
+          ],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
