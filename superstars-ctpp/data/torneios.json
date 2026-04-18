@@ -1265,9 +1265,9 @@
                 "nome": "3º Lugar QB",
                 "jogA": "jmntiou1qw765",
                 "jogB": "jmo31yptyfq51",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 4,
+                "score_b": 2,
+                "vencedor": "jmntiou1qw765"
               }
             ]
           }
