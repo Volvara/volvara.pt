@@ -940,18 +940,61 @@
       return (JOGADORES.find(function(j){return j.id===id;})||{}).nome||id;
     }
 
-    function pubMatch(j) {
+    // ── Position origin maps — MUST match admin QP_POSICOES & QB_POSICOES ──
+    var QP_POS_MAP = {
+      5: [{g:0,c:0,pos:1},{g:1,c:0,pos:16},{g:2,c:0,pos:5},{g:3,c:0,pos:12},{g:4,c:0,pos:8},
+          {g:0,c:1,pos:9},{g:1,c:1,pos:3},{g:2,c:1,pos:13},{g:3,c:1,pos:4},{g:4,c:1,pos:10}],
+      4: [{g:0,c:0,pos:1},{g:3,c:1,pos:2},{g:2,c:0,pos:3},{g:1,c:1,pos:4},
+          {g:0,c:1,pos:5},{g:3,c:0,pos:6},{g:2,c:1,pos:7},{g:1,c:0,pos:8}]
+    };
+    var QB_POS_MAP = {
+      15:[{g:0,pos:1},{g:3,pos:3},{g:4,pos:4},{g:2,pos:6},{g:1,pos:8}],
+      14:[{g:0,pos:1},{g:3,pos:2},{g:2,pos:3},{g:1,pos:4}],
+      13:[{g:0,pos:1},{g:2,pos:3},{g:1,pos:4}],
+      12:[{g:0,pos:1},{g:3,pos:2},{g:2,pos:3},{g:1,pos:4}],
+      11:[{g:0,pos:1},{g:2,pos:3},{g:1,pos:4}],
+      10:[{g:0,pos:1},{g:1,pos:2}],
+      9: [{g:0,pos:1}],
+      8: []
+    };
+
+    // Returns {name, isPlaceholder} for a match slot
+    // If jogId is real → real player name
+    // If jogId null + pos has origin mapping → "1ºG1" placeholder
+    // If jogId null + no mapping → "BYE"
+    function pNomePos(jogId, pos, quadroTipo) {
+      if(jogId) return {name: pNome(jogId), isPlaceholder: false};
+      var nI = torneio.numInscritos || (torneio.grupos||[]).reduce(function(s,g){return s+(g.jogadores||[]).length;},0);
+      var numGrupos = (torneio.grupos||[]).length;
+      var map;
+      if(quadroTipo === 'qp') {
+        map = QP_POS_MAP[numGrupos];
+      } else {
+        map = QB_POS_MAP[nI];
+      }
+      if(!map || !pos) return {name: 'BYE', isPlaceholder: false};
+      var origem = map.find(function(m){return m.pos === pos;});
+      if(!origem) return {name: 'BYE', isPlaceholder: false};
+      // QP: has c (0=1º, 1=2º). QB: no c (always 3º)
+      var posLetra = (quadroTipo==='qp') ? (origem.c===0 ? '1º' : '2º') : '3º';
+      return {name: posLetra+'G'+(origem.g+1), isPlaceholder: true};
+    }
+
+    function pubMatch(j, quadroTipo) {
       if(!j) return '<div class="pub-match pub-match-empty"><div class="pub-player"><span class="pub-pname">—</span></div><div class="pub-player"><span class="pub-pname">—</span></div></div>';
-      var nA=pNome(j.jogA), nB=pNome(j.jogB);
+      var quadroTipo = quadroTipo || 'qp';
+      var a = pNomePos(j.jogA, j.posA, quadroTipo);
+      var b = pNomePos(j.jogB, j.posB, quadroTipo);
       var done=j.vencedor!=null;
       var winA=done&&j.vencedor===j.jogA, winB=done&&j.vencedor===j.jogB;
-      function pl(name,win,bye,score) {
+      function pl(slot,win,bye,score) {
+        var clsName = slot.isPlaceholder ? ' pub-pname-placeholder' : '';
         return '<div class="pub-player'+(win?' pub-winner':'')+(bye?' pub-bye':'')+'">'+
-          '<span class="pub-pname">'+name+'</span>'+
+          '<span class="pub-pname'+clsName+'">'+slot.name+'</span>'+
           (score!==null&&score!==undefined&&done?'<span class="pub-score'+(win?' pub-score-w':'')+'">'+score+'</span>':'')+
         '</div>';
       }
-      return '<div class="pub-match">'+pl(nA,winA,!j.jogA,j.score_a)+pl(nB,winB,!j.jogB,j.score_b)+'</div>';
+      return '<div class="pub-match">'+pl(a,winA,!j.jogA,j.score_a)+pl(b,winB,!j.jogB,j.score_b)+'</div>';
     }
 
     // pubFinal: match + winner step forward with medal/place label
@@ -1053,8 +1096,8 @@
       var qbThirdPos = n >= 13 ? (getLang()==='en'?'13th':'13º') : (getLang()==='en'?'11th':'11º');
       html+='<div class="pub-bracket-wrap"><div class="pub-bracket-label">'+qbLabel+'</div>';
       html+='<div class="pub-bracket-scroll"><div class="pub-bracket-inner">';
-      if(r1qb) html+=pubCol(t('quartos'),r1qb.jogos.map(pubMatch),0);
-      if(r2qb) html+=pubCol(t('meias'),r2qb.jogos.map(pubMatch),r1qb?1:0);
+      if(r1qb) html+=pubCol(t('quartos'),r1qb.jogos.map(function(j){return pubMatch(j,'qb');}),0);
+      if(r2qb) html+=pubCol(t('meias'),r2qb.jogos.map(function(j){return pubMatch(j,'qb');}),r1qb?1:0);
       // Final + 3º lugar side by side in one column (both are place-match finals)
       if(finalB) {
         html += '<div class="pub-bracket-col pub-col-final">'+
