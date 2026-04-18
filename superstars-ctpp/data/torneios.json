@@ -798,7 +798,7 @@
     },
     {
       "etapaId": "e002",
-      "estado": "quadros",
+      "estado": "concluido",
       "numGrupos": 4,
       "numInscritos": 12,
       "cabecasDeSerie": [
@@ -1273,7 +1273,68 @@
           }
         ]
       },
-      "classificacaoFinal": []
+      "classificacaoFinal": [
+        {
+          "pos": 1,
+          "jogId": "j001",
+          "pts": 18
+        },
+        {
+          "pos": 2,
+          "jogId": "jmo31z2nmba95",
+          "pts": 16
+        },
+        {
+          "pos": 3,
+          "jogId": "j003",
+          "pts": 14
+        },
+        {
+          "pos": 4,
+          "jogId": "jmntiomivpeaw",
+          "pts": 13
+        },
+        {
+          "pos": 5,
+          "jogId": "jmntiqp3bcz0c",
+          "pts": 12
+        },
+        {
+          "pos": 6,
+          "jogId": "jmntipxsi5f0s",
+          "pts": 11
+        },
+        {
+          "pos": 7,
+          "jogId": "j005",
+          "pts": 10
+        },
+        {
+          "pos": 8,
+          "jogId": "jmo31xwfs5xxs",
+          "pts": 9
+        },
+        {
+          "pos": 9,
+          "jogId": "jmo31y6xvq7nx",
+          "pts": 8
+        },
+        {
+          "pos": 10,
+          "jogId": "j002",
+          "pts": 7
+        },
+        {
+          "pos": 11,
+          "jogId": "jmntiou1qw765",
+          "pts": 6
+        },
+        {
+          "pos": 12,
+          "jogId": "jmo31yptyfq51",
+          "pts": 5
+        }
+      ]
     }
   ]
 }
