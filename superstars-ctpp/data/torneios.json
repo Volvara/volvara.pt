@@ -798,25 +798,16 @@
     },
     {
       "etapaId": "e002",
-      "estado": "grupos",
+      "estado": "sorteio",
       "numGrupos": 4,
-      "numInscritos": 12,
-      "cabecasDeSerie": [
-        "j001",
-        "j003",
-        "jmntiomivpeaw",
-        "jmntiqp3bcz0c"
-      ],
+      "numInscritos": 11,
+      "cabecasDeSerie": [],
       "grupos": [
         {
           "id": "g1",
           "campo": 1,
           "maxJogadores": 3,
-          "jogadores": [
-            "jmntiomivpeaw",
-            "jmntipxsi5f0s",
-            "j002"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -825,11 +816,7 @@
           "id": "g2",
           "campo": 2,
           "maxJogadores": 3,
-          "jogadores": [
-            "j003",
-            "jmo31xwfs5xxs",
-            "jmntiou1qw765"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -838,11 +825,7 @@
           "id": "g3",
           "campo": 3,
           "maxJogadores": 3,
-          "jogadores": [
-            "jmntiqp3bcz0c",
-            "jmo31y6xvq7nx",
-            "jmo31z2nmba95"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -850,12 +833,8 @@
         {
           "id": "g4",
           "campo": 4,
-          "maxJogadores": 3,
-          "jogadores": [
-            "j001",
-            "jmo31yptyfq51",
-            "j005"
-          ],
+          "maxJogadores": 2,
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -1034,15 +1013,6 @@
               {
                 "id": "qb_final",
                 "nome": "Final QB",
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              },
-              {
-                "id": "qb_3lugar",
-                "nome": "3º Lugar QB",
                 "jogA": null,
                 "jogB": null,
                 "score_a": null,
