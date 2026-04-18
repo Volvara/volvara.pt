@@ -1240,9 +1240,9 @@
                 "posB": 4,
                 "jogA": "jmo31yptyfq51",
                 "jogB": "jmo31y6xvq7nx",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null,
+                "score_a": 1,
+                "score_b": 4,
+                "vencedor": "jmo31y6xvq7nx",
                 "bye": false
               }
             ]
@@ -1255,7 +1255,7 @@
                 "id": "qb_final",
                 "nome": "Final QB",
                 "jogA": "j002",
-                "jogB": null,
+                "jogB": "jmo31y6xvq7nx",
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null
@@ -1264,7 +1264,7 @@
                 "id": "qb_3lugar",
                 "nome": "3º Lugar QB",
                 "jogA": "jmntiou1qw765",
-                "jogB": null,
+                "jogB": "jmo31yptyfq51",
                 "score_a": null,
                 "score_b": null,
                 "vencedor": null
