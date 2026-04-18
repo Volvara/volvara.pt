@@ -585,7 +585,7 @@ function viewLogin(){
       '<div class="login-logo"><span class="v1">SUPER</span><span class="v2">STARS</span></div>'+
       '<div class="login-sub">Painel do Director · CTPP</div>'+
       (state.msg?'<div class="msg msg-'+state.msg.type+'">'+state.msg.txt+'</div>':'')+
-      '<input type="password" id="pw-input" class="inp" placeholder="Password" autocomplete="current-password">'+
+      '<input type="password" id="pw-input" class="inp" placeholder="Password" autocomplete="current-password" onkeydown="if(event.key===\'Enter\'){event.preventDefault();doLogin();}">'+
       '<button class="btn btn-gold" id="btn-login">Entrar</button>'+
       '<div class="login-note">Funciona em qualquer dispositivo · Sem instalação</div>'+
     '</div>'+
