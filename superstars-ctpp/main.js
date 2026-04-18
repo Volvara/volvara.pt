@@ -982,7 +982,8 @@
 
     function pubMatch(j, quadroTipo) {
       if(!j) return '<div class="pub-match pub-match-empty"><div class="pub-player"><span class="pub-pname">—</span></div><div class="pub-player"><span class="pub-pname">—</span></div></div>';
-      var quadroTipo = quadroTipo || 'qp';
+      // Guard: when called via .map(pubMatch), quadroTipo may be the index number
+      if(quadroTipo !== 'qp' && quadroTipo !== 'qb') quadroTipo = 'qp';
       var a = pNomePos(j.jogA, j.posA, quadroTipo);
       var b = pNomePos(j.jogB, j.posB, quadroTipo);
       var done=j.vencedor!=null;
@@ -1069,9 +1070,9 @@
       var fJogo=r4?r4.jogos.find(function(j){return j.id==='qp_final';}):null;
       html+='<div class="pub-bracket-wrap"><div class="pub-bracket-label">'+ t('quadroPrincipal') +'</div>';
       html+='<div class="pub-bracket-scroll"><div class="pub-bracket-inner">';
-      if(r1) html+=pubCol(t('oitavos'),r1.jogos.map(pubMatch),0);   // QP16 only
-      if(r2) html+=pubCol(t('quartos'),r2.jogos.map(pubMatch),r1?1:0);   // QP16 + QP8
-      if(r3) html+=pubCol(t('meias'),r3.jogos.map(pubMatch),r1?2:1);
+      if(r1) html+=pubCol(t('oitavos'),r1.jogos.map(function(j){return pubMatch(j,'qp');}),0);   // QP16 only
+      if(r2) html+=pubCol(t('quartos'),r2.jogos.map(function(j){return pubMatch(j,'qp');}),r1?1:0);   // QP16 + QP8
+      if(r3) html+=pubCol(t('meias'),r3.jogos.map(function(j){return pubMatch(j,'qp');}),r1?2:1);
       if(fJogo) html+='<div class="pub-bracket-col pub-col-final">'+
         '<div class="pub-ronda-title">'+t('final12')+'</div>'+
         pubFinal(fJogo,'🥇',null)+
