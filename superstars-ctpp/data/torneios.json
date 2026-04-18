@@ -798,25 +798,16 @@
     },
     {
       "etapaId": "e002",
-      "estado": "grupos",
+      "estado": "sorteio",
       "numGrupos": 4,
-      "numInscritos": 11,
-      "cabecasDeSerie": [
-        "j001",
-        "j003",
-        "jmntiqp3bcz0c",
-        "jmntiomivpeaw"
-      ],
+      "numInscritos": 10,
+      "cabecasDeSerie": [],
       "grupos": [
         {
           "id": "g1",
           "campo": 1,
           "maxJogadores": 3,
-          "jogadores": [
-            "j001",
-            "jmntiou1qw765",
-            "jmo31z2nmba95"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -825,11 +816,7 @@
           "id": "g2",
           "campo": 2,
           "maxJogadores": 3,
-          "jogadores": [
-            "j003",
-            "j005",
-            "jmo31yptyfq51"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -837,12 +824,8 @@
         {
           "id": "g3",
           "campo": 3,
-          "maxJogadores": 3,
-          "jogadores": [
-            "jmntiqp3bcz0c",
-            "jmo31xwfs5xxs",
-            "j002"
-          ],
+          "maxJogadores": 2,
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -851,10 +834,7 @@
           "id": "g4",
           "campo": 4,
           "maxJogadores": 2,
-          "jogadores": [
-            "jmntiomivpeaw",
-            "jmntipxsi5f0s"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -1001,38 +981,13 @@
         "posicoes": [],
         "rondas": [
           {
-            "id": "r2",
-            "nome": "Meias Finais",
-            "jogos": [
-              {
-                "id": "qb_sf_1",
-                "posA": 1,
-                "posB": 2,
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              },
-              {
-                "id": "qb_sf_2",
-                "posA": 3,
-                "posB": 4,
-                "jogA": null,
-                "jogB": null,
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
-              }
-            ]
-          },
-          {
             "id": "r3",
-            "nome": "Finals QB",
+            "nome": "Final 9º/10º",
             "jogos": [
               {
                 "id": "qb_final",
-                "nome": "Final QB",
+                "posA": 1,
+                "posB": 2,
                 "jogA": null,
                 "jogB": null,
                 "score_a": null,
