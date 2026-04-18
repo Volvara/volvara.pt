@@ -2086,7 +2086,7 @@ function bindEvents(){
   var btnLogin = document.getElementById('btn-login');
   if(btnLogin) btnLogin.addEventListener('click', doLogin, {once:true});
   var pwInput = document.getElementById('pw-input');
-  if(pwInput) pwInput.addEventListener('keydown', function(e){ if(e.key==='Enter') doLogin(); }, {once:true});
+  if(pwInput) pwInput.addEventListener('keydown', function(e){ if(e.key==='Enter'){ e.preventDefault(); doLogin(); } });
 
   // Burger — mobile nav toggle (no stopPropagation — capture listener handles nav)
   var burgerBtn = document.getElementById('admin-burger-btn');
