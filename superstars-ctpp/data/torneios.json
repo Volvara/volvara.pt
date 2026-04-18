@@ -818,7 +818,16 @@
             "jmntiou1qw765",
             "jmo31yptyfq51"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmo431ssxay86",
+              "ja": "j003",
+              "jb": "jmntiou1qw765",
+              "score_a": 4,
+              "score_b": 1,
+              "vencedor": "j003"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         },
