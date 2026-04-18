@@ -798,26 +798,16 @@
     },
     {
       "etapaId": "e002",
-      "estado": "grupos",
+      "estado": "sorteio",
       "numGrupos": 5,
-      "numInscritos": 14,
-      "cabecasDeSerie": [
-        "j001",
-        "j003",
-        "jmntiqp3bcz0c",
-        "jmntiomivpeaw",
-        "j005"
-      ],
+      "numInscritos": 15,
+      "cabecasDeSerie": [],
       "grupos": [
         {
           "id": "g1",
           "campo": 1,
           "maxJogadores": 3,
-          "jogadores": [
-            "jmntiomivpeaw",
-            "jmo31yptyfq51",
-            "jmntiou1qw765"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -826,11 +816,7 @@
           "id": "g2",
           "campo": 2,
           "maxJogadores": 3,
-          "jogadores": [
-            "j003",
-            "jmo31xwfs5xxs",
-            "jmo32jj00ixl0"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -839,11 +825,7 @@
           "id": "g3",
           "campo": 3,
           "maxJogadores": 3,
-          "jogadores": [
-            "j005",
-            "jmntipxsi5f0s",
-            "jmo31y6xvq7nx"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -852,11 +834,7 @@
           "id": "g4",
           "campo": 4,
           "maxJogadores": 3,
-          "jogadores": [
-            "j001",
-            "jmo32gk8n4wo4",
-            "jmo31z2nmba95"
-          ],
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -864,11 +842,8 @@
         {
           "id": "g5",
           "campo": 5,
-          "maxJogadores": 2,
-          "jogadores": [
-            "jmntiqp3bcz0c",
-            "j002"
-          ],
+          "maxJogadores": 3,
+          "jogadores": [],
           "jogos": [],
           "classificacao": [],
           "classificacaoEditada": false
@@ -1109,6 +1084,56 @@
       "quadroB": {
         "posicoes": [],
         "rondas": [
+          {
+            "id": "r1",
+            "nome": "Quartos de Final",
+            "jogos": [
+              {
+                "id": "qb_qf_1",
+                "posA": 1,
+                "posB": 2,
+                "jogA": null,
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null,
+                "bye": false
+              },
+              {
+                "id": "qb_qf_2",
+                "posA": 3,
+                "posB": 4,
+                "jogA": null,
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null,
+                "bye": false
+              },
+              {
+                "id": "qb_qf_3",
+                "posA": 5,
+                "posB": 6,
+                "jogA": null,
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null,
+                "bye": false
+              },
+              {
+                "id": "qb_qf_4",
+                "posA": 7,
+                "posB": 8,
+                "jogA": null,
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null,
+                "bye": false
+              }
+            ]
+          },
           {
             "id": "r2",
             "nome": "Meias Finais",
