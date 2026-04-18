@@ -1332,9 +1332,9 @@
                 "nome": "7º/8º Lugar",
                 "jogA": "jmo32jj00ixl0",
                 "jogB": "j002",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 4,
+                "score_b": 2,
+                "vencedor": "jmo32jj00ixl0"
               },
               {
                 "id": "qp_910",
