@@ -964,20 +964,24 @@
     // If jogId null + no mapping → "BYE"
     function pNomePos(jogId, pos, quadroTipo) {
       if(jogId) return {name: pNome(jogId), isPlaceholder: false};
+      // No pos → future round (SF, Final) — show empty placeholder, no text
+      if(!pos) return {name: '', isPlaceholder: true};
       var nI = torneio.numInscritos || (torneio.grupos||[]).reduce(function(s,g){return s+(g.jogadores||[]).length;},0);
       var numGrupos = (torneio.grupos||[]).length;
-      var map;
-      if(quadroTipo === 'qp') {
-        map = QP_POS_MAP[numGrupos];
-      } else {
-        map = QB_POS_MAP[nI];
-      }
-      if(!map || !pos) return {name: 'BYE', isPlaceholder: false};
+      var map = quadroTipo === 'qp' ? QP_POS_MAP[numGrupos] : QB_POS_MAP[nI];
+      if(!map) return {name: '', isPlaceholder: true};
       var origem = map.find(function(m){return m.pos === pos;});
+      // No origem found but pos is defined → it's a predefined BYE slot
       if(!origem) return {name: 'BYE', isPlaceholder: false};
-      // QP: has c (0=1º, 1=2º). QB: no c (always 3º)
-      var posLetra = (quadroTipo==='qp') ? (origem.c===0 ? '1º' : '2º') : '3º';
-      return {name: posLetra+'G'+(origem.g+1), isPlaceholder: true};
+      // QP: origem has c (0=1st, 1=2nd). QB: no c, always 3rd
+      var en = getLang()==='en';
+      var posLetra;
+      if(quadroTipo==='qp') {
+        posLetra = en ? (origem.c===0 ? '1st' : '2nd') : (origem.c===0 ? '1º' : '2º');
+      } else {
+        posLetra = en ? '3rd' : '3º';
+      }
+      return {name: posLetra+' G'+(origem.g+1), isPlaceholder: true};
     }
 
     function pubMatch(j, quadroTipo) {
@@ -1013,12 +1017,14 @@
       var nameSize  = medal==='🥇'?'15px':medal==='🥈'?'14px':'13px';
       // Match: show scores
       var winA = done && j.vencedor === j.jogA;
+      var nomA = j.jogA ? pNome(j.jogA) : '';
+      var nomB = j.jogB ? pNome(j.jogB) : '';
       var matchHtml = '<div class="pub-match pub-match-final">'+
         '<div class="pub-player'+(winA&&done?' pub-winner':'')+'">'+
-          '<span class="pub-pname">'+pNome(j.jogA)+'</span>'+
+          '<span class="pub-pname">'+nomA+'</span>'+
           (j.score_a!=null?'<span class="pub-score'+(winA?' pub-score-w':'')+'">'+j.score_a+'</span>':'')+'</div>'+
         '<div class="pub-player'+(!winA&&done?' pub-winner':'')+'">'+
-          '<span class="pub-pname">'+pNome(j.jogB)+'</span>'+
+          '<span class="pub-pname">'+nomB+'</span>'+
           (j.score_b!=null?'<span class="pub-score'+((!winA)?' pub-score-w':'')+'">'+j.score_b+'</span>':'')+'</div>'+
       '</div>';
       // Champion cell: medal + name only (no redundant place label when medal present)
