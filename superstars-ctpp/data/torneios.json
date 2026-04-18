@@ -1370,9 +1370,9 @@
                 "nome": "9º/10º Lugar",
                 "jogA": "jmntiou1qw765",
                 "jogB": "jmo31y6xvq7nx",
-                "score_a": null,
-                "score_b": null,
-                "vencedor": null
+                "score_a": 2,
+                "score_b": 4,
+                "vencedor": "jmo31y6xvq7nx"
               }
             ]
           }
