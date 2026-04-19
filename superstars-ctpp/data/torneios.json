@@ -818,7 +818,16 @@
             "jmo31z2nmba95",
             "jmo5g8yb6z7wa"
           ],
-          "jogos": [],
+          "jogos": [
+            {
+              "id": "gjmo5hukhk0zu6",
+              "ja": "j003",
+              "jb": "jmo31z2nmba95",
+              "score_a": 6,
+              "score_b": 1,
+              "vencedor": "j003"
+            }
+          ],
           "classificacao": [],
           "classificacaoEditada": false
         },
