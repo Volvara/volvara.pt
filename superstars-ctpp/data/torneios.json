@@ -800,7 +800,7 @@
       "etapaId": "e002",
       "estado": "sorteio",
       "numGrupos": 5,
-      "numInscritos": 14,
+      "numInscritos": 15,
       "cabecasDeSerie": [],
       "grupos": [
         {
@@ -842,7 +842,7 @@
         {
           "id": "g5",
           "campo": 5,
-          "maxJogadores": 2,
+          "maxJogadores": 3,
           "jogadores": [],
           "jogos": [],
           "classificacao": [],
@@ -1084,6 +1084,56 @@
       "quadroB": {
         "posicoes": [],
         "rondas": [
+          {
+            "id": "r1",
+            "nome": "Quartos de Final",
+            "jogos": [
+              {
+                "id": "qb_qf_1",
+                "posA": 1,
+                "posB": 2,
+                "jogA": null,
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null,
+                "bye": false
+              },
+              {
+                "id": "qb_qf_2",
+                "posA": 3,
+                "posB": 4,
+                "jogA": null,
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null,
+                "bye": false
+              },
+              {
+                "id": "qb_qf_3",
+                "posA": 5,
+                "posB": 6,
+                "jogA": null,
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null,
+                "bye": false
+              },
+              {
+                "id": "qb_qf_4",
+                "posA": 7,
+                "posB": 8,
+                "jogA": null,
+                "jogB": null,
+                "score_a": null,
+                "score_b": null,
+                "vencedor": null,
+                "bye": false
+              }
+            ]
+          },
           {
             "id": "r2",
             "nome": "Meias Finais",
