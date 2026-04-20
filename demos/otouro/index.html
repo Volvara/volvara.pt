@@ -7,7 +7,7 @@
 <meta name="description" content="Smash Burgers &amp; Steakhouse única em Alvor e Portimão. Delivery em todo o concelho. Takeaway disponível. Reservas: 916 112 061.">
 <meta property="og:title" content="O Touro Burger &amp; Steaks">
 <meta property="og:description" content="Smash Burgers &amp; Steakhouse única em Alvor e Portimão. Carne do Uruguai, sabor que fica.">
-<meta property="og:image" content="assets/hero-composite.jpg">
+<meta property="og:image" content="assets/hero-food.jpg">
 <meta property="og:type" content="restaurant">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -81,87 +81,132 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 #mmenu a:hover{color:var(--red)}
 #mmenu .m-order{background:var(--red);color:#fff;padding:12px 36px;border-radius:var(--r);font-size:1.6rem;margin-top:.5rem}
 
-/* HERO */
-/* ══ HERO — full-bleed composite ══ */
+/* HERO — split layout, clean */
 #hero{
   position:relative;
   min-height:100svh;
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
+  background:#0A0606;
   overflow:hidden;
-  display:flex;
-  align-items:center;
-  padding:calc(var(--nav-h) + 2rem) clamp(1.5rem,5vw,5rem) clamp(2rem,5vh,4rem);
-  background:#080606;
 }
-#hero::before{
-  /* Hero image as background — fills entire hero */
-  content:'';
-  position:absolute;inset:0;z-index:0;
-  background:url('assets/hero-composite.jpg') center center / cover no-repeat;
+
+/* LEFT — text column (solid black background) */
+.hero-text{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:calc(var(--nav-h) + clamp(1.5rem,4vh,3rem)) clamp(1.5rem,5vw,4.5rem) clamp(2rem,5vh,4rem);
+  background:var(--black);
+}
+
+/* RIGHT — image column */
+.hero-photo{
+  position:relative;
+  background:var(--black);
+  overflow:hidden;
+}
+.hero-photo img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center center;
+  display:block;
+  filter:brightness(.92) saturate(1.08);
+  transform:scale(1.02);
+  transition:transform 18s linear,opacity .8s ease;
   opacity:0;
-  animation:heroFadeIn 1.2s cubic-bezier(.25,.4,.3,1) .2s forwards;
-  transform:scale(1.05);
-  transition:transform 20s linear;
 }
-#hero.loaded::before{transform:scale(1)}
-@keyframes heroFadeIn{to{opacity:1}}
+.hero-photo img.loaded{transform:scale(1);opacity:1}
 
-#hero::after{
-  /* Left-to-right dark gradient ensures text readability */
-  content:'';
-  position:absolute;inset:0;z-index:1;
-  background:linear-gradient(
-    to right,
-    rgba(8,6,6,.97) 0%,
-    rgba(8,6,6,.92) 30%,
-    rgba(8,6,6,.55) 55%,
-    rgba(8,6,6,.2) 75%,
-    rgba(8,6,6,.35) 100%
-  );
-  pointer-events:none;
+/* Gradient feather between text and photo */
+.hero-photo::before{
+  content:'';position:absolute;
+  left:0;top:0;bottom:0;width:100px;
+  z-index:2;pointer-events:none;
+  background:linear-gradient(to right,var(--black) 0%,transparent 100%);
+}
+/* Bottom gradient — nice fade into next section */
+.hero-photo::after{
+  content:'';position:absolute;
+  left:0;right:0;bottom:0;height:80px;
+  z-index:2;pointer-events:none;
+  background:linear-gradient(to top,var(--black) 0%,transparent 100%);
 }
 
-/* Top nav gradient strip */
-.hero-nav-grad{
-  position:absolute;top:0;left:0;right:0;height:130px;z-index:2;
-  background:linear-gradient(to bottom,rgba(8,6,6,.9) 0%,transparent 100%);
-  pointer-events:none;
+/* Content elements */
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(204,31,31,.12);
+  border:1px solid rgba(204,31,31,.3);
+  padding:6px 14px;border-radius:100px;
+  margin-bottom:1.5rem;width:fit-content;
+  font-family:'DM Mono',monospace;font-size:.7rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--amber);
 }
-
-.hero-content{
-  position:relative;z-index:3;
-  max-width:620px;width:100%;
+.hero-kicker .k-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--amber);
+  box-shadow:0 0 8px var(--amber);animation:blink 2s infinite;
 }
+@keyframes blink{50%{opacity:.3}}
 
-/* Hide legacy elements */
-.hero-left,.hero-right,.hero-right-img,.hero-img,.hero-grad{display:contents}
-.hero-right{display:none !important}
-.hero-left{display:contents}
-.hero-stats>div{text-align:left}
-.hero-kicker{display:inline-flex;align-items:center;gap:8px;background:rgba(204,31,31,.15);border:1px solid rgba(204,31,31,.3);padding:5px 14px;border-radius:100px;margin-bottom:1.2rem;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
-.hero-kicker .k-dot{width:6px;height:6px;border-radius:50%;background:var(--amber);box-shadow:0 0 8px var(--amber);animation:blink 2s infinite}
 h1.hero-title{
   font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(3rem,7vw,7rem);
-  line-height:.9;letter-spacing:.01em;
-  margin-bottom:.8rem;
-  text-shadow:0 2px 30px rgba(0,0,0,.7);
+  font-size:clamp(3rem,6.5vw,6.5rem);
+  line-height:.88;letter-spacing:.01em;
+  margin-bottom:1rem;
+  color:var(--cream);
 }
 h1.hero-title .r{color:var(--red)}
+
 .hero-sub{
-  font-size:clamp(.95rem,1.3vw,1.08rem);
-  font-weight:400;color:rgba(240,234,224,.88);
-  line-height:1.65;max-width:520px;
-  margin-bottom:clamp(1.5rem,3vh,2rem);
-  text-shadow:0 1px 12px rgba(0,0,0,.7);
+  font-size:clamp(.95rem,1.2vw,1.08rem);
+  line-height:1.65;color:rgba(240,234,224,.78);
+  max-width:460px;margin-bottom:2rem;
 }
-.hero-ctas{display:flex;gap:.9rem;flex-wrap:wrap}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;padding:14px 28px;border-radius:var(--r);font-size:.9rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;transition:background .2s,transform .2s,box-shadow .2s}
-.btn-primary:hover{background:var(--red-h);transform:translateY(-2px);box-shadow:0 10px 28px rgba(204,31,31,.35)}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--cream);padding:14px 24px;border-radius:var(--r);border:1px solid var(--border-h);font-size:.9rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;transition:border-color .2s,background .2s}
-.btn-ghost:hover{border-color:rgba(240,234,224,.3);background:rgba(240,234,224,.06)}
-.hero-stats{position:absolute;right:clamp(1rem,5vw,4rem);bottom:clamp(3rem,8vh,6rem);z-index:2;display:flex;flex-direction:column;gap:1.4rem;align-items:flex-end}
-.stat-n{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;line-height:1;color:var(--amber)}
-.stat-l{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);margin-top:2px}
+
+.hero-ctas{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn-primary{
+  background:var(--red);color:#fff;
+  padding:13px 24px;border-radius:8px;
+  font-size:.85rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:all .2s;border:none;cursor:pointer;
+}
+.btn-primary:hover{background:var(--red-h);transform:translateY(-1px);box-shadow:0 8px 24px rgba(204,31,31,.35)}
+.btn-ghost{
+  background:transparent;color:var(--cream);
+  border:1px solid rgba(240,234,224,.22);
+  padding:13px 24px;border-radius:8px;
+  font-size:.85rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:all .2s;cursor:pointer;
+}
+.btn-ghost:hover{border-color:rgba(240,234,224,.5);background:rgba(240,234,224,.05)}
+
+/* Stats — inline row, bottom of text column */
+.hero-stats{
+  display:flex;flex-direction:row;
+  gap:clamp(1.25rem,3vw,2.25rem);
+  align-items:flex-start;
+  padding-top:1.5rem;
+  border-top:1px solid rgba(240,234,224,.1);
+  flex-wrap:wrap;
+  position:static;
+}
+.hero-stats>div{text-align:left}
+.stat-n{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(1.8rem,2.8vw,2.3rem);
+  line-height:1;color:var(--amber);
+  letter-spacing:.02em;
+}
+.stat-l{
+  font-family:'DM Mono',monospace;
+  font-size:.64rem;letter-spacing:.1em;
+  color:var(--grey);margin-top:4px;
+  text-transform:uppercase;
+}
 
 /* TICKER */
 #ticker{background:var(--deep);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0 clamp(1rem,4vw,3rem);overflow-x:auto;scrollbar-width:none}
@@ -538,14 +583,18 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:3rem c
 @media(max-width:768px){
   .nav-links,.nav-status{display:none}
   .hbg{display:flex}
-  /* Hero adapts automatically — just tighten spacing */
-  #hero{padding:calc(var(--nav-h) + 1.5rem) 1.25rem 2rem;align-items:flex-end;min-height:calc(100svh - 40px)}
-  #hero::after{background:linear-gradient(to bottom,rgba(8,6,6,.6) 0%,rgba(8,6,6,.85) 50%,rgba(8,6,6,.97) 100%)}
-  .hero-content{max-width:100%}
-  h1.hero-title{font-size:clamp(2.8rem,12vw,4.5rem)}
-  .hero-sub{font-size:.95rem}
-  .hero-stats{gap:1.25rem}
-  .stat-n{font-size:1.7rem}
+  /* Hero: stack vertically — photo on top, text below */
+  #hero{grid-template-columns:1fr;grid-template-rows:40vh auto;min-height:auto}
+  .hero-photo{order:1;min-height:40vh;max-height:45vh}
+  .hero-photo img{object-position:center 40%}
+  .hero-photo::before{display:none}
+  .hero-photo::after{height:50px}
+  .hero-text{order:2;padding:2rem 1.25rem 3rem}
+  h1.hero-title{font-size:clamp(2.4rem,10vw,3.8rem)}
+  .hero-sub{font-size:.92rem}
+  .hero-stats{gap:1rem;padding-top:1.25rem}
+  .stat-n{font-size:1.6rem}
+  .stat-l{font-size:.6rem}
   .info-grid,.map-wrap,.ft-top{grid-template-columns:1fr;gap:2rem}
   .gal-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:auto}
   .g-cell:nth-child(n){grid-column:span 1!important;grid-row:span 1!important;min-height:180px}
@@ -750,11 +799,11 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:3rem c
 </div>
 
 <section id="hero">
-  <div class="hero-nav-grad"></div>
-  <div class="hero-content">
-    <div class="hero-kicker"><span class="k-dot"></span><span id="hero-status-text">Alvor · Portimão</span></div>
+  <!-- LEFT: text content -->
+  <div class="hero-text">
+    <div class="hero-kicker"><span class="k-dot"></span><span id="hero-status-text">Alvor · Portimão · 15 anos</span></div>
     <h1 class="hero-title"><span class="r">O TOURO</span><br>BURGER&nbsp;&amp;&nbsp;STEAKS</h1>
-    <p class="hero-sub">Smash Burgers &amp; Steakhouse em Alvor e Portimão. 15 anos, carne do Uruguai, sabor que fica.</p>
+    <p class="hero-sub">Smash Burgers &amp; Steakhouse em Alvor e Portimão. Carne do Uruguai, sabor que fica.</p>
     <div class="hero-ctas">
       <a href="#menu" class="btn-primary" onclick="smoothTo('menu',event)">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
@@ -766,10 +815,15 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:3rem c
       </a>
     </div>
     <div class="hero-stats">
-      <div><div class="stat-n">4,7<span style="font-size:.65em;color:var(--amber)">★</span></div><div class="stat-l">Google · 437 reviews</div></div>
+      <div><div class="stat-n">4,7<span style="font-size:.65em">★</span></div><div class="stat-l">Google · 437</div></div>
       <div><div class="stat-n">15</div><div class="stat-l">Anos em Alvor</div></div>
-      <div><div class="stat-n">5,2<span style="font-size:.65em;color:var(--grey)">K</span></div><div class="stat-l">Instagram</div></div>
+      <div><div class="stat-n">5,2K</div><div class="stat-l">Instagram</div></div>
     </div>
+  </div>
+
+  <!-- RIGHT: photo column -->
+  <div class="hero-photo">
+    <img id="hero-img" src="assets/hero-food.jpg" alt="O Touro — Smash Burgers e Cortes de Carne">
   </div>
 </section>
 
@@ -1564,12 +1618,12 @@ setTimeout(function(){
   }
 },500);
 
-/* Hero: preload composite image, fade in */
+/* Hero: fade-in image on load */
 (function(){
-  var hero=document.getElementById('hero');
-  var img=new Image();
-  img.onload=function(){hero.classList.add('loaded');};
-  img.src='assets/hero-composite.jpg';
+  var img=document.getElementById('hero-img');
+  if(!img) return;
+  if(img.complete && img.naturalWidth>0){ img.classList.add('loaded'); return; }
+  img.addEventListener('load', function(){ img.classList.add('loaded'); });
 })();
 
 /* Scroll reveal */
