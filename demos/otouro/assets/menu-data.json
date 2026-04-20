@@ -1,0 +1,193 @@
+{
+  "source": "window.__NUXT__.state.productsCategories.originalProductsCategories",
+  "extracted_at": "2026-04-20",
+  "restaurant": {
+    "name": "O Touro Burger & Steaks",
+    "address": "Rua Marquês de Pombal 65, Alvor, 8500-021 Portimão",
+    "phone": "+351 916 112 061",
+    "email": "info@otouro.pt",
+    "instagram": "@o.touro",
+    "facebook": "o.touro.burgers.steaks",
+    "google_rating": "4.7 (437 reviews)",
+    "tripadvisor_rating": "4.6 (545 reviews)",
+    "established": "2009 (15 anos)",
+    "hours": "Todos os dias 18h00-23h00 (Fri/Sat até 24h)"
+  },
+  "image_cdn": "https://assets.olaclick.app/companies/products/images/800/",
+  "takeaway": {
+    "note": "60 itens vendidos via sistema de entregas/takeaway",
+    "categories": [
+      {
+        "cat": "Smash Limited Edition",
+        "slug": "limited",
+        "emoji": "🔥",
+        "items": [
+          {"name":"Smash USA","price":15,"img":"7bc3f5be-fe53-4267-b6f9-2640ec70832e.png","desc":"Pão brioche, duplo smash com cheddar, coleslaw, cebola roxa, compota de bacon, cebolinha crocante, pickles, molho defumado. Batatas fritas."},
+          {"name":"Smash PARMA","price":15,"img":"933b0373-c90e-4763-9b13-a15eaa8e807f.png","desc":"Pão brioche, duplo smash com queijo mozzarella e parmesão, pimentos assados, cebola na chapa, beringela salteada, maionese de pesto. Batatas fritas."}
+        ]
+      },
+      {
+        "cat": "Smash Simples",
+        "slug": "simples",
+        "emoji": "🍔",
+        "items": [
+          {"name":"Smash CLÁSSICO","price":8,"img":"9cd4de0e-971c-4f18-a9d2-788ae37b8c1e.png","desc":"Pão brioche, 1 smash 80g, molho verde, alface, tomate, cebola na chapa e pickles. Batatas fritas."},
+          {"name":"Smash QUEIJO","price":9,"img":"0148dbe9-7fbe-49cd-ae8a-3ae101976d77.png","desc":"Pão brioche, 1 smash 80g, molho verde, alface, tomate, cheddar, cebola na chapa e pickles. Batatas fritas."},
+          {"name":"Smash Q&B","price":10,"img":"e8b3428b-51e7-4c93-9bfc-34e00752785a.png","desc":"Pão brioche, 1 smash 80g, molho verde, alface, tomate, cheddar, bacon e cebola na chapa, pickles. Batatas fritas."},
+          {"name":"Smash DUPLO QUEIJO","price":12,"img":"da144590-f7b0-4339-8f76-000000000001.png","desc":"Pão brioche, 2 smash 80g, cheddar, alface, tomate, cebola na chapa, pickles. Batatas fritas."},
+          {"name":"Smash DUPLO Q&B","price":13,"img":"ce92543c-f526-4105-bf2b-e94a773dc150.png","desc":"Pão brioche, 2 smash 80g, cheddar, bacon, alface, tomate, cebola na chapa, pickles. Batatas fritas."},
+          {"name":"Smash FRANGO","price":10,"img":null,"desc":"Smash de frango, pão brioche, alface, tomate, maionese. Batatas fritas."},
+          {"name":"Smash VEGETARIANO","price":12,"img":null,"desc":"Hambúrguer vegetariano, pão brioche, alface, tomate, queijo. Batatas fritas."}
+        ]
+      },
+      {
+        "cat": "Smash Assinatura",
+        "slug": "assinatura",
+        "emoji": "⭐",
+        "items": [
+          {"name":"Smash ALL INN","price":13,"img":"ce92543c-f526-4105-bf2b-e94a773dc150.png","desc":"Pão brioche, 2 smash 80g, coleslaw, molho BBQ, bacon, cheddar, argolas de cebola, cebola crocante, pickles. Batatas fritas."},
+          {"name":"Smash TOURO","price":13,"img":"7070aa47-7994-4dc5-ac9e-d7815ce679e7.png","desc":"Pão brioche, 2 smash 80g, molho Touro, rúcula, pimentos assados, bacon, cebola na chapa, cheddar. Batatas fritas."},
+          {"name":"Smash #7 THE GOAT","price":14,"img":"e255d120-0c77-4f7d-a270-70f8cbf76c6e.png","desc":"Pão brioche, 2 smash 80g, rúcula, tomate seco, queijo de cabra gratinado, chutney de cebola roxa, molho verde. Batatas fritas."},
+          {"name":"Smash EL JEFE","price":14,"img":"93873b29-3813-44d4-a69e-1696a6bca326.png","desc":"Pão brioche ou sementes, 2 smash 80g, alface, tomate, cheddar, bacon, cebola na chapa, jalapeños, molho Chipotle/Mayo. Batatas fritas."},
+          {"name":"Smash MAYA","price":14,"img":"24860006-334c-45f4-9fdf-b67df30df45b.png","desc":"Pão brioche ou sementes, 2 smash 80g, alface, queijo brie, bacon fumado, ananás, cebola na chapa, amêndoas tostadas, molho defumado. Batatas fritas."},
+          {"name":"Smash USA","price":15,"img":"7bc3f5be-fe53-4267-b6f9-2640ec70832e.png","desc":"Pão brioche, duplo smash com cheddar, coleslaw, cebola roxa, compota de bacon, cebolinha crocante, pickles, molho defumado. Batatas fritas."},
+          {"name":"Smash PARMA","price":15,"img":"933b0373-c90e-4763-9b13-a15eaa8e807f.png","desc":"Pão brioche, duplo smash com mozzarella e parmesão, pimentos assados, cebola na chapa, beringela salteada, maionese de pesto. Batatas fritas."},
+          {"name":"Smash DUTCH","price":15,"img":"7796f757-c957-4987-999b-100fd63a1197.png","desc":"Pão brioche, duplo smash 80g, rúcula, queijo Gouda, bacon, chutney de cebola, pickles, molho defumado. Batatas fritas."},
+          {"name":"Smash PORTUGAL","price":16,"img":"85e73985-d081-4766-8fef-e251c2c28758.jpeg","desc":"Pão brioche ou sementes, 2 smash 80g, rúcula, ovo, presunto, queijo de ovelha, molho mostarda e mel. Batatas fritas."},
+          {"name":"Smash ONE PIECE","price":16,"img":"13e7a70e-46b4-4c69-b633-ac7bad3a2da1.jpeg","desc":"Pão brioche ou sementes, 2 smash 80g, rúcula, pickles de couve roxa, parmesão, bacon, cebola e cogumelo shiitake na chapa, molho teriyaki. Batatas fritas."},
+          {"name":"Smash MONZA","price":15,"img":null,"desc":"Pão brioche ou sementes, 2 smash 80g, rúcula, tomate seco, gorgonzola, bacon fumado, cebola na chapa, azeite de trufa. Batatas fritas."}
+        ]
+      },
+      {
+        "cat": "Smash Grandes",
+        "slug": "grandes",
+        "emoji": "💪",
+        "items": [
+          {"name":"Smash TRIPLO","price":18,"img":"edf8e730-e9eb-459c-b90f-2624343502be.png","desc":"Pão brioche ou sementes, 3 smash 80g, coleslaw, cebola na chapa, cheddar, pickles, molho Touro. Batatas fritas."},
+          {"name":"Smash SINNER","price":19,"img":"b05532d0-0cfd-4142-b240-68f15ccdb86a.png","desc":"Pão brioche ou sementes, 3 smash 80g, molho BBQ, cebola na chapa, cheddar, mozzarella, gouda, 3 texturas de bacon, cebola crocante. Batatas fritas."}
+        ]
+      },
+      {
+        "cat": "Smash Kids",
+        "slug": "kids",
+        "emoji": "👧",
+        "items": [
+          {"name":"KIDS SIMPLES","price":7,"img":"4898127d-9d81-44d0-9e31-c13ec57a9cf5.png","desc":"Pão brioche ou sementes, 1 smash 80g, tomate, ketchup. Batatas fritas."},
+          {"name":"KIDS QUEIJO","price":8,"img":"58d658e2-47a9-467a-ad33-e14808c21548.png","desc":"Pão brioche, 1 smash 80g, tomate, cheddar, ketchup. Batatas fritas."}
+        ]
+      },
+      {
+        "cat": "Molhos para Batatas",
+        "slug": "molhos",
+        "emoji": "🫙",
+        "items": [
+          {"name":"Molho Verde","price":1,"img":"a9a3a92e-1e36-4435-94fe-a3a121f9a5f3.jpeg","desc":"Maionese verde com um toque de alho."},
+          {"name":"Molho Defumado","price":1.5,"img":"c47d833c-ca86-4bfe-81f7-cb4cfb86351f.jpeg","desc":"Maionese com bacon em pó e sabor BBQ."},
+          {"name":"Molho Touro","price":1,"img":"7b6339b0-3813-42b3-8303-35d3e499420d.jpeg","desc":"Molho cocktail ligeiramente picante com coentros."},
+          {"name":"Molho Chipotle","price":1.5,"img":"c67e4452-ea63-442e-a9c4-238400283ac3.jpeg","desc":"Maionese com malaguetas defumadas mexicanas."},
+          {"name":"Molho East Blue","price":1.5,"img":"c799105d-0b7b-457a-929c-12c58bc02e22.jpeg","desc":"Maionese de lima e wasabi."},
+          {"name":"Maionese Saqueta","price":0.1,"img":"10d96936-f66d-4207-afa8-8285cd115544.jpeg","desc":"Saqueta de maionese."},
+          {"name":"Ketchup Saqueta","price":0.1,"img":"34e0c194-e9e2-4c91-aeeb-b404db0329a3.jpeg","desc":"Saqueta de ketchup."}
+        ]
+      },
+      {
+        "cat": "Packs",
+        "slug": "packs",
+        "emoji": "🎁",
+        "items": [
+          {"name":"PACK ALVOR","price":29,"img":"56166021-943b-4b92-bc39-9554d6ecf605.png","desc":"2× Smash Duplo Queijo e Bacon."},
+          {"name":"PACK TOURO","price":30,"img":"f7b63048-d022-48d1-ab73-3369be05024d.png","desc":"2× Smash Touro."},
+          {"name":"PACK FAMÍLIA","price":49,"img":"103c4c24-24a8-44e7-a1b8-241ab9b86c3d.png","desc":"2× Duplo Queijo e Bacon + acompanhamentos."}
+        ]
+      },
+      {
+        "cat": "Bebidas",
+        "slug": "bebidas",
+        "emoji": "🥤",
+        "items": [
+          {"name":"Coca-Cola","price":2.6,"img":"b84aefe7-38cd-45fc-b6ac-84e4c2359fc1.jpeg","desc":"Lata 330ml"},
+          {"name":"Coca-Cola Zero","price":2.6,"img":"221cc9c2-c112-4a7e-9bf5-d65608e31aa0.jpeg","desc":"Lata 330ml"},
+          {"name":"Sprite","price":2.6,"img":"438e93bc-a507-4fcf-954c-28674a55b70f.jpeg","desc":"Lata 330ml"},
+          {"name":"Fanta Laranja","price":2.6,"img":"250d8f39-958a-4fef-9fab-881b4fa18769.jpeg","desc":"Lata 330ml"},
+          {"name":"Fuze Tea Limão","price":2.6,"img":"5c163614-009c-4579-a342-ff6b74280bbd.jpeg","desc":"Lata 330ml"},
+          {"name":"Fuze Tea Pêssego","price":2.6,"img":"a064d59c-6422-4cc1-9dab-231f97d994ab.jpeg","desc":"Lata 330ml"},
+          {"name":"Água sem gás","price":1.6,"img":"b64369cf-06ee-4028-925e-60df1c06afc4.jpeg","desc":"Meio litro"},
+          {"name":"Água com gás","price":1.9,"img":"8aed2b72-0ebf-4052-aaf6-83180b057c89.jpeg","desc":"Meio litro"},
+          {"name":"Estrella Galicia","price":2.5,"img":"5be0ccf9-506a-4ed6-9a27-0bb74579fcba.jpeg","desc":"Garrafa 330ml"},
+          {"name":"Corona","price":4,"img":"39748cb2-7d5c-4efc-8f26-003e2b92b83c.jpeg","desc":"Garrafa 330ml"},
+          {"name":"Heineken","price":4,"img":"54f75544-4bdb-4f31-ab22-709993a1bcac.jpeg","desc":"Garrafa 330ml"},
+          {"name":"Budweiser","price":4,"img":"b0655821-3ca9-4645-ba11-4d9cd985b55d.jpeg","desc":"Garrafa 330ml"},
+          {"name":"Nortada Stout","price":3,"img":"78fd344e-e05b-497f-87df-26a1c7c654bd.jpeg","desc":"Garrafa 330ml"},
+          {"name":"Estrella 1906 RED","price":4,"img":"241abe8e-44f9-4d13-a16f-66322dff4cb6.jpeg","desc":"Garrafa 330ml"},
+          {"name":"Estrella 1906 Reserva","price":4,"img":"d7c8014d-5047-4336-ad11-20eca792f20a.jpeg","desc":"Garrafa 330ml"},
+          {"name":"Cerveja sem álcool","price":2.5,"img":null,"desc":"Garrafa"},
+          {"name":"Atlantica","price":6,"img":null,"desc":"Cerveja artesanal"},
+          {"name":"Atlantica Grand","price":11,"img":null,"desc":"Cerveja artesanal grande"}
+        ]
+      },
+      {
+        "cat": "Vinhos",
+        "slug": "vinhos",
+        "emoji": "🍷",
+        "items": [
+          {"name":"São Filipe Tinto","price":15,"img":"de360ba6-dceb-4a80-b5f9-79b56515c61c.jpeg","desc":"Origem: Setúbal · Tinto"},
+          {"name":"São Filipe Branco","price":15,"img":"7bb53e1e-c193-461d-8396-95b6982d6a5b.jpeg","desc":"Origem: Setúbal · Branco"},
+          {"name":"São Filipe Rosé","price":15,"img":"6353616f-cfa4-46d3-ab0c-00fa216df388.jpeg","desc":"Origem: Setúbal · Rosé"},
+          {"name":"25 H Tinto","price":20,"img":"9aaa3a40-0fc2-4003-b005-53247254b4f8.jpeg","desc":"Origem: Douro · Tinto"},
+          {"name":"OPTA","price":20,"img":"9d5890e6-3e43-4891-a1d1-c7cef66aa55c.jpeg","desc":"Origem: Dão · Tinto"},
+          {"name":"Malbec","price":30,"img":"4c12699e-3bda-44fb-ac41-ee2d7439781a.jpeg","desc":"Argentina · Malbec"},
+          {"name":"Sauvignon Blanc","price":23,"img":"8ed2f33e-d57d-4df6-bc70-81282ebd7d63.jpeg","desc":"Origem: Tejo · Branco"},
+          {"name":"Alvarinho Lapa","price":23,"img":"e90e7979-52ae-4e91-95b7-b2aaf683255e.jpeg","desc":"Origem: Tejo · Branco"}
+        ]
+      }
+    ]
+  },
+  "restaurant_only": {
+    "note": "Pratos servidos APENAS no restaurante — não disponíveis para takeaway/delivery. Mostrar no site como 'Disponível no restaurante · Reservar Mesa'.",
+    "categories": [
+      {
+        "cat": "Entradas",
+        "emoji": "🥖",
+        "items": [
+          {"name":"Pão de Alho","price":4,"desc":"Fatias de pão tostadas com alho e manteiga."},
+          {"name":"Pão de Alho com Queijo","price":5,"desc":"Pão de alho gratinado com queijo."},
+          {"name":"Bruschetta Tomate","price":5,"desc":"Bruschetta com tomate fresco, manjericão e azeite."},
+          {"name":"Bruschetta BBQ","price":6,"desc":"Bruschetta com carne desfiada e molho BBQ."},
+          {"name":"Asas de Frango","price":6,"desc":"Asas de frango marinadas."},
+          {"name":"Bolinhas","price":6,"desc":"Bolinhas fritas da casa."},
+          {"name":"Sticks de Mozzarella","price":6.5,"desc":"Sticks de mozzarella panados."},
+          {"name":"Argolas de Cebola","price":5,"desc":"Argolas de cebola panadas e fritas."},
+          {"name":"Panados com Jalapeños","price":8.5,"desc":"Panados de queijo com jalapeños."},
+          {"name":"Queijo de Cabra","price":8,"desc":"Queijo de cabra gratinado."}
+        ]
+      },
+      {
+        "cat": "Bifes",
+        "emoji": "🥩",
+        "items": [
+          {"name":"Vazia Pequena","price":25,"desc":"Bife de vazia · pequena. Carne do Uruguai."},
+          {"name":"Vazia Grande","price":31,"desc":"Bife de vazia · grande. Carne do Uruguai."},
+          {"name":"Acém Pequeno","price":28,"desc":"Bife de acém · pequeno. Carne do Uruguai."},
+          {"name":"Acém Grande","price":36,"desc":"Bife de acém · grande. Carne do Uruguai."},
+          {"name":"Lombo Pequeno","price":34,"desc":"Bife de lombo · pequeno. Carne do Uruguai."},
+          {"name":"Lombo Grande","price":42,"desc":"Bife de lombo · grande. Carne do Uruguai."},
+          {"name":"Fantástico Alvor","price":65,"desc":"O bife de assinatura da casa. Para partilhar."},
+          {"name":"BIG BOY","price":32,"desc":"Bife Big Boy."},
+          {"name":"Molho Pimenta","price":2.5,"desc":"Molho de pimenta."},
+          {"name":"Molho Cogumelos","price":2.5,"desc":"Molho de cogumelos."},
+          {"name":"Molho BBQ","price":2.5,"desc":"Molho BBQ para carne."}
+        ]
+      }
+    ]
+  },
+  "stats": {
+    "takeaway_categories": 9,
+    "takeaway_items": 60,
+    "restaurant_categories": 2,
+    "restaurant_items": 22,
+    "total_items": 82,
+    "price_range_burgers": "€7 – €19",
+    "price_range_steaks": "€25 – €65",
+    "price_range_wines": "€15 – €30"
+  }
+}

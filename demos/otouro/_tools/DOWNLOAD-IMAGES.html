@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<title>O Touro · Image Downloader (Volvara)</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0A0606;color:#F0EAE0;padding:2rem;max-width:1280px;margin:0 auto;min-height:100vh;line-height:1.5}
+h1{color:#CC1F1F;font-size:1.8rem;margin-bottom:.3rem;letter-spacing:.02em}
+.sub{color:#7A7370;margin-bottom:1.5rem;font-size:.9rem}
+h2{font-size:1.1rem;margin:2rem 0 .75rem;color:#F5A623;letter-spacing:.04em;text-transform:uppercase}
+
+.card{background:#110C0C;border:1px solid rgba(240,234,224,.08);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1rem}
+.card.highlight{border-color:rgba(34,197,94,.3);background:rgba(34,197,94,.04)}
+
+input[type=url]{width:100%;background:#0A0606;border:1px solid rgba(240,234,224,.15);border-radius:6px;padding:10px 14px;color:#F0EAE0;font-family:inherit;font-size:.9rem;margin:.5rem 0 1rem}
+input[type=url]:focus{outline:none;border-color:#F5A623}
+
+.btn{background:#CC1F1F;color:#fff;border:none;padding:12px 24px;border-radius:6px;font-size:.85rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;transition:all .2s;margin-right:.4rem;font-family:inherit}
+.btn:hover:not(:disabled){background:#E82828;transform:translateY(-1px)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn-green{background:#22c55e;color:#000}
+.btn-green:hover:not(:disabled){background:#16a34a;color:#fff}
+.btn-sec{background:transparent;border:1px solid rgba(240,234,224,.2);color:#F0EAE0}
+.btn-sec:hover:not(:disabled){border-color:#F5A623;color:#F5A623}
+
+.note{background:rgba(245,166,35,.08);border-left:3px solid #F5A623;border-radius:4px;padding:.75rem 1rem;margin:1rem 0;font-size:.85rem;color:#F5A623}
+.note strong{color:#fff}
+
+code{background:#0A0606;padding:2px 8px;border-radius:3px;color:#F5A623;font-size:.82em;font-family:'SF Mono',monospace;border:1px solid rgba(240,234,224,.08)}
+
+.stats{display:flex;gap:2rem;margin:1rem 0;flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;gap:.15rem}
+.stat-v{font-family:'SF Mono',monospace;font-size:1.6rem;color:#F5A623}
+.stat-l{font-size:.7rem;color:#7A7370;text-transform:uppercase;letter-spacing:.1em}
+
+.progress-bar{height:8px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden;margin:.75rem 0;border:1px solid rgba(240,234,224,.07)}
+.progress-fill{height:100%;background:linear-gradient(to right,#CC1F1F,#F5A623,#22c55e);width:0%;transition:width .3s ease}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:.4rem;margin-top:1rem}
+.cell{border:1px solid rgba(240,234,224,.07);border-radius:6px;overflow:hidden;aspect-ratio:1;position:relative;background:#0A0606;cursor:pointer;transition:transform .2s}
+.cell:hover{transform:scale(1.04);border-color:rgba(245,166,35,.5)}
+.cell img{width:100%;height:100%;object-fit:cover;display:block}
+.cell .badge{position:absolute;top:4px;right:4px;background:rgba(0,0,0,.7);padding:2px 6px;border-radius:3px;font-size:.65rem;font-weight:600;color:#F0EAE0}
+.cell.done{border-color:rgba(34,197,94,.5)}
+.cell.done .badge{background:#22c55e;color:#000}
+.cell.fail{border-color:rgba(239,68,68,.5)}
+.cell.fail .badge{background:#ef4444;color:#fff}
+
+#log{background:#0A0606;border:1px solid rgba(240,234,224,.07);border-radius:6px;padding:.6rem .9rem;font-family:'SF Mono',monospace;font-size:.75rem;max-height:180px;overflow-y:auto;margin:1rem 0;color:#7A7370;line-height:1.6}
+#log .ok{color:#22c55e}
+#log .err{color:#ef4444}
+#log .info{color:#F5A623}
+
+ol{margin-left:1.4rem;margin-top:.5rem}
+ol li{margin-bottom:.4rem;font-size:.9rem}
+</style>
+</head>
+<body>
+
+<h1>🖼️ O Touro · Image Batch Downloader</h1>
+<p class="sub">Baixa as 53 imagens do menu real para <code>assets/products/</code>.</p>
+
+<!-- ============================================ -->
+<!-- CAMINHO 1: Worker Cloudflare — ideal          -->
+<!-- ============================================ -->
+<div class="card highlight">
+  <h2 style="margin-top:0">✅ Caminho A · Cloudflare Worker (recomendado)</h2>
+  <p style="color:#F0EAE0;font-size:.88rem">Se já tens o Worker activo em Cloudflare, cola o URL aqui. Descarrega tudo num só clique com progresso real.</p>
+
+  <label style="font-size:.75rem;color:#7A7370;text-transform:uppercase;letter-spacing:.08em;font-weight:600">URL do Worker</label>
+  <input type="url" id="worker-url" placeholder="https://volvara-proxy.telmo.workers.dev" autocomplete="url" spellcheck="false">
+
+  <button class="btn btn-green" id="btn-worker">⬇️ Descarregar Tudo via Worker</button>
+  <button class="btn btn-sec" id="btn-test">🧪 Testar Worker</button>
+</div>
+
+<!-- ============================================ -->
+<!-- CAMINHO 2: Right-click save — manual         -->
+<!-- ============================================ -->
+<div class="card">
+  <h2 style="margin-top:0">🖱️ Caminho B · Gravar uma a uma (sem Worker)</h2>
+  <p style="color:#F0EAE0;font-size:.88rem;margin-bottom:.5rem">Chromium bloqueia downloads automáticos cross-origin. <strong>Alternativa rápida (2 min):</strong></p>
+  <ol>
+    <li>Clica <strong>"Abrir Tudo em Tabs"</strong> abaixo</li>
+    <li>Em cada tab aberta: <code>Ctrl+S</code> (ou <code>Cmd+S</code>) → <strong>Save</strong></li>
+    <li>Ou clica com <strong>botão-direito</strong> em cada thumbnail abaixo → <strong>Save image as…</strong></li>
+  </ol>
+
+  <div style="margin-top:1rem">
+    <button class="btn btn-sec" id="btn-tabs">📑 Abrir todas em novas tabs</button>
+    <button class="btn btn-sec" id="btn-copy">📋 Copiar URLs para clipboard</button>
+  </div>
+
+  <div class="note" style="margin-top:1rem">
+    <strong>Dica:</strong> no Chrome vai a <code>chrome://settings/downloads</code> → <strong>Ask where to save each file before downloading</strong>: desliga. E no prompt <strong>"Este site quer baixar vários ficheiros"</strong> clica <strong>Permitir</strong>.
+  </div>
+</div>
+
+<!-- Stats -->
+<div class="stats">
+  <div class="stat"><div class="stat-v" id="s-total">53</div><div class="stat-l">Total</div></div>
+  <div class="stat"><div class="stat-v" id="s-done" style="color:#22c55e">0</div><div class="stat-l">Baixadas</div></div>
+  <div class="stat"><div class="stat-v" id="s-fail" style="color:#ef4444">0</div><div class="stat-l">Falhas</div></div>
+  <div class="stat"><div class="stat-v" id="s-pending">53</div><div class="stat-l">Pendentes</div></div>
+</div>
+
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+
+<div id="log"></div>
+
+<h2>Pré-visualização (53 imagens)</h2>
+<p class="sub">Botão-direito → Save image as… para gravar cada uma individualmente.</p>
+<div class="grid" id="grid"></div>
+
+<script>
+const CDN_DIRECT = 'https://assets.olaclick.app/companies/products/images/800/';
+
+const IMAGES = [
+  '7bc3f5be-fe53-4267-b6f9-2640ec70832e.png',
+  '933b0373-c90e-4763-9b13-a15eaa8e807f.png',
+  '9cd4de0e-971c-4f18-a9d2-788ae37b8c1e.png',
+  '0148dbe9-7fbe-49cd-ae8a-3ae101976d77.png',
+  'e8b3428b-51e7-4c93-9bfc-34e00752785a.png',
+  'da144590-f7b0-4339-8f76-000000000001.png',
+  'ce92543c-f526-4105-bf2b-e94a773dc150.png',
+  '7070aa47-7994-4dc5-ac9e-d7815ce679e7.png',
+  'e255d120-0c77-4f7d-a270-70f8cbf76c6e.png',
+  '93873b29-3813-44d4-a69e-1696a6bca326.png',
+  '24860006-334c-45f4-9fdf-b67df30df45b.png',
+  '7796f757-c957-4987-999b-100fd63a1197.png',
+  '85e73985-d081-4766-8fef-e251c2c28758.jpeg',
+  '13e7a70e-46b4-4c69-b633-ac7bad3a2da1.jpeg',
+  'edf8e730-e9eb-459c-b90f-2624343502be.png',
+  'b05532d0-0cfd-4142-b240-68f15ccdb86a.png',
+  '4898127d-9d81-44d0-9e31-c13ec57a9cf5.png',
+  '58d658e2-47a9-467a-ad33-e14808c21548.png',
+  'a9a3a92e-1e36-4435-94fe-a3a121f9a5f3.jpeg',
+  'c47d833c-ca86-4bfe-81f7-cb4cfb86351f.jpeg',
+  '7b6339b0-3813-42b3-8303-35d3e499420d.jpeg',
+  'c67e4452-ea63-442e-a9c4-238400283ac3.jpeg',
+  'c799105d-0b7b-457a-929c-12c58bc02e22.jpeg',
+  '10d96936-f66d-4207-afa8-8285cd115544.jpeg',
+  '34e0c194-e9e2-4c91-aeeb-b404db0329a3.jpeg',
+  '56166021-943b-4b92-bc39-9554d6ecf605.png',
+  'f7b63048-d022-48d1-ab73-3369be05024d.png',
+  '103c4c24-24a8-44e7-a1b8-241ab9b86c3d.png',
+  'b84aefe7-38cd-45fc-b6ac-84e4c2359fc1.jpeg',
+  '221cc9c2-c112-4a7e-9bf5-d65608e31aa0.jpeg',
+  '438e93bc-a507-4fcf-954c-28674a55b70f.jpeg',
+  '250d8f39-958a-4fef-9fab-881b4fa18769.jpeg',
+  '5c163614-009c-4579-a342-ff6b74280bbd.jpeg',
+  'a064d59c-6422-4cc1-9dab-231f97d994ab.jpeg',
+  'b64369cf-06ee-4028-925e-60df1c06afc4.jpeg',
+  '8aed2b72-0ebf-4052-aaf6-83180b057c89.jpeg',
+  '5be0ccf9-506a-4ed6-9a27-0bb74579fcba.jpeg',
+  '39748cb2-7d5c-4efc-8f26-003e2b92b83c.jpeg',
+  '54f75544-4bdb-4f31-ab22-709993a1bcac.jpeg',
+  'b0655821-3ca9-4645-ba11-4d9cd985b55d.jpeg',
+  '78fd344e-e05b-497f-87df-26a1c7c654bd.jpeg',
+  '241abe8e-44f9-4d13-a16f-66322dff4cb6.jpeg',
+  'd7c8014d-5047-4336-ad11-20eca792f20a.jpeg',
+  'de360ba6-dceb-4a80-b5f9-79b56515c61c.jpeg',
+  '7bb53e1e-c193-461d-8396-95b6982d6a5b.jpeg',
+  '6353616f-cfa4-46d3-ab0c-00fa216df388.jpeg',
+  '9aaa3a40-0fc2-4003-b005-53247254b4f8.jpeg',
+  '9d5890e6-3e43-4891-a1d1-c7cef66aa55c.jpeg',
+  '4c12699e-3bda-44fb-ac41-ee2d7439781a.jpeg',
+  '8ed2f33e-d57d-4df6-bc70-81282ebd7d63.jpeg',
+  'e90e7979-52ae-4e91-95b7-b2aaf683255e.jpeg'
+];
+
+const state = new Map();
+IMAGES.forEach(f => state.set(f, 'pending'));
+
+function log(msg, cls){
+  const el = document.getElementById('log');
+  const line = document.createElement('div');
+  line.className = cls || '';
+  line.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+  el.appendChild(line);
+  el.scrollTop = el.scrollHeight;
+}
+
+function updateStats(){
+  const done = [...state.values()].filter(v => v === 'done').length;
+  const fail = [...state.values()].filter(v => v === 'fail').length;
+  const pending = [...state.values()].filter(v => v === 'pending').length;
+  document.getElementById('s-done').textContent = done;
+  document.getElementById('s-fail').textContent = fail;
+  document.getElementById('s-pending').textContent = pending;
+  document.getElementById('progress').style.width = (((done + fail) / IMAGES.length) * 100) + '%';
+}
+
+function updateCell(f, status){
+  const cell = document.getElementById('c-' + f);
+  if (!cell) return;
+  cell.className = 'cell ' + status;
+  const badge = cell.querySelector('.badge');
+  if (badge) badge.textContent = status === 'done' ? '✓' : status === 'fail' ? '✗' : '•';
+  state.set(f, status);
+  updateStats();
+}
+
+function buildGrid(){
+  const g = document.getElementById('grid');
+  g.innerHTML = '';
+  IMAGES.forEach((f, i) => {
+    const c = document.createElement('div');
+    c.className = 'cell pending';
+    c.id = 'c-' + f;
+    c.title = f;
+    c.innerHTML = `<img src="${CDN_DIRECT + f}" loading="lazy" alt="${f}"><span class="badge">${i+1}</span>`;
+    c.onclick = () => window.open(CDN_DIRECT + f, '_blank');
+    g.appendChild(c);
+  });
+}
+
+// ============================================
+// PATH A: Worker-based download
+// ============================================
+async function downloadViaWorker(workerUrl, filename){
+  const proxyUrl = workerUrl.replace(/\/$/, '') + '/?url=' + encodeURIComponent(CDN_DIRECT + filename);
+  try {
+    const r = await fetch(proxyUrl);
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const blob = await r.blob();
+    // Now we can force download via blob URL
+    const blobUrl = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = blobUrl;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+    return { ok: true, size: blob.size };
+  } catch (e) {
+    return { ok: false, error: e.message };
+  }
+}
+
+document.getElementById('btn-test').addEventListener('click', async () => {
+  const workerUrl = document.getElementById('worker-url').value.trim();
+  if (!workerUrl) { log('Cola primeiro o URL do Worker', 'err'); return; }
+  log('A testar Worker...', 'info');
+  try {
+    const r = await fetch(workerUrl);
+    const j = await r.json();
+    if (j.service === 'Volvara Proxy') {
+      log('✓ Worker ONLINE — ' + j.status, 'ok');
+      log('  Allowed hosts: ' + j.allowed_hosts.join(', '), '');
+    } else {
+      log('✗ Worker responde mas não é o Volvara Proxy', 'err');
+    }
+  } catch (e) {
+    log('✗ Worker não acessível: ' + e.message, 'err');
+  }
+});
+
+document.getElementById('btn-worker').addEventListener('click', async () => {
+  const workerUrl = document.getElementById('worker-url').value.trim();
+  if (!workerUrl) { log('Cola primeiro o URL do Worker', 'err'); return; }
+
+  const btn = document.getElementById('btn-worker');
+  btn.disabled = true;
+  btn.textContent = '⏳ A descarregar...';
+
+  log(`A iniciar download de ${IMAGES.length} imagens via Worker...`, 'info');
+
+  let done = 0, fail = 0;
+  for (const f of IMAGES) {
+    const result = await downloadViaWorker(workerUrl, f);
+    if (result.ok) {
+      updateCell(f, 'done');
+      done++;
+      log(`✓ ${f} (${Math.round(result.size/1024)}KB)`, 'ok');
+    } else {
+      updateCell(f, 'fail');
+      fail++;
+      log(`✗ ${f} — ${result.error}`, 'err');
+    }
+    await new Promise(r => setTimeout(r, 150));
+  }
+
+  btn.disabled = false;
+  btn.textContent = done === IMAGES.length ? '✅ Tudo baixado!' : `⚠️ ${done}/${IMAGES.length}`;
+
+  log('═══════════════════════════════════', 'info');
+  log(`Concluído: ${done} baixadas, ${fail} falhas`, 'info');
+  log('Próximos passos:', 'info');
+  log('  1. Abrir pasta Downloads', 'info');
+  log('  2. Mover as 53 imagens para otouro-final/assets/products/', 'info');
+});
+
+// ============================================
+// PATH B: Open in tabs (user saves manually)
+// ============================================
+document.getElementById('btn-tabs').addEventListener('click', () => {
+  if (!confirm(`Vou abrir ${IMAGES.length} tabs. Continuar?\n\nEm cada tab faz Ctrl+S para gravar.`)) return;
+  log(`A abrir ${IMAGES.length} tabs (5 em 5 para não crashar o browser)...`, 'info');
+  IMAGES.forEach((f, i) => {
+    setTimeout(() => {
+      window.open(CDN_DIRECT + f, '_blank', 'noopener');
+    }, i * 200);
+  });
+});
+
+document.getElementById('btn-copy').addEventListener('click', async () => {
+  const urls = IMAGES.map(f => CDN_DIRECT + f).join('\n');
+  try {
+    await navigator.clipboard.writeText(urls);
+    log(`✓ ${IMAGES.length} URLs copiadas para clipboard`, 'ok');
+    alert(`${IMAGES.length} URLs copiadas!\n\nPodes colar no wget/curl:\n\nmkdir products && cd products\nwget -i urls.txt`);
+  } catch (e) {
+    log('✗ Falha ao copiar: ' + e.message, 'err');
+  }
+});
+
+// Init
+buildGrid();
+updateStats();
+log(`Downloader pronto. ${IMAGES.length} imagens em fila.`, 'info');
+log(`Escolhe Caminho A (Worker) ou Caminho B (Tabs).`, 'info');
+</script>
+</body>
+</html>
