@@ -255,11 +255,13 @@ h1.hero-title .r{color:var(--red)}
 .hero-photo-inner img{
   width:100%;height:100%;
   object-fit:cover;
-  object-position:center center;
+  object-position:center 55%;
+  transform:scale(1.18);
   display:block;
   opacity:0;
-  transition:opacity .8s ease;
+  transition:opacity .8s ease, transform 12s ease-out;
 }
+.hero-photo-inner:hover img{transform:scale(1.25)}
 .hero-photo-inner img.loaded{opacity:1}
 
 /* Floating badges around photo */
@@ -911,6 +913,25 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:3rem c
 }
 .menu-cat.open .menu-cat-body{max-height:6000px}
 .menu-cat-body .menu-grid{padding:1.25rem}
+
+
+/* Menu cards with white product photography — blend mode transforms white → transparent */
+.m-card.white-bg{
+  background:
+    radial-gradient(circle at 50% 35%, rgba(245,166,35,.14) 0%, transparent 65%),
+    linear-gradient(135deg, #1F130C 0%, #0E0806 100%) !important;
+  position:relative;
+}
+.m-card.white-bg .m-card-img{
+  mix-blend-mode:multiply;
+  background:transparent !important;
+}
+.m-card.white-bg::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:55%;
+  z-index:1;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 0%, rgba(245,166,35,.1) 0%, transparent 70%);
+}
 
 </style>
 </head>
@@ -1594,6 +1615,39 @@ function openCategory(catId){
     },50);
   }
 }
+
+
+/* Tag cards with white-background product photos (bebidas/vinhos/cervejas) */
+var WHITE_BG_IMAGES = [
+  '8aed2b72-0ebf-4052-aaf6-83180b057c89.jpeg',  /* Água com gás */
+  'b64369cf-06ee-4028-925e-60df1c06afc4.jpeg',  /* Água sem gás */
+  '5be0ccf9-506a-4ed6-9a27-0bb74579fcba.jpeg',  /* Estrella Galicia */
+  '39748cb2-7d5c-4efc-8f26-003e2b92b83c.jpeg',  /* Corona */
+  '54f75544-4bdb-4f31-ab22-709993a1bcac.jpeg',  /* Heineken */
+  'b0655821-3ca9-4645-ba11-4d9cd985b55d.jpeg',  /* Budweiser */
+  '78fd344e-e05b-497f-87df-26a1c7c654bd.jpeg',  /* Nortada Stout */
+  '241abe8e-44f9-4d13-a16f-66322dff4cb6.jpeg',  /* Estrella 1906 RED */
+  'd7c8014d-5047-4336-ad11-20eca792f20a.jpeg',  /* Estrella 1906 Reserva */
+  'de360ba6-dceb-4a80-b5f9-79b56515c61c.jpeg',  /* São Filipe Tinto */
+  '7bb53e1e-c193-461d-8396-95b6982d6a5b.jpeg',  /* São Filipe Branco */
+  '6353616f-cfa4-46d3-ab0c-00fa216df388.jpeg',  /* São Filipe Rosé */
+  '9aaa3a40-0fc2-4003-b005-53247254b4f8.jpeg',  /* 25 H Tinto */
+  '9d5890e6-3e43-4891-a1d1-c7cef66aa55c.jpeg',  /* OPTA */
+  '4c12699e-3bda-44fb-ac41-ee2d7439781a.jpeg',  /* Malbec */
+  '8ed2f33e-d57d-4df6-bc70-81282ebd7d63.jpeg',  /* Sauvignon Blanc */
+  'e90e7979-52ae-4e91-95b7-b2aaf683255e.jpeg'   /* Alvarinho Lapa */
+];
+function tagWhiteBgCards(){
+  document.querySelectorAll('.m-card-img').forEach(function(img){
+    if(img.tagName !== 'IMG') return;
+    var fn = img.src.split('/').pop();
+    if(WHITE_BG_IMAGES.indexOf(fn) !== -1){
+      var card = img.closest('.m-card');
+      if(card) card.classList.add('white-bg');
+    }
+  });
+}
+
 function buildGallery(){
   var g=document.getElementById('gal-grid');if(!g)return;
   g.innerHTML=GAL.map(function(gi){
@@ -1871,7 +1925,7 @@ function observeReveal(){document.querySelectorAll('.rv:not(.in)').forEach(funct
 
 /* Init */
 renderStatus();setInterval(renderStatus,60000);
-buildHours();buildMenu();buildGallery();observeReveal();
+buildHours();buildMenu();tagWhiteBgCards();buildGallery();observeReveal();
 updateDeliveryFields();
 })();
 </script>
