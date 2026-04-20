@@ -82,7 +82,6 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 #mmenu .m-order{background:var(--red);color:#fff;padding:12px 36px;border-radius:var(--r);font-size:1.6rem;margin-top:.5rem}
 
 /* HERO */
-#hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:0 clamp(1rem,5vw,4rem) clamp(3rem,8vh,6rem);overflow:hidden}
 /* ── HERO: split layout ── */
 #hero{
   position:relative;min-height:100svh;
@@ -110,11 +109,12 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   position:relative;display:flex;align-items:center;justify-content:center;
   background:var(--black);
   overflow:hidden;
+  min-height:100svh;
 }
 .hero-right-img{
   width:100%;height:100%;
   object-fit:cover;
-  object-position:75% top;
+  object-position:center center;
   display:block;
   transform:scale(1.02);
   transition:transform 12s ease-out,opacity .7s ease;
@@ -127,16 +127,6 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   background:linear-gradient(to right,rgba(8,6,6,1),transparent);
   pointer-events:none;
 }
-/* Logo overlay — top-right corner of image panel */
-.hero-right-logo{
-  position:absolute;top:calc(var(--nav-h) + .75rem);right:1.25rem;
-  z-index:4;
-  width:clamp(80px,8vw,110px);
-  opacity:.92;
-  filter:drop-shadow(0 2px 12px rgba(0,0,0,.8));
-  transition:opacity .3s;
-}
-.hero-right-logo:hover{opacity:1}
 /* Keep old .hero-content class working */
 .hero-content{position:relative;z-index:2;max-width:600px;width:100%}
 /* hero-img and hero-grad no longer needed but keep for compat */
@@ -193,7 +183,27 @@ h1.hero-title .r{color:var(--red)}
 .m-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:transform .22s var(--ease),border-color .22s var(--ease),box-shadow .22s var(--ease);cursor:pointer}
 .m-card:hover{transform:translateY(-3px);border-color:rgba(204,31,31,.3);box-shadow:0 10px 28px rgba(0,0,0,.5)}
 .m-card-img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;background:linear-gradient(135deg,rgba(204,31,31,.1),rgba(245,166,35,.04))}
-.m-card-img.placeholder{display:flex;align-items:center;justify-content:center;font-size:2.2rem;background:var(--deep)}
+.m-card-img.placeholder{
+  display:flex;align-items:center;justify-content:center;
+  font-size:3.5rem;
+  background:
+    radial-gradient(circle at center, rgba(204,31,31,.18) 0%, transparent 60%),
+    linear-gradient(135deg,var(--deep) 0%,#0A0606 100%);
+  position:relative;
+  aspect-ratio:3/2;
+}
+.m-card-img.placeholder::before{
+  content:'';position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(255,255,255,.02) 20px,rgba(255,255,255,.02) 40px);
+}
+.m-card-img.placeholder::after{
+  content:'Em breve';position:absolute;bottom:.6rem;right:.6rem;
+  font-family:'DM Mono',monospace;font-size:.62rem;
+  color:rgba(245,166,35,.6);letter-spacing:.08em;text-transform:uppercase;
+  padding:3px 8px;border:1px solid rgba(245,166,35,.2);border-radius:3px;
+  background:rgba(0,0,0,.4);
+}
 .m-card-body{padding:.85rem .85rem .8rem}
 .m-card-name{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.04em;line-height:1.1;margin-bottom:.3rem}
 .m-card-desc{font-size:.75rem;color:var(--grey);line-height:1.5;margin-bottom:.7rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
@@ -513,7 +523,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:3rem c
 .rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
 
 /* RESPONSIVE */
-@media(max-width:900px){
+@media(max-width:768px){
   .nav-links,.nav-status{display:none}
   .hbg{display:flex}
   /* Hero: stack — image top, text bottom */
@@ -689,7 +699,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:3rem c
 .rm-footer-ctas{display:flex;gap:.5rem;flex-wrap:wrap}
 
 /* Responsive */
-@media(max-width:900px){
+@media(max-width:768px){
   .story-grid{grid-template-columns:1fr;text-align:center}
   .story-text .story-kicker{margin-left:auto;margin-right:auto;display:inline-block}
   .story-lead{margin-left:auto;margin-right:auto}
@@ -771,12 +781,6 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:3rem c
       id="hero-img"
       src="assets/hero.jpg"
       alt="O Touro Burger &amp; Steaks — Smash Burgers e Cortes de Carne"
-    >
-    <!-- Logo overlay — always visible regardless of image crop -->
-    <img
-      class="hero-right-logo"
-      src="assets/logo.jpg"
-      alt="O Touro Burgers &amp; Steaks"
     >
   </div>
 </section>
