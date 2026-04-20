@@ -16,7 +16,7 @@
 <style>
 :root{--black:#080606;--deep:#110C0C;--panel:#180E0E;--red:#CC1F1F;--red-h:#E82828;--amber:#F5A623;--cream:#F0EAE0;--grey:#7A7370;--border:rgba(240,234,224,.07);--border-h:rgba(240,234,224,.14);--nav-h:68px;--r:8px;--ease:cubic-bezier(.4,0,.2,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 50px)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 80px)}
 body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--cream);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
@@ -1576,9 +1576,9 @@ function buildMenu(){
     sec.appendChild(catBlock);
   });
 
-  // Expand first category by default ("Smash Limited Edition")
+  // Expand first category by default ("Smash Limited Edition") — WITHOUT scrolling
   setTimeout(function(){
-    if(MENU.length>0) openCategory(MENU[0].id);
+    if(MENU.length>0) openCategory(MENU[0].id,true);
   },50);
   setTimeout(observeReveal,100);
 }
@@ -1596,7 +1596,7 @@ function toggleCategory(catId){
   }
 }
 
-function openCategory(catId){
+function openCategory(catId,skipScroll){
   // Close all, open only this one
   document.querySelectorAll('.menu-cat').forEach(function(b){b.classList.remove('open');});
   document.querySelectorAll('.cat-tab').forEach(function(t){t.classList.remove('active');});
@@ -1604,15 +1604,19 @@ function openCategory(catId){
   var tab=document.querySelector('.cat-tab[data-cat="'+catId+'"]');
   if(block) block.classList.add('open');
   if(tab) tab.classList.add('active');
-  // Scroll tab into view
-  if(tab){
+  // Scroll header into view — but skip on initial page load
+  if(!skipScroll && block){
     setTimeout(function(){
       var header=block.querySelector('.menu-cat-header');
-      if(header){
-        var y=header.getBoundingClientRect().top+window.scrollY-100;
-        window.scrollTo({top:y,behavior:'smooth'});
+      if(!header) return;
+      // scrollIntoView respects scroll-padding-top automatically
+      // This is more robust than manual offset calculation
+      try{
+        header.scrollIntoView({behavior:'smooth',block:'start'});
+      }catch(e){
+        header.scrollIntoView(true);
       }
-    },50);
+    },80);
   }
 }
 
@@ -1924,6 +1928,12 @@ var rvObs=new IntersectionObserver(function(entries){
 function observeReveal(){document.querySelectorAll('.rv:not(.in)').forEach(function(el){rvObs.observe(el);});}
 
 /* Init */
+// Prevent browser from auto-scrolling on load (e.g. restored position or hash)
+if('scrollRestoration' in history) history.scrollRestoration='manual';
+// If URL has no meaningful hash, ensure we start at top
+if(!location.hash || location.hash==='#' || location.hash==='#hero'){
+  window.scrollTo(0,0);
+}
 renderStatus();setInterval(renderStatus,60000);
 buildHours();buildMenu();tagWhiteBgCards();buildGallery();observeReveal();
 updateDeliveryFields();
