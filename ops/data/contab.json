@@ -1,5 +1,13 @@
 [
   {
+    "id": "id_1776690268002_zhib",
+    "data": "2026-04-17",
+    "tipo": "despesa",
+    "desc": "Hera vídeo",
+    "val": 17.05,
+    "estado": "pago"
+  },
+  {
     "id": "id_1774459485148_fvew",
     "data": "2026-03-13",
     "tipo": "despesa",
