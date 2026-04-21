@@ -1,6 +1,0 @@
-User-agent: *
-Disallow: /demos/
-Disallow: /demos/aforja/
-Disallow: /demos/aforja/*
-
-# Defesa anti-cópia — demos Volvara são para olhos do cliente, não para indexação.
