@@ -2,7 +2,7 @@
 <html lang="pt-PT">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#0A0A0A">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -10,6 +10,7 @@
 <meta name="apple-mobile-web-app-title" content="Volvara HQ">
 <title>Volvara Coffee HQ</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FFB020'/%3E%3Ctext x='50' y='68' font-family='Arial Black,sans-serif' font-size='52' font-weight='900' text-anchor='middle' fill='%230A0A0A'%3EVV%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='38' fill='%23FFB020'/%3E%3Ctext x='90' y='125' font-family='Arial Black,sans-serif' font-size='94' font-weight='900' text-anchor='middle' fill='%230A0A0A'%3EVV%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -42,7 +43,6 @@
     min-height:100svh;
     overflow-x:hidden;
   }
-  /* Desktop guard */
   .desktop-guard{display:none}
   @media (min-width:900px){
     .app{display:none}
@@ -72,7 +72,6 @@
     }
   }
 
-  /* App shell */
   .app{
     display:flex;
     flex-direction:column;
@@ -83,7 +82,6 @@
     position:relative;
   }
 
-  /* Header */
   .top{
     display:flex;
     align-items:center;
@@ -110,13 +108,12 @@
     font-size:10px;
     letter-spacing:.18em;
     text-transform:uppercase;
-    color:var(--amber);
-    border:1px solid var(--amber);
+    color:var(--crimson);
+    border:1px solid var(--crimson);
     padding:5px 9px 4px;
     border-radius:999px;
   }
 
-  /* Screens container */
   .screens{flex:1;position:relative}
   .screen{
     display:none;
@@ -128,11 +125,12 @@
     from{opacity:0;transform:translateY(6px)}
     to{opacity:1;transform:none}
   }
-
-  /* Intro / Menu */
-  .hero{
-    margin:8px 0 24px;
+  @media (prefers-reduced-motion:reduce){
+    .screen{animation:none}
+    *{transition-duration:.01ms !important}
   }
+
+  .hero{margin:8px 0 24px}
   .kicker{
     font-size:11px;
     letter-spacing:.22em;
@@ -154,12 +152,64 @@
     max-width:300px;
   }
 
-  .menu{
+  .recent{margin:0 0 24px;display:none}
+  .recent.show{display:block}
+  .recent-label{
+    font-size:10px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:10px;
+  }
+  .recent-grid{
     display:flex;
-    flex-direction:column;
-    gap:14px;
+    gap:10px;
+    overflow-x:auto;
+    scrollbar-width:none;
+    padding-bottom:2px;
+    margin:0 -20px;
+    padding-left:20px;
+    padding-right:20px;
+  }
+  .recent-grid::-webkit-scrollbar{display:none}
+  .recent-card{
+    flex:0 0 auto;
+    min-width:180px;
+    background:var(--bg-2);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:12px 14px;
+    cursor:pointer;
+    transition:border-color .2s ease,transform .15s ease;
+    text-align:left;
+    font-family:inherit;
+    color:var(--cream);
+  }
+  .recent-card:active{transform:scale(.97)}
+  .recent-card:hover{border-color:rgba(255,176,32,.4)}
+  .recent-card .r-name{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:20px;
+    line-height:1;
+    letter-spacing:.02em;
+  }
+  .recent-card .r-sub{
+    font-size:10px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-top:6px;
+  }
+  .recent-card .r-cta{
+    font-size:10px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--amber);
     margin-top:8px;
   }
+  .recent-card .r-cta::after{content:" →"}
+
+  .menu{display:flex;flex-direction:column;gap:14px;margin-top:8px}
   .item{
     position:relative;
     display:flex;
@@ -179,13 +229,21 @@
     background-size:cover;
     background-position:center;
     background-color:#000;
+    position:relative;
+  }
+  .item-img::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    box-shadow:inset 0 0 0 1px rgba(255,176,32,.05);
+    border-radius:inherit;
   }
   .item-body{
     flex:1;
-    padding:14px 16px 14px 16px;
+    padding:14px 40px 14px 16px;
     display:flex;
     flex-direction:column;
-    justify-content:space-between;
+    justify-content:center;
     min-width:0;
   }
   .item-name{
@@ -200,20 +258,19 @@
     color:var(--muted);
     margin-top:6px;
   }
-  .item-cta{
-    align-self:flex-end;
-    font-size:10px;
-    letter-spacing:.18em;
-    text-transform:uppercase;
+  .item-chev{
+    position:absolute;
+    right:14px;
+    top:50%;
+    transform:translateY(-50%);
     color:var(--amber);
-    margin-top:10px;
+    font-size:22px;
+    line-height:1;
+    opacity:.7;
+    transition:transform .2s ease,opacity .2s ease;
   }
-  .item-cta::after{
-    content:"→";
-    margin-left:6px;
-  }
+  .item:active .item-chev{transform:translateY(-50%) translateX(3px);opacity:1}
 
-  /* Product screen */
   .back{
     display:inline-flex;
     align-items:center;
@@ -268,11 +325,7 @@
     color:var(--amber);
     margin-bottom:12px;
   }
-  .options-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
-  }
+  .options-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
   .opt{
     background:var(--bg-2);
     border:1px solid var(--line);
@@ -304,7 +357,6 @@
   }
   .opt.selected .opt-label{color:var(--amber)}
 
-  /* Toggle addon */
   .addon{
     margin-top:26px;
     background:var(--bg-2);
@@ -340,7 +392,7 @@
     border-radius:999px;
     position:relative;
     flex-shrink:0;
-    transition:background .2s ease;
+    transition:background .2s ease,border-color .2s ease;
   }
   .switch::after{
     content:"";
@@ -352,6 +404,7 @@
     border-radius:50%;
     background:var(--cream);
     transition:transform .22s ease,background .2s ease;
+    box-shadow:0 1px 3px rgba(0,0,0,.3);
   }
   .addon.active .switch{background:rgba(255,176,32,.2);border-color:var(--amber)}
   .addon.active .switch::after{
@@ -359,10 +412,7 @@
     background:var(--amber);
   }
 
-  /* Name input */
-  .name-field{
-    margin-top:26px;
-  }
+  .name-field{margin-top:26px}
   .name-field input{
     width:100%;
     background:var(--bg-2);
@@ -375,13 +425,9 @@
     transition:border-color .2s ease;
     -webkit-appearance:none;
   }
-  .name-field input:focus{
-    outline:none;
-    border-color:var(--amber);
-  }
+  .name-field input:focus{outline:none;border-color:var(--amber)}
   .name-field input::placeholder{color:var(--muted)}
 
-  /* Primary CTA */
   .cta{
     width:100%;
     background:var(--amber);
@@ -397,12 +443,8 @@
     margin-top:28px;
   }
   .cta:active{transform:scale(.98)}
-  .cta:disabled{
-    opacity:.35;
-    cursor:not-allowed;
-  }
+  .cta:disabled{opacity:.35;cursor:not-allowed}
 
-  /* Summary screen */
   .summary{
     background:var(--bg-2);
     border:1px solid var(--line);
@@ -417,7 +459,10 @@
     padding:12px 0;
     border-bottom:1px dashed var(--line);
     gap:14px;
+    cursor:pointer;
+    transition:opacity .2s ease;
   }
+  .summary-row:hover{opacity:.75}
   .summary-row:last-child{border-bottom:none}
   .summary-k{
     font-size:10px;
@@ -432,8 +477,16 @@
     color:var(--cream);
     text-align:right;
   }
+  .summary-edit{
+    font-size:9px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--amber);
+    text-align:center;
+    margin-top:14px;
+    opacity:.6;
+  }
 
-  /* Footer */
   .foot{
     margin-top:auto;
     padding:20px 20px calc(20px + var(--safe-bottom));
@@ -446,7 +499,6 @@
   }
   .foot span{color:var(--amber)}
 
-  /* Toast */
   .toast{
     position:fixed;
     bottom:calc(30px + var(--safe-bottom));
@@ -466,21 +518,15 @@
     max-width:90vw;
     text-align:center;
   }
-  .toast.show{
-    opacity:1;
-    transform:translateX(-50%) translateY(0);
-  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-  /* Confirmation screen */
-  .confirm-art{
-    text-align:center;
-    padding:40px 0 20px;
-  }
+  .confirm-art{text-align:center;padding:30px 0 10px}
   .confirm-art .icon{
     font-family:'Bebas Neue',sans-serif;
     font-size:120px;
     line-height:1;
     color:var(--amber);
+    transition:transform .3s ease;
   }
   .confirm-title{
     text-align:center;
@@ -490,6 +536,16 @@
     color:var(--cream);
     margin:10px 0 14px;
   }
+  .confirm-step{
+    text-align:center;
+    color:var(--amber);
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    height:20px;
+    margin-bottom:20px;
+    transition:opacity .3s ease;
+  }
   .confirm-desc{
     text-align:center;
     color:var(--muted);
@@ -497,35 +553,15 @@
     max-width:300px;
     margin:0 auto 30px;
   }
-  .btn-secondary{
-    display:block;
-    width:100%;
-    background:transparent;
-    color:var(--cream);
-    border:1px solid var(--line);
-    border-radius:14px;
-    padding:16px 20px;
-    font-family:'Bebas Neue',sans-serif;
-    font-size:18px;
-    letter-spacing:.06em;
-    cursor:pointer;
-    transition:border-color .2s ease;
-    text-align:center;
-    margin-top:12px;
-  }
-  .btn-secondary:active{border-color:var(--amber)}
-
 </style>
 </head>
 <body>
 
-<!-- Desktop / tablet guard -->
 <div class="desktop-guard">
   <h1>VOLVA<span class="ra">RA</span></h1>
   <p>Volvara Coffee HQ é uma app privada para telemóvel. Abre no teu telefone para fazer o pedido.</p>
 </div>
 
-<!-- Mobile app -->
 <div class="app" id="app">
 
   <header class="top">
@@ -537,7 +573,6 @@
 
   <main class="screens">
 
-    <!-- SCREEN: MENU -->
     <section class="screen active" id="screen-menu">
       <div class="hero">
         <div class="kicker">Coffee HQ · Family &amp; Friends</div>
@@ -545,43 +580,41 @@
         <p class="subtitle">Pede daí do sofá. Eu trato do resto.</p>
       </div>
 
+      <div class="recent" id="recent-block">
+        <div class="recent-label">Outra vez?</div>
+        <div class="recent-grid" id="recent-grid"></div>
+      </div>
+
       <div class="menu">
         <div class="item" data-product="latte">
           <div class="item-img" style="background-image:url('assets/latte.jpg')"></div>
           <div class="item-body">
-            <div>
-              <div class="item-name">Latte</div>
-              <div class="item-desc">Três tamanhos. Com caramelo salgado e chocolate se quiseres.</div>
-            </div>
-            <div class="item-cta">Pedir</div>
+            <div class="item-name">Latte</div>
+            <div class="item-desc">Três tamanhos. Com caramelo salgado e chocolate se quiseres.</div>
           </div>
+          <div class="item-chev">›</div>
         </div>
 
         <div class="item" data-product="espresso">
           <div class="item-img" style="background-image:url('assets/espresso.jpg')"></div>
           <div class="item-body">
-            <div>
-              <div class="item-name">Espresso</div>
-              <div class="item-desc">Curto, intenso, pronto em 40 segundos.</div>
-            </div>
-            <div class="item-cta">Pedir</div>
+            <div class="item-name">Espresso</div>
+            <div class="item-desc">Curto, intenso, pronto em 40 segundos.</div>
           </div>
+          <div class="item-chev">›</div>
         </div>
 
         <div class="item" data-product="milky">
           <div class="item-img" style="background-image:url('assets/milkyheart.jpg')"></div>
           <div class="item-body">
-            <div>
-              <div class="item-name">Milky Heart</div>
-              <div class="item-desc">Babycino: leite espumado com toque de cacau. Para os pequenos.</div>
-            </div>
-            <div class="item-cta">Pedir</div>
+            <div class="item-name">Milky Heart 🧸</div>
+            <div class="item-desc">Babycino: leite espumado com toque de cacau. Para os pequenos.</div>
           </div>
+          <div class="item-chev">›</div>
         </div>
       </div>
     </section>
 
-    <!-- SCREEN: PRODUCT -->
     <section class="screen" id="screen-product">
       <button class="back" id="back-to-menu">Menu</button>
       <div class="product-hero" id="product-hero"></div>
@@ -602,29 +635,29 @@
       </div>
 
       <div class="name-field">
-        <input type="text" id="name-input" placeholder="O teu nome" maxlength="40" autocomplete="given-name">
+        <input type="text" id="name-input" placeholder="O teu nome" maxlength="40" autocomplete="given-name" autocapitalize="words" autocorrect="off">
       </div>
 
       <button class="cta" id="cta-order" disabled>Rever pedido</button>
     </section>
 
-    <!-- SCREEN: SUMMARY -->
     <section class="screen" id="screen-summary">
       <button class="back" id="back-to-product">Voltar</button>
       <div class="kicker">Resumo</div>
       <h2 class="title" style="font-size:44px">Confirma<br>e envia.</h2>
 
       <div class="summary" id="summary-body"></div>
+      <div class="summary-edit">Toca para editar</div>
 
       <button class="cta" id="cta-send">Enviar por WhatsApp</button>
     </section>
 
-    <!-- SCREEN: CONFIRM -->
     <section class="screen" id="screen-confirm">
       <div class="confirm-art">
-        <div class="icon">☕</div>
+        <div class="icon" id="confirm-icon">☕</div>
       </div>
-      <h2 class="confirm-title">A caminho.</h2>
+      <h2 class="confirm-title" id="confirm-title">A preparar.</h2>
+      <div class="confirm-step" id="confirm-step">A moer os grãos</div>
       <p class="confirm-desc">Pedido enviado para o WhatsApp da casa. Dá dois minutos.</p>
       <button class="cta" id="cta-new">Novo pedido</button>
     </section>
@@ -643,8 +676,13 @@
 (function(){
   'use strict';
 
-  // ==================== CONFIG ====================
+  if(window.__volvaraInit__) return;
+  window.__volvaraInit__ = true;
+
   var WA_NUMBER = '351917810999';
+  var STORAGE_KEY_NAME = 'volvara_hq_name';
+  var STORAGE_KEY_RECENT = 'volvara_hq_recent';
+  var MAX_RECENT = 2;
 
   var PRODUCTS = {
     latte:{
@@ -674,7 +712,19 @@
     }
   };
 
-  // ==================== STATE ====================
+  var WHIMSY_LINES = [
+    'Despacha-te.',
+    'Sem pressa, gajo.',
+    'Com muito amor.',
+    'E um biscoito, se houver.',
+    'Vou-me deitar já.',
+    'Obrigado barista.',
+    'O meu herói.',
+    'És o melhor.',
+    'A vida é curta.',
+    'Já está?'
+  ];
+
   var state = {
     screen:'menu',
     product:null,
@@ -683,13 +733,27 @@
     name:''
   };
 
-  // ==================== HELPERS ====================
   function $(sel){return document.querySelector(sel);}
   function $$(sel){return document.querySelectorAll(sel);}
 
+  function vibe(pattern){
+    try{if(navigator.vibrate) navigator.vibrate(pattern);}catch(e){}
+  }
+
+  function lsGet(k){
+    try{return localStorage.getItem(k);}catch(e){return null;}
+  }
+  function lsSet(k,v){
+    try{localStorage.setItem(k,v);}catch(e){}
+  }
+
   function show(screenId){
+    if(document.activeElement && document.activeElement.blur){
+      document.activeElement.blur();
+    }
     $$('.screen').forEach(function(s){s.classList.remove('active');});
-    $('#screen-'+screenId).classList.add('active');
+    var target = $('#screen-'+screenId);
+    if(target) target.classList.add('active');
     state.screen = screenId;
     window.scrollTo({top:0,behavior:'instant'});
   }
@@ -699,22 +763,102 @@
     t.textContent = msg;
     t.classList.add('show');
     setTimeout(function(){t.classList.remove('show');},2200);
+    vibe(30);
   }
 
-  // ==================== MENU → PRODUCT ====================
-  function openProduct(key){
+  function randomPick(arr){
+    return arr[Math.floor(Math.random()*arr.length)];
+  }
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g,function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function getRecent(){
+    try{
+      var raw = lsGet(STORAGE_KEY_RECENT);
+      return raw ? JSON.parse(raw) : [];
+    }catch(e){return [];}
+  }
+
+  function saveRecent(order){
+    var list = getRecent();
+    var sig = order.product+'|'+(order.size||'')+'|'+(order.addon?'1':'0');
+    list = list.filter(function(o){
+      return (o.product+'|'+(o.size||'')+'|'+(o.addon?'1':'0')) !== sig;
+    });
+    list.unshift(order);
+    list = list.slice(0,MAX_RECENT);
+    lsSet(STORAGE_KEY_RECENT, JSON.stringify(list));
+  }
+
+  function renderRecent(){
+    var list = getRecent();
+    var block = $('#recent-block');
+    var grid = $('#recent-grid');
+    if(!list.length){
+      block.classList.remove('show');
+      return;
+    }
+    grid.innerHTML = '';
+    list.forEach(function(o){
+      var p = PRODUCTS[o.product];
+      if(!p) return;
+      var sub = '';
+      if(p.sizes && o.size){
+        var sz = p.sizes.find(function(s){return s.id===o.size;});
+        if(sz) sub = sz.sub;
+      }
+      if(p.addon && o.addon){
+        sub = (sub ? sub+' · ' : '')+'c/ extra';
+      }
+      if(!sub) sub = 'Como da última vez';
+
+      var card = document.createElement('button');
+      card.className = 'recent-card';
+      card.type = 'button';
+      card.innerHTML =
+        '<div class="r-name">'+escapeHtml(p.name)+'</div>'+
+        '<div class="r-sub">'+escapeHtml(sub)+'</div>'+
+        '<div class="r-cta">Repetir</div>';
+      card.addEventListener('click',function(){
+        vibe(15);
+        applyRecent(o);
+      });
+      grid.appendChild(card);
+    });
+    block.classList.add('show');
+  }
+
+  function applyRecent(o){
+    state.product = o.product;
+    state.size = o.size || null;
+    state.addon = !!o.addon;
+    state.name = lsGet(STORAGE_KEY_NAME) || '';
+    if(!state.name){
+      openProduct(o.product, true);
+      return;
+    }
+    buildSummary();
+    show('summary');
+  }
+
+  function openProduct(key, prefillRecent){
     var p = PRODUCTS[key];
     if(!p) return;
 
     state.product = key;
-    state.size = null;
-    state.addon = false;
+    if(!prefillRecent){
+      state.size = null;
+      state.addon = false;
+    }
 
     $('#product-hero').style.backgroundImage = "url('"+p.img+"')";
     $('#product-title').textContent = p.name;
     $('#product-desc').textContent = p.desc;
 
-    // Sizes
     var sizesBlock = $('#sizes-block');
     var sizesGrid = $('#sizes-grid');
     if(p.sizes){
@@ -725,8 +869,10 @@
         btn.className = 'opt';
         btn.type = 'button';
         btn.dataset.size = sz.id;
+        if(state.size === sz.id) btn.classList.add('selected');
         btn.innerHTML = '<div class="opt-size">'+sz.label.replace(' ml',' <span style="font-size:14px;opacity:.7">ml</span>')+'</div><div class="opt-label">'+sz.sub+'</div>';
         btn.addEventListener('click',function(){
+          vibe(10);
           $$('.opt').forEach(function(o){o.classList.remove('selected');});
           btn.classList.add('selected');
           state.size = sz.id;
@@ -738,18 +884,15 @@
       sizesBlock.style.display = 'none';
     }
 
-    // Addon
     var addonBlock = $('#addon-block');
     addonBlock.classList.remove('active');
-    if(p.addon){
-      addonBlock.style.display = 'flex';
-    } else {
-      addonBlock.style.display = 'none';
-    }
+    if(state.addon) addonBlock.classList.add('active');
+    addonBlock.style.display = p.addon ? 'flex' : 'none';
 
-    // Name
     var nameInput = $('#name-input');
-    nameInput.value = state.name || '';
+    var savedName = state.name || lsGet(STORAGE_KEY_NAME) || '';
+    nameInput.value = savedName;
+    state.name = savedName;
 
     validate();
     show('product');
@@ -765,7 +908,6 @@
     cta.disabled = !ok;
   }
 
-  // ==================== PRODUCT → SUMMARY ====================
   function buildSummary(){
     var p = PRODUCTS[state.product];
     var body = $('#summary-body');
@@ -782,4 +924,182 @@
 
     body.innerHTML = '';
     rows.forEach(function(r){
-      var row 
+      var row = document.createElement('div');
+      row.className = 'summary-row';
+      row.innerHTML = '<div class="summary-k">'+r.k+'</div><div class="summary-v">'+escapeHtml(r.v)+'</div>';
+      row.addEventListener('click',function(){
+        vibe(8);
+        show('product');
+      });
+      body.appendChild(row);
+    });
+  }
+
+  function buildMessage(){
+    var p = PRODUCTS[state.product];
+    var lines = [];
+    lines.push('☕ Pedido Volvara HQ');
+    lines.push('');
+    lines.push('Bebida: '+p.name);
+    if(p.sizes && state.size){
+      var sz = p.sizes.find(function(s){return s.id===state.size;});
+      if(sz) lines.push('Tamanho: '+sz.label+' ('+sz.sub+')');
+    }
+    if(p.addon && state.addon){
+      lines.push('Extra: caramelo salgado + chocolate');
+    }
+    lines.push('Para: '+state.name);
+    lines.push('');
+    lines.push(randomPick(WHIMSY_LINES));
+    return lines.join('\n');
+  }
+
+  function sendOrder(){
+    vibe([15,40,15]);
+    var msg = buildMessage();
+    var url = 'https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg);
+
+    lsSet(STORAGE_KEY_NAME, state.name);
+    saveRecent({
+      product:state.product,
+      size:state.size,
+      addon:state.addon,
+      at:Date.now()
+    });
+
+    window.open(url,'_blank','noopener');
+
+    setTimeout(function(){
+      show('confirm');
+      runBrewingAnimation();
+    },250);
+
+    setTimeout(function(){
+      if(state.screen === 'confirm'){
+        resetOrder();
+      }
+    },20000);
+  }
+
+  var brewTimer = null;
+  function runBrewingAnimation(){
+    if(brewTimer) clearTimeout(brewTimer);
+    var steps;
+    if(state.product === 'espresso'){
+      steps = ['A moer os grãos','A extrair','A caminho ☕'];
+    } else if(state.product === 'milky'){
+      steps = ['A vaporizar o leite','A desenhar o coração','A caminho 🧸'];
+    } else {
+      steps = ['A moer os grãos','A vaporizar o leite','A caminho ☕'];
+    }
+
+    var stepEl = $('#confirm-step');
+    var iconEl = $('#confirm-icon');
+    var i = 0;
+
+    function next(){
+      if(i >= steps.length){
+        stepEl.textContent = '';
+        return;
+      }
+      stepEl.style.opacity = '0';
+      setTimeout(function(){
+        stepEl.textContent = steps[i];
+        stepEl.style.opacity = '1';
+        if(i === steps.length-1){
+          iconEl.style.transform = 'scale(1.15)';
+          setTimeout(function(){iconEl.style.transform='scale(1)';},200);
+        }
+        i++;
+        brewTimer = setTimeout(next,1100);
+      },200);
+    }
+    next();
+  }
+
+  function resetOrder(){
+    state.product = null;
+    state.size = null;
+    state.addon = false;
+    show('menu');
+    renderRecent();
+  }
+
+  function init(){
+    renderRecent();
+
+    $$('.item').forEach(function(el){
+      el.addEventListener('click',function(){
+        vibe(12);
+        openProduct(el.dataset.product);
+      });
+    });
+
+    var logo = $('#logo');
+    if(logo) logo.addEventListener('click',function(){
+      vibe(8);
+      resetOrder();
+    });
+
+    var backMenu = $('#back-to-menu');
+    if(backMenu) backMenu.addEventListener('click',function(){
+      vibe(8);
+      show('menu');
+    });
+
+    var addonEl = $('#addon-block');
+    if(addonEl) addonEl.addEventListener('click',function(){
+      vibe(12);
+      addonEl.classList.toggle('active');
+      state.addon = addonEl.classList.contains('active');
+    });
+
+    var nameEl = $('#name-input');
+    if(nameEl) nameEl.addEventListener('input',function(e){
+      state.name = e.target.value.trim();
+      validate();
+    });
+
+    var ctaOrder = $('#cta-order');
+    if(ctaOrder) ctaOrder.addEventListener('click',function(){
+      var p = PRODUCTS[state.product];
+      if(p && p.sizes && !state.size){
+        toast('Escolhe o tamanho');
+        return;
+      }
+      if(!state.name){
+        toast('Falta o teu nome');
+        if(nameEl) nameEl.focus();
+        return;
+      }
+      vibe(15);
+      buildSummary();
+      show('summary');
+    });
+
+    var backProd = $('#back-to-product');
+    if(backProd) backProd.addEventListener('click',function(){
+      vibe(8);
+      show('product');
+    });
+
+    var ctaSend = $('#cta-send');
+    if(ctaSend) ctaSend.addEventListener('click',sendOrder);
+
+    var ctaNew = $('#cta-new');
+    if(ctaNew) ctaNew.addEventListener('click',function(){
+      vibe(10);
+      resetOrder();
+    });
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
+</script>
+</body>
+</html>
