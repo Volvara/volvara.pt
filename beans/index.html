@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0A0A0A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Volvara HQ">
+<title>Volvara Coffee HQ</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FFB020'/%3E%3Ctext x='50' y='68' font-family='Arial Black,sans-serif' font-size='52' font-weight='900' text-anchor='middle' fill='%230A0A0A'%3EVV%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#0A0A0A;
+    --bg-2:#141414;
+    --bg-3:#1c1c1c;
+    --amber:#FFB020;
+    --crimson:#DC143C;
+    --cream:#F4F1EC;
+    --muted:#8a8580;
+    --line:rgba(244,241,236,.08);
+    --safe-top:env(safe-area-inset-top);
+    --safe-bottom:env(safe-area-inset-bottom);
+  }
+  html,body{
+    background:var(--bg);
+    color:var(--cream);
+    font-family:'DM Mono',ui-monospace,monospace;
+    font-size:15px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    -webkit-tap-highlight-color:transparent;
+    overscroll-behavior:none;
+  }
+  body{
+    min-height:100vh;
+    min-height:100svh;
+    overflow-x:hidden;
+  }
+  /* Desktop guard */
+  .desktop-guard{display:none}
+  @media (min-width:900px){
+    .app{display:none}
+    .desktop-guard{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      min-height:100vh;
+      padding:40px;
+      text-align:center;
+    }
+    .desktop-guard h1{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(48px,6vw,88px);
+      letter-spacing:.02em;
+      color:var(--cream);
+    }
+    .desktop-guard h1 .ra{
+      color:transparent;
+      -webkit-text-stroke:2px var(--amber);
+    }
+    .desktop-guard p{
+      margin-top:20px;
+      color:var(--muted);
+      max-width:440px;
+    }
+  }
+
+  /* App shell */
+  .app{
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+    min-height:100svh;
+    max-width:480px;
+    margin:0 auto;
+    position:relative;
+  }
+
+  /* Header */
+  .top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:calc(16px + var(--safe-top)) 20px 14px;
+    position:sticky;
+    top:0;
+    background:var(--bg);
+    z-index:10;
+  }
+  .logo{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:28px;
+    letter-spacing:.04em;
+    line-height:1;
+    cursor:pointer;
+    user-select:none;
+  }
+  .logo .ra{
+    color:transparent;
+    -webkit-text-stroke:1.2px var(--amber);
+  }
+  .badge{
+    font-size:10px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--amber);
+    border:1px solid var(--amber);
+    padding:5px 9px 4px;
+    border-radius:999px;
+  }
+
+  /* Screens container */
+  .screens{flex:1;position:relative}
+  .screen{
+    display:none;
+    padding:4px 20px 40px;
+    animation:fadeIn .28s ease-out;
+  }
+  .screen.active{display:block}
+  @keyframes fadeIn{
+    from{opacity:0;transform:translateY(6px)}
+    to{opacity:1;transform:none}
+  }
+
+  /* Intro / Menu */
+  .hero{
+    margin:8px 0 24px;
+  }
+  .kicker{
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--amber);
+    margin-bottom:10px;
+  }
+  .title{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:56px;
+    line-height:.95;
+    letter-spacing:.01em;
+    color:var(--cream);
+  }
+  .subtitle{
+    margin-top:14px;
+    color:var(--muted);
+    font-size:13px;
+    max-width:300px;
+  }
+
+  .menu{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    margin-top:8px;
+  }
+  .item{
+    position:relative;
+    display:flex;
+    align-items:stretch;
+    background:var(--bg-2);
+    border:1px solid var(--line);
+    border-radius:18px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:transform .15s ease,border-color .2s ease;
+  }
+  .item:active{transform:scale(.985)}
+  .item:hover{border-color:rgba(255,176,32,.35)}
+  .item-img{
+    flex:0 0 110px;
+    aspect-ratio:1;
+    background-size:cover;
+    background-position:center;
+    background-color:#000;
+  }
+  .item-body{
+    flex:1;
+    padding:14px 16px 14px 16px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    min-width:0;
+  }
+  .item-name{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:24px;
+    letter-spacing:.02em;
+    line-height:1;
+    color:var(--cream);
+  }
+  .item-desc{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:6px;
+  }
+  .item-cta{
+    align-self:flex-end;
+    font-size:10px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--amber);
+    margin-top:10px;
+  }
+  .item-cta::after{
+    content:"→";
+    margin-left:6px;
+  }
+
+  /* Product screen */
+  .back{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:none;
+    border:none;
+    color:var(--muted);
+    font-family:inherit;
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    padding:8px 0;
+    cursor:pointer;
+    margin-bottom:8px;
+  }
+  .back::before{content:"←"}
+
+  .product-hero{
+    aspect-ratio:4/5;
+    max-height:46vh;
+    background-size:cover;
+    background-position:center;
+    background-color:#000;
+    border-radius:20px;
+    margin-bottom:20px;
+    position:relative;
+    overflow:hidden;
+  }
+  .product-hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg,transparent 55%,rgba(10,10,10,.75));
+  }
+  .product-title{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:48px;
+    line-height:.95;
+    color:var(--cream);
+  }
+  .product-desc{
+    margin-top:10px;
+    color:var(--muted);
+    font-size:13px;
+  }
+
+  .options{margin-top:26px}
+  .options-label{
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--amber);
+    margin-bottom:12px;
+  }
+  .options-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+  }
+  .opt{
+    background:var(--bg-2);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px 8px 14px;
+    text-align:center;
+    cursor:pointer;
+    transition:all .18s ease;
+    font-family:inherit;
+    color:var(--cream);
+  }
+  .opt:active{transform:scale(.96)}
+  .opt.selected{
+    border-color:var(--amber);
+    background:rgba(255,176,32,.08);
+  }
+  .opt-size{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:28px;
+    line-height:1;
+    color:var(--cream);
+  }
+  .opt-label{
+    font-size:10px;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-top:6px;
+  }
+  .opt.selected .opt-label{color:var(--amber)}
+
+  /* Toggle addon */
+  .addon{
+    margin-top:26px;
+    background:var(--bg-2);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px 18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    cursor:pointer;
+    transition:border-color .2s ease;
+  }
+  .addon.active{border-color:var(--amber)}
+  .addon-text{flex:1;min-width:0}
+  .addon-name{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:20px;
+    letter-spacing:.02em;
+    line-height:1.1;
+    color:var(--cream);
+  }
+  .addon-desc{
+    font-size:11px;
+    color:var(--muted);
+    margin-top:4px;
+  }
+  .switch{
+    width:46px;
+    height:26px;
+    background:var(--bg-3);
+    border:1px solid var(--line);
+    border-radius:999px;
+    position:relative;
+    flex-shrink:0;
+    transition:background .2s ease;
+  }
+  .switch::after{
+    content:"";
+    position:absolute;
+    top:2px;
+    left:2px;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:var(--cream);
+    transition:transform .22s ease,background .2s ease;
+  }
+  .addon.active .switch{background:rgba(255,176,32,.2);border-color:var(--amber)}
+  .addon.active .switch::after{
+    transform:translateX(20px);
+    background:var(--amber);
+  }
+
+  /* Name input */
+  .name-field{
+    margin-top:26px;
+  }
+  .name-field input{
+    width:100%;
+    background:var(--bg-2);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px 18px;
+    font-family:inherit;
+    font-size:15px;
+    color:var(--cream);
+    transition:border-color .2s ease;
+    -webkit-appearance:none;
+  }
+  .name-field input:focus{
+    outline:none;
+    border-color:var(--amber);
+  }
+  .name-field input::placeholder{color:var(--muted)}
+
+  /* Primary CTA */
+  .cta{
+    width:100%;
+    background:var(--amber);
+    color:var(--bg);
+    border:none;
+    border-radius:14px;
+    padding:18px 20px;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:22px;
+    letter-spacing:.06em;
+    cursor:pointer;
+    transition:transform .15s ease,opacity .2s ease;
+    margin-top:28px;
+  }
+  .cta:active{transform:scale(.98)}
+  .cta:disabled{
+    opacity:.35;
+    cursor:not-allowed;
+  }
+
+  /* Summary screen */
+  .summary{
+    background:var(--bg-2);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:22px;
+    margin-top:16px;
+  }
+  .summary-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    padding:12px 0;
+    border-bottom:1px dashed var(--line);
+    gap:14px;
+  }
+  .summary-row:last-child{border-bottom:none}
+  .summary-k{
+    font-size:10px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .summary-v{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:20px;
+    letter-spacing:.02em;
+    color:var(--cream);
+    text-align:right;
+  }
+
+  /* Footer */
+  .foot{
+    margin-top:auto;
+    padding:20px 20px calc(20px + var(--safe-bottom));
+    text-align:center;
+    font-size:10px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+    opacity:.6;
+  }
+  .foot span{color:var(--amber)}
+
+  /* Toast */
+  .toast{
+    position:fixed;
+    bottom:calc(30px + var(--safe-bottom));
+    left:50%;
+    transform:translateX(-50%) translateY(20px);
+    background:var(--crimson);
+    color:var(--cream);
+    padding:12px 20px;
+    border-radius:10px;
+    font-size:12px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    opacity:0;
+    pointer-events:none;
+    transition:all .25s ease;
+    z-index:100;
+    max-width:90vw;
+    text-align:center;
+  }
+  .toast.show{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+  }
+
+  /* Confirmation screen */
+  .confirm-art{
+    text-align:center;
+    padding:40px 0 20px;
+  }
+  .confirm-art .icon{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:120px;
+    line-height:1;
+    color:var(--amber);
+  }
+  .confirm-title{
+    text-align:center;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:44px;
+    line-height:1;
+    color:var(--cream);
+    margin:10px 0 14px;
+  }
+  .confirm-desc{
+    text-align:center;
+    color:var(--muted);
+    font-size:13px;
+    max-width:300px;
+    margin:0 auto 30px;
+  }
+  .btn-secondary{
+    display:block;
+    width:100%;
+    background:transparent;
+    color:var(--cream);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px 20px;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:18px;
+    letter-spacing:.06em;
+    cursor:pointer;
+    transition:border-color .2s ease;
+    text-align:center;
+    margin-top:12px;
+  }
+  .btn-secondary:active{border-color:var(--amber)}
+
+</style>
+</head>
+<body>
+
+<!-- Desktop / tablet guard -->
+<div class="desktop-guard">
+  <h1>VOLVA<span class="ra">RA</span></h1>
+  <p>Volvara Coffee HQ é uma app privada para telemóvel. Abre no teu telefone para fazer o pedido.</p>
+</div>
+
+<!-- Mobile app -->
+<div class="app" id="app">
+
+  <header class="top">
+    <div class="logo" id="logo" role="button" aria-label="Início">
+      VOLVA<span class="ra">RA</span>
+    </div>
+    <div class="badge">HQ · Privado</div>
+  </header>
+
+  <main class="screens">
+
+    <!-- SCREEN: MENU -->
+    <section class="screen active" id="screen-menu">
+      <div class="hero">
+        <div class="kicker">Coffee HQ · Family &amp; Friends</div>
+        <h1 class="title">Escolhe<br>o teu café.</h1>
+        <p class="subtitle">Pede daí do sofá. Eu trato do resto.</p>
+      </div>
+
+      <div class="menu">
+        <div class="item" data-product="latte">
+          <div class="item-img" style="background-image:url('assets/latte.jpg')"></div>
+          <div class="item-body">
+            <div>
+              <div class="item-name">Latte</div>
+              <div class="item-desc">Três tamanhos. Com caramelo salgado e chocolate se quiseres.</div>
+            </div>
+            <div class="item-cta">Pedir</div>
+          </div>
+        </div>
+
+        <div class="item" data-product="espresso">
+          <div class="item-img" style="background-image:url('assets/espresso.jpg')"></div>
+          <div class="item-body">
+            <div>
+              <div class="item-name">Espresso</div>
+              <div class="item-desc">Curto, intenso, pronto em 40 segundos.</div>
+            </div>
+            <div class="item-cta">Pedir</div>
+          </div>
+        </div>
+
+        <div class="item" data-product="milky">
+          <div class="item-img" style="background-image:url('assets/milkyheart.jpg')"></div>
+          <div class="item-body">
+            <div>
+              <div class="item-name">Milky Heart</div>
+              <div class="item-desc">Babycino: leite espumado com toque de cacau. Para os pequenos.</div>
+            </div>
+            <div class="item-cta">Pedir</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN: PRODUCT -->
+    <section class="screen" id="screen-product">
+      <button class="back" id="back-to-menu">Menu</button>
+      <div class="product-hero" id="product-hero"></div>
+      <h2 class="product-title" id="product-title"></h2>
+      <p class="product-desc" id="product-desc"></p>
+
+      <div class="options" id="sizes-block">
+        <div class="options-label">Tamanho</div>
+        <div class="options-grid" id="sizes-grid"></div>
+      </div>
+
+      <div class="addon" id="addon-block" role="button" aria-label="Adicionar caramelo salgado e chocolate">
+        <div class="addon-text">
+          <div class="addon-name">Caramelo salgado &amp; chocolate</div>
+          <div class="addon-desc">Extra gulodice. Recomendado.</div>
+        </div>
+        <div class="switch" aria-hidden="true"></div>
+      </div>
+
+      <div class="name-field">
+        <input type="text" id="name-input" placeholder="O teu nome" maxlength="40" autocomplete="given-name">
+      </div>
+
+      <button class="cta" id="cta-order" disabled>Rever pedido</button>
+    </section>
+
+    <!-- SCREEN: SUMMARY -->
+    <section class="screen" id="screen-summary">
+      <button class="back" id="back-to-product">Voltar</button>
+      <div class="kicker">Resumo</div>
+      <h2 class="title" style="font-size:44px">Confirma<br>e envia.</h2>
+
+      <div class="summary" id="summary-body"></div>
+
+      <button class="cta" id="cta-send">Enviar por WhatsApp</button>
+    </section>
+
+    <!-- SCREEN: CONFIRM -->
+    <section class="screen" id="screen-confirm">
+      <div class="confirm-art">
+        <div class="icon">☕</div>
+      </div>
+      <h2 class="confirm-title">A caminho.</h2>
+      <p class="confirm-desc">Pedido enviado para o WhatsApp da casa. Dá dois minutos.</p>
+      <button class="cta" id="cta-new">Novo pedido</button>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    Volvara HQ · Uso privado · <span>volvara.pt</span>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  // ==================== CONFIG ====================
+  var WA_NUMBER = '351917810999';
+
+  var PRODUCTS = {
+    latte:{
+      name:'Latte',
+      desc:'Espresso duplo, leite vaporizado, rosetta na superfície.',
+      img:'assets/latte.jpg',
+      sizes:[
+        {id:'120',label:'120 ml',sub:'Piccolo'},
+        {id:'180',label:'180 ml',sub:'Médio'},
+        {id:'300',label:'300 ml',sub:'Grande'}
+      ],
+      addon:true
+    },
+    espresso:{
+      name:'Espresso',
+      desc:'Simples, curto, intenso. Como deve ser.',
+      img:'assets/espresso.jpg',
+      sizes:null,
+      addon:false
+    },
+    milky:{
+      name:'Milky Heart',
+      desc:'Babycino — leite espumado com um toque de cacau. Sem café. Feito para mãos pequeninas.',
+      img:'assets/milkyheart.jpg',
+      sizes:null,
+      addon:false
+    }
+  };
+
+  // ==================== STATE ====================
+  var state = {
+    screen:'menu',
+    product:null,
+    size:null,
+    addon:false,
+    name:''
+  };
+
+  // ==================== HELPERS ====================
+  function $(sel){return document.querySelector(sel);}
+  function $$(sel){return document.querySelectorAll(sel);}
+
+  function show(screenId){
+    $$('.screen').forEach(function(s){s.classList.remove('active');});
+    $('#screen-'+screenId).classList.add('active');
+    state.screen = screenId;
+    window.scrollTo({top:0,behavior:'instant'});
+  }
+
+  function toast(msg){
+    var t = $('#toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function(){t.classList.remove('show');},2200);
+  }
+
+  // ==================== MENU → PRODUCT ====================
+  function openProduct(key){
+    var p = PRODUCTS[key];
+    if(!p) return;
+
+    state.product = key;
+    state.size = null;
+    state.addon = false;
+
+    $('#product-hero').style.backgroundImage = "url('"+p.img+"')";
+    $('#product-title').textContent = p.name;
+    $('#product-desc').textContent = p.desc;
+
+    // Sizes
+    var sizesBlock = $('#sizes-block');
+    var sizesGrid = $('#sizes-grid');
+    if(p.sizes){
+      sizesBlock.style.display = 'block';
+      sizesGrid.innerHTML = '';
+      p.sizes.forEach(function(sz){
+        var btn = document.createElement('button');
+        btn.className = 'opt';
+        btn.type = 'button';
+        btn.dataset.size = sz.id;
+        btn.innerHTML = '<div class="opt-size">'+sz.label.replace(' ml',' <span style="font-size:14px;opacity:.7">ml</span>')+'</div><div class="opt-label">'+sz.sub+'</div>';
+        btn.addEventListener('click',function(){
+          $$('.opt').forEach(function(o){o.classList.remove('selected');});
+          btn.classList.add('selected');
+          state.size = sz.id;
+          validate();
+        });
+        sizesGrid.appendChild(btn);
+      });
+    } else {
+      sizesBlock.style.display = 'none';
+    }
+
+    // Addon
+    var addonBlock = $('#addon-block');
+    addonBlock.classList.remove('active');
+    if(p.addon){
+      addonBlock.style.display = 'flex';
+    } else {
+      addonBlock.style.display = 'none';
+    }
+
+    // Name
+    var nameInput = $('#name-input');
+    nameInput.value = state.name || '';
+
+    validate();
+    show('product');
+  }
+
+  function validate(){
+    var p = PRODUCTS[state.product];
+    var cta = $('#cta-order');
+    var ok = true;
+    if(!p) ok = false;
+    if(p && p.sizes && !state.size) ok = false;
+    if(!state.name || state.name.trim().length < 1) ok = false;
+    cta.disabled = !ok;
+  }
+
+  // ==================== PRODUCT → SUMMARY ====================
+  function buildSummary(){
+    var p = PRODUCTS[state.product];
+    var body = $('#summary-body');
+    var rows = [];
+    rows.push({k:'Pedido',v:p.name});
+    if(p.sizes && state.size){
+      var sz = p.sizes.find(function(s){return s.id===state.size;});
+      if(sz) rows.push({k:'Tamanho',v:sz.label+' · '+sz.sub});
+    }
+    if(p.addon && state.addon){
+      rows.push({k:'Extra',v:'Caramelo + chocolate'});
+    }
+    rows.push({k:'Para',v:state.name});
+
+    body.innerHTML = '';
+    rows.forEach(function(r){
+      var row 
