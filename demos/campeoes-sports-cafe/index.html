@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Campeões Sports Café · Portimão Matchday HQ</title>
+<meta name="description" content="Sports café em Portimão. Futebol, rugby, F1 e UFC em directo em múltiplos ecrãs. Hambúrgueres caseiros, preguinhos, cocktails e cerveja fresca. Entregas Uber Eats, Glovo e Bolt. Pagamento Bitcoin Lightning.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Campeões Sports Café · Portimão Matchday HQ">
+<meta property="og:description" content="O ponto de encontro do desporto em Portimão. Jogos em directo, cozinha do Chef José, cocktails e cerveja fresca.">
+<meta property="og:image" content="assets/og-image.jpg">
+<meta property="og:type" content="restaurant.restaurant">
+<meta property="og:locale" content="pt_PT">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0B0B0D;
+  --bg-soft:#15151A;
+  --bg-card:#1C1C22;
+  --amber:#F5A623;
+  --amber-hot:#FFB84D;
+  --crimson:#8B3A1E;
+  --cream:#F4F1EC;
+  --muted:#8B8B93;
+  --line:#2A2A32;
+  --ok:#4CAF50;
+  --blue-neon:#3B7EFF;
+  --maxw:1200px;
+  --pad:clamp(1rem, 3vw, 2rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);
+  color:var(--cream);
+  font-family:'DM Sans',system-ui,-apple-system,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  overflow-x:hidden;
+  min-height:100vh;
+  min-height:100svh;
+}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(11,11,13,0.85);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:var(--maxw);margin:0 auto;
+  padding:.75rem var(--pad);
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+}
+.nav-logo{display:flex;align-items:center;gap:.75rem}
+.nav-logo img{height:44px;width:auto;border-radius:6px}
+.nav-logo strong{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.4rem;letter-spacing:.04em;color:var(--amber);
+  line-height:1;
+}
+.nav-links{display:flex;align-items:center;gap:1.75rem}
+.nav-links a{
+  font-size:.9rem;font-weight:500;color:var(--cream);
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--amber)}
+.nav-cta{
+  background:var(--amber);color:var(--bg);
+  padding:.55rem 1.1rem;border-radius:6px;
+  font-weight:700;font-size:.85rem;
+  transition:background .2s,transform .2s;
+}
+.nav-cta:hover{background:var(--amber-hot);transform:translateY(-1px)}
+.lang-toggle{
+  font-family:'DM Mono',monospace;
+  font-size:.8rem;letter-spacing:.08em;
+  color:var(--muted);
+  border:1px solid var(--line);
+  padding:.3rem .55rem;border-radius:4px;
+  transition:all .2s;
+}
+.lang-toggle:hover{color:var(--amber);border-color:var(--amber)}
+.burger{display:none;width:32px;height:32px;flex-direction:column;justify-content:center;gap:5px}
+.burger span{display:block;height:2px;background:var(--cream);transition:.3s}
+
+@media (max-width:768px){
+  .nav-links{
+    position:fixed;top:64px;left:0;right:0;
+    background:var(--bg);
+    flex-direction:column;gap:0;
+    padding:0;overflow:hidden;
+    max-height:0;
+    transition:max-height .3s ease;
+    border-bottom:1px solid var(--line);
+  }
+  .nav-links.open{max-height:420px;padding:1rem 0}
+  .nav-links a{width:100%;padding:1rem var(--pad);border-top:1px solid var(--line)}
+  .nav-links .nav-cta{margin:1rem var(--pad) 0;width:auto;text-align:center}
+  .burger{display:flex}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;
+  min-height:100vh;min-height:100svh;
+  display:flex;align-items:center;
+  padding:6rem var(--pad) 4rem;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(180deg, rgba(11,11,13,0.55) 0%, rgba(11,11,13,0.75) 60%, rgba(11,11,13,0.95) 100%),
+    url('assets/bar-interior.jpg') center/cover no-repeat;
+  z-index:-2;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse at 80% 20%, rgba(245,166,35,0.12) 0%, transparent 60%);
+  z-index:-1;pointer-events:none;
+}
+.hero-inner{max-width:var(--maxw);margin:0 auto;width:100%}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-family:'DM Mono',monospace;
+  font-size:.78rem;letter-spacing:.15em;
+  color:var(--amber);text-transform:uppercase;
+  padding:.4rem .9rem;
+  background:rgba(245,166,35,0.08);
+  border:1px solid rgba(245,166,35,0.3);
+  border-radius:999px;
+  margin-bottom:1.25rem;
+}
+.hero-kicker::before{
+  content:"";width:8px;height:8px;border-radius:50%;
+  background:#ff3838;
+  box-shadow:0 0 8px #ff3838;
+  animation:pulse 1.5s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3rem, 9vw, 6.5rem);
+  line-height:.95;letter-spacing:.01em;
+  margin:0 0 1rem;
+  color:var(--cream);
+}
+.hero h1 .amber{color:var(--amber);display:block}
+.hero p.lead{
+  font-size:clamp(1rem, 2vw, 1.2rem);
+  max-width:560px;color:var(--cream);
+  margin:0 0 2rem;line-height:1.55;
+}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.95rem 1.75rem;border-radius:8px;
+  font-weight:700;font-size:.95rem;
+  transition:all .2s;
+  border:2px solid transparent;
+}
+.btn-primary{background:var(--amber);color:var(--bg)}
+.btn-primary:hover{background:var(--amber-hot);transform:translateY(-2px);box-shadow:0 10px 30px rgba(245,166,35,0.3)}
+.btn-ghost{
+  background:transparent;
+  color:var(--cream);
+  border-color:var(--line);
+}
+.btn-ghost:hover{border-color:var(--amber);color:var(--amber)}
+.hero-meta{
+  margin-top:3rem;
+  display:flex;flex-wrap:wrap;gap:2rem;
+  font-family:'DM Mono',monospace;
+  font-size:.82rem;color:var(--muted);
+  letter-spacing:.05em;
+}
+.hero-meta strong{color:var(--cream);font-weight:500;display:block;font-size:1.15rem;font-family:'Bebas Neue',sans-serif;letter-spacing:.04em}
+
+/* ---------- SECTIONS ---------- */
+.section{padding:5rem var(--pad);max-width:var(--maxw);margin:0 auto;scroll-margin-top:80px}
+.section-header{margin-bottom:3rem;max-width:720px}
+.section-kicker{
+  font-family:'DM Mono',monospace;
+  font-size:.78rem;letter-spacing:.15em;
+  color:var(--amber);text-transform:uppercase;
+  margin-bottom:.75rem;
+}
+.section h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.5rem, 6vw, 4rem);
+  line-height:1;letter-spacing:.01em;
+  margin:0 0 1rem;
+  color:var(--cream);
+}
+.section h2 .amber{color:var(--amber)}
+.section-lead{color:var(--muted);font-size:1.05rem;max-width:620px}
+
+/* ---------- WHY US / PILLARS ---------- */
+.pillars{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1.25rem;
+}
+.pillar{
+  background:var(--bg-card);
+  border:1px solid var(--line);
+  border-radius:12px;padding:1.75rem;
+  transition:border-color .2s,transform .2s;
+}
+.pillar:hover{border-color:var(--amber);transform:translateY(-3px)}
+.pillar-icon{
+  width:48px;height:48px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(245,166,35,0.1);
+  border-radius:10px;margin-bottom:1rem;
+  font-size:1.5rem;
+}
+.pillar h3{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.6rem;letter-spacing:.03em;
+  margin:0 0 .5rem;color:var(--cream);
+}
+.pillar p{color:var(--muted);font-size:.95rem;margin:0}
+
+/* ---------- MENU ---------- */
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:1.5rem;
+}
+.menu-card{
+  background:var(--bg-card);
+  border:1px solid var(--line);
+  border-radius:12px;overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:transform .2s,border-color .2s;
+}
+.menu-card:hover{transform:translateY(-4px);border-color:var(--amber)}
+.menu-card-img{
+  aspect-ratio:4/3;overflow:hidden;position:relative;
+  background:var(--bg-soft);
+}
+.menu-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.menu-card-img.crop-left img{object-position:20% center}
+.menu-card-img.crop-right img{object-position:80% center}
+.menu-card-img.crop-top img{object-position:center 15%;transform:scale(1.15)}
+.menu-card-img.zoom img{transform:scale(1.4);object-position:center 40%}
+.menu-card-img.tint-dark::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,13,0) 40%,rgba(11,11,13,0.35) 100%);pointer-events:none;z-index:1}
+.menu-card-img.tint-amber::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(245,166,35,0.12) 0%,rgba(139,58,30,0.18) 100%);pointer-events:none;z-index:1;mix-blend-mode:multiply}
+.menu-card:hover .menu-card-img img{transform:scale(1.05)}
+.menu-card-badge{
+  position:absolute;top:.75rem;left:.75rem;
+  font-family:'DM Mono',monospace;
+  font-size:.7rem;letter-spacing:.1em;
+  background:var(--amber);color:var(--bg);
+  padding:.25rem .55rem;border-radius:4px;
+  font-weight:700;text-transform:uppercase;
+}
+.menu-card-body{padding:1.25rem;flex-grow:1;display:flex;flex-direction:column}
+.menu-card h3{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.45rem;letter-spacing:.02em;
+  margin:0 0 .5rem;color:var(--cream);
+}
+.menu-card p{color:var(--muted);font-size:.9rem;margin:0 0 1rem;flex-grow:1}
+.menu-card-footer{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:1rem;border-top:1px solid var(--line);
+}
+.menu-card-tags{display:flex;gap:.4rem;flex-wrap:wrap}
+.tag{
+  font-family:'DM Mono',monospace;
+  font-size:.7rem;color:var(--muted);
+  padding:.2rem .5rem;border:1px solid var(--line);
+  border-radius:4px;
+}
+
+/* ---------- SPORTS SCHEDULE ---------- */
+.sports-wrap{
+  background:linear-gradient(135deg, rgba(245,166,35,0.04) 0%, rgba(139,58,30,0.06) 100%);
+  border:1px solid var(--line);border-radius:16px;
+  padding:2rem;
+}
+.sports-ticker{
+  display:flex;align-items:center;gap:.6rem;
+  font-family:'DM Mono',monospace;font-size:.8rem;
+  color:var(--amber);letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:1.5rem;
+}
+.sports-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+.sport-item{
+  background:var(--bg-card);
+  border:1px solid var(--line);
+  border-radius:10px;padding:1.25rem;
+  display:flex;align-items:center;gap:1rem;
+}
+.sport-emoji{
+  width:48px;height:48px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg-soft);border-radius:8px;
+  font-size:1.5rem;
+}
+.sport-item h4{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.25rem;letter-spacing:.03em;
+  margin:0 0 .15rem;color:var(--cream);
+}
+.sport-item span{
+  font-family:'DM Mono',monospace;
+  font-size:.75rem;color:var(--muted);letter-spacing:.05em;
+}
+
+/* ---------- GALLERY ---------- */
+.gallery{
+  display:grid;gap:1rem;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:repeat(2,240px);
+}
+.gallery-item{
+  overflow:hidden;border-radius:10px;
+  background:var(--bg-card);
+  position:relative;
+}
+.gallery-item img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .5s;
+}
+.gallery-item.focus-top img{object-position:center 30%}
+.gallery-item:hover img{transform:scale(1.08)}
+.gallery-item:nth-child(1){grid-column:1/3;grid-row:1/3}
+.gallery-item:nth-child(2){grid-column:3/4;grid-row:1/2}
+.gallery-item:nth-child(3){grid-column:4/5;grid-row:1/2}
+.gallery-item:nth-child(4){grid-column:3/5;grid-row:2/3}
+@media (max-width:768px){
+  .gallery{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,180px)}
+  .gallery-item:nth-child(1){grid-column:1/3;grid-row:1/2}
+  .gallery-item:nth-child(2){grid-column:1/2;grid-row:2/3}
+  .gallery-item:nth-child(3){grid-column:2/3;grid-row:2/3}
+  .gallery-item:nth-child(4){grid-column:1/3;grid-row:3/4}
+}
+
+/* ---------- DELIVERY ---------- */
+.delivery-bg{
+  background:var(--bg-soft);
+  padding:5rem 0;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.delivery-bg .section{padding-top:0;padding-bottom:0}
+.delivery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1rem;margin-bottom:2rem;
+}
+.delivery-card{
+  display:flex;align-items:center;justify-content:center;gap:.75rem;
+  background:var(--bg-card);border:1px solid var(--line);
+  border-radius:10px;padding:1.25rem;
+  transition:border-color .2s,transform .2s;
+  font-weight:700;
+  min-height:80px;
+}
+.delivery-card:hover{border-color:var(--amber);transform:translateY(-2px)}
+.delivery-card-icon{font-size:1.8rem}
+.bitcoin-callout{
+  display:flex;align-items:center;gap:1.25rem;
+  background:linear-gradient(135deg, rgba(245,166,35,0.12), rgba(255,184,77,0.06));
+  border:1px solid rgba(245,166,35,0.3);
+  border-radius:12px;padding:1.5rem;
+  margin-top:1rem;
+}
+.bitcoin-badge{
+  width:56px;height:56px;flex-shrink:0;
+  background:var(--amber);color:var(--bg);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;font-weight:700;
+  box-shadow:0 0 20px rgba(245,166,35,0.4);
+}
+.bitcoin-callout h4{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.3rem;letter-spacing:.03em;
+  margin:0 0 .2rem;color:var(--amber);
+}
+.bitcoin-callout p{margin:0;color:var(--cream);font-size:.9rem}
+
+/* ---------- REVIEWS ---------- */
+.reviews-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.25rem;
+}
+.review-card{
+  background:var(--bg-card);border:1px solid var(--line);
+  border-radius:12px;padding:1.75rem;
+  display:flex;flex-direction:column;
+}
+.review-stars{color:var(--amber);font-size:1.1rem;margin-bottom:.75rem;letter-spacing:.1em}
+.review-text{font-style:italic;color:var(--cream);font-size:.95rem;margin:0 0 1rem;flex-grow:1}
+.review-source{
+  font-family:'DM Mono',monospace;font-size:.75rem;
+  color:var(--muted);letter-spacing:.05em;
+  padding-top:.75rem;border-top:1px solid var(--line);
+}
+
+/* ---------- LOCATION ---------- */
+.loc-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:2rem;
+}
+@media (max-width:768px){.loc-grid{grid-template-columns:1fr}}
+.loc-info{display:flex;flex-direction:column;gap:1.5rem}
+.loc-block h3{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.4rem;letter-spacing:.03em;
+  margin:0 0 .5rem;color:var(--amber);
+}
+.loc-block p{margin:0;color:var(--cream);line-height:1.7}
+.hours-list{list-style:none;padding:0;margin:0;font-family:'DM Mono',monospace;font-size:.9rem}
+.hours-list li{
+  display:flex;justify-content:space-between;
+  padding:.5rem 0;border-bottom:1px solid var(--line);
+}
+.hours-list li:last-child{border-bottom:none}
+.hours-list span:first-child{color:var(--muted)}
+.hours-list span:last-child{color:var(--cream)}
+.loc-map{
+  border-radius:12px;overflow:hidden;
+  border:1px solid var(--line);
+  min-height:400px;
+  background:
+    linear-gradient(135deg, rgba(245,166,35,0.08), rgba(139,58,30,0.06)),
+    radial-gradient(circle at 30% 40%, rgba(245,166,35,0.12) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(59,126,255,0.08) 0%, transparent 50%),
+    var(--bg-card);
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:2rem;
+  transition:border-color .2s,transform .2s;
+  color:var(--cream);
+  position:relative;
+  overflow:hidden;
+}
+.loc-map::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(245,166,35,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245,166,35,0.04) 1px, transparent 1px);
+  background-size:40px 40px;
+  pointer-events:none;
+}
+.loc-map:hover{border-color:var(--amber);transform:translateY(-2px)}
+.loc-map-inner{position:relative;z-index:1}
+.loc-map-pin{font-size:3rem;margin-bottom:1rem;filter:drop-shadow(0 4px 20px rgba(245,166,35,0.4))}
+.loc-map-text strong{
+  display:block;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.5rem;letter-spacing:.03em;
+  color:var(--cream);margin-bottom:.3rem;
+}
+.loc-map-text span{
+  display:block;
+  font-family:'DM Mono',monospace;font-size:.85rem;
+  color:var(--muted);margin-bottom:1.25rem;
+}
+.loc-map-text em{
+  display:inline-block;
+  font-style:normal;
+  font-family:'DM Mono',monospace;font-size:.8rem;letter-spacing:.1em;
+  color:var(--amber);text-transform:uppercase;
+  padding:.5rem 1rem;border:1px solid rgba(245,166,35,0.3);
+  border-radius:6px;
+  transition:background .2s;
+}
+.loc-map:hover .loc-map-text em{background:rgba(245,166,35,0.12)}
+
+/* ---------- CONTACT ---------- */
+.contact-wrap{
+  background:linear-gradient(135deg, rgba(245,166,35,0.06), rgba(139,58,30,0.04));
+  border:1px solid var(--line);
+  border-radius:16px;padding:clamp(2rem, 5vw, 4rem);
+  text-align:center;
+}
+.contact-wrap h2{margin-top:0}
+.contact-wrap .section-lead{margin:0 auto 2rem}
+.contact-form{
+  max-width:560px;margin:0 auto;
+  display:flex;flex-direction:column;gap:1rem;text-align:left;
+}
+.contact-form label{
+  font-family:'DM Mono',monospace;
+  font-size:.75rem;color:var(--muted);
+  letter-spacing:.05em;text-transform:uppercase;
+  margin-bottom:.4rem;
+}
+.contact-form input,.contact-form textarea{
+  width:100%;
+  background:var(--bg-card);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:.85rem 1rem;
+  color:var(--cream);
+  font-family:inherit;font-size:1rem;
+  transition:border-color .2s;
+}
+.contact-form input:focus,.contact-form textarea:focus{
+  outline:none;border-color:var(--amber);
+}
+.contact-form textarea{resize:vertical;min-height:120px}
+.contact-form button{
+  padding:1rem 2rem;
+  background:var(--amber);color:var(--bg);
+  border-radius:8px;font-weight:700;
+  transition:all .2s;
+}
+.contact-form button:hover{background:var(--amber-hot);transform:translateY(-2px)}
+.honeypot{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* ---------- FOOTER ---------- */
+.footer{
+  background:var(--bg);
+  border-top:1px solid var(--line);
+  padding:3rem var(--pad) 2rem;
+}
+.footer-inner{
+  max-width:var(--maxw);margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:2rem;margin-bottom:2rem;
+}
+.footer-col h4{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.1rem;letter-spacing:.05em;
+  color:var(--amber);margin:0 0 1rem;
+}
+.footer-col a,.footer-col p{
+  display:block;color:var(--muted);
+  font-size:.9rem;margin-bottom:.5rem;
+  transition:color .2s;
+  line-height:1.5;
+}
+.footer-col a:hover{color:var(--amber)}
+.footer-bottom{
+  max-width:var(--maxw);margin:0 auto;
+  padding-top:2rem;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;
+  font-family:'DM Mono',monospace;
+  font-size:.75rem;color:var(--muted);letter-spacing:.03em;
+}
+.demo-watermark{opacity:.6}
+
+/* ---------- WHATSAPP FLOAT ---------- */
+.wa-float{
+  position:fixed;bottom:1.5rem;right:1.5rem;
+  width:56px;height:56px;
+  background:#25D366;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,0.4);
+  z-index:50;
+  transition:transform .2s;
+}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+
+/* ---------- REDUCED MOTION ---------- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
+
+/* ---------- SMALL SCREENS ---------- */
+@media (max-width:640px){
+  .section{padding:3.5rem var(--pad)}
+  .hero{padding:5rem var(--pad) 3rem}
+  .hero-meta{gap:1.25rem}
+  .sports-wrap{padding:1.25rem}
+  .sports-list{grid-template-columns:1fr}
+  .contact-wrap{padding:2rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">
+      <img src="assets/logo-square.png" alt="Campeões Sports Café">
+      <strong>Campeões</strong>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#jogos" data-i18n="nav.sports">Jogos</a>
+      <a href="#menu" data-i18n="nav.menu">Menu</a>
+      <a href="#galeria" data-i18n="nav.gallery">Galeria</a>
+      <a href="#entregas" data-i18n="nav.delivery">Entregas</a>
+      <a href="#encontrar" data-i18n="nav.find">Encontra-nos</a>
+      <button class="lang-toggle" id="langBtn" aria-label="Toggle language">EN</button>
+      <a href="#contacto" class="nav-cta" data-i18n="nav.cta">Reservar</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <span class="hero-kicker" data-i18n="hero.kicker">Live · Portimão Matchday HQ</span>
+    <h1>
+      <span data-i18n="hero.title1">Onde o desporto</span>
+      <span class="amber" data-i18n="hero.title2">vive em Portimão.</span>
+    </h1>
+    <p class="lead" data-i18n="hero.lead">Múltiplos ecrãs, cerveja fresca e a cozinha caseira do Chef José. Futebol, rugby, Fórmula 1 e UFC em directo — todos os dias, o ano inteiro.</p>
+    <div class="hero-ctas">
+      <a href="#menu" class="btn btn-primary" data-i18n="hero.cta1">Ver Menu</a>
+      <a href="#jogos" class="btn btn-ghost" data-i18n="hero.cta2">Próximos Jogos</a>
+    </div>
+    <div class="hero-meta">
+      <div>
+        <strong>5★</strong>
+        <span data-i18n="hero.meta1">Google &amp; TripAdvisor</span>
+      </div>
+      <div>
+        <strong>4 TV</strong>
+        <span data-i18n="hero.meta2">Ecrãs em directo</span>
+      </div>
+      <div>
+        <strong>365</strong>
+        <span data-i18n="hero.meta3">Dias por ano</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="section" id="porque">
+  <div class="section-header">
+    <div class="section-kicker" data-i18n="pillars.kicker">Porquê Campeões</div>
+    <h2><span data-i18n="pillars.title1">A casa do</span> <span class="amber" data-i18n="pillars.title2">desporto ao vivo.</span></h2>
+  </div>
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-icon">📺</div>
+      <h3 data-i18n="pillars.1.title">Ecrãs em todo o lado</h3>
+      <p data-i18n="pillars.1.text">Quatro TVs grandes e som cristalino. Não perdes um lance.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🍔</div>
+      <h3 data-i18n="pillars.2.title">Cozinha do Chef José</h3>
+      <p data-i18n="pillars.2.text">Hambúrgueres caseiros, molhos próprios, ervas e especiarias da casa. Nada congelado.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🍺</div>
+      <h3 data-i18n="pillars.3.title">Cerveja sempre fresca</h3>
+      <p data-i18n="pillars.3.text">Imperiais a temperatura certa, cocktails, shots e bebidas sem álcool. Preços justos.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🌍</div>
+      <h3 data-i18n="pillars.4.title">Ambiente para todos</h3>
+      <p data-i18n="pillars.4.text">Locais, expats, famílias, nómadas digitais. Atendimento bilingue todos os dias.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SPORTS / JOGOS -->
+<section class="section" id="jogos">
+  <div class="section-header">
+    <div class="section-kicker" data-i18n="sports.kicker">Próximos Jogos</div>
+    <h2><span data-i18n="sports.title1">O calendário</span> <span class="amber" data-i18n="sports.title2">de quem vive isto.</span></h2>
+    <p class="section-lead" data-i18n="sports.lead">Transmitimos todas as competições grandes. Reserva a mesa para os jogos grandes — enchemos cedo.</p>
+  </div>
+  <div class="sports-wrap">
+    <div class="sports-ticker">● <span data-i18n="sports.ticker">Transmissões em directo</span></div>
+    <div class="sports-list">
+      <div class="sport-item">
+        <div class="sport-emoji">⚽</div>
+        <div>
+          <h4>Premier League</h4>
+          <span data-i18n="sports.1">Sábados &amp; domingos</span>
+        </div>
+      </div>
+      <div class="sport-item">
+        <div class="sport-emoji">🏉</div>
+        <div>
+          <h4>Rugby</h4>
+          <span data-i18n="sports.2">Autumn Nations &amp; Six Nations</span>
+        </div>
+      </div>
+      <div class="sport-item">
+        <div class="sport-emoji">🏎️</div>
+        <div>
+          <h4>Fórmula 1</h4>
+          <span data-i18n="sports.3">Todas as corridas</span>
+        </div>
+      </div>
+      <div class="sport-item">
+        <div class="sport-emoji">🥊</div>
+        <div>
+          <h4>UFC</h4>
+          <span data-i18n="sports.4">Grandes combates</span>
+        </div>
+      </div>
+      <div class="sport-item">
+        <div class="sport-emoji">🏆</div>
+        <div>
+          <h4>Champions League</h4>
+          <span data-i18n="sports.5">Terças &amp; quartas</span>
+        </div>
+      </div>
+      <div class="sport-item">
+        <div class="sport-emoji">🎾</div>
+        <div>
+          <h4 data-i18n="sports.6.title">Grand Slams</h4>
+          <span data-i18n="sports.6">Tennis &amp; mais</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="section" id="menu">
+  <div class="section-header">
+    <div class="section-kicker" data-i18n="menu.kicker">Menu · Signatures</div>
+    <h2><span data-i18n="menu.title1">Comida de</span> <span class="amber" data-i18n="menu.title2">jogo grande.</span></h2>
+    <p class="section-lead" data-i18n="menu.lead">Tudo feito na hora pelo Chef José. Hambúrgueres caseiros com temperos da casa, preguinhos, nachos e combos para ver o jogo.</p>
+  </div>
+  <div class="menu-grid">
+
+    <div class="menu-card">
+      <div class="menu-card-img">
+        <span class="menu-card-badge" data-i18n="menu.b.signature">Signature</span>
+        <img src="assets/sliders.jpg" alt="Top Star Burger">
+      </div>
+      <div class="menu-card-body">
+        <h3 data-i18n="menu.1.title">Top Star Burger</h3>
+        <p data-i18n="menu.1.text">Carne premium, bacon fumado, ovo estrelado, queijo derretido, alface, tomate, pickles e molho da casa no brioche tostado. O hambúrguer supremo.</p>
+        <div class="menu-card-footer">
+          <div class="menu-card-tags">
+            <span class="tag" data-i18n="menu.1.t1">Brioche</span>
+            <span class="tag" data-i18n="menu.1.t2">Bacon</span>
+            <span class="tag" data-i18n="menu.1.t3">Ovo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-card-img crop-right tint-dark">
+        <span class="menu-card-badge" data-i18n="menu.b.popular">Popular</span>
+        <img src="assets/sliders.jpg" alt="Big Bacon Stadium">
+      </div>
+      <div class="menu-card-body">
+        <h3 data-i18n="menu.2.title">Big Bacon Stadium</h3>
+        <p data-i18n="menu.2.text">Hambúrguer Big Bacon caseiro com cheddar e batatas de bacon. Combo estádio completo com bebida à escolha. Para quem quer carga extra.</p>
+        <div class="menu-card-footer">
+          <div class="menu-card-tags">
+            <span class="tag" data-i18n="menu.2.t1">Cheddar</span>
+            <span class="tag" data-i18n="menu.2.t2">Combo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-card-img zoom">
+        <img src="assets/sliders.jpg" alt="Classic Game Night">
+      </div>
+      <div class="menu-card-body">
+        <h3 data-i18n="menu.3.title">Classic Game Night</h3>
+        <p data-i18n="menu.3.text">Hambúrguer caseiro com ervas e especiarias da casa e molho signature. Acompanha batatas temperadas e bebida. O combo mais pedido.</p>
+        <div class="menu-card-footer">
+          <div class="menu-card-tags">
+            <span class="tag" data-i18n="menu.3.t1">Classic</span>
+            <span class="tag" data-i18n="menu.3.t2">Combo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-card-img crop-left tint-amber">
+        <span class="menu-card-badge" data-i18n="menu.b.veggie">Veggie</span>
+        <img src="assets/sliders.jpg" alt="Veggie Champions">
+      </div>
+      <div class="menu-card-body">
+        <h3 data-i18n="menu.4.title">Veggie Champions</h3>
+        <p data-i18n="menu.4.text">Hambúrguer vegetariano com mistura de ervas e especiarias da casa, molho signature, batatas crocantes e bebida. Com sabor a sério.</p>
+        <div class="menu-card-footer">
+          <div class="menu-card-tags">
+            <span class="tag" data-i18n="menu.4.t1">Vegetariano</span>
+            <span class="tag" data-i18n="menu.4.t2">Combo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-card-img">
+        <img src="assets/nachos.jpg" alt="Loaded Nachos">
+      </div>
+      <div class="menu-card-body">
+        <h3 data-i18n="menu.5.title">Loaded Nachos</h3>
+        <p data-i18n="menu.5.text">Tortillas crocantes com cheddar derretido, salsa, sour cream, cebolinho e especiarias. Partilhar ou não — à tua escolha.</p>
+        <div class="menu-card-footer">
+          <div class="menu-card-tags">
+            <span class="tag" data-i18n="menu.5.t1">Partilhar</span>
+            <span class="tag" data-i18n="menu.5.t2">Cheddar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-card-img crop-top tint-amber">
+        <span class="menu-card-badge" data-i18n="menu.b.classic">Clássico</span>
+        <img src="assets/sliders.jpg" alt="Preguinhos">
+      </div>
+      <div class="menu-card-body">
+        <h3 data-i18n="menu.6.title">Preguinhos da Casa</h3>
+        <p data-i18n="menu.6.text">Mini-sandes com pão brioche caseiro, carne grelhada e molho da casa. O petisco tradicional reinventado ao estilo Campeões.</p>
+        <div class="menu-card-footer">
+          <div class="menu-card-tags">
+            <span class="tag" data-i18n="menu.6.t1">Petisco</span>
+            <span class="tag" data-i18n="menu.6.t2">Tradição</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-card-img">
+        <img src="assets/cocktails.jpg" alt="Cocktails">
+      </div>
+      <div class="menu-card-body">
+        <h3 data-i18n="menu.7.title">Cocktails &amp; Bebidas</h3>
+        <p data-i18n="menu.7.text">Mojito, Aperol Spritz, clássicos e criações da casa. Cervejas de pressão, shots e a carta sem álcool. Sempre geladas.</p>
+        <div class="menu-card-footer">
+          <div class="menu-card-tags">
+            <span class="tag" data-i18n="menu.7.t1">Mojito</span>
+            <span class="tag" data-i18n="menu.7.t2">Aperol</span>
+            <span class="tag" data-i18n="menu.7.t3">Imperiais</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-card-img tint-dark">
+        <img src="assets/exterior.jpg" alt="Bifana Tradicional">
+      </div>
+      <div class="menu-card-body">
+        <h3 data-i18n="menu.8.title">Bifana Tradicional</h3>
+        <p data-i18n="menu.8.text">A sandes portuguesa de sempre. Carne de porco temperada e pão fresco. Clássico simples, bem feito, como deve ser.</p>
+        <div class="menu-card-footer">
+          <div class="menu-card-tags">
+            <span class="tag" data-i18n="menu.8.t1">Portugal</span>
+            <span class="tag" data-i18n="menu.8.t2">Clássico</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section" id="galeria">
+  <div class="section-header">
+    <div class="section-kicker" data-i18n="gallery.kicker">Galeria</div>
+    <h2><span data-i18n="gallery.title1">Vê como</span> <span class="amber" data-i18n="gallery.title2">se vive aqui.</span></h2>
+  </div>
+  <div class="gallery">
+    <div class="gallery-item"><img src="assets/bar-interior.jpg" alt="Interior do bar com TVs"></div>
+    <div class="gallery-item focus-top"><img src="assets/exterior.jpg" alt="Esplanada exterior à noite"></div>
+    <div class="gallery-item"><img src="assets/sliders.jpg" alt="Sliders da casa"></div>
+    <div class="gallery-item"><img src="assets/nachos.jpg" alt="Nachos carregados"></div>
+  </div>
+</section>
+
+<!-- DELIVERY -->
+<div class="delivery-bg">
+  <section class="section" id="entregas">
+    <div class="section-header">
+      <div class="section-kicker" data-i18n="delivery.kicker">Entregas em Portimão</div>
+      <h2><span data-i18n="delivery.title1">Não podes vir?</span> <span class="amber" data-i18n="delivery.title2">Nós vamos aí.</span></h2>
+      <p class="section-lead" data-i18n="delivery.lead">Pede pelo teu canal favorito. Entregamos em Portimão e arredores.</p>
+    </div>
+    <div class="delivery-grid">
+      <a href="https://www.order.store/store/campeoes-sports-cafe/RTIcf-krRjqsQdigpR2fIg" class="delivery-card" target="_blank" rel="noopener">
+        <span class="delivery-card-icon">🛵</span>
+        <span>Uber Eats</span>
+      </a>
+      <a href="https://glovoapp.com/en/pt/portimao/stores/campeoes-sports-cafe-pot" class="delivery-card" target="_blank" rel="noopener">
+        <span class="delivery-card-icon">🛵</span>
+        <span>Glovo</span>
+      </a>
+      <a href="https://food.bolt.eu/en/438/p/184902-champions-sports-cafe" class="delivery-card" target="_blank" rel="noopener">
+        <span class="delivery-card-icon">🛵</span>
+        <span>Bolt Food</span>
+      </a>
+      <a href="https://wa.me/351926104917" class="delivery-card" target="_blank" rel="noopener">
+        <span class="delivery-card-icon">💬</span>
+        <span>WhatsApp</span>
+      </a>
+    </div>
+    <div class="bitcoin-callout">
+      <div class="bitcoin-badge">₿</div>
+      <div>
+        <h4 data-i18n="delivery.btc.title">Aceitamos Bitcoin · Lightning Network</h4>
+        <p data-i18n="delivery.btc.text">Primeira opção cripto em Portimão. Pagas com BTC on-chain ou Lightning no balcão.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- REVIEWS -->
+<section class="section" id="reviews">
+  <div class="section-header">
+    <div class="section-kicker" data-i18n="reviews.kicker">O que dizem</div>
+    <h2><span data-i18n="reviews.title1">5 estrelas,</span> <span class="amber" data-i18n="reviews.title2">uma história de cada vez.</span></h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text" data-i18n="reviews.1.text">"Best kept Secret in Portimão! Melhor sítio em Portimão para comer, beber e ver desporto ao vivo."</p>
+      <div class="review-source">TripAdvisor</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text" data-i18n="reviews.2.text">"Tivemos uma noite de raparigas fantástica e adorámos os vege burgers. Obrigada Campeões!"</p>
+      <div class="review-source">TripAdvisor</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text" data-i18n="reviews.3.text">"Sítio super escondido no coração de Portimão. Cocktails muito bons, hambúrgueres enormes e deliciosos. Voltamos de certeza."</p>
+      <div class="review-source">TripAdvisor</div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="section" id="encontrar">
+  <div class="section-header">
+    <div class="section-kicker" data-i18n="loc.kicker">Encontra-nos</div>
+    <h2><span data-i18n="loc.title1">A dois passos</span> <span class="amber" data-i18n="loc.title2">da marina.</span></h2>
+  </div>
+  <div class="loc-grid">
+    <div class="loc-info">
+      <div class="loc-block">
+        <h3 data-i18n="loc.addr.title">Morada</h3>
+        <p>Ed. Pluma, R. Teófilo Braga 17<br>Loja 4, 8500-656 Portimão</p>
+      </div>
+      <div class="loc-block">
+        <h3 data-i18n="loc.contact.title">Contacto</h3>
+        <p>
+          <a href="tel:+351926104917">+351 926 104 917</a><br>
+          <a href="https://wa.me/351926104917" target="_blank" rel="noopener">WhatsApp</a> · <a href="https://www.instagram.com/campeoes_sportscafe" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/thechampionssportscafe" target="_blank" rel="noopener">Facebook</a>
+        </p>
+      </div>
+      <div class="loc-block">
+        <h3 data-i18n="loc.hours.title">Horário</h3>
+        <ul class="hours-list">
+          <li><span data-i18n="loc.day.1">Segunda</span><span>12:00 — 00:00</span></li>
+          <li><span data-i18n="loc.day.2">Terça</span><span>12:00 — 00:00</span></li>
+          <li><span data-i18n="loc.day.3">Quarta</span><span>12:00 — 00:00</span></li>
+          <li><span data-i18n="loc.day.4">Quinta</span><span>12:00 — 00:00</span></li>
+          <li><span data-i18n="loc.day.5">Sexta</span><span>12:00 — 02:00</span></li>
+          <li><span data-i18n="loc.day.6">Sábado</span><span>12:00 — 02:00</span></li>
+          <li><span data-i18n="loc.day.7">Domingo</span><span>12:00 — 00:00</span></li>
+        </ul>
+      </div>
+    </div>
+    <a class="loc-map" href="https://maps.google.com/?q=Ed.+Pluma+R.+Te%C3%B3filo+Braga+17+Portim%C3%A3o" target="_blank" rel="noopener" aria-label="Abrir no Google Maps">
+      <div class="loc-map-inner">
+        <div class="loc-map-pin">📍</div>
+        <div class="loc-map-text">
+          <strong>Ed. Pluma, R. Teófilo Braga 17</strong>
+          <span>Loja 4, 8500-656 Portimão</span>
+          <em data-i18n="loc.map.open">Abrir no Google Maps →</em>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contacto">
+  <div class="contact-wrap">
+    <div class="section-kicker" data-i18n="contact.kicker">Reserva</div>
+    <h2><span data-i18n="contact.title1">Garante a</span> <span class="amber" data-i18n="contact.title2">tua mesa.</span></h2>
+    <p class="section-lead" data-i18n="contact.lead">Jogos grandes enchem cedo. Diz-nos quando vens e reservamos a mesa com a melhor vista para o ecrã.</p>
+    <form class="contact-form" action="https://formspree.io/f/xkgwpqzr" method="POST">
+      <div class="honeypot">
+        <label>Deixa em branco:<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+      </div>
+      <div>
+        <label for="nome" data-i18n="form.name">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+      </div>
+      <div>
+        <label for="email" data-i18n="form.email">Email ou telefone</label>
+        <input type="text" id="email" name="contacto" required>
+      </div>
+      <div>
+        <label for="data" data-i18n="form.when">Quando &amp; quantas pessoas</label>
+        <input type="text" id="data" name="data" placeholder="Ex: Sábado 21h, 4 pessoas" required>
+      </div>
+      <div>
+        <label for="msg" data-i18n="form.msg">Mensagem (jogo específico, preferência de mesa…)</label>
+        <textarea id="msg" name="mensagem"></textarea>
+      </div>
+      <button type="submit" data-i18n="form.submit">Enviar pedido</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Campeões Sports Café</h4>
+      <p data-i18n="footer.tag">Portimão Matchday HQ. Desde o primeiro apito.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer.visit">Visita</h4>
+      <p>R. Teófilo Braga 17<br>Loja 4, Portimão</p>
+      <a href="tel:+351926104917">+351 926 104 917</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer.order">Pedir</h4>
+      <a href="https://www.order.store/store/campeoes-sports-cafe/RTIcf-krRjqsQdigpR2fIg" target="_blank" rel="noopener">Uber Eats</a>
+      <a href="https://glovoapp.com/en/pt/portimao/stores/campeoes-sports-cafe-pot" target="_blank" rel="noopener">Glovo</a>
+      <a href="https://food.bolt.eu/en/438/p/184902-champions-sports-cafe" target="_blank" rel="noopener">Bolt Food</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer.follow">Seguir</h4>
+      <a href="https://www.instagram.com/campeoes_sportscafe" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/thechampionssportscafe" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://linktr.ee/campeoescafe" target="_blank" rel="noopener">Linktree</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© <span id="year"></span> Campeões Sports Café · Portimão</div>
+    <div class="demo-watermark">DEMO · volvara.pt · reprodução não autorizada</div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/351926104917" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg>
+</a>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Restaurant",
+  "name":"Campeões Sports Café",
+  "alternateName":"Champions Sports Cafe",
+  "description":"Sports café em Portimão com transmissões de futebol, rugby, F1 e UFC em múltiplos ecrãs. Hambúrgueres caseiros, preguinhos, cocktails. Aceita Bitcoin Lightning.",
+  "url":"https://campeoescafe.pt",
+  "telephone":"+351926104917",
+  "servesCuisine":["Portuguese","Burgers","Bar food"],
+  "priceRange":"€€",
+  "acceptsReservations":"True",
+  "paymentAccepted":"Cash, Credit Card, Bitcoin, Lightning Network",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Ed. Pluma, R. Teófilo Braga 17, Loja 4",
+    "addressLocality":"Portimão",
+    "postalCode":"8500-656",
+    "addressCountry":"PT"
+  },
+  "geo":{"@type":"GeoCoordinates","latitude":37.1370,"longitude":-8.5363},
+  "openingHours":["Mo-Th 12:00-00:00","Fr-Sa 12:00-02:00","Su 12:00-00:00"],
+  "sameAs":[
+    "https://www.instagram.com/campeoes_sportscafe",
+    "https://www.facebook.com/thechampionssportscafe",
+    "https://linktr.ee/campeoescafe"
+  ],
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"15"}
+}
+</script>
+
+<script>
+(function(){
+  'use strict';
+
+  // Year
+  var yearEl=document.getElementById('year');
+  if(yearEl) yearEl.textContent=new Date().getFullYear();
+
+  // Burger menu
+  var burger=document.getElementById('burger');
+  var navLinks=document.getElementById('navLinks');
+  if(burger&&navLinks){
+    burger.addEventListener('click',function(){
+      burger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){
+        burger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+  }
+
+  // i18n dictionary
+  var dict={
+    pt:{
+      'nav.sports':'Jogos','nav.menu':'Menu','nav.gallery':'Galeria','nav.delivery':'Entregas','nav.find':'Encontra-nos','nav.cta':'Reservar',
+      'hero.kicker':'Live · Portimão Matchday HQ',
+      'hero.title1':'Onde o desporto','hero.title2':'vive em Portimão.',
+      'hero.lead':'Múltiplos ecrãs, cerveja fresca e a cozinha caseira do Chef José. Futebol, rugby, Fórmula 1 e UFC em directo — todos os dias, o ano inteiro.',
+      'hero.cta1':'Ver Menu','hero.cta2':'Próximos Jogos',
+      'hero.meta1':'Google & TripAdvisor','hero.meta2':'Ecrãs em directo','hero.meta3':'Dias por ano',
+      'pillars.kicker':'Porquê Campeões','pillars.title1':'A casa do','pillars.title2':'desporto ao vivo.',
+      'pillars.1.title':'Ecrãs em todo o lado','pillars.1.text':'Quatro TVs grandes e som cristalino. Não perdes um lance.',
+      'pillars.2.title':'Cozinha do Chef José','pillars.2.text':'Hambúrgueres caseiros, molhos próprios, ervas e especiarias da casa. Nada congelado.',
+      'pillars.3.title':'Cerveja sempre fresca','pillars.3.text':'Imperiais a temperatura certa, cocktails, shots e bebidas sem álcool. Preços justos.',
+      'pillars.4.title':'Ambiente para todos','pillars.4.text':'Locais, expats, famílias, nómadas digitais. Atendimento bilingue todos os dias.',
+      'sports.kicker':'Próximos Jogos','sports.title1':'O calendário','sports.title2':'de quem vive isto.',
+      'sports.lead':'Transmitimos todas as competições grandes. Reserva a mesa para os jogos grandes — enchemos cedo.',
+      'sports.ticker':'Transmissões em directo',
+      'sports.1':'Sábados & domingos','sports.2':'Autumn Nations & Six Nations','sports.3':'Todas as corridas','sports.4':'Grandes combates','sports.5':'Terças & quartas',
+      'sports.6.title':'Grand Slams','sports.6':'Tennis & mais',
+      'menu.kicker':'Menu · Signatures','menu.title1':'Comida de','menu.title2':'jogo grande.',
+      'menu.lead':'Tudo feito na hora pelo Chef José. Hambúrgueres caseiros com temperos da casa, preguinhos, nachos e combos para ver o jogo.',
+      'menu.b.signature':'Signature','menu.b.popular':'Popular','menu.b.veggie':'Veggie','menu.b.classic':'Clássico',
+      'menu.1.title':'Top Star Burger','menu.1.text':'Carne premium, bacon fumado, ovo estrelado, queijo derretido, alface, tomate, pickles e molho da casa no brioche tostado. O hambúrguer supremo.',
+      'menu.1.t1':'Brioche','menu.1.t2':'Bacon','menu.1.t3':'Ovo',
+      'menu.2.title':'Big Bacon Stadium','menu.2.text':'Hambúrguer Big Bacon caseiro com cheddar e batatas de bacon. Combo estádio completo com bebida à escolha. Para quem quer carga extra.',
+      'menu.2.t1':'Cheddar','menu.2.t2':'Combo',
+      'menu.3.title':'Classic Game Night','menu.3.text':'Hambúrguer caseiro com ervas e especiarias da casa e molho signature. Acompanha batatas temperadas e bebida. O combo mais pedido.',
+      'menu.3.t1':'Classic','menu.3.t2':'Combo',
+      'menu.4.title':'Veggie Champions','menu.4.text':'Hambúrguer vegetariano com mistura de ervas e especiarias da casa, molho signature, batatas crocantes e bebida. Com sabor a sério.',
+      'menu.4.t1':'Vegetariano','menu.4.t2':'Combo',
+      'menu.5.title':'Loaded Nachos','menu.5.text':'Tortillas crocantes com cheddar derretido, salsa, sour cream, cebolinho e especiarias. Partilhar ou não — à tua escolha.',
+      'menu.5.t1':'Partilhar','menu.5.t2':'Cheddar',
+      'menu.6.title':'Preguinhos da Casa','menu.6.text':'Mini-sandes com pão brioche caseiro, carne grelhada e molho da casa. O petisco tradicional reinventado ao estilo Campeões.',
+      'menu.6.t1':'Petisco','menu.6.t2':'Tradição',
+      'menu.7.title':'Cocktails & Bebidas','menu.7.text':'Mojito, Aperol Spritz, clássicos e criações da casa. Cervejas de pressão, shots e a carta sem álcool. Sempre geladas.',
+      'menu.7.t1':'Mojito','menu.7.t2':'Aperol','menu.7.t3':'Imperiais',
+      'menu.8.title':'Bifana Tradicional','menu.8.text':'A sandes portuguesa de sempre. Carne de porco temperada e pão fresco. Clássico simples, bem feito, como deve ser.',
+      'menu.8.t1':'Portugal','menu.8.t2':'Clássico',
+      'gallery.kicker':'Galeria','gallery.title1':'Vê como','gallery.title2':'se vive aqui.',
+      'delivery.kicker':'Entregas em Portimão','delivery.title1':'Não podes vir?','delivery.title2':'Nós vamos aí.',
+      'delivery.lead':'Pede pelo teu canal favorito. Entregamos em Portimão e arredores.',
+      'delivery.btc.title':'Aceitamos Bitcoin · Lightning Network',
+      'delivery.btc.text':'Primeira opção cripto em Portimão. Pagas com BTC on-chain ou Lightning no balcão.',
+      'reviews.kicker':'O que dizem','reviews.title1':'5 estrelas,','reviews.title2':'uma história de cada vez.',
+      'reviews.1.text':'"Best kept Secret in Portimão! Melhor sítio em Portimão para comer, beber e ver desporto ao vivo."',
+      'reviews.2.text':'"Tivemos uma noite de raparigas fantástica e adorámos os vege burgers. Obrigada Campeões!"',
+      'reviews.3.text':'"Sítio super escondido no coração de Portimão. Cocktails muito bons, hambúrgueres enormes e deliciosos. Voltamos de certeza."',
+      'loc.kicker':'Encontra-nos','loc.title1':'A dois passos','loc.title2':'da marina.',
+      'loc.addr.title':'Morada','loc.contact.title':'Contacto','loc.hours.title':'Horário',
+      'loc.day.1':'Segunda','loc.day.2':'Terça','loc.day.3':'Quarta','loc.day.4':'Quinta','loc.day.5':'Sexta','loc.day.6':'Sábado','loc.day.7':'Domingo',
+      'loc.map.open':'Abrir no Google Maps →',
+      'contact.kicker':'Reserva','contact.title1':'Garante a','contact.title2':'tua mesa.',
+      'contact.lead':'Jogos grandes enchem cedo. Diz-nos quando vens e reservamos a mesa com a melhor vista para o ecrã.',
+      'form.name':'Nome','form.email':'Email ou telefone','form.when':'Quando & quantas pessoas','form.msg':'Mensagem (jogo específico, preferência de mesa…)','form.submit':'Enviar pedido',
+      'footer.tag':'Portimão Matchday HQ. Desde o primeiro apito.','footer.visit':'Visita','footer.order':'Pedir','footer.follow':'Seguir'
+    },
+    en:{
+      'nav.sports':'Matches','nav.menu':'Menu','nav.gallery':'Gallery','nav.delivery':'Delivery','nav.find':'Find us','nav.cta':'Book',
+      'hero.kicker':'Live · Portimão Matchday HQ',
+      'hero.title1':'Where sport','hero.title2':'lives in Portimão.',
+      'hero.lead':'Multiple screens, ice-cold beer and Chef José\u2019s homemade kitchen. Football, rugby, Formula 1 and UFC live — every day, all year round.',
+      'hero.cta1':'See Menu','hero.cta2':'Upcoming Matches',
+      'hero.meta1':'Google & TripAdvisor','hero.meta2':'Live screens','hero.meta3':'Days a year',
+      'pillars.kicker':'Why Campeões','pillars.title1':'The home of','pillars.title2':'live sport.',
+      'pillars.1.title':'Screens everywhere','pillars.1.text':'Four big TVs and crisp sound. You won\u2019t miss a beat.',
+      'pillars.2.title':'Chef José\u2019s kitchen','pillars.2.text':'Homemade burgers, house sauces, our own herbs and spices. Nothing frozen.',
+      'pillars.3.title':'Always cold beer','pillars.3.text':'Draughts at the right temperature, cocktails, shots and soft drinks. Fair prices.',
+      'pillars.4.title':'Welcoming to all','pillars.4.text':'Locals, expats, families, digital nomads. Bilingual service every day.',
+      'sports.kicker':'Upcoming Matches','sports.title1':'The calendar','sports.title2':'for people who live this.',
+      'sports.lead':'We broadcast every major competition. Book your table for big matches — we fill up early.',
+      'sports.ticker':'Live broadcasts',
+      'sports.1':'Saturdays & Sundays','sports.2':'Autumn Nations & Six Nations','sports.3':'Every race','sports.4':'Major fights','sports.5':'Tuesdays & Wednesdays',
+      'sports.6.title':'Grand Slams','sports.6':'Tennis & more',
+      'menu.kicker':'Menu · Signatures','menu.title1':'Food for','menu.title2':'big-game days.',
+      'menu.lead':'Everything made fresh by Chef José. Homemade burgers with our own spice blend, preguinhos, nachos and combos for matchday.',
+      'menu.b.signature':'Signature','menu.b.popular':'Popular','menu.b.veggie':'Veggie','menu.b.classic':'Classic',
+      'menu.1.title':'Top Star Burger','menu.1.text':'Premium beef, smoked bacon, fried egg, melted cheese, lettuce, tomato, pickles and house sauce in a toasted brioche bun. The ultimate burger.',
+      'menu.1.t1':'Brioche','menu.1.t2':'Bacon','menu.1.t3':'Egg',
+      'menu.2.title':'Big Bacon Stadium','menu.2.text':'Homemade Big Bacon burger with cheddar and bacon fries. Full stadium combo with a drink of your choice. For those who want an extra load.',
+      'menu.2.t1':'Cheddar','menu.2.t2':'Combo',
+      'menu.3.title':'Classic Game Night','menu.3.text':'Homemade burger with our house herbs, spices and signature sauce. Served with seasoned fries and a drink. Our most-ordered combo.',
+      'menu.3.t1':'Classic','menu.3.t2':'Combo',
+      'menu.4.title':'Veggie Champions','menu.4.text':'Vegetarian burger with our house herb-and-spice blend, signature sauce, crispy fries and a drink. Serious flavour, all-in.',
+      'menu.4.t1':'Vegetarian','menu.4.t2':'Combo',
+      'menu.5.title':'Loaded Nachos','menu.5.text':'Crunchy tortillas with melted cheddar, salsa, sour cream, spring onion and spices. Share or don\u2019t — your call.',
+      'menu.5.t1':'Share','menu.5.t2':'Cheddar',
+      'menu.6.title':'House Preguinhos','menu.6.text':'Mini-sandwiches with homemade brioche, grilled steak and house sauce. The Portuguese classic reinvented, Campeões style.',
+      'menu.6.t1':'Snack','menu.6.t2':'Tradition',
+      'menu.7.title':'Cocktails & Drinks','menu.7.text':'Mojito, Aperol Spritz, classics and house creations. Draught beers, shots and a full non-alcoholic list. Always ice-cold.',
+      'menu.7.t1':'Mojito','menu.7.t2':'Aperol','menu.7.t3':'Draught',
+      'menu.8.title':'Traditional Bifana','menu.8.text':'The classic Portuguese sandwich. Seasoned pork and fresh bread. Simple, done right, as it should be.',
+      'menu.8.t1':'Portugal','menu.8.t2':'Classic',
+      'gallery.kicker':'Gallery','gallery.title1':'See how','gallery.title2':'we live here.',
+      'delivery.kicker':'Delivery in Portimão','delivery.title1':'Can\u2019t come?','delivery.title2':'We come to you.',
+      'delivery.lead':'Order through your favourite channel. We deliver across Portimão and surroundings.',
+      'delivery.btc.title':'We accept Bitcoin · Lightning Network',
+      'delivery.btc.text':'First crypto-friendly venue in Portimão. Pay with BTC on-chain or Lightning at the counter.',
+      'reviews.kicker':'What guests say','reviews.title1':'5 stars,','reviews.title2':'one story at a time.',
+      'reviews.1.text':'"Best kept secret in Portimão! Best place in town to eat, drink, and watch live sport."',
+      'reviews.2.text':'"We had the best girls\u2019 night and loved the veggie burgers. Thanks Campeões!"',
+      'reviews.3.text':'"Lovely spot, well hidden in the heart of Portimão. Cocktails were so good, burgers huge and delicious. We\u2019ll definitely be back."',
+      'loc.kicker':'Find us','loc.title1':'Two minutes','loc.title2':'from the marina.',
+      'loc.addr.title':'Address','loc.contact.title':'Contact','loc.hours.title':'Hours',
+      'loc.day.1':'Monday','loc.day.2':'Tuesday','loc.day.3':'Wednesday','loc.day.4':'Thursday','loc.day.5':'Friday','loc.day.6':'Saturday','loc.day.7':'Sunday',
+      'loc.map.open':'Open in Google Maps →',
+      'contact.kicker':'Reserve','contact.title1':'Grab your','contact.title2':'table.',
+      'contact.lead':'Big matches fill up early. Tell us when you\u2019re coming and we\u2019ll save the table with the best view of the screen.',
+      'form.name':'Name','form.email':'Email or phone','form.when':'When & how many','form.msg':'Message (specific match, table preference…)','form.submit':'Send request',
+      'footer.tag':'Portimão Matchday HQ. From the first whistle.','footer.visit':'Visit','footer.order':'Order','footer.follow':'Follow'
+    }
+  };
+
+  function applyLang(lang){
+    document.documentElement.setAttribute('lang', lang==='en'?'en':'pt');
+    var t=dict[lang]||dict.pt;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key=el.getAttribute('data-i18n');
+      if(t[key]) el.textContent=t[key];
+    });
+    // Title + meta description
+    if(lang==='en'){
+      document.title='Campeões Sports Café · Portimão Matchday HQ';
+      var md=document.querySelector('meta[name="description"]');
+      if(md) md.setAttribute('content','Sports café in Portimão. Live football, rugby, F1 and UFC on multiple screens. Homemade burgers, preguinhos, cocktails and cold beer. Delivery via Uber Eats, Glovo and Bolt. Bitcoin Lightning accepted.');
+    } else {
+      document.title='Campeões Sports Café · Portimão Matchday HQ';
+      var md2=document.querySelector('meta[name="description"]');
+      if(md2) md2.setAttribute('content','Sports café em Portimão. Futebol, rugby, F1 e UFC em directo em múltiplos ecrãs. Hambúrgueres caseiros, preguinhos, cocktails e cerveja fresca. Entregas Uber Eats, Glovo e Bolt. Pagamento Bitcoin Lightning.');
+    }
+    var btn=document.getElementById('langBtn');
+    if(btn) btn.textContent=(lang==='en')?'PT':'EN';
+    try{localStorage.setItem('campeoes.lang',lang);}catch(e){}
+  }
+
+  var saved='pt';
+  try{saved=localStorage.getItem('campeoes.lang')||'pt';}catch(e){}
+  applyLang(saved);
+
+  var langBtn=document.getElementById('langBtn');
+  if(langBtn){
+    langBtn.addEventListener('click',function(){
+      var cur=document.documentElement.getAttribute('lang')==='en'?'en':'pt';
+      applyLang(cur==='en'?'pt':'en');
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
