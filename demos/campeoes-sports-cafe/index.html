@@ -447,50 +447,26 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   border-radius:12px;overflow:hidden;
   border:1px solid var(--line);
   min-height:400px;
-  background:
-    linear-gradient(135deg, rgba(245,166,35,0.08), rgba(139,58,30,0.06)),
-    radial-gradient(circle at 30% 40%, rgba(245,166,35,0.12) 0%, transparent 50%),
-    radial-gradient(circle at 70% 70%, rgba(59,126,255,0.08) 0%, transparent 50%),
-    var(--bg-card);
-  display:flex;align-items:center;justify-content:center;
-  text-align:center;padding:2rem;
-  transition:border-color .2s,transform .2s;
-  color:var(--cream);
+  background:var(--bg-card);
   position:relative;
-  overflow:hidden;
 }
-.loc-map::before{
-  content:"";position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(245,166,35,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(245,166,35,0.04) 1px, transparent 1px);
-  background-size:40px 40px;
+.loc-map iframe{
+  border:none;display:block;
+  width:100%;height:100%;min-height:400px;
+  /* Dark mode: invert + hue-rotate para mapa escuro, tint subtil amber via ::after */
+  filter:invert(92%) hue-rotate(180deg) contrast(88%) saturate(70%) brightness(95%);
+  transition:filter .3s;
+}
+.loc-map:hover iframe{
+  filter:invert(92%) hue-rotate(180deg) contrast(95%) saturate(90%) brightness(100%);
+}
+.loc-map::after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(135deg, rgba(245,166,35,0.06) 0%, rgba(139,58,30,0.04) 100%);
   pointer-events:none;
+  mix-blend-mode:multiply;
 }
-.loc-map:hover{border-color:var(--amber);transform:translateY(-2px)}
-.loc-map-inner{position:relative;z-index:1}
-.loc-map-pin{font-size:3rem;margin-bottom:1rem;filter:drop-shadow(0 4px 20px rgba(245,166,35,0.4))}
-.loc-map-text strong{
-  display:block;
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.5rem;letter-spacing:.03em;
-  color:var(--cream);margin-bottom:.3rem;
-}
-.loc-map-text span{
-  display:block;
-  font-family:'DM Mono',monospace;font-size:.85rem;
-  color:var(--muted);margin-bottom:1.25rem;
-}
-.loc-map-text em{
-  display:inline-block;
-  font-style:normal;
-  font-family:'DM Mono',monospace;font-size:.8rem;letter-spacing:.1em;
-  color:var(--amber);text-transform:uppercase;
-  padding:.5rem 1rem;border:1px solid rgba(245,166,35,0.3);
-  border-radius:6px;
-  transition:background .2s;
-}
-.loc-map:hover .loc-map-text em{background:rgba(245,166,35,0.12)}
 
 /* ---------- CONTACT ---------- */
 .contact-wrap{
@@ -962,7 +938,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 <section class="section" id="encontrar">
   <div class="section-header">
     <div class="section-kicker" data-i18n="loc.kicker">Encontra-nos</div>
-    <h2><span data-i18n="loc.title1">A dois passos</span> <span class="amber" data-i18n="loc.title2">da marina.</span></h2>
+    <h2><span data-i18n="loc.title1">A dois passos</span> <span class="amber" data-i18n="loc.title2">da zona ribeirinha.</span></h2>
   </div>
   <div class="loc-grid">
     <div class="loc-info">
@@ -990,16 +966,9 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
         </ul>
       </div>
     </div>
-    <a class="loc-map" href="https://maps.google.com/?q=Ed.+Pluma+R.+Te%C3%B3filo+Braga+17+Portim%C3%A3o" target="_blank" rel="noopener" aria-label="Abrir no Google Maps">
-      <div class="loc-map-inner">
-        <div class="loc-map-pin">📍</div>
-        <div class="loc-map-text">
-          <strong>Ed. Pluma, R. Teófilo Braga 17</strong>
-          <span>Loja 4, 8500-656 Portimão</span>
-          <em data-i18n="loc.map.open">Abrir no Google Maps →</em>
-        </div>
-      </div>
-    </a>
+    <div class="loc-map">
+      <iframe src="https://maps.google.com/maps?q=Ed.%20Pluma%2C%20R.%20Te%C3%B3filo%20Braga%2017%2C%20Portim%C3%A3o&t=&z=16&ie=UTF8&iwloc=&output=embed" loading="lazy" title="Mapa Campeões Sports Café" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
   </div>
 </section>
 
@@ -1173,10 +1142,9 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
       'reviews.1.text':'"Best kept Secret in Portimão! Melhor sítio em Portimão para comer, beber e ver desporto ao vivo."',
       'reviews.2.text':'"Tivemos uma noite de raparigas fantástica e adorámos os vege burgers. Obrigada Campeões!"',
       'reviews.3.text':'"Sítio super escondido no coração de Portimão. Cocktails muito bons, hambúrgueres enormes e deliciosos. Voltamos de certeza."',
-      'loc.kicker':'Encontra-nos','loc.title1':'A dois passos','loc.title2':'da marina.',
+      'loc.kicker':'Encontra-nos','loc.title1':'A dois passos','loc.title2':'da zona ribeirinha.',
       'loc.addr.title':'Morada','loc.contact.title':'Contacto','loc.hours.title':'Horário',
       'loc.day.1':'Segunda','loc.day.2':'Terça','loc.day.3':'Quarta','loc.day.4':'Quinta','loc.day.5':'Sexta','loc.day.6':'Sábado','loc.day.7':'Domingo',
-      'loc.map.open':'Abrir no Google Maps →',
       'contact.kicker':'Reserva','contact.title1':'Garante a','contact.title2':'tua mesa.',
       'contact.lead':'Jogos grandes enchem cedo. Diz-nos quando vens e reservamos a mesa com a melhor vista para o ecrã.',
       'form.name':'Nome','form.email':'Email ou telefone','form.when':'Quando & quantas pessoas','form.msg':'Mensagem (jogo específico, preferência de mesa…)','form.submit':'Enviar pedido',
@@ -1227,10 +1195,9 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
       'reviews.1.text':'"Best kept secret in Portimão! Best place in town to eat, drink, and watch live sport."',
       'reviews.2.text':'"We had the best girls\u2019 night and loved the veggie burgers. Thanks Campeões!"',
       'reviews.3.text':'"Lovely spot, well hidden in the heart of Portimão. Cocktails were so good, burgers huge and delicious. We\u2019ll definitely be back."',
-      'loc.kicker':'Find us','loc.title1':'Two minutes','loc.title2':'from the marina.',
+      'loc.kicker':'Find us','loc.title1':'Two minutes','loc.title2':'from the riverside.',
       'loc.addr.title':'Address','loc.contact.title':'Contact','loc.hours.title':'Hours',
       'loc.day.1':'Monday','loc.day.2':'Tuesday','loc.day.3':'Wednesday','loc.day.4':'Thursday','loc.day.5':'Friday','loc.day.6':'Saturday','loc.day.7':'Sunday',
-      'loc.map.open':'Open in Google Maps →',
       'contact.kicker':'Reserve','contact.title1':'Grab your','contact.title2':'table.',
       'contact.lead':'Big matches fill up early. Tell us when you\u2019re coming and we\u2019ll save the table with the best view of the screen.',
       'form.name':'Name','form.email':'Email or phone','form.when':'When & how many','form.msg':'Message (specific match, table preference…)','form.submit':'Send request',
