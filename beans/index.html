@@ -748,15 +748,417 @@
   }
 
   function show(screenId){
-    if(document.activeElement && document.activeElement.blur){
-      document.activeElement.blur();
-    }
+    try{
+      if(document.activeElement && document.activeElement.blur){
+        document.activeElement.blur();
+      }
+    }catch(e){}
     $$('.screen').forEach(function(s){s.classList.remove('active');});
     var target = $('#screen-'+screenId);
     if(target) target.classList.add('active');
     state.screen = screenId;
-    window.scrollTo({top:0,behavior:'instant'});
+    try{
+      window.scrollTo(0,0);
+    }catch(e){}
   }
 
   function toast(msg){
-    var t = $('#to
+    var t = $('#toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function(){t.classList.remove('show');},2200);
+    vibe(30);
+  }
+
+  function randomPick(arr){
+    return arr[Math.floor(Math.random()*arr.length)];
+  }
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g,function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function getRecent(){
+    try{
+      var raw = lsGet(STORAGE_KEY_RECENT);
+      return raw ? JSON.parse(raw) : [];
+    }catch(e){return [];}
+  }
+
+  function saveRecent(order){
+    try {
+      var list = getRecent();
+      if(!Array.isArray(list)) list = [];
+      var sig = order.product+'|'+(order.size||'')+'|'+(order.addon?'1':'0');
+      list = list.filter(function(o){
+        return (o.product+'|'+(o.size||'')+'|'+(o.addon?'1':'0')) !== sig;
+      });
+      list.unshift(order);
+      list = list.slice(0,MAX_RECENT);
+      lsSet(STORAGE_KEY_RECENT, JSON.stringify(list));
+    } catch(e) {
+      // Swallow: saving recent is best-effort, never block order flow
+    }
+  }
+
+  function renderRecent(){
+    try {
+      var list = getRecent();
+      var block = $('#recent-block');
+      var grid = $('#recent-grid');
+      if(!block || !grid) return;
+      if(!list.length){
+        block.classList.remove('show');
+        return;
+      }
+      grid.innerHTML = '';
+      list.forEach(function(o){
+        var p = PRODUCTS[o.product];
+        if(!p) return;
+        var sub = '';
+        if(p.sizes && o.size){
+          var sz = p.sizes.find(function(s){return s.id===o.size;});
+          if(sz) sub = sz.sub;
+        }
+        if(p.addon && o.addon){
+          sub = (sub ? sub+' · ' : '')+'c/ extra';
+        }
+        if(!sub) sub = 'Como da última vez';
+
+        var card = document.createElement('button');
+        card.className = 'recent-card';
+        card.type = 'button';
+        card.innerHTML =
+          '<div class="r-name">'+escapeHtml(p.name)+'</div>'+
+          '<div class="r-sub">'+escapeHtml(sub)+'</div>'+
+          '<div class="r-cta">Repetir</div>';
+        card.addEventListener('click',function(){
+          vibe(15);
+          applyRecent(o);
+        });
+        grid.appendChild(card);
+      });
+      block.classList.add('show');
+    } catch(e) {
+      // Never let recent block the init
+    }
+  }
+
+  function applyRecent(o){
+    state.product = o.product;
+    state.size = o.size || null;
+    state.addon = !!o.addon;
+    state.name = lsGet(STORAGE_KEY_NAME) || '';
+    if(!state.name){
+      openProduct(o.product, true);
+      return;
+    }
+    buildSummary();
+    show('summary');
+  }
+
+  function openProduct(key, prefillRecent){
+    var p = PRODUCTS[key];
+    if(!p) return;
+
+    state.product = key;
+    if(!prefillRecent){
+      state.size = null;
+      state.addon = false;
+    }
+
+    $('#product-hero').style.backgroundImage = "url('"+p.img+"')";
+    $('#product-title').textContent = p.name;
+    $('#product-desc').textContent = p.desc;
+
+    var sizesBlock = $('#sizes-block');
+    var sizesGrid = $('#sizes-grid');
+    if(p.sizes){
+      sizesBlock.style.display = 'block';
+      sizesGrid.innerHTML = '';
+      p.sizes.forEach(function(sz){
+        var btn = document.createElement('button');
+        btn.className = 'opt';
+        btn.type = 'button';
+        btn.dataset.size = sz.id;
+        if(state.size === sz.id) btn.classList.add('selected');
+        btn.innerHTML = '<div class="opt-size">'+sz.label.replace(' ml',' <span style="font-size:14px;opacity:.7">ml</span>')+'</div><div class="opt-label">'+sz.sub+'</div>';
+        btn.addEventListener('click',function(){
+          vibe(10);
+          $$('.opt').forEach(function(o){o.classList.remove('selected');});
+          btn.classList.add('selected');
+          state.size = sz.id;
+          validate();
+        });
+        sizesGrid.appendChild(btn);
+      });
+    } else {
+      sizesBlock.style.display = 'none';
+    }
+
+    var addonBlock = $('#addon-block');
+    addonBlock.classList.remove('active');
+    if(state.addon) addonBlock.classList.add('active');
+    addonBlock.style.display = p.addon ? 'flex' : 'none';
+
+    var nameInput = $('#name-input');
+    var savedName = state.name || lsGet(STORAGE_KEY_NAME) || '';
+    nameInput.value = savedName;
+    state.name = savedName;
+
+    validate();
+    show('product');
+  }
+
+  function validate(){
+    var p = PRODUCTS[state.product];
+    var cta = $('#cta-order');
+    var ok = true;
+    if(!p) ok = false;
+    if(p && p.sizes && !state.size) ok = false;
+    if(!state.name || state.name.trim().length < 1) ok = false;
+    cta.disabled = !ok;
+  }
+
+  function buildSummary(){
+    var p = PRODUCTS[state.product];
+    var body = $('#summary-body');
+    var rows = [];
+    rows.push({k:'Pedido',v:p.name});
+    if(p.sizes && state.size){
+      var sz = p.sizes.find(function(s){return s.id===state.size;});
+      if(sz) rows.push({k:'Tamanho',v:sz.label+' · '+sz.sub});
+    }
+    if(p.addon && state.addon){
+      rows.push({k:'Extra',v:'Caramelo + chocolate'});
+    }
+    rows.push({k:'Para',v:state.name});
+
+    body.innerHTML = '';
+    rows.forEach(function(r){
+      var row = document.createElement('div');
+      row.className = 'summary-row';
+      row.innerHTML = '<div class="summary-k">'+r.k+'</div><div class="summary-v">'+escapeHtml(r.v)+'</div>';
+      row.addEventListener('click',function(){
+        vibe(8);
+        show('product');
+      });
+      body.appendChild(row);
+    });
+  }
+
+  function buildMessage(){
+    var p = PRODUCTS[state.product];
+    var lines = [];
+    lines.push('☕ Pedido Volvara HQ');
+    lines.push('');
+    lines.push('Bebida: '+p.name);
+    if(p.sizes && state.size){
+      var sz = p.sizes.find(function(s){return s.id===state.size;});
+      if(sz) lines.push('Tamanho: '+sz.label+' ('+sz.sub+')');
+    }
+    if(p.addon && state.addon){
+      lines.push('Extra: caramelo salgado + chocolate');
+    }
+    lines.push('Para: '+state.name);
+    lines.push('');
+    lines.push(randomPick(WHIMSY_LINES));
+    return lines.join('\n');
+  }
+
+  function sendOrder(){
+    // IMPORTANT: open WhatsApp FIRST, synchronously, to preserve user gesture.
+    // Safari private mode blocks window.open if there's any async work or
+    // storage exceptions between the click and the open call.
+    var msg = buildMessage();
+    var url = 'https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg);
+
+    var win = null;
+    try {
+      win = window.open(url,'_blank','noopener');
+    } catch(e) {
+      win = null;
+    }
+
+    // If popup blocked (Safari private is strict), fall back to location.href.
+    // This navigates away and is guaranteed to work inside a user gesture.
+    if(!win){
+      // Schedule state persistence for when user returns, NOT now
+      // (location change would kill any sync ops after it anyway)
+      try{ lsSet(STORAGE_KEY_NAME, state.name); }catch(e){}
+      try{ saveRecent({
+        product:state.product, size:state.size, addon:state.addon, at:Date.now()
+      }); }catch(e){}
+      location.href = url;
+      return;
+    }
+
+    // Popup succeeded — do post-send work now
+    vibe([15,40,15]);
+    try{ lsSet(STORAGE_KEY_NAME, state.name); }catch(e){}
+    try{ saveRecent({
+      product:state.product, size:state.size, addon:state.addon, at:Date.now()
+    }); }catch(e){}
+
+    setTimeout(function(){
+      show('confirm');
+      runBrewingAnimation();
+    },250);
+
+    setTimeout(function(){
+      if(state.screen === 'confirm'){
+        resetOrder();
+      }
+    },20000);
+  }
+
+  var brewTimer = null;
+  function runBrewingAnimation(){
+    if(brewTimer) clearTimeout(brewTimer);
+    var steps;
+    if(state.product === 'espresso'){
+      steps = ['A moer os grãos','A extrair','A caminho ☕'];
+    } else if(state.product === 'milky'){
+      steps = ['A vaporizar o leite','A desenhar o coração','A caminho 🧸'];
+    } else {
+      steps = ['A moer os grãos','A vaporizar o leite','A caminho ☕'];
+    }
+
+    var stepEl = $('#confirm-step');
+    var iconEl = $('#confirm-icon');
+    var i = 0;
+
+    function next(){
+      if(i >= steps.length){
+        stepEl.textContent = '';
+        return;
+      }
+      stepEl.style.opacity = '0';
+      setTimeout(function(){
+        stepEl.textContent = steps[i];
+        stepEl.style.opacity = '1';
+        if(i === steps.length-1){
+          iconEl.style.transform = 'scale(1.15)';
+          setTimeout(function(){iconEl.style.transform='scale(1)';},200);
+        }
+        i++;
+        brewTimer = setTimeout(next,1100);
+      },200);
+    }
+    next();
+  }
+
+  function resetOrder(){
+    state.product = null;
+    state.size = null;
+    state.addon = false;
+    show('menu');
+    renderRecent();
+  }
+
+  function safe(fn){
+    try{ fn(); }catch(e){
+      // Log to console for debugging but never throw
+      if(window.console && console.warn) console.warn('volvara:',e);
+    }
+  }
+
+  function init(){
+    safe(function(){ renderRecent(); });
+
+    safe(function(){
+      $$('.item').forEach(function(el){
+        el.addEventListener('click',function(){
+          vibe(12);
+          openProduct(el.dataset.product);
+        });
+      });
+    });
+
+    safe(function(){
+      var logo = $('#logo');
+      if(logo) logo.addEventListener('click',function(){
+        vibe(8);
+        resetOrder();
+      });
+    });
+
+    safe(function(){
+      var backMenu = $('#back-to-menu');
+      if(backMenu) backMenu.addEventListener('click',function(){
+        vibe(8);
+        show('menu');
+      });
+    });
+
+    safe(function(){
+      var addonEl = $('#addon-block');
+      if(addonEl) addonEl.addEventListener('click',function(){
+        vibe(12);
+        addonEl.classList.toggle('active');
+        state.addon = addonEl.classList.contains('active');
+      });
+    });
+
+    safe(function(){
+      var nameEl = $('#name-input');
+      if(nameEl) nameEl.addEventListener('input',function(e){
+        state.name = e.target.value.trim();
+        validate();
+      });
+    });
+
+    safe(function(){
+      var ctaOrder = $('#cta-order');
+      var nameEl = $('#name-input');
+      if(ctaOrder) ctaOrder.addEventListener('click',function(){
+        var p = PRODUCTS[state.product];
+        if(p && p.sizes && !state.size){
+          toast('Escolhe o tamanho');
+          return;
+        }
+        if(!state.name){
+          toast('Falta o teu nome');
+          if(nameEl) nameEl.focus();
+          return;
+        }
+        vibe(15);
+        buildSummary();
+        show('summary');
+      });
+    });
+
+    safe(function(){
+      var backProd = $('#back-to-product');
+      if(backProd) backProd.addEventListener('click',function(){
+        vibe(8);
+        show('product');
+      });
+    });
+
+    safe(function(){
+      var ctaSend = $('#cta-send');
+      if(ctaSend) ctaSend.addEventListener('click',sendOrder);
+    });
+
+    safe(function(){
+      var ctaNew = $('#cta-new');
+      if(ctaNew) ctaNew.addEventListener('click',function(){
+        vibe(10);
+        resetOrder();
+      });
+    });
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
+</script>
+</body>
+</html>
