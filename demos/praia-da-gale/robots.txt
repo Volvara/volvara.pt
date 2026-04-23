@@ -1,6 +1,0 @@
-# Volvara demo — noindex, nofollow on all paths under this subdirectory.
-User-agent: *
-Disallow: /
-
-# This is a private demo preview. Do not index, mirror or reproduce.
-# Contact go@volvara.pt for enquiries.
