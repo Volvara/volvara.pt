@@ -941,7 +941,7 @@ async function ghGet(path) {
   });
   if (!r.ok) throw new Error('Fetch ' + path + ': HTTP ' + r.status);
   const j = await r.json();
-  const content = atob(j.content.replace(/\s/g, ''));
+  const _binary = atob(j.content.replace(/\s/g, '')); const _bytes = Uint8Array.from(_binary, c => c.charCodeAt(0)); const content = new TextDecoder('utf-8').decode(_bytes);
   return { content: JSON.parse(content), sha: j.sha };
 }
 async function ghPut(path, obj, sha, message) {
