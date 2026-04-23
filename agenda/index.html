@@ -937,7 +937,6 @@ async function ghGet(path) {
     headers: {
       'Authorization': `Bearer ${PAT}`,
       'Accept': 'application/vnd.github.v3+json',
-      'Cache-Control': 'no-cache'
     }
   });
   if (!r.ok) throw new Error('Fetch ' + path + ': HTTP ' + r.status);
