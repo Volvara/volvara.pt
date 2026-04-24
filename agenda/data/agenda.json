@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T18:07:53.544Z",
+  "last_updated": "2026-04-24T18:08:16.933Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -777,7 +777,7 @@
     {
       "id": "umocvcflj",
       "week": "W17",
-      "status": "todo",
+      "status": "skipped",
       "priority": "medium",
       "title": "Google My Business · setup completo",
       "desc": "GMB já verificado e live. Fazer: categorias (Web designer + Marketing agency + SEO service), horário 9h30-15h, descrição 750chars com Quick+Studio, 4-6 serviços, upload banner+logo+screenshots, primeiro Google Post.",
@@ -785,7 +785,7 @@
       "time": "15:00",
       "duration_min": 45,
       "category": "setup",
-      "note": ""
+      "note": "Obsolete · reescopado no plano W18 actualizado"
     }
   ]
 }
