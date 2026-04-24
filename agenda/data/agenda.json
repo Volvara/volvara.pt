@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T18:09:38.101Z",
+  "last_updated": "2026-04-24T18:10:05.577Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -165,7 +165,8 @@
       "desc": "Rever primeiro draft das alterações. Feedback visual, copy EN, tone.",
       "category": "review",
       "priority": "high",
-      "status": "todo"
+      "status": "skipped",
+      "note": "Obsolete · reescopado no plano W18 actualizado"
     },
     {
       "id": "t009",
