@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T18:33:14.588Z",
+  "last_updated": "2026-04-24T18:33:17.096Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -897,6 +897,19 @@
       "time": "13:30",
       "duration_min": 60,
       "category": "build",
+      "note": ""
+    },
+    {
+      "id": "umod90qav",
+      "week": "W18",
+      "status": "todo",
+      "priority": "medium",
+      "title": "Criar email studio@volvara.pt no amen.pt",
+      "desc": "Mailbox €3/mês. Configurar SPF/DKIM/DMARC. Forward para go@volvara.pt inicial.",
+      "date": "2026-04-28",
+      "time": "14:30",
+      "duration_min": 30,
+      "category": "setup",
       "note": ""
     }
   ]
