@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T18:10:05.577Z",
+  "last_updated": "2026-04-24T18:10:42.034Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -190,7 +190,8 @@
       "desc": "Iteração final. QA desktop 1440x900 + mobile 375x667. Validar toggle EN/PT default behaviour.",
       "category": "build",
       "priority": "high",
-      "status": "todo"
+      "status": "skipped",
+      "note": "Obsolete · reescopado no plano W18 actualizado"
     },
     {
       "id": "t011",
