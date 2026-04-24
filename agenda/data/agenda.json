@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T18:08:16.933Z",
+  "last_updated": "2026-04-24T18:09:17.854Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -139,7 +139,8 @@
       "desc": "Chat novo. Proponho Brand Refinement do volvara.pt principal (não rebuild). Aprovar: copy EN reescrito, mudança de default language, portfolio cards, footer com link /studio.",
       "category": "build",
       "priority": "high",
-      "status": "todo"
+      "status": "skipped",
+      "note": "Obsolete · reescopado no plano W18 actualizado"
     },
     {
       "id": "t007",
