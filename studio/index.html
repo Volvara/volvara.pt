@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Volvara Studio · Bespoke websites, carefully made</title>
+<meta name="description" content="Volvara Studio — bespoke websites for brands with something to say. Hand-coded, editorial, built to last. From the Algarve to Europe and the United States.">
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:title" content="Volvara Studio · Bespoke websites, carefully made">
+<meta property="og:description" content="Bespoke websites for brands with something to say. Hand-coded, editorial, built to last.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://volvara.pt/studio/">
+<link rel="canonical" href="https://volvara.pt/studio/">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA50lEQVR42u2XQQrCMBBFZ0YLXVsPkBP0CHoBT9Ab9QQewRN4Ag+gR/AGvYOfv2NSEEUhaT4k8H9mkpe/iZhYijCGYezGIaqI2lqX5+SVDWi6nuaIHQjBXnAMZ6o9vK6Gcwy+mHqJtPgNp28vwA4N+v/Vz9WZmqgsmFKqLy4VEAiBCQSIAAiIwAiAgACIiACICACIiACICACIiACICACIiACICABp+ACAiAiAiAiAiAiAiAiAiAiAiAiAiAiAiAiAiAiAiAiAiAiAiAiAiAiAiAiAiAiAiAiAiAiAiA/4fn9wAbsAFhXgAAAABJRU5ErkJggg==">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Volvara Studio","description":"Bespoke websites for brands with something to say","url":"https://volvara.pt/studio/","parentOrganization":{"@type":"Organization","name":"Volvara","url":"https://volvara.pt"},"areaServed":[{"@type":"Country","name":"Portugal"},{"@type":"Place","name":"European Union"},{"@type":"Country","name":"United States"}],"priceRange":"€€€€"}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F9F7F2;
+  --ink: #1A1A1A;
+  --ink-soft: #2D2D2D;
+  --accent: #8B5E3C;
+  --accent-soft: rgba(139,94,60,0.15);
+  --muted: rgba(26,26,26,0.55);
+  --rule: rgba(26,26,26,0.12);
+  --f-serif: 'Fraunces', 'Playfair Display', Georgia, serif;
+  --f-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--f-sans); font-weight: 300;
+  line-height: 1.6; font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+body::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence baseFrequency='0.85' numOctaves='2' seed='7'/><feColorMatrix values='0 0 0 0 0.54 0 0 0 0 0.37 0 0 0 0 0.24 0 0 0 0.08 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  opacity: 0.35; mix-blend-mode: multiply;
+}
+@media (max-width: 720px) { body { font-size: 16px; } }
+
+.container { max-width: 1040px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+@media (max-width: 640px) { .container { padding: 0 1.5rem; } }
+.section { padding: 6rem 0; border-bottom: 1px solid var(--rule); position: relative; z-index: 1; }
+.section:last-of-type { border-bottom: none; }
+@media (max-width: 720px) { .section { padding: 4rem 0; } }
+
+.eyebrow {
+  font-family: var(--f-sans); font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 1.5rem;
+}
+.display {
+  font-family: var(--f-serif); font-weight: 300; font-style: italic;
+  color: var(--ink); line-height: 1.02; letter-spacing: -0.02em;
+}
+h1.display { font-size: clamp(3rem, 8vw, 5.6rem); margin-bottom: 2rem; }
+h2.display { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 1.5rem; }
+h2.display .accent { color: var(--accent); font-style: normal; font-weight: 400; }
+.lede {
+  font-family: var(--f-serif); font-weight: 400; font-style: normal;
+  font-size: clamp(1.3rem, 2.2vw, 1.6rem); line-height: 1.5;
+  color: var(--ink-soft); max-width: 720px; margin-bottom: 3rem;
+}
+p.body {
+  font-family: var(--f-sans); font-size: 1.05rem; line-height: 1.75;
+  color: var(--ink-soft); max-width: 640px; margin-bottom: 1.3rem;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; padding: 1.2rem 2rem;
+  background: rgba(249,247,242,0.85); backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid transparent;
+  z-index: 100; display: flex; justify-content: space-between; align-items: center;
+  transition: border-color .25s;
+}
+nav.scrolled { border-bottom-color: var(--rule); }
+.brand { font-family: var(--f-serif); font-weight: 400; font-style: italic; font-size: 1.35rem; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; }
+.brand span { color: var(--accent); }
+.nav-back { font-family: var(--f-sans); font-size: 0.78rem; letter-spacing: 0.08em; color: var(--muted); text-decoration: none; transition: color .2s; }
+.nav-back:hover { color: var(--ink); }
+.nav-back::before { content: '← '; }
+@media (max-width: 640px) { nav { padding: 1rem 1.5rem; } .brand { font-size: 1.2rem; } .nav-back::before { content: ''; } .nav-back { font-size: 0.7rem; } }
+
+/* HERO */
+.hero {
+  padding: 9rem 0 6rem; min-height: 90vh;
+  display: flex; align-items: center;
+  border-bottom: 1px solid var(--rule);
+}
+@media (max-width: 720px) { .hero { padding: 7rem 0 4rem; min-height: 80vh; } }
+.hero-meta {
+  display: flex; gap: 0.8rem; align-items: center; margin-top: 3rem;
+  padding-top: 2rem; border-top: 1px solid var(--rule); max-width: 640px;
+}
+.hero-meta-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+.hero-meta-text { font-family: var(--f-sans); font-size: 0.82rem; letter-spacing: 0.04em; color: var(--muted); font-style: italic; }
+
+/* PROCESS */
+.process { display: grid; grid-template-columns: 1fr; gap: 2.5rem; max-width: 780px; }
+.process-step { display: grid; grid-template-columns: auto 1fr; gap: 2rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--rule); }
+.process-step:last-child { border-bottom: none; padding-bottom: 0; }
+.process-num { font-family: var(--f-serif); font-weight: 300; font-style: italic; font-size: 2.4rem; color: var(--accent); line-height: 1; letter-spacing: -0.02em; }
+.process-title { font-family: var(--f-serif); font-weight: 400; font-style: normal; font-size: 1.5rem; margin-bottom: 0.6rem; color: var(--ink); }
+.process-body { font-size: 0.98rem; color: var(--ink-soft); line-height: 1.7; }
+@media (max-width: 640px) { .process-step { grid-template-columns: 1fr; gap: 0.6rem; } .process-num { font-size: 1.8rem; } }
+
+/* PRINCIPLES */
+.principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; max-width: 900px; margin-top: 3rem; }
+@media (max-width: 720px) { .principles { grid-template-columns: 1fr; gap: 2.5rem; } }
+.principle-title { font-family: var(--f-serif); font-weight: 400; font-style: italic; font-size: 1.3rem; color: var(--accent); margin-bottom: 0.8rem; }
+.principle-body { font-size: 0.95rem; line-height: 1.7; color: var(--ink-soft); }
+
+/* PULL QUOTE between sections */
+.pull-quote {
+  padding: 5rem 2rem; text-align: center;
+  font-family: var(--f-serif); font-style: italic; font-weight: 300;
+  font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; color: var(--ink);
+  max-width: 900px; margin: 0 auto; letter-spacing: -0.015em;
+  position: relative; z-index: 1;
+  border-bottom: 1px solid var(--rule);
+}
+.pull-quote .accent { color: var(--accent); }
+.pull-quote-attr {
+  display: block; margin-top: 2rem; font-family: var(--f-sans);
+  font-style: normal; font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted);
+}
+
+/* SELECTED WORK · SAMPLES GALLERY */
+.samples { display: flex; flex-direction: column; gap: 5rem; margin-top: 4rem; }
+.sample {
+  display: grid; grid-template-columns: 1fr; gap: 2rem;
+  opacity: 0; transform: translateY(20px); transition: opacity .8s, transform .8s;
+}
+.sample.in { opacity: 1; transform: translateY(0); }
+.sample-image {
+  position: relative; border-radius: 3px; overflow: hidden;
+  box-shadow: 0 20px 60px -15px rgba(26,26,26,0.25), 0 4px 12px rgba(26,26,26,0.08);
+  background: #E8DED0;
+  aspect-ratio: 8/5;
+}
+.sample-image img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.sample-image::after {
+  content: attr(data-label); position: absolute; top: 1.2rem; left: 1.2rem;
+  font-family: var(--f-sans); font-size: 0.68rem; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 0.4rem 0.8rem; background: rgba(249,247,242,0.92);
+  color: var(--accent); border-radius: 2px; backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.sample-info { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 2.5rem; align-items: start; padding: 0 0.5rem; }
+@media (max-width: 820px) { .sample-info { grid-template-columns: 1fr; gap: 1.5rem; } }
+.sample-meta-row { display: flex; flex-direction: column; gap: 0.3rem; }
+.sample-meta-label { font-family: var(--f-sans); font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.sample-meta-value { font-family: var(--f-serif); font-style: italic; font-weight: 400; font-size: 1.15rem; color: var(--ink); }
+.sample-title { font-family: var(--f-serif); font-weight: 400; font-style: italic; font-size: 2rem; line-height: 1.1; color: var(--ink); margin-bottom: 0.8rem; letter-spacing: -0.01em; }
+.sample-desc { font-size: 0.92rem; line-height: 1.65; color: var(--ink-soft); }
+
+/* INVESTMENT */
+.investment-card { background: rgba(139,94,60,0.04); border-left: 2px solid var(--accent); padding: 2rem 2.5rem; margin-top: 2rem; max-width: 720px; }
+.investment-label { font-family: var(--f-sans); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+.investment-range { font-family: var(--f-serif); font-style: italic; font-size: 1.6rem; color: var(--ink); line-height: 1.5; margin-bottom: 0.8rem; }
+.investment-note { font-size: 0.92rem; color: var(--muted); line-height: 1.65; }
+
+/* CONTACT */
+.contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 2rem; }
+@media (max-width: 720px) { .contact-wrap { grid-template-columns: 1fr; gap: 2.5rem; } }
+.contact-info p { margin-bottom: 1rem; }
+.contact-info a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); transition: border-color .2s; }
+.contact-info a:hover { border-bottom-color: var(--accent); }
+form { display: flex; flex-direction: column; gap: 1rem; }
+label { font-family: var(--f-sans); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+input, textarea { width: 100%; padding: 0.6rem 0; background: transparent; border: none; border-bottom: 1px solid var(--rule); font-family: var(--f-sans); font-size: 1rem; color: var(--ink); transition: border-color .2s; }
+input:focus, textarea:focus { outline: none; border-bottom-color: var(--accent); }
+textarea { min-height: 80px; resize: vertical; }
+button { margin-top: 1rem; padding: 1rem 2rem; background: var(--ink); color: var(--bg); font-family: var(--f-serif); font-weight: 400; font-style: italic; font-size: 1.05rem; border: none; border-radius: 2px; cursor: pointer; transition: background .2s, transform .15s; letter-spacing: 0.02em; align-self: flex-start; }
+button:hover { background: var(--accent); transform: translateY(-1px); }
+.honeypot { position: absolute; left: -9999px; }
+.form-success { display: none; padding: 1.2rem 1.5rem; background: rgba(139,94,60,0.08); border-left: 2px solid var(--accent); font-family: var(--f-serif); font-style: italic; color: var(--ink); margin-top: 1rem; }
+
+/* FOOTER */
+footer { padding: 4rem 0 3rem; text-align: center; border-top: 1px solid var(--rule); position: relative; z-index: 1; }
+footer p { font-family: var(--f-sans); font-size: 0.85rem; color: var(--muted); margin-bottom: 0.6rem; }
+footer a { font-family: var(--f-serif); font-style: italic; color: var(--accent); text-decoration: none; letter-spacing: 0.01em; }
+footer a:hover { color: var(--ink); }
+.footer-legal { font-size: 0.75rem; color: var(--muted); margin-top: 1.5rem; letter-spacing: 0.04em; }
+
+/* reveal on scroll */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+.reveal.in { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="/studio/" class="brand">Volvara<span>.</span> Studio</a>
+  <a href="/" class="nav-back">Volvara</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow">Volvara Studio &nbsp;·&nbsp; By invitation</div>
+    <h1 class="display">Websites,<br>carefully made.</h1>
+    <p class="lede">Bespoke work for small brands with something to say — hand-coded, bilingual, built to last. Based in the Algarve, working remotely across Portugal, Europe, and the United States.</p>
+    <div class="hero-meta">
+      <span class="hero-meta-dot"></span>
+      <span class="hero-meta-text">Studio projects typically begin from €1,200 and scale with scope.</span>
+    </div>
+  </div>
+</header>
+
+<!-- MANIFESTO -->
+<section class="section">
+  <div class="container reveal">
+    <div class="eyebrow">What the Studio is</div>
+    <h2 class="display">Smaller than an agency. <span class="accent">Slower on purpose.</span></h2>
+    <p class="body">Volvara Studio is where we take on projects that deserve more time than the five-day turnaround of our standard work. One-person practice, based in Portimão. No account managers, no producers, no handoffs. The person who reads your brief is the person who designs, writes, and builds the site.</p>
+    <p class="body">We take on a limited number of Studio engagements each quarter. Each one is quoted individually. We decide together whether the project fits — not every site needs a studio, and that is fine.</p>
+    <p class="body">The common thread in the work we like most: the client has a clear sense of what they want to say, but isn't sure how to say it online. We help.</p>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="section">
+  <div class="container reveal">
+    <div class="eyebrow">How we work</div>
+    <h2 class="display">A conversation,<br>then a site.</h2>
+    <p class="lede">Four stages. Typically four to eight weeks from first conversation to live.</p>
+
+    <div class="process">
+      <div class="process-step"><div class="process-num">01</div><div><div class="process-title">Conversation</div><div class="process-body">We talk — by email, call, or in person if you're in the Algarve. No forms, no discovery decks. You tell us what the business is and what the site needs to do. We ask questions. We establish whether the project is a good fit for the Studio or better served by our standard work.</div></div></div>
+      <div class="process-step"><div class="process-num">02</div><div><div class="process-title">Proposal</div><div class="process-body">A short written proposal — scope, timeline, investment, what's included. No fine print, no options to confuse. If the terms work for both of us, we begin.</div></div></div>
+      <div class="process-step"><div class="process-num">03</div><div><div class="process-title">Build</div><div class="process-body">Writing, design, and code happen in parallel. You see progress every week, not at the end. Two rounds of revisions are standard. Changes in direction are expected — clarity emerges as the work takes shape.</div></div></div>
+      <div class="process-step"><div class="process-num">04</div><div><div class="process-title">Live</div><div class="process-body">We deploy, configure domain and hosting, verify search engines, and run through final checks with you. Then the site is yours. Ongoing maintenance is available, monthly or ad-hoc.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<div class="pull-quote reveal">
+  Good work takes <span class="accent">time.</span>
+  <span class="pull-quote-attr">— Studio principle</span>
+</div>
+
+<!-- PRINCIPLES -->
+<section class="section">
+  <div class="container reveal">
+    <div class="eyebrow">What we believe</div>
+    <h2 class="display">A few quiet <span class="accent">principles.</span></h2>
+    <div class="principles">
+      <div><div class="principle-title">Hand-coded.</div><div class="principle-body">No page builders, no bloated frameworks, no drag-and-drop. Every line is written deliberately. It's how we make sites that are fast, findable, and pleasant to maintain.</div></div>
+      <div><div class="principle-title">Built to last.</div><div class="principle-body">A site we deliver today should still work in 2030. That means no reliance on trendy stacks, no vendor lock-in, and sensible, boring infrastructure underneath the surface.</div></div>
+      <div><div class="principle-title">Respectfully slow.</div><div class="principle-body">Good work takes time. We don't promise delivery in days — we promise care. If you need a site tomorrow, our standard work is the right fit. The Studio is for when the deadline is less important than the result.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SELECTED WORK · 3 CONCEPT SAMPLES -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow reveal">Selected work &nbsp;·&nbsp; Concept samples</div>
+    <h2 class="display reveal">What Studio work <span class="accent">looks like.</span></h2>
+    <p class="body reveal" style="max-width:700px;">These are <em>concept projects</em> — fictional clients, real design. We make them to show what Studio engagements produce: editorial design, carefully-set typography, writing that earns its place. Real work appears here as each Studio client goes live.</p>
+
+    <div class="samples">
+
+      <article class="sample reveal">
+        <div class="sample-image" data-label="Concept · Studio sample">
+          <img src="samples/villa-azure.png" alt="Villa Azure — boutique villa rental website concept" loading="lazy">
+        </div>
+        <div class="sample-info">
+          <div>
+            <div class="sample-meta-row"><span class="sample-meta-label">Category</span><span class="sample-meta-value">Villa rental</span></div>
+            <div class="sample-meta-row" style="margin-top:1.2rem;"><span class="sample-meta-label">Region</span><span class="sample-meta-value">Vale do Lobo</span></div>
+          </div>
+          <div>
+            <h3 class="sample-title">Villa Azure</h3>
+            <p class="sample-desc">A coastal hideaway for discerning guests. Seven-bedroom villa site with private-chef booking, seasonal availability calendar, and a photographic approach that lets the place speak for itself.</p>
+          </div>
+          <div>
+            <div class="sample-meta-row"><span class="sample-meta-label">Built for</span><span class="sample-meta-value">Bilingual stay booking</span></div>
+            <div class="sample-meta-row" style="margin-top:1.2rem;"><span class="sample-meta-label">Typography</span><span class="sample-meta-value">Cormorant Garamond</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="sample reveal">
+        <div class="sample-image" data-label="Concept · Studio sample">
+          <img src="samples/clara-marino.png" alt="Clara Marino Photography — wedding photographer website concept" loading="lazy">
+        </div>
+        <div class="sample-info">
+          <div>
+            <div class="sample-meta-row"><span class="sample-meta-label">Category</span><span class="sample-meta-value">Wedding photography</span></div>
+            <div class="sample-meta-row" style="margin-top:1.2rem;"><span class="sample-meta-label">Region</span><span class="sample-meta-value">Algarve · destination</span></div>
+          </div>
+          <div>
+            <h3 class="sample-title">Clara Marino Photography</h3>
+            <p class="sample-desc">A photographer who prefers not to pose. The site follows her voice — quiet, slow, intentional. Portfolio-first with availability calendar, approach notes, and a journal where she writes about weddings she's photographed.</p>
+          </div>
+          <div>
+            <div class="sample-meta-row"><span class="sample-meta-label">Built for</span><span class="sample-meta-value">Portfolio &amp; booking</span></div>
+            <div class="sample-meta-row" style="margin-top:1.2rem;"><span class="sample-meta-label">Typography</span><span class="sample-meta-value">DM Serif Display</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="sample reveal">
+        <div class="sample-image" data-label="Concept · Studio sample">
+          <img src="samples/costa-bar.png" alt="Costa Bar & Kitchen — beach club website concept" loading="lazy">
+        </div>
+        <div class="sample-info">
+          <div>
+            <div class="sample-meta-row"><span class="sample-meta-label">Category</span><span class="sample-meta-value">Beach bar / kitchen</span></div>
+            <div class="sample-meta-row" style="margin-top:1.2rem;"><span class="sample-meta-label">Region</span><span class="sample-meta-value">Armação de Pêra</span></div>
+          </div>
+          <div>
+            <h3 class="sample-title">Costa Bar &amp; Kitchen</h3>
+            <p class="sample-desc">Mediterranean beachside restaurant with table reservations, seasonal menu, and a sunset-hour events calendar. Editorial atmosphere on the surface; behind it, a tight booking flow and menu management tuned for a kitchen that doesn't want to fight its website.</p>
+          </div>
+          <div>
+            <div class="sample-meta-row"><span class="sample-meta-label">Built for</span><span class="sample-meta-value">Reservations &amp; menus</span></div>
+            <div class="sample-meta-row" style="margin-top:1.2rem;"><span class="sample-meta-label">Typography</span><span class="sample-meta-value">Playfair Display</span></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE 2 -->
+<div class="pull-quote reveal">
+  <span class="accent">Smaller</span> than an agency. Slower on purpose.
+</div>
+
+<!-- INVESTMENT -->
+<section class="section">
+  <div class="container reveal">
+    <div class="eyebrow">Investment</div>
+    <h2 class="display">Quoted individually. <span class="accent">Always.</span></h2>
+    <p class="body">Studio engagements are priced based on scope, language, complexity, and integration needs. We don't publish fixed tiers because no two projects are quite the same.</p>
+    <div class="investment-card">
+      <div class="investment-label">Indicative range</div>
+      <div class="investment-range">Most Studio projects<br>fall between €1,200 and €4,500.</div>
+      <div class="investment-note">Smaller engagements that don't warrant the Studio are gracefully redirected to <a href="/#pricing" style="color:var(--accent);">our Quick work</a>, starting from €299. Larger engagements — multi-language platforms, booking systems, portfolio sites with custom CMS — are quoted on request.</div>
+    </div>
+    <p class="body" style="margin-top:2.5rem;">Every engagement is protected by the same principle that defines Volvara: you see the work before you commit. The first conversation and a written proposal are always free.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="container reveal">
+    <div class="eyebrow">Get in touch</div>
+    <h2 class="display">Tell us what you're <span class="accent">working on.</span></h2>
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <p class="body" style="margin-bottom:1.5rem;">A short paragraph is enough to start. We read everything, and respond within two business days.</p>
+        <p><strong style="font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--ink);">Email</strong><br><a href="mailto:studio@volvara.pt">studio@volvara.pt</a></p>
+        <p><strong style="font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--ink);">Based in</strong><br>Portimão, Algarve, Portugal</p>
+        <p><strong style="font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--ink);">Working across</strong><br>Portugal · European Union · United States</p>
+      </div>
+      <div>
+        <form id="studioForm" action="https://formspree.io/f/xkgwpqzr" method="POST" autocomplete="off">
+          <div><label for="sf-name">Your name</label><input id="sf-name" type="text" name="name" required></div>
+          <div><label for="sf-email">Email</label><input id="sf-email" type="email" name="email" required></div>
+          <div><label for="sf-project">What you're working on</label><textarea id="sf-project" name="project" rows="4" required placeholder="A sentence or two is enough to start."></textarea></div>
+          <div><label for="sf-timeline">Timeline (optional)</label><input id="sf-timeline" type="text" name="timeline" placeholder="e.g. flexible, within Q3, before summer..."></div>
+          <div class="honeypot"><label>Leave this empty</label><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+          <input type="hidden" name="_subject" value="New Studio enquiry">
+          <button type="submit">Send →</button>
+        </form>
+        <div class="form-success" id="sf-success">Thank you. We'll read carefully and reply within two business days.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Volvara Studio is part of <a href="/">Volvara</a>, a web studio based in the Algarve, Portugal.</p>
+  <p class="footer-legal">© 2026 Volvara · NIF 227192753 · <a href="/privacidade.html">Privacy</a> · <a href="/termos.html">Terms</a></p>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var nav = document.getElementById('nav');
+  if (nav) window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 40); });
+  
+  // Scroll reveal
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+    document.querySelectorAll('.reveal, .sample').forEach(function(el){ obs.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal, .sample').forEach(function(el){ el.classList.add('in'); });
+  }
+  
+  var form = document.getElementById('studioForm');
+  var successEl = document.getElementById('sf-success');
+  var formLoad = Date.now();
+  if (form) {
+    var lastSubmit = 0;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var now = Date.now();
+      if (now - lastSubmit < 30000) return;
+      if (now - formLoad < 3000) return;
+      lastSubmit = now;
+      var btn = form.querySelector('button');
+      btn.disabled = true; btn.style.opacity = '.6';
+      var data = {};
+      new FormData(form).forEach(function(v,k){data[k]=v;});
+      fetch(form.action, { method: 'POST', body: JSON.stringify(data), headers: {'Accept':'application/json','Content-Type':'application/json'} })
+        .then(function(res){
+          if (res.ok) { form.style.display = 'none'; successEl.style.display = 'block'; }
+          else { btn.disabled = false; btn.style.opacity = '1'; alert('Something went wrong. Please try again or email studio@volvara.pt directly.'); }
+        }).catch(function(){ btn.disabled = false; btn.style.opacity = '1'; });
+    });
+  }
+})();
+</script>
+</body>
+</html>
