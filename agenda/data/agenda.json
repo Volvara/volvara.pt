@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T18:32:57.011Z",
+  "last_updated": "2026-04-24T18:32:59.523Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -806,6 +806,19 @@
       "time": "09:30",
       "duration_min": 15,
       "category": "setup",
+      "note": ""
+    },
+    {
+      "id": "umod90cqr",
+      "week": "W17",
+      "status": "todo",
+      "priority": "medium",
+      "title": "Deploy Studio v4 + QA live",
+      "desc": "Push volvara-studio-v4.zip para GitHub. Live QA em volvara.pt/studio/ desktop+mobile.",
+      "date": "2026-04-27",
+      "time": "09:45",
+      "duration_min": 30,
+      "category": "build",
       "note": ""
     }
   ]
