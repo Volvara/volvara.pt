@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T18:33:39.745Z",
+  "last_updated": "2026-04-24T18:35:44.105Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -178,7 +178,8 @@
       "desc": "amen.pt → painel cliente → domínios → volvara.pt → email → adicionar mailbox studio@. ~€3/mês. Configurar no cliente email (Outlook/FairEmail/Apple Mail).",
       "category": "setup",
       "priority": "high",
-      "status": "todo"
+      "status": "skipped",
+      "note": "Duplicado · versão 30min criada às 14:30 substitui"
     },
     {
       "id": "t010",
