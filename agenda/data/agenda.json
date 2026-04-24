@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T18:09:17.854Z",
+  "last_updated": "2026-04-24T18:09:38.101Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -152,7 +152,8 @@
       "desc": "Capturar screenshots em alta resolução (1440x900) dos sites Mariana Babysitting e Super Stars CTPP. Para cards de portfolio no volvara.pt.",
       "category": "admin",
       "priority": "medium",
-      "status": "todo"
+      "status": "skipped",
+      "note": "Obsolete · reescopado no plano W18 actualizado"
     },
     {
       "id": "t008",
