@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Web studio based in Portimão, Algarve. Quick websites for local businesses from €299, or bespoke Studio work from €1,200. See the demo before you pay. PT · EU · USA.">
+<title>Volvara · Web studio no Algarve · Websites à medida</title>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_PT">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Volvara · Web studio in the Algarve">
+<meta name="twitter:description" content="Hand-crafted websites — quick from €299 or bespoke Studio work from €1,200. See your demo before you pay.">
+<meta property="og:title" content="Volvara · Web studio in the Algarve">
+<meta property="og:description" content="Web studio in the Algarve. Hand-crafted websites — quick from €299 or bespoke Studio work from €1,200. See your demo before you pay.">
+<meta property="og:url" content="https://volvara.pt/">
+<meta property="og:site_name" content="Volvara">
+<link rel="canonical" href="https://volvara.pt/">
+<link rel="alternate" hreflang="pt" href="https://volvara.pt/">
+<link rel="alternate" hreflang="en" href="https://volvara.pt/">
+<link rel="alternate" hreflang="x-default" href="https://volvara.pt/">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XFYDV421TF"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());gtag('config','G-XFYDV421TF');
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+<link rel="dns-prefetch" href="https://www.google-analytics.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#080808;
+  --gray:#111111;
+  --gray2:#1A1A1A;
+  --gray3:#252525;
+  --gray4:#333;
+  --amber:#FFB020;
+  --amber-d:#D99510;
+  --crimson:#DC143C;
+  --crimson-d:#B01030;
+  --white:#F2EEE7;
+  --muted:#5A5A5A;
+  --display:'Bebas Neue',sans-serif;
+  --serif:'Instrument Serif',serif;
+  --mono:'DM Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{background:var(--black);color:var(--white);font-family:var(--mono);overflow-x:hidden}
+
+/* CURSOR */
+#cur{position:fixed;z-index:9999;width:14px;height:14px;background:var(--amber);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);transition:width .2s,height .2s,opacity .18s,background .15s;top:-20px;left:-20px;opacity:0;mix-blend-mode:difference}
+#cur.vis{opacity:1}
+#cur.big{width:36px;height:36px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:2px}
+@media(pointer:fine){body{cursor:none}#cur{display:block}}
+  @media not all and (pointer:fine){#cur{display:none!important}body{cursor:auto}}
+
+/* NOISE */
+body::after{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 4rem;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+#nav.scrolled{background:rgba(8,8,8,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:rgba(255,255,255,.06)}
+.nav-logo{font-family:var(--display);font-size:1.6rem;letter-spacing:.1em;color:var(--white);text-decoration:none}
+.nav-logo .ra{color:transparent;-webkit-text-stroke:1.5px var(--amber)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.lang-btn{font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:none;border:1px solid var(--gray3);padding:.3rem .7rem;border-radius:2px;cursor:pointer;transition:all .2s}
+.lang-btn:hover{color:var(--amber);border-color:rgba(255,176,32,.4)}
+.nav-cta{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--white);background:var(--crimson);padding:.6rem 1.5rem;border-radius:2px;text-decoration:none;transition:background .2s,transform .15s}
+.nav-cta:hover{background:var(--crimson-d);transform:translateY(-1px)}
+
+/* HERO */
+#hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:0 4rem;position:relative;overflow:hidden}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:64px 64px;animation:gm 30s linear infinite}
+@keyframes gm{from{background-position:0 0}to{background-position:64px 64px}}
+.hero-glow-a{position:absolute;right:-5%;top:10%;width:55vw;height:80vh;background:radial-gradient(ellipse,rgba(255,176,32,.08) 0%,transparent 65%);pointer-events:none;animation:br 6s ease-in-out infinite}
+.hero-glow-b{position:absolute;left:-10%;bottom:-10%;width:40vw;height:40vh;background:radial-gradient(ellipse,rgba(220,20,60,.07) 0%,transparent 70%);pointer-events:none}
+@keyframes br{0%,100%{opacity:.8}50%{opacity:1}}
+.hero-inner{position:relative;z-index:2;max-width:1100px;width:100%;padding-top:5rem;padding-bottom:5rem}
+
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.7rem;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:2.5rem}
+.eyebrow-line{width:28px;height:1px;background:var(--amber)}
+
+h1.h{font-family:var(--display);letter-spacing:.02em;line-height:.9;color:var(--white)}
+.h-l1,.h-l2,.h-l3{display:block}
+.h-l1{font-size:clamp(4rem,11vw,11rem)}
+.h-l2{font-size:clamp(4rem,11vw,11rem);color:transparent;-webkit-text-stroke:1.5px var(--amber)}
+.h-l3{font-size:clamp(4rem,11vw,11rem)}
+/* crimson accent on last word */
+.h-l3 .cr{color:var(--crimson)}
+.h-l2 .cr{color:transparent;-webkit-text-stroke:1.5px var(--crimson)}
+
+.hero-sub{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-top:3.5rem}
+.hero-desc{font-family:var(--serif);font-style:italic;font-size:clamp(1rem,1.6vw,1.35rem);line-height:1.65;color:rgba(242,238,231,.55)}
+.hero-desc em{font-style:normal;color:var(--white)}
+.hero-ctas{display:flex;flex-direction:column;gap:1rem}
+.hero-proof{display:flex;flex-wrap:wrap;gap:2rem 3rem;margin-top:4rem;padding-top:3rem;border-top:1px solid rgba(255,255,255,.06)}
+.proof-item .n{font-family:var(--display);font-size:2.8rem;letter-spacing:.04em;color:var(--amber);line-height:1;position:relative;padding-top:.6rem}
+.proof-item .n.cr{color:var(--crimson)}
+.proof-item .l{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:.3rem}
+.scroll-ind{position:absolute;bottom:2.5rem;left:4rem;z-index:2;display:flex;align-items:center;gap:.8rem}
+.scroll-ind span{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.scroll-bar{width:50px;height:1px;background:linear-gradient(to right,var(--amber),transparent)}
+
+@media(prefers-reduced-motion:no-preference){
+  @keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+  .hero-eyebrow{animation:up .7s .1s ease both}
+  .h-l1{animation:up .8s .25s ease both}
+  .h-l2{animation:up .8s .4s ease both}
+  .h-l3{animation:up .8s .55s ease both}
+  .hero-sub{animation:up .8s .7s ease both}
+  .hero-proof{animation:up .7s 1s ease both}
+  .scroll-ind{animation:up .5s 1.4s ease both}
+}
+
+/* BUTTONS */
+.btn-a{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--black);background:var(--amber);padding:1rem 2rem;border-radius:2px;text-decoration:none;border:none;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s}
+.btn-a:hover{background:var(--amber-d);transform:translateY(-2px);box-shadow:0 16px 40px rgba(255,176,32,.3)}
+.btn-b{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--white);background:transparent;padding:.9rem 1.8rem;border-radius:2px;text-decoration:none;border:1px solid rgba(242,238,231,.18);cursor:pointer;transition:all .2s}
+.btn-b:hover{border-color:rgba(242,238,231,.45)}
+.btn-c{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--white);background:var(--crimson);padding:1rem 2rem;border-radius:2px;text-decoration:none;border:none;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s}
+.btn-c:hover{background:var(--crimson-d);transform:translateY(-2px);box-shadow:0 16px 40px rgba(220,20,60,.3)}
+
+/* SECTIONS */
+.section{padding:8rem 4rem}
+.sec-label{font-size:.63rem;letter-spacing:.24em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.sec-label::after{content:'';flex:1;max-width:60px;height:1px;background:var(--gray3)}
+h2.sh{font-family:var(--display);font-size:clamp(3rem,6vw,5.5rem);letter-spacing:.03em;line-height:.93;color:var(--white);margin-bottom:1.5rem}
+h2.sh .acc{color:var(--amber)}
+h2.sh .cr{color:var(--crimson)}
+.sec-intro{font-family:var(--serif);font-style:italic;font-size:1.1rem;line-height:1.75;color:rgba(242,238,231,.5);max-width:540px;margin-bottom:4rem}
+
+/* SCROLL REVEAL */
+.r{transition:opacity .65s ease,transform .65s ease}
+.js-reveal .r{opacity:0;transform:translateY(18px)}
+.js-reveal .r.on{opacity:1;transform:none}
+
+/* TRUST BAR */
+.trust-bar{background:var(--gray);border-top:1px solid var(--gray3);border-bottom:1px solid var(--gray3);padding:1.8rem 4rem;display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;justify-content:center}
+.trust-item{display:flex;align-items:center;gap:.6rem}
+.trust-text{font-size:.67rem;letter-spacing:.1em;color:var(--muted);white-space:nowrap}
+.trust-check{color:var(--amber);font-size:.8rem}
+.trust-sep{width:1px;height:18px;background:var(--gray3);flex-shrink:0}
+
+/* BENEFITS */
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--gray3);border:1px solid var(--gray3)}
+.benefit{background:var(--gray);padding:2.8rem 2.5rem;position:relative;overflow:hidden;transition:background .25s}
+.benefit:hover{background:var(--gray2)}
+.benefit-num{font-family:var(--display);font-size:5rem;color:rgba(255,176,32,.04);position:absolute;top:.5rem;right:1.5rem;line-height:1;pointer-events:none}
+.benefit-icon{font-size:1.6rem;margin-bottom:1.5rem}
+h3.bh{font-family:var(--display);font-size:1.55rem;letter-spacing:.06em;color:var(--white);margin-bottom:.8rem}
+.benefit-body{font-size:.79rem;line-height:1.9;color:var(--muted)}
+.benefit-tag{display:inline-block;margin-top:1.2rem;font-size:.57rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);border:1px solid rgba(255,176,32,.2);padding:.22rem .7rem;border-radius:2px}
+
+/* PROCESS */
+.process-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.pstep{display:grid;grid-template-columns:48px 1fr;gap:1.5rem;padding:2rem 0;border-bottom:1px solid var(--gray3);cursor:default;transition:padding-left .25s}
+.pstep:last-child{border-bottom:none}
+.pstep:hover{padding-left:.5rem}
+.pstep-n{font-family:var(--display);font-size:1.4rem;letter-spacing:.06em;color:rgba(255,176,32,.3);line-height:1;padding-top:.2rem;transition:color .25s}
+.pstep:hover .pstep-n{color:var(--amber)}
+.pstep-title{font-family:var(--display);font-size:1.25rem;letter-spacing:.06em;color:var(--white);margin-bottom:.5rem}
+.pstep-body{font-size:.78rem;line-height:1.85;color:var(--muted)}
+.process-card{background:var(--gray2);border:1px solid var(--gray3);border-radius:3px;padding:3rem;text-align:center;position:relative;overflow:hidden}
+.process-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(255,176,32,.07) 0%,transparent 60%);pointer-events:none}
+/* crimson line top */
+.process-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--crimson),var(--amber),transparent)}
+.pc-big{font-family:var(--display);font-size:5rem;letter-spacing:.05em;color:var(--white);line-height:1;margin-bottom:.5rem}
+.pc-big .ra{color:transparent;-webkit-text-stroke:2px var(--amber)}
+.pc-tagline{font-family:var(--serif);font-style:italic;font-size:1rem;color:rgba(242,238,231,.4);margin-bottom:2.5rem}
+.pc-stat-row{display:flex;justify-content:center;gap:2.5rem;padding-top:2rem;border-top:1px solid var(--gray3)}
+.pc-stat-n{font-family:var(--display);font-size:2rem;color:var(--amber)}
+.pc-stat-n.cr{color:var(--crimson)}
+.pc-stat-l{font-size:.57rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+
+/* PORTFOLIO */
+.port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.port-card{background:var(--gray);border:1px solid var(--gray3);border-radius:3px;overflow:hidden;cursor:pointer;transition:transform .3s,border-color .3s,box-shadow .3s}
+.port-card:hover{transform:translateY(-5px);border-color:rgba(255,176,32,.35);box-shadow:0 24px 50px rgba(0,0,0,.5)}
+.port-browser{background:var(--gray3);padding:.5rem .8rem;display:flex;align-items:center;gap:.35rem}
+.pb-dot{width:7px;height:7px;border-radius:50%}
+.pb-dot.rd{background:#FF5F57}.pb-dot.yw{background:#FEBC2E}.pb-dot.gn{background:#28C840}
+.pb-url{flex:1;background:rgba(0,0,0,.3);border-radius:2px;padding:.18rem .6rem;font-size:.52rem;color:var(--muted);margin-left:.3rem;letter-spacing:.04em}
+.port-mock{display:flex;flex-direction:column;padding:1rem;gap:.5rem;min-height:120px}
+.mock-hero{height:55px;border-radius:2px;display:flex;align-items:center;justify-content:center}
+.mock-name{font-family:var(--display);font-size:1rem;letter-spacing:.08em;opacity:.5}
+.mock-blocks{display:grid;grid-template-columns:1fr 1fr;gap:.35rem;flex:1}
+.mock-b{background:rgba(255,255,255,.06);border-radius:2px;height:22px}
+.port-info{padding:1.2rem 1.5rem}
+.port-cat{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:.3rem}
+.port-name{font-family:var(--display);font-size:1.05rem;letter-spacing:.05em;color:var(--white)}
+.port-result{font-size:.65rem;color:var(--muted);margin-top:.2rem}
+.port-card:nth-child(1) .mock-hero{background:linear-gradient(135deg,#0d1a10,#1a2e15)}.port-card:nth-child(1) .mock-name{color:#4CAF50}
+.port-card:nth-child(2) .mock-hero{background:linear-gradient(135deg,#1a0808,#2e1010)}.port-card:nth-child(2) .mock-name{color:var(--crimson)}
+.port-card:nth-child(3) .mock-hero{background:linear-gradient(135deg,#1a1000,#2e1a00)}.port-card:nth-child(3) .mock-name{color:var(--amber)}
+.port-card:nth-child(4) .mock-hero{background:linear-gradient(135deg,#150015,#200020)}.port-card:nth-child(4) .mock-name{color:#E040FB}
+.port-card:nth-child(5) .mock-hero{background:linear-gradient(135deg,#0a0a1a,#12122e)}.port-card:nth-child(5) .mock-name{color:#8888FF}
+.port-card:nth-child(6) .mock-hero{background:linear-gradient(135deg,#1a0a00,#2e1500)}.port-card:nth-child(6) .mock-name{color:#FF8C00}
+
+/* PRICING */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.plan{background:var(--gray);border:1px solid var(--gray3);border-radius:3px;padding:2.5rem;position:relative;display:flex;flex-direction:column;transition:transform .3s,border-color .3s}
+.plan:hover{transform:translateY(-4px)}
+.plan.featured{border-color:var(--amber);background:var(--gray2)}
+.plan-pill{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--amber);color:var(--black);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;padding:.28rem 1rem;border-radius:10px;white-space:nowrap}
+.plan-name{font-family:var(--display);font-size:1.5rem;letter-spacing:.08em;margin-bottom:.4rem}
+.plan-tagline{font-size:.72rem;color:var(--muted);line-height:1.5;margin-bottom:2rem;min-height:36px}
+.plan-price{padding-bottom:1.8rem;border-bottom:1px solid var(--gray3);margin-bottom:1.8rem}
+.plan-amount{font-family:var(--display);font-size:3.2rem;letter-spacing:.04em;color:var(--amber);line-height:1}.desde{position:absolute;top:0;left:0;font-family:var(--mono);font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;opacity:.6;line-height:1}
+.plan.featured .plan-amount{color:var(--crimson)}
+.plan-sub{font-size:.68rem;color:var(--muted);margin-top:.3rem}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:.85rem;flex:1;margin-bottom:2rem}
+.plan-features li{font-size:.76rem;color:rgba(242,238,231,.65);display:flex;align-items:flex-start;gap:.6rem;line-height:1.5}
+.plan-features li::before{content:'→';color:var(--amber);flex-shrink:0}
+.plan-features li.na{color:var(--gray4)}
+.plan-features li.na::before{content:'—';color:var(--gray4)}
+
+/* ADD-ONS */
+.addons-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:3rem}
+.addon{background:var(--gray2);border:1px solid var(--gray3);border-radius:3px;padding:1.5rem;transition:border-color .25s,transform .25s}
+.addon:hover{border-color:rgba(255,176,32,.3);transform:translateY(-3px)}
+.addon-label{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);margin-bottom:.5rem}
+.addon-price{font-family:var(--display);font-size:1.7rem;color:var(--white);letter-spacing:.06em;line-height:1}
+.addon-price .mo{font-size:.9rem}
+.addon-sub{font-size:.68rem;color:var(--muted);margin-top:.3rem}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.tcard{background:var(--gray2);border:1px solid var(--gray3);border-radius:3px;padding:2.2rem;transition:border-color .3s,transform .3s}
+.tcard:hover{border-color:rgba(255,176,32,.35);transform:translateY(-3px)}
+.tcard-stars{color:var(--amber);font-size:.85rem;letter-spacing:.12em;margin-bottom:1.2rem}
+.tcard-q{font-family:var(--serif);font-style:italic;font-size:.97rem;line-height:1.8;color:rgba(242,238,231,.72);margin-bottom:1.5rem}
+.tcard-div{width:24px;height:1px;background:var(--crimson);margin-bottom:1.2rem}
+.tcard-name{font-size:.74rem;color:var(--white);letter-spacing:.06em}
+.tcard-biz{font-size:.62rem;color:var(--amber);margin-top:.2rem}
+.tcard-loc{font-size:.6rem;color:var(--muted);margin-top:.1rem}
+
+/* FAQ */
+.faq-wrap{max-width:100%}
+.faq-item{border-bottom:1px solid var(--gray3)}
+.faq-q{width:100%;background:none;border:none;color:var(--white);font-family:var(--mono);font-size:.85rem;letter-spacing:.03em;text-align:left;padding:1.6rem 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:color .2s}
+.faq-q:hover{color:var(--amber)}
+.faq-icon{font-size:1.1rem;color:var(--crimson);transition:transform .3s;flex-shrink:0}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{font-size:.79rem;line-height:1.95;color:var(--muted);max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s}
+.faq-item.open .faq-a{max-height:400px;padding-bottom:1.7rem}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+
+/* CONTACT */
+.contact-wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:6rem;align-items:start}
+.contact-lede{font-family:var(--serif);font-style:italic;font-size:1.15rem;line-height:1.75;color:rgba(242,238,231,.6);margin-bottom:3rem}
+.contact-lede em{font-style:normal;color:var(--white)}
+.cdetail{display:flex;gap:1.2rem;align-items:flex-start;margin-bottom:1.8rem}
+.cd-icon-box{width:40px;height:40px;background:rgba(255,176,32,.1);border:1px solid rgba(255,176,32,.2);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.cd-label{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+.cd-val{font-size:.85rem;color:var(--white)}
+.cd-val a{color:var(--white);text-decoration:none;transition:color .2s}
+.cd-val a:hover{color:var(--amber)}
+.cform{background:var(--gray);border:1px solid var(--gray3);border-radius:3px;padding:3rem;position:relative;overflow:hidden}
+/* crimson→amber top line on form */
+.cform::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--crimson),var(--amber),transparent)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-g{margin-bottom:1.1rem}
+.form-l{display:block;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.45rem}
+.form-i,.form-s,.form-t{width:100%;background:var(--black);border:1px solid var(--gray3);border-radius:2px;padding:.82rem 1rem;font-family:var(--mono);font-size:.8rem;color:var(--white);outline:none;transition:border-color .2s,box-shadow .2s}
+.form-i:focus,.form-s:focus,.form-t:focus{border-color:var(--amber);box-shadow:0 0 0 3px rgba(255,176,32,.08)}
+.form-i::placeholder,.form-t::placeholder{color:var(--muted)}
+.form-s{cursor:pointer}.form-s option{background:var(--gray2)}
+.form-t{min-height:100px;resize:vertical}
+.form-btn{width:100%;padding:1.05rem;background:var(--amber);color:var(--black);border:none;border-radius:2px;font-family:var(--mono);font-size:.77rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;margin-top:.5rem;transition:background .2s,transform .2s,box-shadow .2s}
+.form-btn:hover{background:var(--amber-d);transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,176,32,.28)}
+.form-note{font-size:.62rem;color:var(--muted);text-align:center;margin-top:.9rem;line-height:1.6}
+.form-rgpd{margin-top:.5rem}
+.rgpd-label{display:flex;align-items:flex-start;gap:.7rem;cursor:pointer}
+.rgpd-label input[type="checkbox"]{margin-top:.2rem;accent-color:var(--amber);flex-shrink:0;width:14px;height:14px}
+.rgpd-text{font-size:.62rem;color:var(--muted);line-height:1.6}
+.rgpd-link{color:var(--amber);text-decoration:none}
+.rgpd-link:hover{text-decoration:underline}
+.form-success{margin-top:1rem;padding:.9rem 1.2rem;background:rgba(255,176,32,.08);border:1px solid rgba(255,176,32,.3);border-radius:2px;font-size:.75rem;color:var(--amber);text-align:center;letter-spacing:.04em}
+
+.iva-note{font-size:.6rem;color:var(--muted);text-align:center;margin-top:3rem;line-height:1.7;max-width:680px;margin-left:auto;margin-right:auto;opacity:.6}
+
+/* PAYMENT METHODS */
+.footer-payments{padding:2rem 4rem;border-top:1px solid rgba(255,255,255,.06)}
+.footer-payments-label{font-family:var(--mono);font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem}
+.payment-groups{display:flex;flex-wrap:wrap;gap:2rem 3rem;align-items:flex-start}
+.payment-group{display:flex;flex-direction:column;gap:.6rem}
+.payment-group-title{font-family:var(--mono);font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(244,241,236,.3)}
+.payment-icons{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.pay-icon{display:flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:3px;padding:.35rem .65rem;transition:border-color .2s,background .2s;cursor:default}
+.pay-icon:hover{border-color:rgba(255,176,32,.25);background:rgba(255,176,32,.04)}
+.pay-icon svg{flex-shrink:0}
+.pay-icon span{font-family:var(--mono);font-size:.52rem;letter-spacing:.06em;color:rgba(244,241,236,.55);white-space:nowrap}
+@media(max-width:640px){.footer-payments{padding:1.5rem}}
+/* FOOTER */
+footer{background:var(--gray);border-top:1px solid var(--gray3);padding:3rem 4rem 3rem}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--gray3)}
+.footer-logo{font-family:var(--display);font-size:2rem;letter-spacing:.1em;color:var(--white);margin-bottom:.8rem}
+.footer-logo .ra{color:transparent;-webkit-text-stroke:1.5px var(--amber)}
+.footer-desc{font-size:.72rem;line-height:1.85;color:var(--muted);max-width:230px}
+.footer-col-h{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:1.2rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+.footer-col ul a{font-size:.72rem;color:var(--muted);text-decoration:none;transition:color .2s}
+.footer-col ul a:hover{color:var(--white)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:.62rem;color:var(--muted)}
+.footer-links{display:flex;gap:.8rem;font-size:.6rem;font-family:var(--mono);letter-spacing:.06em}
+.footer-links a{color:var(--muted);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--amber)}
+.footer-live{display:flex;align-items:center;gap:.5rem;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.footer-live-dot{width:6px;height:6px;background:var(--crimson);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  #nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  #hero{padding:0 1.5rem}
+  .hero-inner{padding-top:6rem;padding-bottom:4rem}
+  .section{padding:5rem 1.5rem}
+  .hero-sub{grid-template-columns:1fr;gap:2rem}
+  .hero-proof{gap:1.5rem 2rem}
+  .benefits-grid,.port-grid,.pricing-grid,.testi-grid{grid-template-columns:1fr}
+  .process-wrap,.contact-wrap,.faq-grid{grid-template-columns:1fr;gap:3rem}
+  .footer-top{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .form-row{grid-template-columns:1fr}
+  .trust-bar{padding:1.5rem}
+  footer{padding:3rem 1.5rem 2rem}
+  .addons-grid{grid-template-columns:1fr 1fr}
+  .scroll-ind{left:1.5rem}
+}
+@media(max-width:480px){
+  .addons-grid{grid-template-columns:1fr}
+  .hero-proof{gap:1rem 1.5rem}
+  .proof-item .n{font-size:2.2rem}
+}
+
+/* ── HAMBURGER + MOBILE DRAWER ───────────────────── */
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;background:none;border:none;cursor:pointer;padding:4px;z-index:1001;flex-shrink:0}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:transform .3s cubic-bezier(.77,0,.175,1),opacity .2s,width .3s;transform-origin:center}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0;width:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Drawer: explicit overrides — position:fixed from right, NOT affected by nav{} */
+#navDrawer{
+  position:fixed!important;
+  top:0!important;
+  right:0!important;
+  left:auto!important;
+  bottom:0!important;
+  width:min(300px,82vw)!important;
+  height:100vh!important;
+  background:#0D0D0D!important;
+  border-left:1px solid rgba(255,176,32,.15)!important;
+  border-bottom:none!important;
+  z-index:1050!important;
+  display:flex!important;
+  flex-direction:column!important;
+  padding:5.5rem 2.5rem 3rem!important;
+  transform:translateX(100%)!important;
+  transition:transform .35s cubic-bezier(.77,0,.175,1)!important;
+  will-change:transform;
+  justify-content:flex-start!important;
+  align-items:flex-start!important;
+  /* Reset anything nav{} might set */
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  border-top:none!important;
+}
+#navDrawer.open{transform:translateX(0)!important}
+#navDrawer ul{list-style:none;display:flex;flex-direction:column;gap:0;margin:0;padding:0;width:100%}
+#navDrawer ul li{border-bottom:1px solid rgba(255,255,255,.06)}
+#navDrawer ul li a{display:block;padding:1rem 0;font-family:var(--display);font-size:1.6rem;letter-spacing:.08em;color:rgba(242,238,231,.5);text-decoration:none;transition:color .2s,padding-left .2s}
+#navDrawer ul li a:hover{color:var(--amber);padding-left:.5rem}
+.nav-drawer-cta{margin-top:2rem;display:inline-block;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--black);background:var(--amber);padding:.85rem 1.5rem;text-decoration:none;transition:background .2s;border-radius:2px}
+.nav-drawer-cta:hover{background:var(--crimson);color:#fff}
+.nav-drawer-close{position:absolute;top:1.4rem;right:1.5rem;width:36px;height:36px;background:none;border:1px solid rgba(255,255,255,.1);border-radius:2px;color:rgba(242,238,231,.5);font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s,color .2s;line-height:1}
+.nav-drawer-close:hover{border-color:var(--amber);color:var(--amber)}
+
+#navOverlay{
+  display:none;
+  position:fixed!important;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:1040!important;
+  opacity:0;
+  transition:opacity .3s;
+  -webkit-backdrop-filter:blur(2px);
+  backdrop-filter:blur(2px);
+  top:0!important;left:0!important;right:0!important;
+}
+#navOverlay.open{display:block;opacity:1}
+
+@media(max-width:960px){
+  .nav-hamburger{display:flex}
+  .nav-right .nav-cta{display:none}
+}
+/* ── STICKY MOBILE CTA ───────────────────────────── */
+#stickyCta{
+  display:none;
+  position:fixed;
+  bottom:0;left:0;right:0;
+  z-index:1030;
+  background:#0D0D0D;
+  border-top:1px solid rgba(255,176,32,.2);
+  padding:.9rem 1.2rem;
+  align-items:center;
+  gap:.75rem;
+  transform:translateY(100%);
+  transition:transform .3s cubic-bezier(.77,0,.175,1);
+}
+#stickyCta.visible{display:flex}
+#stickyCta.show{transform:translateY(0)}
+.sticky-cta-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:.6rem;background:var(--amber);color:var(--black);font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.82rem 1rem;border-radius:2px;text-decoration:none;font-weight:500;transition:background .2s}
+.sticky-cta-btn:hover{background:var(--amber-d)}
+.sticky-cta-wa{width:44px;height:44px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(37,211,102,.15);border:1px solid rgba(37,211,102,.3);border-radius:2px;text-decoration:none;font-size:1.1rem;transition:background .2s}
+.sticky-cta-wa:hover{background:rgba(37,211,102,.25)}
+.sticky-cta-close{width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:none;border:1px solid rgba(255,255,255,.12);border-radius:2px;color:rgba(242,238,231,.4);font-size:.75rem;cursor:pointer;transition:all .2s}
+.sticky-cta-close:hover{border-color:rgba(255,255,255,.3);color:var(--white)}
+@media(min-width:961px){#stickyCta{display:none!important}}
+
+    /* TIERS · QUICK + STUDIO */
+    .tier-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:1100px;margin:3rem auto 2rem;padding:0 1rem}
+    @media(max-width:768px){.tier-grid{grid-template-columns:1fr;gap:1.5rem}}
+    .tier{background:var(--bg);border:1px solid var(--gray3);border-radius:3px;padding:2.5rem 2rem;display:flex;flex-direction:column;position:relative;transition:border-color .25s ease}
+    .tier:hover{border-color:var(--amber)}
+    .tier-quick{border-top:3px solid var(--amber)}
+    .tier-studio{border-top:3px solid var(--cream);background:linear-gradient(180deg,rgba(244,241,236,0.03) 0%,var(--bg) 100%)}
+    .tier-label{font-family:var(--font-d);font-size:2.8rem;letter-spacing:.04em;color:var(--cream);line-height:.9;margin-bottom:.4rem}
+    .tier-studio .tier-label{font-family:'Fraunces','Playfair Display',Georgia,serif;font-weight:400;font-style:italic;color:var(--cream);letter-spacing:0;font-size:2.6rem}
+    .tier-price{font-family:var(--font-d);margin-bottom:1.3rem;display:flex;align-items:baseline;gap:.5rem}
+    .tier-from{font-size:.9rem;color:var(--muted);letter-spacing:.1em;text-transform:lowercase;font-family:var(--font-m)}
+    .tier-amount{font-size:2.2rem;color:var(--amber);letter-spacing:.02em}
+    .tier-studio .tier-amount{color:var(--cream)}
+    .tier-for{font-family:var(--font-m);font-size:.88rem;line-height:1.65;color:var(--cream);margin-bottom:1.6rem;padding-bottom:1.4rem;border-bottom:1px solid var(--gray3)}
+    .tier-features{list-style:none;padding:0;margin:0 0 1.6rem 0;flex:1}
+    .tier-features li{font-family:var(--font-m);font-size:.84rem;line-height:1.55;color:rgba(244,241,236,0.85);padding:.45rem 0 .45rem 1.3rem;position:relative;border-bottom:1px solid rgba(244,241,236,0.05)}
+    .tier-features li:before{content:'\2713';position:absolute;left:0;top:.45rem;color:var(--amber);font-weight:500}
+    .tier-studio .tier-features li:before{color:var(--cream)}
+    .tier-ideal{margin-bottom:1.4rem;padding:.9rem 1rem;background:rgba(255,176,32,0.05);border-left:2px solid var(--amber);border-radius:0 2px 2px 0}
+    .tier-studio .tier-ideal{background:rgba(244,241,236,0.03);border-left-color:var(--cream)}
+    .tier-ideal-label{font-family:var(--font-m);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+    .tier-ideal-list{font-family:var(--font-m);font-size:.78rem;color:rgba(244,241,236,0.7);line-height:1.5}
+    .tier-cta{display:inline-block;padding:.9rem 1.4rem;background:var(--amber);color:var(--bg);font-family:var(--font-d);font-size:1.05rem;letter-spacing:.08em;text-decoration:none;text-align:center;border-radius:2px;transition:opacity .2s,transform .15s}
+    .tier-cta:hover{opacity:.9;transform:translateY(-1px)}
+    .tier-cta-studio{background:transparent;color:var(--cream);border:1px solid var(--cream);font-family:'Fraunces','Playfair Display',Georgia,serif;font-weight:500;font-style:italic;letter-spacing:0}
+    .tier-cta-studio:hover{background:var(--cream);color:var(--bg)}
+    .tier-footnote{text-align:center;font-family:var(--font-m);font-size:.82rem;color:var(--muted);margin-top:1.5rem;letter-spacing:.04em}
+    .footer-studio-link{text-align:center;padding-top:1rem;border-top:1px solid var(--gray3);margin-top:1.5rem}
+    .footer-studio-link a{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:.92rem;color:var(--muted);text-decoration:none;letter-spacing:.02em;transition:color .2s}
+    .footer-studio-link a:hover{color:var(--cream)}
+  
+  
+    /* SELECTED WORK · portfolio section */
+    .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:1100px;margin:3rem auto 2rem;padding:0 1rem}
+    @media(max-width:768px){.work-grid{grid-template-columns:1fr}}
+    .work-card{display:flex;flex-direction:column;padding:2rem 1.8rem;background:var(--gray);border:1px solid var(--gray3);border-radius:3px;text-decoration:none;color:var(--cream);transition:border-color .25s,transform .15s;position:relative;overflow:hidden}
+    .work-card:hover{border-color:var(--amber);transform:translateY(-2px)}
+    .work-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+    .work-card:hover::before{transform:scaleX(1)}
+    .work-meta{display:flex;gap:.6rem;margin-bottom:1.2rem;flex-wrap:wrap;align-items:center}
+    .work-tier{font-family:var(--font-d);font-size:.82rem;letter-spacing:.1em;color:var(--amber);padding:.18rem .5rem;border:1px solid rgba(255,176,32,0.4);border-radius:2px}
+    .work-card [data-pt="Studio"].work-tier{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:.88rem;letter-spacing:0;color:var(--cream);border-color:rgba(244,241,236,0.4)}
+    .work-cat{font-family:var(--font-m);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+    .work-title{font-family:var(--font-d);font-size:2.2rem;line-height:.95;letter-spacing:.02em;color:var(--cream);margin-bottom:.6rem}
+    .work-desc{font-family:var(--font-m);font-size:.86rem;line-height:1.6;color:rgba(244,241,236,0.75);margin-bottom:1.4rem;flex:1}
+    .work-link{font-family:var(--font-m);font-size:.82rem;color:var(--amber);letter-spacing:.04em;border-top:1px solid var(--gray3);padding-top:1rem;display:flex;justify-content:space-between;align-items:center}
+    .work-arrow{transition:transform .2s}
+    .work-card:hover .work-arrow{transform:translateX(4px)}
+    .work-footnote{text-align:center;font-family:var(--font-m);font-size:.82rem;color:var(--muted);max-width:700px;margin:1.8rem auto 0;padding:0 1rem;line-height:1.6;letter-spacing:.02em}
+  
+  
+    /* ABOUT SECTION */
+    .about-grid{display:grid;grid-template-columns:2fr 1fr;gap:3rem;max-width:1100px;margin:3rem auto 0;padding:0 1rem;align-items:start}
+    @media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:2rem}}
+    .about-p{font-family:var(--font-m);font-size:.94rem;line-height:1.75;color:rgba(244,241,236,0.82);margin-bottom:1.4rem;letter-spacing:.005em}
+    .about-p:last-child{margin-bottom:0}
+    .about-p strong{color:var(--cream);font-weight:500}
+    .about-p em{font-style:italic;font-family:'Fraunces',Georgia,serif;color:rgba(255,176,32,0.9);font-weight:400}
+    .about-facts{background:var(--gray);border:1px solid var(--gray3);border-radius:3px;padding:1.8rem 1.6rem;position:sticky;top:6rem}
+    @media(max-width:820px){.about-facts{position:static}}
+    .about-dl{margin:0}
+    .about-dl dt{font-family:var(--font-m);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:1rem;font-weight:500}
+    .about-dl dt:first-child{margin-top:0}
+    .about-dl dd{font-family:var(--font-m);font-size:.88rem;line-height:1.5;color:var(--cream);margin:.3rem 0 0 0;letter-spacing:.01em}
+    .about-linkedin{display:inline-block;margin-top:1.6rem;padding-top:1.2rem;border-top:1px solid var(--gray3);width:100%;font-family:var(--font-m);font-size:.82rem;color:var(--amber);text-decoration:none;letter-spacing:.04em;transition:color .2s}
+    .about-linkedin:hover{color:var(--cream)}
+  
+  </style>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "ProfessionalService"],
+    "@id": "https://volvara.pt/#business",
+    "name": "Volvara",
+    "description": "Agência web em Portimão especializada em websites para pequenos negócios no Algarve e em todo Portugal. Demo grátis — só pagas se gostares.",
+    "url": "https://volvara.pt/",
+    "telephone": "+351917810999",
+    "email": "go@volvara.pt",
+    "vatID": "PT227192753",
+    "foundingDate": "2024",
+    "knowsLanguage": ["pt", "en"],
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://volvara.pt/assets/img/logo.png",
+      "width": 200,
+      "height": 60
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Portimão",
+      "addressRegion": "Algarve",
+      "addressCountry": "PT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "37.1359",
+      "longitude": "-8.5369"
+    },
+    "areaServed": [
+      {"@type": "City", "name": "Portimão"},
+      {"@type": "AdministrativeArea", "name": "Algarve"},
+      {"@type": "Country", "name": "Portugal"},
+      {"@type": "Country", "name": "United Kingdom"},
+      {"@type": "Country", "name": "United States"}
+    ],
+    "priceRange": "€€€",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    "sameAs": [
+      "https://www.instagram.com/volvara.pt"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Serviços Web",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Quick", "description": "Websites for local businesses — fast delivery, clear structure, local SEO. From single page to 5-section sites with contact form, Google Maps, hosting."}, "priceSpecification": {"@type": "PriceSpecification", "price": "299", "priceCurrency": "EUR", "minPrice": "299"}, "priceCurrency": "EUR"},
+{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Studio", "description": "Bespoke editorial websites for brands with specific needs. Multilingual copy, custom integrations, priority studio access. Built to last."}, "priceSpecification": {"@type": "PriceSpecification", "price": "1200", "priceCurrency": "EUR", "minPrice": "1200"}, "priceCurrency": "EUR"}, "price": "249", "priceCurrency": "EUR"}
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://volvara.pt/#website",
+    "name": "Volvara",
+    "url": "https://volvara.pt/",
+    "inLanguage": ["pt-PT", "en"]
+  }
+]
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Tenho de pagar para ver o meu site?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Não. Criamos uma versão de demonstração do teu site sem qualquer custo. Só pagas se gostares do resultado e quiseres manter o site online."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do I have to pay to see my site?",
+      "acceptedAnswer": {"@type": "Answer", "text": "No. We create a demo version of your site at no cost. You only pay if you like the result and want to go live."}
+    },
+    {
+      "@type": "Question",
+      "name": "Quanto tempo demora a ter o site no ar?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Após confirmar e pagar, o teu site fica activo rapidamente. O prazo depende da complexidade do projecto."}
+    },
+    {
+      "@type": "Question",
+      "name": "O site fica meu se cancelar?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Sim. O domínio é teu desde o primeiro dia. Se cancelares, entregamos todos os ficheiros para poderes migrar para onde quiseres — sem restrições."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do I keep the site if I cancel?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. The domain is yours from day one. If you cancel, we deliver all the files so you can migrate wherever you want — no restrictions."}
+    },
+    {
+      "@type": "Question",
+      "name": "Trabalham fora do Algarve?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Sim, trabalhamos com clientes em todo Portugal, Europa e EUA. O processo é 100% remoto — tão simples de Braga como de Berlim ou Nova Iorque."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work outside Portugal?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes, we work with clients across Portugal, Europe and the USA. The process is 100% remote — as easy from Braga as from Berlin or New York."}
+    },
+    {
+      "@type": "Question",
+      "name": "Já tenho site. Podem melhorá-lo?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Claro. Avaliamos o teu site actual gratuitamente e propomos um plano de melhoria. Muitos clientes chegam exactamente nessa situação — site desactualizado, lento, ou que não aparece no Google."}
+    }
+  ]
+}
+</script>
+<link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsElEQVR42t2SOw7CMBBEZ72pKUJcBXCO5ANwCu5AyR24ABLiPkRJB0lBwUdCim2KCKpsCkPFlE+aV+wOAUDYFwERIVsRxZbfUfgyvxWsd3estldcbh6TZYPODTNRYDTjeHIozw55ykh4mMmCTKFuHcrGwWglMlGw0Iy69agbj3nGIhMFecpwPuDZBcymLDJRkHBf6O+hRDb6RqMVNocHjOZR9lnjny0xSkC2otgy2Ype4oRXZHjE5BIAAAAASUVORK5CYII=">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABTElEQVR42u2XTU7DMBCF39hAgYBUhFSCWEAbttyl6/YU3IxD9A4NUFA3/SESW1AJwSzsqE76I8eRnI1nM5Hy5PfZM05sghbi6U7AQVB/Svkzc21e9mKuzcsQ1IS5HgwNhwfwAHsBRnGKYJDgbJjgayU3yyoVOB8mCAYJRnFqpLEGiK643LMCmCwzAMDbMsOfWL830VgDhG2GoCW/ms/zXwDAeCZNTluEsM2MNNYAREBXzeBlnqksTbodDiIzTa0mjDYGlzkKeSWNNUBPDZIvbzyTuafV1kRjDXCvBp8s5KxeF5uzM9HULsH3jyhkvbtNNPYA4cH20ugABhprgOsLhpOjYisfHxJuLnkljTWAvs3yuO1wMKqmqfUvyGv58Pi5s7YmGnsA1c3vH7u720SzdYX9kcwDeIDGAfSLouug/pRY+bbq0rxQApcQutc/PKimYtiLPxIAAAAASUVORK5CYII=">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,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">
+<meta property="og:image" content="https://volvara.pt/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Volvara — Web Agency para pequenos negócios. Remote-First.">
+<meta name="twitter:image" content="https://volvara.pt/og-image.png">
+<meta name="twitter:image:alt" content="Volvara — Web Agency para pequenos negócios. Remote-First.">
+<link rel="manifest" href="/manifest.json">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+</head>
+<body>
+<div id="cur"></div>
+
+<nav id="nav">
+  <a href="#" class="nav-logo">VOLVA<span class="ra">RA</span></a>
+  <ul class="nav-links">
+    <li><a href="#benefits" data-pt="O que inclui" data-en="What's included">O que inclui</a></li>
+    <li><a href="#work" data-pt="Trabalho" data-en="Work">Trabalho</a></li>
+      <li><a href="#pricing" data-pt="Preços" data-en="Pricing">Preços</a></li>
+    <li><a href="#faq" data-pt="FAQ" data-en="FAQ">FAQ</a></li>
+    <li><a href="#contact" data-pt="Contacto" data-en="Contact">Contacto</a></li>
+  </ul>
+  <div class="nav-right">
+    <button type="button" class="lang-btn" id="langBtn">EN</button>
+    <a href="#contact" class="nav-cta" data-pt="Falar connosco →" data-en="Talk to us →">Falar connosco →</a>
+    <button type="button" class="nav-hamburger" id="navBurger" aria-label="Abrir menu" aria-expanded="false" aria-controls="navDrawer">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav overlay + drawer -->
+<div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+<div class="nav-drawer" id="navDrawer" role="dialog" aria-modal="true" aria-label="Menu mobile">
+  <button type="button" class="nav-drawer-close" id="navDrawerClose" aria-label="Fechar menu">✕</button>
+  <ul>
+    <li><a href="#benefits" data-pt="O que inclui" data-en="What's included">O que inclui</a></li>
+    <li><a href="#work" data-pt="Trabalho" data-en="Work">Trabalho</a></li>
+      <li><a href="#pricing" data-pt="Preços" data-en="Pricing">Preços</a></li>
+    <li><a href="#faq" data-pt="FAQ" data-en="FAQ">FAQ</a></li>
+    <li><a href="#contact" data-pt="Contacto" data-en="Contact">Contacto</a></li>
+  </ul>
+  <a href="#contact" class="nav-drawer-cta" data-pt="Falar connosco →" data-en="Talk to us →">Falar connosco →</a>
+</div>
+
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow-a"></div>
+  <div class="hero-glow-b"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><div class="eyebrow-line"></div><span data-pt="Web studio · Portimão · Algarve · Remote" data-en="Web studio · Portimão · Algarve · Remote">Web studio · Portimão · Algarve · Remote</span></div>
+    <h1 class="h">
+      <span class="h-l1" data-pt="Websites" data-en="Websites,">Websites</span>
+      <span class="h-l2" data-pt='feitos à <span class="cr">mão.</span>' data-en='<span class="cr">hand-crafted.</span>'>feitos à <span class="cr">mão.</span></span>
+      <span class="h-l3" data-pt="Rápidos, ou cuidados." data-en="Fast, or carefully.">Rápidos, ou cuidados.</span>
+    </h1>
+    <div class="hero-sub">
+      <p class="hero-desc" data-pt="De pequenos negócios locais a marcas com algo a dizer. Trabalhamos em Portugal, na União Europeia e nos Estados Unidos — <em>sem contratos, sem linguagem técnica</em>, sem complicações." data-en="From local businesses to brands with something to say. We work across Portugal, the European Union and the United States — <em>no contracts, no tech jargon</em>, no complications.">De pequenos negócios locais a marcas com algo a dizer. Trabalhamos em Portugal, na União Europeia e nos Estados Unidos — <em>sem contratos, sem linguagem técnica</em>, sem complicações.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-a" data-pt="Vê o teu demo →" data-en="See my demo →">Vê o teu demo →</a>
+      </div>
+    </div>
+    <div class="hero-proof">
+      <div class="proof-item"><div class="n" data-pt="Relâmpago" data-en="Lightning">Relâmpago</div><div class="l" data-pt="Entrega" data-en="Delivery">Entrega</div></div>
+      <div class="proof-item"><div class="n" data-pt='<span class="desde">desde</span>€299' data-en='<span class="desde">from</span>€299'><span class="desde">desde</span>€299</div><div class="l" data-pt="Site completo" data-en="Full website">Site completo</div></div>
+      <div class="proof-item"><div class="n cr">0€</div><div class="l" data-pt="Para ver o demo" data-en="To see the demo">Para ver o demo</div></div>
+      <div class="proof-item"><div class="n">100%</div><div class="l" data-pt="Satisfação garantida" data-en="Satisfaction guaranteed">Satisfação garantida</div></div>
+    </div>
+  </div>
+  <div class="scroll-ind"><span data-pt="explorar" data-en="explore">explorar</span><div class="scroll-bar"></div></div>
+</section>
+
+<div class="trust-bar r">
+  <div class="trust-item"><span class="trust-check">✓</span><span class="trust-text" data-pt="Sem contratos de longo prazo" data-en="No long-term contracts">Sem contratos de longo prazo</span></div>
+  <div class="trust-sep"></div>
+  <div class="trust-item"><span class="trust-check">✓</span><span class="trust-text" data-pt="Vês o resultado antes de pagar" data-en="You see the result before paying">Vês o resultado antes de pagar</span></div>
+  <div class="trust-sep"></div>
+  <div class="trust-item"><span class="trust-check">✓</span><span class="trust-text" data-pt="O domínio fica sempre teu" data-en="The domain is always yours">O domínio fica sempre teu</span></div>
+  <div class="trust-sep"></div>
+  <div class="trust-item"><span class="trust-check">✓</span><span class="trust-text" data-pt="Suporte em português e inglês" data-en="Support in Portuguese &amp; English">Suporte em português e inglês</span></div>
+  <div class="trust-sep"></div>
+  <div class="trust-item"><span class="trust-check">🌍</span><span class="trust-text" data-pt="Clientes em Portugal, EU e EUA" data-en="Clients in Portugal, EU &amp; USA">Clientes em Portugal, EU e EUA</span></div>
+</div>
+
+<section class="section" id="benefits">
+  <div class="sec-label r" data-pt="O que inclui" data-en="What's included">O que inclui</div>
+  <h2 class="sh r" data-pt="TUDO O QUE O TEU NEGÓCIO <span class='cr'>PRECISA.</span>" data-en="EVERYTHING YOUR BUSINESS <span class='cr'>NEEDS.</span>">TUDO O QUE O TEU NEGÓCIO <span class="cr">PRECISA.</span></h2>
+  <p class="sec-intro r" data-pt="Um bom website não é só estar online — é ser encontrado, ser credível, e converter visitantes em clientes." data-en="A good website is not just about being online — it's about being found, being credible, and turning visitors into clients.">Um bom website não é só estar online — é ser encontrado, ser credível, e converter visitantes em clientes.</p>
+  <div class="benefits-grid r">
+    <div class="benefit"><div class="benefit-icon">⚡</div><h3 class="bh" data-pt="ONLINE EM DIAS" data-en="LIVE IN DAYS">ONLINE EM DIAS</h3><p class="benefit-body" data-pt="Não semanas, não meses. O teu site fica pronto em dias — com o teu nome, os teus serviços, as tuas fotos. Pronto a receber clientes desde o primeiro dia." data-en="Not weeks, not months. Your site is ready in days — with your name, your services, your photos. Ready to bring in clients from day one.">Não semanas, não meses. O teu site fica pronto em dias — com o teu nome, os teus serviços, as tuas fotos. Pronto a receber clientes desde o primeiro dia.</p><span class="benefit-tag" data-pt="Entrega rápida · Sem esperas" data-en="Fast delivery · No waiting">Entrega rápida · Sem esperas</span></div>
+    <div class="benefit"><div class="benefit-icon">🎯</div><h3 class="bh" data-pt="ENCONTRADO NO GOOGLE" data-en="FOUND ON GOOGLE">ENCONTRADO NO GOOGLE</h3><p class="benefit-body" data-pt="Quando alguém pesquisa 'restaurante em Portimão' ou 'cabeleireiro perto de mim', o teu site aparece. SEO incluído desde o início — não é extra." data-en="When someone searches 'restaurant near me' or 'hairdresser in [your city]', your site shows up. SEO included from the start — not an add-on.">Quando alguém pesquisa 'restaurante em Portimão' ou 'cabeleireiro perto de mim', o teu site aparece. SEO incluído desde o início — não é extra.</p><span class="benefit-tag" data-pt="SEO · Google Business" data-en="SEO · Google Business">SEO · Google Business</span></div>
+    <div class="benefit"><div class="benefit-icon">📱</div><h3 class="bh" data-pt="PERFEITO NO TELEMÓVEL" data-en="PERFECT ON MOBILE">PERFEITO NO TELEMÓVEL</h3><p class="benefit-body" data-pt="Mais de 70% das pessoas pesquisam no telemóvel. O teu site carrega em menos de 2 segundos e fica impecável em qualquer ecrã — telemóvel, tablet ou computador." data-en="Over 70% of people search on mobile. Your site loads in under 2 seconds and looks flawless on any screen — phone, tablet or desktop.">Mais de 70% das pessoas pesquisam no telemóvel. O teu site carrega em menos de 2 segundos e fica impecável em qualquer ecrã — telemóvel, tablet ou computador.</p><span class="benefit-tag" data-pt="Mobile · Desktop · Tablet" data-en="Mobile · Desktop · Tablet">Mobile · Desktop · Tablet</span></div>
+    <div class="benefit"><div class="benefit-icon">✏️</div><h3 class="bh" data-pt="O TEU NEGÓCIO, SEM TEMPLATES" data-en="YOUR BUSINESS, NO TEMPLATES">O TEU NEGÓCIO, SEM TEMPLATES</h3><p class="benefit-body" data-pt="Nada de templates genéricos. Criamos o teu site com as tuas fotos reais, os teus preços, o teu horário. Os clientes vêem exactamente o que tu ofereces." data-en="No generic templates. We build your site with your real photos, your prices, your hours. Customers see exactly what you offer.">Nada de templates genéricos. Criamos o teu site com as tuas fotos reais, os teus preços, o teu horário. Os clientes vêem exactamente o que tu ofereces.</p><span class="benefit-tag" data-pt="Design à medida" data-en="Custom design">Design à medida</span></div>
+    <div class="benefit"><div class="benefit-icon">🔄</div><h3 class="bh" data-pt="ACTUALIZAMOS QUANDO PRECISARES" data-en="UPDATE WHEN NEEDED">ACTUALIZAMOS QUANDO PRECISARES</h3><p class="benefit-body" data-pt="Fechaste ao domingo? Mudaste de morada? Actualizamos. Horários, preços, fotos, textos — incluídos na mensalidade. Uma mensagem e está feito." data-en="Closed on Sunday? Moved address? We update it. Hours, prices, photos, text — all included in the monthly fee. One message and it's done.">Fechaste ao domingo? Mudaste de morada? Actualizamos. Horários, preços, fotos, textos — incluídos na mensalidade. Uma mensagem e está feito.</p><span class="benefit-tag" data-pt="Actualizações mensais" data-en="Monthly updates">Actualizações mensais</span></div>
+    <div class="benefit"><div class="benefit-icon">🌍</div><h3 class="bh" data-pt="SUPORTE ONDE ESTIVERES" data-en="SUPPORT WHEREVER YOU ARE">SUPORTE ONDE ESTIVERES</h3><p class="benefit-body" data-pt="Trabalhamos com clientes em Portugal, Europa e EUA. Falamos português e inglês, respondemos por mensagem — não há formulários complicados nem filas de espera." data-en="We work with clients in Portugal, Europe and the USA. We speak Portuguese and English, reply by message — no complicated forms, no waiting queues.">Trabalhamos com clientes em Portugal, Europa e EUA. Falamos português e inglês, respondemos por mensagem — não há formulários complicados nem filas de espera.</p><span class="benefit-tag" data-pt="PT · EN · EU · USA" data-en="PT · EN · EU · USA">PT · EN · EU · USA</span></div>
+  </div>
+</section>
+
+<section class="section" id="process" style="background:var(--gray)">
+  <div class="sec-label r" data-pt="Como funciona" data-en="How it works">Como funciona</div>
+  <div class="process-wrap r">
+    <div>
+      <h2 class="sh" style="margin-bottom:2.5rem" data-pt="SIMPLES<br>DO INÍCIO<br>AO <span class='cr'>FIM.</span>" data-en="SIMPLE<br>FROM START<br>TO <span class='cr'>FINISH.</span>">SIMPLES<br>DO INÍCIO<br>AO <span class="cr">FIM.</span></h2>
+      <div class="pstep"><div class="pstep-n">01</div><div><div class="pstep-title" data-pt="FALAS CONNOSCO" data-en="YOU TELL US">FALAS CONNOSCO</div><p class="pstep-body" data-pt="Conta-nos sobre o teu negócio — sem formulários complicados, sem reuniões intermináveis. Uma conversa simples é tudo o que precisamos para começar." data-en="Tell us about your business — no complicated forms, no endless meetings. A simple conversation, by phone or message.">Conta-nos sobre o teu negócio — sem formulários complicados, sem reuniões intermináveis. Uma conversa simples é tudo o que precisamos para começar.</p></div></div>
+      <div class="pstep"><div class="pstep-n">02</div><div><div class="pstep-title" data-pt="NÓS CONSTRUÍMOS" data-en="WE BUILD IT">NÓS CONSTRUÍMOS</div><p class="pstep-body" data-pt="Criamos um site completo e personalizado com os teus serviços e informações reais. Podes ver tudo e pedir alterações antes de decidires." data-en="We build a complete, personalised website with your real services and information. You can review everything and request changes before deciding.">Criamos um site completo e personalizado com os teus serviços e informações reais. Podes ver tudo e pedir alterações antes de decidires.</p></div></div>
+      <div class="pstep"><div class="pstep-n">03</div><div><div class="pstep-title" data-pt="DECIDES NO TEU TEMPO" data-en="YOU DECIDE, IN YOUR OWN TIME">DECIDES NO TEU TEMPO</div><p class="pstep-body" data-pt="Gostas? Ficamos com o teu site online. Não gostas? Não pagas nada. O risco é todo nosso — porque temos confiança no que fazemos." data-en="Happy with it? We put your site live. Not happy? You pay nothing. The risk is entirely ours — because we trust the work we do.">Gostas? Ficamos com o teu site online. Não gostas? Não pagas nada. O risco é todo nosso — porque temos confiança no que fazemos.</p></div></div>
+    </div>
+    <div>
+      <div class="process-card">
+        <div class="pc-big">VOLVA<span class="ra">RA</span></div>
+        <div class="pc-tagline" data-pt="Websites que funcionam." data-en="Websites that work.">Websites que funcionam.</div>
+        <div class="pc-stat-row">
+          <div><div class="pc-stat-n" data-pt="Relâmpago" data-en="Lightning">Relâmpago</div><div class="pc-stat-l" data-pt="Entrega" data-en="Delivery">Entrega</div></div>
+          <div><div class="pc-stat-n cr" data-pt="0€" data-en="€0">0€</div><div class="pc-stat-l" data-pt="Risco" data-en="Risk">Risco</div></div>
+          <div><div class="pc-stat-n" data-pt="100%" data-en="100%">100%</div><div class="pc-stat-l" data-pt="Garantia" data-en="Guarantee">Garantia</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</section>
+
+
+<section class="section" id="about" style="background:var(--bg)">
+  <div class="sec-label r" data-pt="Quem está por trás" data-en="Who's behind this">Quem está por trás</div>
+  <h2 class="sh r" data-pt="UM <span class='acc'>HOMEM.</span><br>UM <span class='acc'>ESTÚDIO.</span><br>UM <span class='cr'>MAC.</span>" data-en="ONE <span class='acc'>PERSON.</span><br>ONE <span class='acc'>STUDIO.</span><br>ONE <span class='cr'>MAC.</span>">UM <span class="acc">HOMEM.</span><br>UM <span class="acc">ESTÚDIO.</span><br>UM <span class="cr">MAC.</span></h2>
+
+  <div class="about-grid r">
+    <div class="about-bio">
+      <p class="about-p" data-pt="A Volvara é dirigida por <strong>Telmo Silva</strong>. Vinte e um anos em vendas e assistência técnica — começou na Vodafone em Portimão, mudou-se para os Estados Unidos para estudar Web Development no Montgomery College (Maryland), e tornou-se <em>top-performer Audi Brand Specialist</em> na Sonic Automotive em Rockville, com clientela VIP: corporate counsel, donos de agências de marketing que serviam a Volkswagen, um senior campaign advisor de Hillary Clinton, e vários jogadores da NBA e NFL." data-en="Volvara is run by <strong>Telmo Silva</strong>. Twenty-one years in sales and technical support — started at Vodafone in Portimão, moved to the United States to study Web Development at Montgomery College (Maryland), and became <em>top-performing Audi Brand Specialist</em> at Sonic Automotive in Rockville, with high-profile clientele: corporate counsel, marketing agency founders serving Volkswagen US, a senior campaign advisor to Hillary Clinton, and several NBA and NFL players.">A Volvara é dirigida por <strong>Telmo Silva</strong>. Vinte e um anos em vendas e assistência técnica — começou na Vodafone em Portimão, mudou-se para os Estados Unidos para estudar Web Development no Montgomery College (Maryland), e tornou-se <em>top-performer Audi Brand Specialist</em> na Sonic Automotive em Rockville, com clientela VIP: corporate counsel, donos de agências de marketing que serviam a Volkswagen, um senior campaign advisor de Hillary Clinton, e vários jogadores da NBA e NFL.</p>
+      
+      <p class="about-p" data-pt="Regressou a Portugal em 2014. Quatro anos a distribuir vinho e bebidas premium para o trade hospitality do Algarve — de tascas junto à praia a resorts de cinco estrelas. Em paralelo, trabalho freelance contínuo via Upwork com clientes como <em>Vitally.io</em> e <em>ByteDance (TikTok)</em>." data-en="Returned to Portugal in 2014. Four years distributing premium wine and beverages to the Algarve's hospitality trade — from beachside tascos to five-star resorts. In parallel, ongoing freelance work via Upwork with clients like <em>Vitally.io</em> and <em>ByteDance (TikTok)</em>.">Regressou a Portugal em 2014. Quatro anos a distribuir vinho e bebidas premium para o trade hospitality do Algarve — de tascas junto à praia a resorts de cinco estrelas. Em paralelo, trabalho freelance contínuo via Upwork com clientes como <em>Vitally.io</em> e <em>ByteDance (TikTok)</em>.</p>
+      
+      <p class="about-p" data-pt="Em Março de 2026, a Volvara tornou-se o foco principal. O fio condutor de todas estas posições é o mesmo: clientes que esperam ser <em>respeitados, informados e mostrados resultados claros</em> — não vendidos. A Volvara é essa filosofia aplicada a websites." data-en="In March 2026, Volvara became the primary focus. The thread running through all these positions is the same: clients who expect to be <em>respected, informed and shown clear results</em> — not sold to. Volvara is that philosophy applied to websites.">Em Março de 2026, a Volvara tornou-se o foco principal. O fio condutor de todas estas posições é o mesmo: clientes que esperam ser <em>respeitados, informados e mostrados resultados claros</em> — não vendidos. A Volvara é essa filosofia aplicada a websites.</p>
+    </div>
+
+    <div class="about-facts">
+      <dl class="about-dl">
+        <dt data-pt="Fundada em" data-en="Founded">Fundada em</dt>
+        <dd data-pt="Março 2026" data-en="March 2026">Março 2026</dd>
+        <dt data-pt="Baseada em" data-en="Based in">Baseada em</dt>
+        <dd data-pt="Portimão, Algarve, Portugal" data-en="Portimão, Algarve, Portugal">Portimão, Algarve, Portugal</dd>
+        <dt data-pt="Trabalhamos em" data-en="Working across">Trabalhamos em</dt>
+        <dd data-pt="Portugal · União Europeia · EUA" data-en="Portugal · European Union · United States">Portugal · União Europeia · EUA</dd>
+        <dt data-pt="Línguas" data-en="Languages">Línguas</dt>
+        <dd data-pt="Português · Inglês (nativo)" data-en="Portuguese · English (native)">Português · Inglês (nativo)</dd>
+        <dt data-pt="Estrutura" data-en="Structure">Estrutura</dt>
+        <dd data-pt="Uma pessoa. Um estúdio." data-en="One person. One studio.">Uma pessoa. Um estúdio.</dd>
+      </dl>
+      <a class="about-linkedin" href="https://www.linkedin.com/in/telmodfs/" target="_blank" rel="noopener" data-pt="Perfil LinkedIn →" data-en="LinkedIn profile →">Perfil LinkedIn →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work" style="background:var(--bg)">
+  <div class="sec-label r" data-pt="Trabalho seleccionado" data-en="Selected work">Trabalho seleccionado</div>
+  <h2 class="sh r" data-pt="PROJECTOS <span class='acc'>REAIS.</span><br>CLIENTES <span class='cr'>REAIS.</span>" data-en="REAL <span class='acc'>PROJECTS.</span><br>REAL <span class='cr'>CLIENTS.</span>">PROJECTOS <span class="acc">REAIS.</span><br>CLIENTES <span class="cr">REAIS.</span></h2>
+  <p class="sec-intro r" data-pt="Cada projecto é feito à mão — nunca um template. Estes são exemplos ao vivo." data-en="Every project is hand-coded — never a template. Here are live examples.">Cada projecto é feito à mão — nunca um template. Estes são exemplos ao vivo.</p>
+
+  <div class="work-grid r">
+
+    <a class="work-card" href="https://marianababysitting.pt" target="_blank" rel="noopener">
+      <div class="work-meta">
+        <span class="work-tier" data-pt="Quick" data-en="Quick">Quick</span>
+        <span class="work-cat" data-pt="Serviços locais" data-en="Local services">Serviços locais</span>
+      </div>
+      <div class="work-title" data-pt="Mariana Babysitting" data-en="Mariana Babysitting">Mariana Babysitting</div>
+      <div class="work-desc" data-pt="Do Instagram a um site com domínio próprio, SEO local e formulário de contacto — em 7 dias." data-en="From an Instagram page to a website with own domain, local SEO and contact form — in 7 days.">Do Instagram a um site com domínio próprio, SEO local e formulário de contacto — em 7 dias.</div>
+      <div class="work-link">marianababysitting.pt <span class="work-arrow">&rarr;</span></div>
+    </a>
+
+    <a class="work-card" href="/superstars-ctpp/" target="_blank" rel="noopener">
+      <div class="work-meta">
+        <span class="work-tier" data-pt="Studio" data-en="Studio">Studio</span>
+        <span class="work-cat" data-pt="Plataforma à medida" data-en="Custom platform">Plataforma à medida</span>
+      </div>
+      <div class="work-title" data-pt="Super Stars CTPP" data-en="Super Stars CTPP">Super Stars CTPP</div>
+      <div class="work-desc" data-pt="Plataforma de ranking e resultados ao vivo para o Clube de Ténis e Padel de Portimão. Admin privado, vista pública, actualização em tempo real." data-en="Live scoring and ranking platform for the Clube de Ténis e Padel de Portimão. Private admin, public view, real-time updates.">Plataforma de ranking e resultados ao vivo para o Clube de Ténis e Padel de Portimão. Admin privado, vista pública, actualização em tempo real.</div>
+      <div class="work-link">volvara.pt/superstars-ctpp <span class="work-arrow">&rarr;</span></div>
+    </a>
+
+  </div>
+
+  <p class="work-footnote r" data-pt="Mais projectos em curso. Fala connosco para veres exemplos específicos para o teu tipo de negócio." data-en="More projects in flight. Talk to us to see examples specific to your business type.">Mais projectos em curso. Fala connosco para veres exemplos específicos para o teu tipo de negócio.</p>
+
+</section>
+
+<section class="section" id="pricing" style="background:var(--gray)">
+  <div class="sec-label r" data-pt="Como trabalhamos" data-en="How we work">Como trabalhamos</div>
+  <h2 class="sh r" data-pt="DUAS FORMAS.<br><span class='acc'>UM <span class='cr'>RESULTADO.</span></span>" data-en="TWO WAYS.<br><span class='acc'>ONE <span class='cr'>RESULT.</span></span>">DUAS FORMAS.<br><span class="acc">UM <span class="cr">RESULTADO.</span></span></h2>
+  <p class="sec-intro r" data-pt="Cada projecto é orçado individualmente. Vês o teu site antes de pagar. Se não ficares satisfeito, não deves nada." data-en="Every project is quoted individually. You see your site before paying. If you're not satisfied, you owe nothing.">Cada projecto é orçado individualmente. Vês o teu site antes de pagar. Se não ficares satisfeito, não deves nada.</p>
+  <div class="tier-grid r">
+    <div class="tier tier-quick">
+      <div class="tier-label" data-pt="Quick" data-en="Quick">Quick</div>
+      <div class="tier-price">
+        <span class="tier-from" data-pt="desde" data-en="from">desde</span>
+        <span class="tier-amount">€299</span>
+      </div>
+      <div class="tier-for" data-pt="Para negócios locais que precisam de estar online — rápido, claro, encontrável." data-en="For local businesses that need to be online — fast, clear, findable.">Para negócios locais que precisam de estar online — rápido, claro, encontrável.</div>
+      <ul class="tier-features">
+        <li data-pt="De uma página a site completo com 5 secções" data-en="From a single page to a full 5-section site">De uma página a site completo com 5 secções</li>
+        <li data-pt="SEO local + Google Maps + perfil Google Business" data-en="Local SEO + Google Maps + Google Business profile">SEO local + Google Maps + perfil Google Business</li>
+        <li data-pt="Formulário de contacto + WhatsApp integrado" data-en="Contact form + integrated WhatsApp">Formulário de contacto + WhatsApp integrado</li>
+        <li data-pt="Domínio + hosting + SSL incluídos" data-en="Domain + hosting + SSL included">Domínio + hosting + SSL incluídos</li>
+        <li data-pt="Entrega em dias, não meses" data-en="Delivered in days, not months">Entrega em dias, não meses</li>
+      </ul>
+      <div class="tier-ideal">
+        <div class="tier-ideal-label" data-pt="Ideal para" data-en="Ideal for">Ideal para</div>
+        <div class="tier-ideal-list" data-pt="Restaurantes · clínicas · bares · fotografia de família · cafés · ateliers" data-en="Restaurants · clinics · bars · family photography · cafés · ateliers">Restaurantes · clínicas · bares · fotografia de família · cafés · ateliers</div>
+      </div>
+      <a href="#contact" class="tier-cta" data-pt="Quero um Quick →" data-en="I want a Quick →">Quero um Quick →</a>
+    </div>
+    <div class="tier tier-studio">
+      <div class="tier-label" data-pt="Studio" data-en="Studio">Studio</div>
+      <div class="tier-price">
+        <span class="tier-from" data-pt="desde" data-en="from">desde</span>
+        <span class="tier-amount">€1.200</span>
+      </div>
+      <div class="tier-for" data-pt="Para marcas com algo a dizer — design editorial, bilingue, com integrações à medida." data-en="For brands with something to say — editorial design, bilingual, with bespoke integrations.">Para marcas com algo a dizer — design editorial, bilingue, com integrações à medida.</div>
+      <ul class="tier-features">
+        <li data-pt="Design editorial refined — cada projecto é único" data-en="Refined editorial design — each project is unique">Design editorial refined — cada projecto é único</li>
+        <li data-pt="Copy bilingue PT/EN (ou outras línguas)" data-en="Bilingual PT/EN copy (or other languages)">Copy bilingue PT/EN (ou outras línguas)</li>
+        <li data-pt="Integrações à medida (booking, CRM, analytics)" data-en="Bespoke integrations (booking, CRM, analytics)">Integrações à medida (booking, CRM, analytics)</li>
+        <li data-pt="Acesso prioritário ao estúdio" data-en="Priority studio access">Acesso prioritário ao estúdio</li>
+        <li data-pt="Entrega em semanas, construído para durar" data-en="Delivered in weeks, built to last">Entrega em semanas, construído para durar</li>
+      </ul>
+      <div class="tier-ideal">
+        <div class="tier-ideal-label" data-pt="Ideal para" data-en="Ideal for">Ideal para</div>
+        <div class="tier-ideal-list" data-pt="Villa rentals · real estate boutique · wedding planners · beach clubs · clínicas premium" data-en="Villa rentals · boutique real estate · wedding planners · beach clubs · premium clinics">Villa rentals · real estate boutique · wedding planners · beach clubs · clínicas premium</div>
+      </div>
+      <a href="/studio/" class="tier-cta tier-cta-studio" data-pt="Visitar o Studio →" data-en="Visit the Studio →">Visitar o Studio →</a>
+    </div>
+  </div>
+  <p class="tier-footnote r" data-pt="Todos os projectos incluem &ldquo;vês antes de pagares&rdquo;. Zero risco." data-en="Every project includes &ldquo;see-before-you-pay&rdquo;. Zero risk.">Todos os projectos incluem &ldquo;vês antes de pagares&rdquo;. Zero risco.</p>
+</section>
+
+<section class="section" id="faq" style="background:var(--gray)">
+  <div class="sec-label r" data-pt="Perguntas frequentes" data-en="FAQ">Perguntas frequentes</div>
+  <div class="faq-grid r">
+    <div>
+      <h2 class="sh" data-pt="TENS<br>DÚVIDAS?<br><span class='cr'>NORMAL.</span>" data-en="HAVE<br>QUESTIONS?<br><span class='cr'>NORMAL.</span>">TENS<br>DÚVIDAS?<br><span class="cr">NORMAL.</span></h2>
+      <p class="sec-intro" style="margin-bottom:2rem;margin-top:1.5rem" data-pt="As perguntas que mais nos fazem — respondidas a direito. Se não encontrares a tua, é só ligar ou escrever." data-en="The questions we get asked most — answered straight. If you don't find yours, just call or write.">As perguntas que mais nos fazem — respondidas a direito. Se não encontrares a tua, é só ligar ou escrever.</p>
+      <a href="#contact" class="btn-b" data-pt="Fazer uma pergunta →" data-en="Ask a question →">Fazer uma pergunta →</a>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq-item"><button type="button" class="faq-q" data-pt="Tenho de pagar para ver o meu site? <span class='faq-icon'>+</span>" data-en="Do I have to pay to see my site? <span class='faq-icon'>+</span>">Tenho de pagar para ver o meu site? <span class="faq-icon">+</span></button><div class="faq-a" data-pt="Não. Criamos uma versão de demonstração do teu site sem qualquer custo. Só pagas se gostares do resultado e quiseres manter o site online." data-en="No. We create a demo version of your site at no cost. You only pay if you like the result and want to go live.">Não. Criamos uma versão de demonstração do teu site sem qualquer custo. Só pagas se gostares do resultado e quiseres manter o site online.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" data-pt="Quanto tempo demora a ter o site no ar? <span class='faq-icon'>+</span>" data-en="How long does it take to get the site live? <span class='faq-icon'>+</span>">Quanto tempo demora a ter o site no ar? <span class="faq-icon">+</span></button><div class="faq-a" data-pt="Após confirmar e pagar, o teu site fica activo rapidamente. O prazo depende da complexidade do projecto." data-en="Once you confirm and pay, your site goes live quickly. The exact timeframe depends on your project's complexity.">Após confirmar e pagar, o teu site fica activo rapidamente. O prazo depende da complexidade do projecto.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" data-pt="E se quiser mudar algo depois? <span class='faq-icon'>+</span>" data-en="What if I want to change something later? <span class='faq-icon'>+</span>">E se quiser mudar algo depois? <span class="faq-icon">+</span></button><div class="faq-a" data-pt="Actualizações de conteúdo (horários, preços, fotos, textos) estão incluídas na mensalidade. Para alterações de estrutura ou design, avaliamos caso a caso." data-en="Content updates (hours, prices, photos, text) are included in the monthly fee. For structural changes, we'll quote on a case-by-case basis.">Actualizações de conteúdo (horários, preços, fotos, textos) estão incluídas na mensalidade. Para alterações de estrutura ou design, avaliamos caso a caso.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" data-pt="O site fica meu se cancelar? <span class='faq-icon'>+</span>" data-en="Do I keep the site if I cancel? <span class='faq-icon'>+</span>">O site fica meu se cancelar? <span class="faq-icon">+</span></button><div class="faq-a" data-pt="Sim. O domínio é teu desde o primeiro dia. Se cancelares, entregamos todos os ficheiros para poderes migrar para onde quiseres — sem restrições." data-en="Yes. The domain is yours from day one. If you cancel, we deliver all the files so you can migrate wherever you want — no restrictions.">Sim. O domínio é teu desde o primeiro dia. Se cancelares, entregamos todos os ficheiros para poderes migrar para onde quiseres — sem restrições.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" data-pt="Já tenho site. Podem melhorá-lo? <span class='faq-icon'>+</span>" data-en="I already have a site. Can you improve it? <span class='faq-icon'>+</span>">Já tenho site. Podem melhorá-lo? <span class="faq-icon">+</span></button><div class="faq-a" data-pt="Claro. Avaliamos o teu site actual gratuitamente e propomos um plano de melhoria. Muitos clientes chegam exactamente nessa situação — site desactualizado, lento, ou que não aparece no Google." data-en="Of course. We evaluate your current site for free and propose an improvement plan. Many clients come to us in exactly that situation — outdated, slow, or not showing up on Google.">Claro. Avaliamos o teu site actual gratuitamente e propomos um plano de melhoria. Muitos clientes chegam exactamente nessa situação — site desactualizado, lento, ou que não aparece no Google.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" data-pt="Trabalham fora do Algarve? <span class='faq-icon'>+</span>" data-en="Do you work outside Portugal? <span class='faq-icon'>+</span>">Trabalham fora do Algarve? <span class="faq-icon">+</span></button><div class="faq-a" data-pt="Sim, trabalhamos com clientes em todo Portugal, Europa e EUA. O processo é 100% remoto — tão simples de Braga como de Berlim ou Nova Iorque." data-en="Yes, we work with clients across Portugal, Europe and the USA. The process is 100% remote — as easy from Braga as from Berlin or New York.">Sim, trabalhamos com clientes em todo Portugal, Europa e EUA. O processo é 100% remoto — tão simples de Braga como de Berlim ou Nova Iorque.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="sec-label r" data-pt="Contacto" data-en="Contact">Contacto</div>
+  <div class="contact-wrap r">
+    <div>
+      <h2 class="sh" data-pt="VAMOS<br>FALAR<br><span class='cr'>HOJE.</span>" data-en="LET'S<br>TALK<br><span class='cr'>TODAY.</span>">VAMOS<br>FALAR<br><span class="cr">HOJE.</span></h2>
+      <p class="contact-lede"><span data-pt="Conta-nos sobre o teu negócio. Em <em>dias</em> tens um site pronto a ver — sem compromisso, sem custos." data-en="Tell us about your business. In <em>days</em> you'll have a site ready to see — no commitment, no cost.">Conta-nos sobre o teu negócio. Em <em>dias</em> tens um site pronto a ver — sem compromisso, sem custos.</span></p>
+      <div class="cdetail">
+        <div class="cd-icon-box">📍</div>
+        <div><div class="cd-label" data-pt="Localização" data-en="Location">Localização</div><div class="cd-val">Portimão, Algarve, Portugal</div></div>
+      </div>
+      <div class="cdetail">
+        <div class="cd-icon-box">📧</div>
+        <div><div class="cd-label" data-pt="Email" data-en="Email">Email</div><div class="cd-val"><a href="/cdn-cgi/l/email-protection#8fe8e0cff9e0e3f9eefdeea1fffb"><span class="__cf_email__" data-cfemail="84e3ebc4f2ebe8f2e5f6e5aaf4f0">[email&#160;protected]</span></a></div></div>
+      </div>
+      <div class="cdetail">
+        <div class="cd-icon-box">📱</div>
+        <div><div class="cd-label" data-pt="Telefone / WhatsApp" data-en="Phone / WhatsApp">Telefone / WhatsApp</div><div class="cd-val"><a href="https://wa.me/351917810999">+351 917 810 999</a></div></div>
+      </div>
+    </div>
+    <div class="cform"><form id="contactForm" action="https://formspree.io/f/xlgpvwvy" method="POST"><input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="form-row">
+        <div class="form-g"><label class="form-l" data-pt="Nome" data-en="Name">Nome</label><input class="form-i" type="text" name="nome" placeholder="O teu nome" data-placeholder-pt="O teu nome" data-placeholder-en="Your name" required></div>
+        <div class="form-g"><label class="form-l" data-pt="Telefone / WhatsApp" data-en="Phone / WhatsApp">Telefone / WhatsApp</label><input class="form-i" type="tel" name="telefone" placeholder="+351 900 000 000" data-placeholder-pt="+351 900 000 000" data-placeholder-en="+1 (555) 000-0000"></div>
+      </div>
+      <div class="form-g"><label class="form-l" data-pt="Email" data-en="Email">Email</label><input class="form-i" type="email" name="email" placeholder="email@exemplo.pt" data-placeholder-pt="email@exemplo.pt" data-placeholder-en="email@example.com"></div>
+      <div class="form-g"><label class="form-l" data-pt="Tipo de negócio" data-en="Business type">Tipo de negócio</label>
+        <select class="form-s" name="tipo_negocio">
+          <option value="" data-pt="Selecciona..." data-en="Select...">Selecciona...</option>
+          <option data-pt="Restaurante / Café" data-en="Restaurant / Café">Restaurante / Café</option>
+          <option data-pt="Comércio local" data-en="Local retail">Comércio local</option>
+          <option data-pt="Serviços (cabeleireiro, estética...)" data-en="Services (hair, beauty...)">Serviços (cabeleireiro, estética...)</option>
+          <option data-pt="Turismo / Alojamento" data-en="Tourism / Accommodation">Turismo / Alojamento</option>
+          <option data-pt="Saúde / Bem-estar" data-en="Health / Wellness">Saúde / Bem-estar</option>
+          <option data-pt="Outro" data-en="Other">Outro</option>
+        </select>
+      </div>
+      <div class="form-g form-rgpd">
+        <label class="rgpd-label">
+          <input type="checkbox" id="rgpdCheck" required>
+          <span class="rgpd-text" data-pt="Aceito que os meus dados sejam utilizados para responder ao meu pedido, de acordo com a Política de Privacidade." data-en="I agree that my data will be used to respond to my request, in accordance with the Privacy Policy.">Aceito que os meus dados sejam utilizados para responder ao meu pedido, de acordo com a <a href="/privacidade" class="rgpd-link">Política de Privacidade</a>.</span>
+        </label>
+      </div>
+      <button type="submit" class="form-btn" data-pt="Vê o teu demo →" data-en="See my demo →">Vê o teu demo →</button>
+      <p class="form-note" data-pt="Sem compromisso. Vês o resultado antes de pagar. Respondemos em menos de 24h — por mensagem ou telefone." data-en="No commitment. You see the result before paying. We reply within 24h — by message or phone.">Sem compromisso. Vês o resultado antes de pagar. Respondemos em menos de 24h — por mensagem ou telefone.</p>
+      <div id="formSuccess" class="form-success" style="display:none" data-pt="Mensagem enviada! Respondemos em menos de 24h." data-en="Message sent! We'll reply within 24h.">Mensagem enviada! Respondemos em menos de 24h.</div>
+    </form></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">VOLVA<span class="ra">RA</span></div>
+      <p class="footer-desc" data-pt="Web studio no Algarve. Websites feitos à mão — rápidos, ou cuidados." data-en="Web studio in the Algarve. Hand-crafted websites — fast, or carefully.">Web studio no Algarve. Websites feitos à mão — rápidos, ou cuidados.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-h" data-pt="Serviços" data-en="Services">Serviços</div>
+      <ul>
+        <li><a href="#pricing" data-pt="Quick" data-en="Quick">Quick</a></li>
+        <li><a href="/studio/" data-pt="Studio" data-en="Studio">Studio</a></li>
+        <li><a href="#pricing">Google Business</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-h" data-pt="Empresa" data-en="Company">Empresa</div>
+      <ul>
+        <li><a href="#benefits" data-pt="O que fazemos" data-en="What we do">O que fazemos</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-h" data-pt="Contacto" data-en="Contact">Contacto</div>
+      <ul>
+        <li><a href="/cdn-cgi/l/email-protection#e78088a791888b91869586c99793"><span class="__cf_email__" data-cfemail="3750587741585b41564556194743">[email&#160;protected]</span></a></li>
+        <li><a href="https://wa.me/351917810999">+351 917 810 999</a></li>
+        <li><a href="https://wa.me/351917810999">WhatsApp</a></li>
+        <li><a href="https://instagram.com/volvara.pt">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-payments" data-pt-section="payments">
+    <div class="footer-payments-label" data-pt="Métodos de pagamento aceites" data-en="Accepted payment methods">Métodos de pagamento aceites</div>
+    <div class="payment-groups">
+
+      <!-- TRANSFERÊNCIAS -->
+      <div class="payment-group">
+        <div class="payment-group-title" data-pt="Transferência" data-en="Transfer">Transferência</div>
+        <div class="payment-icons">
+          <div class="pay-icon" title="SEPA Bank Transfer">
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="none"><rect width="18" height="12" rx="2" fill="#003189" opacity=".8"/><text x="9" y="8.5" font-family="monospace" font-size="5.5" fill="#FFB020" text-anchor="middle" font-weight="bold">SEPA</text></svg>
+            <span>SEPA</span>
+          </div>
+          <div class="pay-icon" title="MB WAY">
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="none"><rect width="18" height="12" rx="2" fill="#FF6B00" opacity=".85"/><text x="9" y="8.5" font-family="monospace" font-size="4.5" fill="#fff" text-anchor="middle" font-weight="bold">MBWay</text></svg>
+            <span>MB WAY</span>
+          </div>
+          <div class="pay-icon" title="Revolut">
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="none"><rect width="18" height="12" rx="2" fill="#191C1F"/><text x="9" y="8.5" font-family="monospace" font-size="4.5" fill="#fff" text-anchor="middle" font-weight="bold">REVLT</text></svg>
+            <span>Revolut</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STABLECOINS -->
+      <div class="payment-group">
+        <div class="payment-group-title" data-pt="Stablecoins (EVM)" data-en="Stablecoins (EVM)">Stablecoins (EVM)</div>
+        <div class="payment-icons">
+          <div class="pay-icon" title="USDC — USD Coin">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="#2775CA" opacity=".9"/><text x="7" y="10" font-family="monospace" font-size="4" fill="#fff" text-anchor="middle" font-weight="bold">USDC</text></svg>
+            <span>USDC</span>
+          </div>
+          <div class="pay-icon" title="USDT — Tether">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="#26A17B" opacity=".9"/><text x="7" y="10" font-family="monospace" font-size="4" fill="#fff" text-anchor="middle" font-weight="bold">USDT</text></svg>
+            <span>USDT</span>
+          </div>
+          <div class="pay-icon" title="DAI — MakerDAO">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="#F5AC37" opacity=".9"/><text x="7" y="10" font-family="monospace" font-size="4" fill="#fff" text-anchor="middle" font-weight="bold">DAI</text></svg>
+            <span>DAI</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PULSECHAIN -->
+      <div class="payment-group">
+        <div class="payment-group-title" data-pt="PulseChain" data-en="PulseChain">PulseChain</div>
+        <div class="payment-icons">
+          <div class="pay-icon" title="PLS — PulseChain native token">
+            <img src="data:image/png;base64,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" height="16" alt="PulseChain" style="height:16px;width:auto;max-width:80px;object-fit:contain">
+          </div>
+          <div class="pay-icon" title="HEX — hex.com">
+            <img loading="lazy" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTIyN3B4IiBoZWlnaHQ9IjI2OXB4IiB2aWV3Qm94PSIwIDAgMTIyNyAyNjkiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8dGl0bGU+d29yZG1hcmtCPC90aXRsZT4KICAgIDxkZWZzPgogICAgICAgIDxsaW5lYXJHcmFkaWVudCB4MT0iNzQuOTk1NjUyNyUiIHkxPSIxMS44MDQ0NTcyJSIgeDI9IjI1LjA2NTcwNjglIiB5Mj0iODguMzA2NjAwNiUiIGlkPSJsaW5lYXJHcmFkaWVudC0xIj4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0ZFMDFGQSIgb2Zmc2V0PSIwJSI+PC9zdG9wPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRkYwRjZGIiBvZmZzZXQ9IjMxLjYzMTg1MzklIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNGRjNEM0QiIG9mZnNldD0iNTEuOTUzMTI1JSI+PC9zdG9wPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRkY4NTFGIiBvZmZzZXQ9IjcwLjg2MzI5OTYlIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNGRkRCMDEiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0id29yZG1hcmtCIiBmaWxsLXJ1bGU9Im5vbnplcm8iPgogICAgICAgICAgICA8cGF0aCBkPSJNNzIuNjYyMzI1MSwyNjIuODEzOTYgTDUxLjk1MjU4OTQsMjI2LjkzMDU2NSBDNTEuMzA5NDY5MSwyMjUuNjAwNTk0IDUxLjMwOTQ2OTEsMjI0LjA0OTIyOCA1MS45NTI1ODk0LDIyMi43MTkyNTcgTDc0Ljk2MjE5NTgsMTgyLjg1MzY2NiBDNzUuNzc5ODMyOSwxODEuNjAxMTEzIDc3LjE0MzA2OTEsMTgwLjgxMTU1NCA3OC42MzU0NDg5LDE4MC43MjYxOTIgTDEyNC42MzI4NjIsMTgwLjcyNjE5MiBDMTI2LjEyNzYyOCwxODAuODEzMzE0IDEyNy40OTM0NTIsMTgxLjYwMjAzMiAxMjguMzE3MDE1LDE4Mi44NTM2NjYgTDE1MS4zMTU3MjIsMjIyLjcxOTI1NyBDMTUxLjk4MTM3NCwyMjQuMDU5MzI0IDE1MS45ODEzNzQsMjI1LjYzNDEzOCAxNTEuMzE1NzIyLDIyNi45NzQyMDUgTDEyOC4yNTE2MTYsMjY2LjgxNzk3NSBDMTI3LjQyNzg2OCwyNjguMDM1NjYxIDEyNi4wOTcxMTIsMjY4LjgxNDAwMyAxMjQuNjMyODYyLDI2OC45MzQ1MzkgTDgzLjMxMTQ4OTIsMjY4LjkzNDUzOSBDNzkuMDA1OTA3OSwyNjguNjU2NjMxIDc1LjA3MjQ4OSwyNjYuMzk1OTA5IDcyLjY2MjMyNTEsMjYyLjgxMzk2IFogTTIyMS45OTA0MiwxODAuNzU4OTIzIEwxNzYuMjExMDA0LDEwMS4zMzMyMjUgQzE3NS4wNzk3OTYsOTkuNjM0NTEyOSAxNzMuMjIxNTg0LDk4LjU2MTMwMjggMTcxLjE4NjE2OCw5OC40MzExMzI0IEw3OS41MTgzMzc2LDk4LjQzMTEzMjQgQzc3LjQ4MjkyMiw5OC41NjEzMDI4IDc1LjYyNDcwOTgsOTkuNjM0NTEyOSA3NC40OTM1MDE3LDEwMS4zMzMyMjUgTDI4LjY1OTU4NjYsMTgwLjgwMjU2MyBDMjcuNzU1ODI5NiwxODIuNjMxNTUxIDI3Ljc1NTgyOTYsMTg0Ljc3Nzc2MSAyOC42NTk1ODY2LDE4Ni42MDY3NDkgTDQyLjE0MjcxNDUsMjA5LjkxMDc3MiBMNjUuNjQyODE0NywxNjkuMTk0MTkyIEM2Ni45MzAxMTUzLDE2Ny4yMjg5OTEgNjkuMDY1OTEzMywxNjUuOTg0Mjk0IDcxLjQwODg0MTEsMTY1LjgzMzg3NCBMMTMxLjc5NDA3MSwxNjUuODMzODc0IEMxMzQuMTU0MjM1LDE2NS45NjU3MDIgMTM2LjMxMTA3MSwxNjcuMjEzMjI4IDEzNy42MDM2OTYsMTY5LjE5NDE5MiBMMTY3LjgwNzIxMSwyMjEuNTYyNzg0IEMxNjguODc1NTQ0LDIyMy42NzUzODcgMTY4Ljg3NTU0NCwyMjYuMTcwODE3IDE2Ny44MDcyMTEsMjI4LjI4MzQyIEwxNDQuMzA3MTExLDI2OSBMMTcxLjE1MzQ2OCwyNjkgQzE3My4xOTQ0MjQsMjY4Ljg3OTEwNiAxNzUuMDU3OTAzLDI2Ny43OTg4MDkgMTc2LjE3ODMwNCwyNjYuMDg2OTk3IEwyMjEuOTkwNDIsMTg2LjYyODU2OSBDMjIyLjkxNTg5MywxODQuNzgxNjY3IDIyMi45MTU4OTMsMTgyLjYwNTgyNSAyMjEuOTkwNDIsMTgwLjc1ODkyMyBaIE0zMDUuMTU2MzU5LDEyOC4yMDQ4NTkgTDIzNC45MDY3NTUsNi4yNzMzMjA5IEMyMzIuNDc5MDQ1LDIuNTYzOTE3NTggMjI4LjQzMTAxOCwwLjIzNDExMDczOCAyMjQuMDA2ODk0LDAgTDgzLjM5ODY4ODEsMCBDNzguOTc0NTY0MiwwLjIzNDExMDczOCA3NC45MjY1Mzc1LDIuNTYzOTE3NTggNzIuNDk4ODI3Miw2LjI3MzMyMDkgTDIuMjE2NTIzOTcsMTI4LjIwNDg1OSBDMC4yMjIwMjIzNzUsMTMyLjE0MTE0MSAwLjIyMjAyMjM3NSwxMzYuNzkzMzk4IDIuMjE2NTIzOTcsMTQwLjcyOTY4IEwxOC4zMzc0MTgzLDE2OC42NzA1MDYgTDY1LjAzMjQyMjUsODcuNjQxMDIwNCBDNjYuNjMzNTQwMyw4NS4xOTYxNDQ3IDY5LjI5OTM2MjQsODMuNjU3NTAxMSA3Mi4yMTU0MzA4LDgzLjQ5NTE3MzYgTDE3OC4zOTA5NzYsODMuNDk1MTczNiBDMTgxLjMwNDE1MSw4My42NTc0NDA1IDE4My45NjY2NzgsODUuMTk2NTE3NyAxODUuNTYzMDg1LDg3LjY0MTAyMDQgTDIzOC42MzQ1MDcsMTc5LjY0NjA5IEMyMzkuOTUzMzMzLDE4Mi4yNTIzNjkgMjM5Ljk1MzMzMywxODUuMzMxNTA2IDIzOC42MzQ1MDcsMTg3LjkzNzc4NCBMMTkxLjg5NTkwNCwyNjguOTM0NTM5IEwyMjQuMDUwNDkzLDI2OC45MzQ1MzkgQzIyOC40NzQ2MTcsMjY4LjcwMDQyOSAyMzIuNTIyNjQ0LDI2Ni4zNzA2MjIgMjM0Ljk1MDM1NCwyNjIuNjYxMjE4IEwzMDUuMjMyNjU4LDE0MC43NDA1OTEgQzMwNy4yMTY2NDUsMTM2LjgwMTc5OCAzMDcuMjE2NjQ1LDEzMi4xNTQ1NjEgMzA1LjIzMjY1OCwxMjguMjE1NzY5IEwzMDUuMTU2MzU5LDEyOC4yMDQ4NTkgWiIgaWQ9IlNoYXBlIiBmaWxsPSJ1cmwoI2xpbmVhckdyYWRpZW50LTEpIj48L3BhdGg+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik0zODguNTA0NTAzLDIwMC44NDM4NTggTDM4OC41MDQ1MDMsMTQ1LjMwMzE3OCBMNDM5LjgwNDc2LDE0NS4zMDMxNzggTDQzOS44MDQ3NiwyMDAuODQzODU4IEw0NzEuNTg4NjE2LDIwMC44NDM4NTggTDQ3MS41ODg2MTYsNjcuOTk2NTU1NyBMNDM5LjgwNDc2LDY3Ljk5NjU1NTcgTDQzOS44MDQ3NiwxMTguMjgzMzg3IEwzODguNTA0NTAzLDExOC4yODMzODcgTDM4OC41MDQ1MDMsNjcuOTk2NTU1NyBMMzU2LjcyMDY0OCw2Ny45OTY1NTU3IEwzNTYuNzIwNjQ4LDIwMC44NDM4NTggTDM4OC41MDQ1MDMsMjAwLjg0Mzg1OCBaIE01ODMuNDYwMDI4LDIwMC44NDM4NTggTDU4My40NjAwMjgsMTczLjQ0ODc5MyBMNTIyLjI1OTExOSwxNzMuNDQ4NzkzIEw1MjIuMjU5MTE5LDE0NS44NjYwOSBMNTc2Ljk0OTI5MywxNDUuODY2MDkgTDU3Ni45NDkyOTMsMTIwLjE1OTc2MiBMNTIyLjI1OTExOSwxMjAuMTU5NzYyIEw1MjIuMjU5MTE5LDk1LjIwMzk4MzMgTDU4MC4xMTE2NSw5NS4yMDM5ODMzIEw1ODAuMTExNjUsNjcuOTk2NTU1NyBMNDkxLjU2NTY1NCw2Ny45OTY1NTU3IEw0OTEuNTY1NjU0LDIwMC44NDM4NTggTDU4My40NjAwMjgsMjAwLjg0Mzg1OCBaIE02MzUuNDE5Nzc1LDIwMC44NDM4NTggTDY2My4xNTcwMTcsMTUzLjkzNDUgTDY5Mi4wMTExOTUsMjAwLjg0Mzg1OCBMNzMxLjI5MDEwOCwyMDAuODQzODU4IEw2ODMuNjM0MTc2LDEzMC42Njc0NTggTDcyNS4zMzMxMTcsNjcuOTk2NTU1NyBMNjg4LjI4ODA3NSw2Ny45OTY1NTU3IEw2NjQuMDg3Nzk3LDEwOS4yNzY3OTEgTDYzOS41MTUyMDcsNjcuOTk2NTU1NyBMNjAxLjE2NzA3NCw2Ny45OTY1NTU3IEw2NDMuNjEwNjM5LDEzMC42Njc0NTggTDU5Ny40NDM5NTQsMjAwLjg0Mzg1OCBMNjM1LjQxOTc3NSwyMDAuODQzODU4IFogTTc2MS40NDM1NjgsMjAyLjg0MTU2MSBDNzY2LjU3OTU3OSwyMDIuODQxNTYxIDc3MC45OTUyOTUsMjAxLjEyOTI0NCA3NzQuNjkwNzE3LDE5Ny43MDQ2MDkgQzc3OC4zODYxNCwxOTQuMjc5OTc0IDc4MC4yMzM4NTEsMTg5Ljk5OTE4IDc4MC4yMzM4NTEsMTg0Ljg2MjIyNyBDNzgwLjIzMzg1MSwxNzkuNzI1Mjc1IDc3OC4zODYxNCwxNzUuNDQ0NDgxIDc3NC42OTA3MTcsMTcyLjAxOTg0NiBDNzcwLjk5NTI5NSwxNjguNTk1MjExIDc2Ni41Nzk1NzksMTY2Ljg4Mjg5MyA3NjEuNDQzNTY4LDE2Ni44ODI4OTMgQzc1OC44MTI5MjgsMTY2Ljg4Mjg5MyA3NTYuMzM4ODc0LDE2Ny4zNzIxMjcgNzU0LjAyMTQwNiwxNjguMzUwNTk0IEM3NTEuNzAzOTM4LDE2OS4zMjkwNjEgNzQ5LjY2ODMyNCwxNzAuNjQzODc2IDc0Ny45MTQ1NjQsMTcyLjI5NTA0IEM3NDYuMTYwODA0LDE3My45NDYyMDMgNzQ0Ljc4Mjg1LDE3NS44NzI1NiA3NDMuNzgwNzAyLDE3OC4wNzQxMTEgQzc0Mi43Nzg1NTMsMTgwLjI3NTY2MyA3NDIuMjc3NDc5LDE4Mi41OTk1MjIgNzQyLjI3NzQ3OSwxODUuMDQ1NjkgQzc0Mi4yNzc0NzksMTg3LjYxNDE2NiA3NDIuNzc4NTUzLDE4OS45Njg2MDMgNzQzLjc4MDcwMiwxOTIuMTA5IEM3NDQuNzgyODUsMTk0LjI0OTM5NyA3NDYuMTYwODA0LDE5Ni4xMTQ2IDc0Ny45MTQ1NjQsMTk3LjcwNDYwOSBDNzQ5LjY2ODMyNCwxOTkuMjk0NjE4IDc1MS43MDM5MzgsMjAwLjU0ODI3OSA3NTQuMDIxNDA2LDIwMS40NjU1OTIgQzc1Ni4zMzg4NzQsMjAyLjM4MjkwNSA3NTguODEyOTI4LDIwMi44NDE1NjEgNzYxLjQ0MzU2OCwyMDIuODQxNTYxIFogTTg1NS41ODQ3NDEsMjAzLjg0MDQxMyBDODY2LjgyMTgyNSwyMDMuODQwNDEzIDg3Ni43NDc5MTUsMjAxLjg4NjIyNSA4ODUuMzYzMDEzLDE5Ny45Nzc4NDkgQzg5My45NzgxMSwxOTQuMDY5NDczIDkwMS4yMTk3ODcsMTg4Ljc2NTI0OCA5MDcuMDg4MDQyLDE4Mi4wNjUxNzQgTDkwNy4wODgwNDIsMTgyLjA2NTE3NCBMODg0LjgwMTE1OSwxNjEuMjIwNTAxIEM4ODEuOTI5NDU5LDE2NS4xOTA5MTUgODc4LjEyMTMzNywxNjguNDE2ODc2IDg3My4zNzY3OSwxNzAuODk4Mzg1IEM4NjguNjMyMjQ0LDE3My4zNzk4OTQgODYzLjA3NjEzLDE3NC42MjA2NDggODU2LjcwODQ0OSwxNzQuNjIwNjQ4IEM4NTEuMjE0NzY0LDE3NC42MjA2NDggODQ2LjE1ODA3NiwxNzMuNjI4MDQ1IDg0MS41MzgzODYsMTcxLjY0MjgzOCBDODM2LjkxODY5NiwxNjkuNjU3NjMxIDgzMi45NTQ1MDMsMTY2Ljg5Njk1MiA4MjkuNjQ1ODA2LDE2My4zNjA4MDIgQzgyNi4zMzcxMDksMTU5LjgyNDY1MiA4MjMuNzQ2MzM3LDE1NS41NzUwNjkgODIxLjg3MzQ4OSwxNTAuNjEyMDUxIEM4MjAuMDAwNjQyLDE0NS42NDkwMzQgODE5LjA2NDIxOCwxNDAuMTg5NzE0IDgxOS4wNjQyMTgsMTM0LjIzNDA5NCBDODE5LjA2NDIxOCwxMjguNDAyNTQ4IDgyMC4wMDA2NDIsMTIzLjAzNjI4NSA4MjEuODczNDg5LDExOC4xMzUzMDYgQzgyMy43NDYzMzcsMTEzLjIzNDMyNiA4MjYuMzY4MzIzLDEwOC45ODQ3NDIgODI5LjczOTQ0OCwxMDUuMzg2NTU1IEM4MzMuMTEwNTczLDEwMS43ODgzNjcgODM3LjEzNzE5NSw5OC45NjU2NTA3IDg0MS44MTkzMTMsOTYuOTE4NDA2IEM4NDYuNTAxNDMxLDk0Ljg3MTE2MTMgODUxLjY1MTc2MSw5My44NDc1MzkgODU3LjI3MDMwMyw5My44NDc1MzkgQzg2Mi4zODk0MTksOTMuODQ3NTM5IDg2Ny4zODM2NzksOTQuODQwMTQyNSA4NzIuMjUzMDgyLDk2LjgyNTM0OTQgQzg3Ny4xMjI0ODUsOTguODEwNTU2NCA4ODEuMDU1NDY0LDEwMS44NTA0MDUgODg0LjA1MjAyLDEwNS45NDQ4OTQgTDg4NC4wNTIwMiwxMDUuOTQ0ODk0IEw5MDUuNzc3MDQ4LDg0LjM1NTc2ODEgQzkwMC4xNTg1MDcsNzguMDI3OTIwOCA4OTIuODIzMTg4LDczLjIxOTk5NzcgODgzLjc3MTA5Myw2OS45MzE5OTg2IEM4NzQuNzE4OTk3LDY2LjY0Mzk5OTUgODY1LjUxMDgzMSw2NSA4NTYuMTQ2NTk1LDY1IEM4NDYuMDMzMjIsNjUgODM2LjYwNjU1NSw2Ni42MTI5ODA3IDgyNy44NjY2MDEsNjkuODM4OTQyIEM4MTkuMTI2NjQ3LDczLjA2NDkwMzQgODExLjUxMDQwMSw3Ny42ODY3MTM0IDgwNS4wMTc4NjQsODMuNzA0MzcyIEM3OTguNTI1MzI2LDg5LjcyMjAzMDcgNzkzLjQzNzQyNCw5Ny4wMTE0NjI2IDc4OS43NTQxNTgsMTA1LjU3MjY2OCBDNzg2LjA3MDg5MiwxMTQuMTMzODczIDc4NC4yMjkyNTksMTIzLjY4NzY4MSA3ODQuMjI5MjU5LDEzNC4yMzQwOTQgQzc4NC4yMjkyNTksMTQ0LjUzMjM1NSA3ODYuMDM5Njc4LDE1My45NjIwODggNzg5LjY2MDUxNiwxNjIuNTIzMjkzIEM3OTMuMjgxMzU0LDE3MS4wODQ0OTggNzk4LjI3NTYxMywxNzguNDM1OTY4IDgwNC42NDMyOTQsMTg0LjU3NzcwMiBDODExLjAxMDk3NSwxOTAuNzE5NDM2IDgxOC41MzM1NzgsMTk1LjQ2NTMyMSA4MjcuMjExMTA0LDE5OC44MTUzNTggQzgzNS44ODg2MywyMDIuMTY1Mzk1IDg0NS4zNDY1MDksMjAzLjg0MDQxMyA4NTUuNTg0NzQxLDIwMy44NDA0MTMgWiBNOTgzLjkwNjM1OSwyMDMuODQwNDEzIEM5OTQuMjI5MTI1LDIwMy44NDA0MTMgMTAwMy44MDU2NywyMDIuMTY1Mzk1IDEwMTIuNjM1OTgsMTk4LjgxNTM1OCBDMTAyMS40NjYzLDE5NS40NjUzMjEgMTAyOS4wODQsMTkwLjcxOTQzNiAxMDM1LjQ4OTA5LDE4NC41Nzc3MDIgQzEwNDEuODk0MTgsMTc4LjQzNTk2OCAxMDQ2LjkwMDEsMTcxLjA1MzQ3OSAxMDUwLjUwNjg1LDE2Mi40MzAyMzYgQzEwNTQuMTEzNiwxNTMuODA2OTk0IDEwNTUuOTE2OTcsMTQ0LjI4NDIwNCAxMDU1LjkxNjk3LDEzMy44NjE4NjcgQzEwNTUuOTE2OTcsMTIzLjMxNTQ1NSAxMDU0LjExMzYsMTEzLjc5MjY2NSAxMDUwLjUwNjg1LDEwNS4yOTM0OTggQzEwNDYuOTAwMSw5Ni43OTQzMzA2IDEwNDEuODk0MTgsODkuNTY2OTM2NCAxMDM1LjQ4OTA5LDgzLjYxMTMxNTUgQzEwMjkuMDg0LDc3LjY1NTY5NDUgMTAyMS40NjYzLDczLjA2NDkwMzQgMTAxMi42MzU5OCw2OS44Mzg5NDIgQzEwMDMuODA1NjcsNjYuNjEyOTgwNyA5OTQuMjI5MTI1LDY1IDk4My45MDYzNTksNjUgQzk3My41ODM1OTQsNjUgOTY0LjAzODE0Niw2Ni42MTI5ODA3IDk1NS4yNzAwMTQsNjkuODM4OTQyIEM5NDYuNTAxODgyLDczLjA2NDkwMzQgOTM4LjkxNTI3Miw3Ny42NTU2OTQ1IDkzMi41MTAxODMsODMuNjExMzE1NSBDOTI2LjEwNTA5Myw4OS41NjY5MzY0IDkyMS4wOTkxNzQsOTYuNzk0MzMwNiA5MTcuNDkyNDI1LDEwNS4yOTM0OTggQzkxMy44ODU2NzYsMTEzLjc5MjY2NSA5MTIuMDgyMzAxLDEyMy4zMTU0NTUgOTEyLjA4MjMwMSwxMzMuODYxODY3IEM5MTIuMDgyMzAxLDE0NC4yODQyMDQgOTEzLjg4NTY3NiwxNTMuODA2OTk0IDkxNy40OTI0MjUsMTYyLjQzMDIzNiBDOTIxLjA5OTE3NCwxNzEuMDUzNDc5IDkyNi4xMDUwOTMsMTc4LjQzNTk2OCA5MzIuNTEwMTgzLDE4NC41Nzc3MDIgQzkzOC45MTUyNzIsMTkwLjcxOTQzNiA5NDYuNTAxODgyLDE5NS40NjUzMjEgOTU1LjI3MDAxNCwxOTguODE1MzU4IEM5NjQuMDM4MTQ2LDIwMi4xNjUzOTUgOTczLjU4MzU5NCwyMDMuODQwNDEzIDk4My45MDYzNTksMjAzLjg0MDQxMyBaIE05ODMuNDA3NzI1LDE3NS44NzI1NiBDOTc3Ljg1ODU0OCwxNzUuODcyNTYgOTcyLjgwMjYzMSwxNzQuODM5MzQ0IDk2OC4yMzk5NzQsMTcyLjc3MjkxMiBDOTYzLjY3NzMxNywxNzAuNzA2NDggOTU5Ljc2MjA2NSwxNjcuODU3MzA4IDk1Ni40OTQyMTYsMTY0LjIyNTM5NyBDOTUzLjIyNjM2NywxNjAuNTkzNDg2IDk1MC42Njc1OCwxNTYuMjQxNDU1IDk0OC44MTc4NTQsMTUxLjE2OTMwMyBDOTQ2Ljk2ODEyOCwxNDYuMDk3MTUyIDk0Ni4wNDMyNjUsMTQwLjU1NTM1NyA5NDYuMDQzMjY1LDEzNC41NDM5MTggQzk0Ni4wNDMyNjUsMTI4Ljc4Mjk1NSA5NDYuOTM3MywxMjMuMzk3NzA4IDk0OC43MjUzNjgsMTE4LjM4ODE3NiBDOTUwLjUxMzQzNiwxMTMuMzc4NjQzIDk1My4wNzIyMjMsMTA5LjA4OTIzMSA5NTYuNDAxNzMsMTA1LjUxOTkzOSBDOTU5LjczMTIzNiwxMDEuOTUwNjQ3IDk2My42NzczMTcsOTkuMTMyNzg1MyA5NjguMjM5OTc0LDk3LjA2NjM1MzEgQzk3Mi44MDI2MzEsOTQuOTk5OTIxIDk3Ny44NTg1NDgsOTMuOTY2NzA0OSA5ODMuNDA3NzI1LDkzLjk2NjcwNDkgQzk4OC45NTY5MDIsOTMuOTY2NzA0OSA5OTQuMDQzNjQ4LDk0Ljk5OTkyMSA5OTguNjY3OTYyLDk3LjA2NjM1MzEgQzEwMDMuMjkyMjgsOTkuMTMyNzg1MyAxMDA3LjIzODM2LDEwMS45NTA2NDcgMTAxMC41MDYyMSwxMDUuNTE5OTM5IEMxMDEzLjc3NDA2LDEwOS4wODkyMzEgMTAxNi4zMzI4NCwxMTMuMzc4NjQzIDEwMTguMTgyNTcsMTE4LjM4ODE3NiBDMTAyMC4wMzIyOSwxMjMuMzk3NzA4IDEwMjAuOTU3MTYsMTI4Ljc4Mjk1NSAxMDIwLjk1NzE2LDEzNC41NDM5MTggQzEwMjAuOTU3MTYsMTQwLjU1NTM1NyAxMDIwLjAzMjI5LDE0Ni4wOTcxNTIgMTAxOC4xODI1NywxNTEuMTY5MzAzIEMxMDE2LjMzMjg0LDE1Ni4yNDE0NTUgMTAxMy43NDMyMywxNjAuNTkzNDg2IDEwMTAuNDEzNzIsMTY0LjIyNTM5NyBDMTAwNy4wODQyMSwxNjcuODU3MzA4IDEwMDMuMTM4MTMsMTcwLjcwNjQ4IDk5OC41NzU0NzYsMTcyLjc3MjkxMiBDOTk0LjAxMjgxOSwxNzQuODM5MzQ0IDk4OC45NTY5MDIsMTc1Ljg3MjU2IDk4My40MDc3MjUsMTc1Ljg3MjU2IFogTTExMDUuOTEwMTksMjAwLjg0Mzg1OCBMMTEwNS4xNjQ0NSwxMDYuODM3NTA0IEwxMTA1LjcyMzc1LDEwNi44Mzc1MDQgTDExMzkuMDk1NzgsMjAwLjg0Mzg1OCBMMTE2MS40NjgwOSwyMDAuODQzODU4IEwxMTk1Ljc3MjI5LDEwNi44Mzc1MDQgTDExOTYuMzMxNiwxMDYuODM3NTA0IEwxMTk1LjU4NTg1LDIwMC44NDM4NTggTDEyMjYuNzIwNjUsMjAwLjg0Mzg1OCBMMTIyNi43MjA2NSw2Ny45OTY1NTU3IEwxMTgwLjY3MDk4LDY3Ljk5NjU1NTcgTDExNTEuOTU5ODYsMTUzLjE4Mzk1IEwxMTUxLjIxNDExLDE1My4xODM5NSBMMTEyMS4xOTc5Myw2Ny45OTY1NTU3IEwxMDc1Ljg5NDAxLDY3Ljk5NjU1NTcgTDEwNzUuODk0MDEsMjAwLjg0Mzg1OCBMMTEwNS45MTAxOSwyMDAuODQzODU4IFoiIGlkPSJIRVguQ09NIiBmaWxsPSIjRkZGRkZGIj48L3BhdGg+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=" height="16" alt="HEX" style="height:16px;width:auto;max-width:48px;object-fit:contain">
+          </div>
+          <div class="pay-icon" title="PLSX — PulseX token">
+            <img loading="lazy" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTg1OXB4IiBoZWlnaHQ9IjY1NXB4IiB2aWV3Qm94PSIwIDAgMTg1OSA2NTUiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8dGl0bGU+d29yZG1hcms8L3RpdGxlPgogICAgPGRlZnM+CiAgICAgICAgPGxpbmVhckdyYWRpZW50IHgxPSIxNC4yNDc5MTA1JSIgeTE9IjAlIiB4Mj0iNjguNzcyNzklIiB5Mj0iMTExLjU5Nzc0MiUiIGlkPSJsaW5lYXJHcmFkaWVudC0xIj4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0ZGMDAwMCIgb2Zmc2V0PSIwLjA4NjM4ODIyMTIlIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNGRjAwMzMiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICAgICAgPGxpbmVhckdyYWRpZW50IHgxPSI4Mi44NjA2NzI1JSIgeTE9IjAlIiB4Mj0iMzEuNTIwNjAwNiUiIHkyPSIxMDcuMDY4MjM4JSIgaWQ9ImxpbmVhckdyYWRpZW50LTIiPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMDBGRjk5IiBvZmZzZXQ9IjAlIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMwMEZGNTUiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8ZyBpZD0id29yZG1hcmsiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJQdWxzZS0uY29tIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjE4MjM4MywgMC4wMDAwMDApIj4KICAgICAgICAgICAgPHBhdGggZD0iTTMxMi44MTc2MTcsMjI5LjE2NjY2NyBDMzEyLjgxNzYxNywyNTMuMjc3Nzc4IDMwOC4zNDg5NjQsMjczLjU5NzIyMiAyOTkuNDExNjU4LDI5MC4xMjUgQzI5MC40NzQzNTIsMzA2LjY1Mjc3OCAyNzguNDI4NDE3LDMxOS45NzIyMjIgMjYzLjI3Mzg1NSwzMzAuMDgzMzMzIEMyNDguMTE5MjkzLDM0MC4xOTQ0NDQgMjMwLjYzMzI1OSwzNDcuNTgzMzMzIDIxMC44MTU3NTQsMzUyLjI1IEMxOTAuOTk4MjUsMzU2LjkxNjY2NyAxNzAuNDAzNTg4LDM1OS4yNSAxNDkuMDMxNzY5LDM1OS4yNSBMMTI5LjQ4ODAwOCwzNTkuMjUgQzExMi45MTk0NjUsMzU5LjI1IDk5LjQ4ODAwNzYsMzcyLjY4MTQ1OCA5OS40ODgwMDc2LDM4OS4yNSBMOTkuNDg4MDA3Niw0OTUgQzk5LjQ4ODAwNzYsNTA2LjA0NTY5NSA5MC41MzM3MDI2LDUxNSA3OS40ODgwMDc2LDUxNSBMLTAuMTgyMzgzNDIsNTE1IEwtMC4xODIzODM0Miw1MTUgTC0wLjE4MjM4MzQyLDEzMiBDLTAuMTgyMzgzNDIsMTE1LjQzMTQ1OCAxMy4yNDkwNzQxLDEwMiAyOS44MTc2MTY2LDEwMiBMMTUxLjM2MzI0LDEwMiBMMTUxLjM2MzI0LDEwMiBDMTczLjkwMDc5NSwxMDIgMTk0Ljk4MTE4LDEwNC4yMzYxMTEgMjE0LjYwNDM5NSwxMDguNzA4MzMzIEMyMzQuMjI3NjEsMTEzLjE4MDU1NiAyNTEuMzI1MDY1LDEyMC4zNzUgMjY1Ljg5Njc2LDEzMC4yOTE2NjcgQzI4MC40Njg0NTUsMTQwLjIwODMzMyAyOTEuOTMxNTIxLDE1My4yMzYxMTEgMzAwLjI4NTk1OSwxNjkuMzc1IEMzMDguNjQwMzk3LDE4NS41MTM4ODkgMzEyLjgxNzYxNywyMDUuNDQ0NDQ0IDMxMi44MTc2MTcsMjI5LjE2NjY2NyBaIE0yMTMuODE3NjE3LDIzMC4wNDc5MDQgQzIxMy44MTc2MTcsMjIwLjM2NzI2NSAyMTEuODY4ODk5LDIxMi40MjkxNDIgMjA3Ljk3MTQ2MywyMDYuMjMzNTMzIEMyMDQuMDc0MDI3LDIwMC4wMzc5MjQgMTk4LjgxMjQ4OCwxOTUuMTk3NjA1IDE5Mi4xODY4NDcsMTkxLjcxMjU3NSBDMTg1LjU2MTIwNiwxODguMjI3NTQ1IDE3OC4wNTg2NDIsMTg1LjkwNDE5MiAxNjkuNjc5MTU1LDE4NC43NDI1MTUgQzE2MS4yOTk2NjgsMTgzLjU4MDgzOCAxNTIuNjI3ODczLDE4MyAxNDMuNjYzNzcsMTgzIEwxMTkuODE3NjE3LDE4MyBDMTA4Ljc3MTkyMiwxODMgOTkuODE3NjE2NiwxOTEuOTU0MzA1IDk5LjgxNzYxNjYsMjAzIEw5OS44MTc2MTY2LDI4MCBMOTkuODE3NjE2NiwyODAgTDE0MS45MDk5MjQsMjgwIEMxNTEuMjYzNzcsMjgwIDE2MC4yMjc4NzMsMjc5LjIyNTU0OSAxNjguODAyMjMyLDI3Ny42NzY2NDcgQzE3Ny4zNzY1OTEsMjc2LjEyNzc0NSAxODUuMDc0MDI3LDI3My40MTcxNjYgMTkxLjg5NDU0LDI2OS41NDQ5MSBDMTk4LjcxNTA1MiwyNjUuNjcyNjU1IDIwNC4wNzQwMjcsMjYwLjU0MTkxNiAyMDcuOTcxNDYzLDI1NC4xNTI2OTUgQzIxMS44Njg4OTksMjQ3Ljc2MzQ3MyAyMTMuODE3NjE3LDIzOS43Mjg1NDMgMjEzLjgxNzYxNywyMzAuMDQ3OTA0IFoiIGlkPSJTaGFwZSIgZmlsbD0iI0ZGRkZGRiIgZmlsbC1ydWxlPSJub256ZXJvIj48L3BhdGg+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik01MzguNTEwMzYzLDUxNS4wNzM1NzUgTDUzOC41MTAzNjMsNDc0Ljg1MzM2OCBMNTM3LjM0NDU2LDQ3NC44NTMzNjggQzUzMy44NDcxNSw0ODEuNDU5NTg1IDUyOS4yODEwODgsNDg3LjY3NzIwMiA1MjMuNjQ2MzczLDQ5My41MDYyMTggQzUxOC4wMTE2NTgsNDk5LjMzNTIzMyA1MTEuNDA1NDQsNTA0LjM4NzA0NyA1MDMuODI3NzIsNTA4LjY2MTY1OCBDNDk2LjI1LDUxMi45MzYyNjkgNDg3Ljg5NTA3OCw1MTYuNDMzNjc5IDQ3OC43NjI5NTMsNTE5LjE1Mzg4NiBDNDY5LjYzMDgyOSw1MjEuODc0MDkzIDQ2MC4wMTI5NTMsNTIzLjIzNDE5NyA0NDkuOTA5MzI2LDUyMy4yMzQxOTcgQzQzMC40NzkyNzUsNTIzLjIzNDE5NyA0MTQuMDYwODgxLDUxOS43MzY3ODggNDAwLjY1NDE0NSw1MTIuNzQxOTY5IEMzODcuMjQ3NDA5LDUwNS43NDcxNSAzNzYuMzY2NTgsNDk2LjcxMjE3NiAzNjguMDExNjU4LDQ4NS42MzcwNDcgQzM1OS42NTY3MzYsNDc0LjU2MTkxNyAzNTMuNjMzNDIsNDYxLjkzMjM4MyAzNDkuOTQxNzEsNDQ3Ljc0ODQ0NiBDMzQ2LjI1LDQzMy41NjQ1MDggMzQ0LjQwNDE0NSw0MTkuMDg5MTE5IDM0NC40MDQxNDUsNDA0LjMyMjI4IEwzNDQuNDA0MTQ1LDI1NC43ODg2MDEgQzM0NC40MDQxNDUsMjM4LjIyMDA1OSAzNTcuODM1NjAzLDIyNC43ODg2MDEgMzc0LjQwNDE0NSwyMjQuNzg4NjAxIEw0NDAuNTgyOTAyLDIyNC43ODg2MDEgTDQ0MC41ODI5MDIsMjI0Ljc4ODYwMSBMNDQwLjU4MjkwMiwzODIuMTcyMDIxIEM0NDAuNTgyOTAyLDM5MC4zMzI2NDIgNDQxLjE2NTgwMywzOTguMTA0NjYzIDQ0Mi4zMzE2MDYsNDA1LjQ4ODA4MyBDNDQzLjQ5NzQwOSw0MTIuODcxNTAzIDQ0NS43MzE4NjUsNDE5LjQ3NzcyIDQ0OS4wMzQ5NzQsNDI1LjMwNjczNiBDNDUyLjMzODA4Myw0MzEuMTM1NzUxIDQ1Ni43MDk4NDUsNDM1LjcwMTgxMyA0NjIuMTUwMjU5LDQzOS4wMDQ5MjIgQzQ2Ny41OTA2NzQsNDQyLjMwODAzMSA0NzQuNzc5NzkzLDQ0My45NTk1ODUgNDgzLjcxNzYxNyw0NDMuOTU5NTg1IEM1MDAuNDI3NDYxLDQ0My45NTk1ODUgNTEzLjE1NDE0NSw0MzcuNzQxOTY5IDUyMS44OTc2NjgsNDI1LjMwNjczNiBDNTMwLjY0MTE5Miw0MTIuODcxNTAzIDUzNS4wMTI5NTMsMzk4LjI5ODk2NCA1MzUuMDEyOTUzLDM4MS41ODkxMTkgTDUzNS4wMTI5NTMsMjU0Ljc4ODYwMSBDNTM1LjAxMjk1MywyMzguMjIwMDU5IDU0OC40NDQ0MTEsMjI0Ljc4ODYwMSA1NjUuMDEyOTUzLDIyNC43ODg2MDEgTDYzMC42MDg4MDgsMjI0Ljc4ODYwMSBMNjMwLjYwODgwOCwyMjQuNzg4NjAxIEw2MzAuNjA4ODA4LDQ4NS4wNzM1NzUgQzYzMC42MDg4MDgsNTAxLjY0MjExOCA2MTcuMTc3MzUxLDUxNS4wNzM1NzUgNjAwLjYwODgwOCw1MTUuMDczNTc1IEw1MzguNTEwMzYzLDUxNS4wNzM1NzUgTDUzOC41MTAzNjMsNTE1LjA3MzU3NSBaIiBpZD0iUGF0aCIgZmlsbD0iI0ZGRkZGRiIgZmlsbC1ydWxlPSJub256ZXJvIj48L3BhdGg+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik02NzYuNzgzNjc5LDUxNS4wNzM1NzUgTDY3Ni43ODM2NzksMTA0LjQgQzY3Ni43ODM2NzksODcuODMxNDU3NSA2OTAuMjE1MTM2LDc0LjQgNzA2Ljc4MzY3OSw3NC40IEw3NzMuNTQ1MzM3LDc0LjQgTDc3My41NDUzMzcsNzQuNCBMNzczLjU0NTMzNyw0ODUuMDczNTc1IEM3NzMuNTQ1MzM3LDUwMS42NDIxMTggNzYwLjExMzg3OSw1MTUuMDczNTc1IDc0My41NDUzMzcsNTE1LjA3MzU3NSBMNjc2Ljc4MzY3OSw1MTUuMDczNTc1IEw2NzYuNzgzNjc5LDUxNS4wNzM1NzUgWiIgaWQ9IlBhdGgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyI+PC9wYXRoPgogICAgICAgICAgICA8cGF0aCBkPSJNOTg3LjU2NDM1MywyOTYuMzAwNzM2IEM5ODQuNjU3ODA5LDI5NC40NzE3NzggOTgyLjAwMzM3MSwyOTIuOTc4OTU5IDk3OS42MDEwMzYsMjkxLjgyMjI4IEM5NjkuMTA4ODA4LDI4Ni43NzA0NjYgOTU4LjAzMzY3OSwyODQuMjQ0NTYgOTQ2LjM3NTY0OCwyODQuMjQ0NTYgQzkzNy40Mzc4MjQsMjg0LjI0NDU2IDkyOS4xODAwNTIsMjg1Ljk5MzI2NCA5MjEuNjAyMzMyLDI4OS40OTA2NzQgQzkxNC4wMjQ2MTEsMjkyLjk4ODA4MyA5MTAuMjM1NzUxLDI5OS4wMTEzOTkgOTEwLjIzNTc1MSwzMDcuNTYwNjIyIEM5MTAuMjM1NzUxLDMxNS43MjEyNDQgOTE0LjQxMzIxMiwzMjEuNTUwMjU5IDkyMi43NjgxMzUsMzI1LjA0NzY2OCBDOTMxLjEyMzA1NywzMjguNTQ1MDc4IDk0NC42MjY5NDMsMzMyLjQzMTA4OCA5NjMuMjc5NzkzLDMzNi43MDU2OTkgQzk3NC4xNjA2MjIsMzM5LjAzNzMwNiA5ODUuMTM4NjAxLDM0Mi4zNDA0MTUgOTk2LjIxMzczMSwzNDYuNjE1MDI2IEMxMDA3LjI4ODg2LDM1MC44ODk2MzcgMTAxNy4yOTUzNCwzNTYuNTI0MzUyIDEwMjYuMjMzMTYsMzYzLjUxOTE3MSBDMTAzNS4xNzA5OCwzNzAuNTEzOTkgMTA0Mi4zNjAxLDM3OS4wNjMyMTIgMTA0Ny44MDA1MiwzODkuMTY2ODM5IEMxMDUzLjI0MDkzLDM5OS4yNzA0NjYgMTA1NS45NjExNCw0MTEuMzE3MDk4IDEwNTUuOTYxMTQsNDI1LjMwNjczNiBDMTA1NS45NjExNCw0NDMuNTcwOTg0IDEwNTIuMjY5NDMsNDU5LjAxNzg3NiAxMDQ0Ljg4NjAxLDQ3MS42NDc0MDkgQzEwMzcuNTAyNTksNDg0LjI3Njk0MyAxMDI3Ljg4NDcyLDQ5NC40Nzc3MiAxMDE2LjAzMjM4LDUwMi4yNDk3NDEgQzEwMDQuMTgwMDUsNTEwLjAyMTc2MiA5OTAuODcwNDY2LDUxNS42NTY0NzcgOTc2LjEwMzYyNyw1MTkuMTUzODg2IEM5NjEuMzM2Nzg4LDUyMi42NTEyOTUgOTQ2LjU2OTk0OCw1MjQuNCA5MzEuODAzMTA5LDUyNC40IEM5MDguMDk4NDQ2LDUyNC40IDg4NC44Nzk1MzQsNTIwLjYxMTE0IDg2Mi4xNDYzNzMsNTEzLjAzMzQyIEM4MzkuNDEzMjEyLDUwNS40NTU2OTkgODIwLjQ2ODkxMiw0OTQuMjgzNDIgODA1LjMxMzQ3Miw0NzkuNTE2NTggTDgzOS44NTQ4LDQ0My4wOTgwMDUgQzg1MC4xMTQ3MSw0MzIuMjc0NDQgODY2Ljc2NzkyLDQzMC42MzUgODc4Ljk0Mzk0Myw0MzkuMjQ2NjA3IEM4ODMuMTQ4NDMzLDQ0Mi4yMjA4NTcgODg2Ljk3MjgxOCw0NDQuNTY5MDUyIDg5MC40MTcwOTgsNDQ2LjI5MTE5MiBDOTAyLjg1MjMzMiw0NTIuNTA4ODA4IDkxNi4wNjQ3NjcsNDU1LjYxNzYxNyA5MzAuMDU0NDA0LDQ1NS42MTc2MTcgQzkzNy44MjY0MjUsNDU1LjYxNzYxNyA5NDUuNTAxMjk1LDQ1My43NzE3NjIgOTUzLjA3OTAxNiw0NTAuMDgwMDUyIEM5NjAuNjU2NzM2LDQ0Ni4zODgzNDIgOTY0LjQ0NTU5Niw0MzkuODc5Mjc1IDk2NC40NDU1OTYsNDMwLjU1Mjg1IEM5NjQuNDQ1NTk2LDQyMS42MTUwMjYgOTU5Ljc4MjM4Myw0MTUuMDA4ODA4IDk1MC40NTU5NTksNDEwLjczNDE5NyBDOTQxLjEyOTUzNCw0MDYuNDU5NTg1IDkyNi41NTY5OTUsNDAxLjk5MDY3NCA5MDYuNzM4MzQyLDM5Ny4zMjc0NjEgQzg5Ni42MzQ3MTUsMzk0Ljk5NTg1NSA4ODYuNTMxMDg4LDM5MS44ODcwNDcgODc2LjQyNzQ2MSwzODguMDAxMDM2IEM4NjYuMzIzODM0LDM4NC4xMTUwMjYgODU3LjI4ODg2LDM3OC44Njg5MTIgODQ5LjMyMjUzOSwzNzIuMjYyNjk0IEM4NDEuMzU2MjE4LDM2NS42NTY0NzcgODM0Ljg0NzE1LDM1Ny40OTU4NTUgODI5Ljc5NTMzNywzNDcuNzgwODI5IEM4MjQuNzQzNTIzLDMzOC4wNjU4MDMgODIyLjIxNzYxNywzMjYuNDA3NzcyIDgyMi4yMTc2MTcsMzEyLjgwNjczNiBDODIyLjIxNzYxNywyOTUuMzE5Njg5IDgyNS45MDkzMjYsMjgwLjQ1NTY5OSA4MzMuMjkyNzQ2LDI2OC4yMTQ3NjcgQzg0MC42NzYxNjYsMjU1Ljk3MzgzNCA4NTAuMTk2ODkxLDI0NS45NjczNTggODYxLjg1NDkyMiwyMzguMTk1MzM3IEM4NzMuNTEyOTUzLDIzMC40MjMzMTYgODg2LjQzMzkzOCwyMjQuNjkxNDUxIDkwMC42MTc4NzYsMjIwLjk5OTc0MSBDOTE0LjgwMTgxMywyMTcuMzA4MDMxIDkyOC44ODg2MDEsMjE1LjQ2MjE3NiA5NDIuODc4MjM4LDIxNS40NjIxNzYgQzk2NC42Mzk4OTYsMjE1LjQ2MjE3NiA5ODUuOTE1ODAzLDIxOC44NjI0MzUgMTAwNi43MDU5NiwyMjUuNjYyOTUzIEMxMDI3LjQ5NjExLDIzMi40NjM0NzIgMTA0NS4wODAzMSwyNDIuNjY0MjQ5IDEwNTkuNDU4NTUsMjU2LjI2NTI4NSBMMTAyNS4wOTgxNywyOTEuNzcxMDEzIEMxMDE1LjIzMjc2LDMwMS45Njc3NzMgOTk5LjU3MjczNiwzMDMuODU3MTIyIDk4Ny41NjQzNTMsMjk2LjMwMDczNiBaIiBpZD0iUGF0aCIgZmlsbD0iI0ZGRkZGRiIgZmlsbC1ydWxlPSJub256ZXJvIj48L3BhdGg+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik0xMjk2LjcxMDUyLDMyMS4zMTEwNjUgQzEyOTYuMjI0ODIsMzE4LjY0NjA3NiAxMjk1LjkzODE5LDMxNy4xODc2MDggMTI5NS44NTA2MiwzMTYuOTM1NjYxIEMxMjkzLjM5MzA3LDMwOS44NjUyMzEgMTI4OS4yNTkyNCwzMDQuMjE3NjA1IDEyODUuNTM1NjMsMzAwLjIxMDUyNiBDMTI3NS4wNDQ3NywyODguOTIxMDUzIDEyNjEuNzMyMzEsMjg0IDEyNDIuNjg5NjUsMjg0IEMxMjMzLjM2MjY0LDI4NCAxMjI0LjgxMjg4LDI4NS40NDczNjggMTIxNy4wNDAzNywyODguMzQyMTA1IEMxMjA5LjI2Nzg1LDI5MS4yMzY4NDIgMTIwMi40NjY5MSwyOTUuMTkyOTgyIDExOTYuNjM3NTIsMzAwLjIxMDUyNiBDMTE5MC44MDgxNCwzMDUuMjI4MDcgMTE4Ni4xNDQ2MywzMTEuMTE0MDM1IDExODIuNjQ3LDMxNy44Njg0MjEgQzExNzkuMTQ5MzcsMzI0LjYyMjgwNyAxMTc3LjIwNjI0LDMzMS42NjY2NjcgMTE3Ni44MTc2MiwzMzkgTDEyODEuOTUzOTQsMzM5IEMxMjkwLjIzODIxLDMzOC45OTk4MSAxMjk2Ljk1Mzc4LDMzMi4yODM5MjcgMTI5Ni45NTM1OSwzMjMuOTk5NjU2IEMxMjk2Ljk1MzU3LDMyMy4wOTc5NzIgMTI5Ni44NzIyNSwzMjIuMTk4MTI2IDEyOTYuNzEwNTIsMzIxLjMxMTA2NSBaIE0xMzg0LjIzMzgsMzY0LjA0MTA4NSBDMTM4NC4yMzM4LDM2NC42MDYwMDYgMTM4NC4yMzM4LDM2NS4xNzA5MjggMTM4NC4yMzM4LDM2NS43MzU4NDkgQzEzODQuMjMzOCwzODIuMzA0MzkyIDEzNzAuODAyMzQsMzk1LjczNTg0OSAxMzU0LjIzMzgsMzk1LjczNTg0OSBMMTE3My40NzY1OCwzOTUuNzM1ODQ5IEwxMTczLjQ3NjU4LDM5NS43MzU4NDkgQzExNzQuMjU1LDQwMy44OTgxMTMgMTE3Ni42ODc1Niw0MTEuMjgzMDE5IDExODAuNzc0MjYsNDE3Ljg5MDU2NiBDMTE4NC44NjA5Nyw0MjQuNDk4MTEzIDExOTAuMTE1Myw0MzAuMjMxMTMyIDExOTYuNTM3MjcsNDM1LjA4OTYyMyBDMTIwMi45NTkyNCw0MzkuOTQ4MTEzIDEyMTAuMTU5NjIsNDQzLjczNzczNiAxMjE4LjEzODQzLDQ0Ni40NTg0OTEgQzEyMjYuMTE3MjMsNDQ5LjE3OTI0NSAxMjM0LjM4Nzk0LDQ1MC41Mzk2MjMgMTI0Mi45NTA1Niw0NTAuNTM5NjIzIEMxMjU4LjEyOTc2LDQ1MC41Mzk2MjMgMTI3MC45NzM2OSw0NDcuNzIxNjk4IDEyODEuNDgyMzYsNDQyLjA4NTg0OSBDMTI4NS44NzE2Niw0MzkuNzMxODQ2IDEyOTAuODcyMDgsNDM1Ljk5MTk5NyAxMjk2LjQ4MzYxLDQzMC44NjYzMDQgQzEzMDMuMTMyMDMsNDI0Ljc5Mjc4MyAxMzEzLjAxOTYyLDQyMy45MTI0MjQgMTMyMC42MzYzOCw0MjguNzE1OTg1IEwxMzczLjcyNTEzLDQ2Mi4yIEwxMzczLjcyNTEzLDQ2Mi4yIEMxMzYwLjEwMjc4LDQ4Mi4wMjI2NDIgMTM0Mi4xMDE4Miw0OTcuMjc4MzAyIDEzMTkuNzIyMjQsNTA3Ljk2Njk4MSBDMTI5Ny4zNDI2Niw1MTguNjU1NjYgMTI3MS4zNjI5LDUyNCAxMjQxLjc4MjkzLDUyNCBDMTIxOS45ODcxNyw1MjQgMTE5OS4zNTkwNCw1MjAuNTk5MDU3IDExNzkuODk4NTQsNTEzLjc5NzE3IEMxMTYwLjQzODA0LDUwNi45OTUyODMgMTE0My40MTAxLDQ5Ny4wODM5NjIgMTEyOC44MTQ3Myw0ODQuMDYzMjA4IEMxMTE0LjIxOTM1LDQ3MS4wNDI0NTMgMTEwMi43Mzc2Niw0NTUuMDA5NDM0IDEwOTQuMzY5NjQsNDM1Ljk2NDE1MSBDMTA4Ni4wMDE2Miw0MTYuOTE4ODY4IDEwODEuODE3NjIsMzk1LjE1MjgzIDEwODEuODE3NjIsMzcwLjY2NjAzOCBDMTA4MS44MTc2MiwzNDYuOTU2NjA0IDEwODUuOTA0MzIsMzI1LjQ4MjA3NSAxMDk0LjA3NzczLDMwNi4yNDI0NTMgQzExMDIuMjUxMTQsMjg3LjAwMjgzIDExMTMuMzQzNjMsMjcwLjY3ODMwMiAxMTI3LjM1NTE5LDI1Ny4yNjg4NjggQzExNDEuMzY2NzUsMjQzLjg1OTQzNCAxMTU3LjkwODE4LDIzMy40NjIyNjQgMTE3Ni45Nzk0NywyMjYuMDc3MzU4IEMxMTk2LjA1MDc2LDIxOC42OTI0NTMgMTIxNi42Nzg4OSwyMTUgMTIzOC44NjM4NiwyMTUgQzEyNjAuMjcwNDEsMjE1IDEyNzkuOTI1NTIsMjE4LjU5NTI4MyAxMjk3LjgyOTE4LDIyNS43ODU4NDkgQzEzMTUuNzMyODQsMjMyLjk3NjQxNSAxMzMxLjEwNjYzLDI0My4zNzM1ODUgMTM0My45NTA1NiwyNTYuOTc3MzU4IEMxMzU2Ljc5NDUsMjcwLjU4MTEzMiAxMzY2LjgxNjY1LDI4Ny4xIDEzNzQuMDE3MDQsMzA2LjUzMzk2MiBDMTM4MS4yMTc0MiwzMjUuOTY3OTI1IDEzODQuMjMzOCwzMzkuMTY1NjEzIDEzODQuMjMzOCwzNjQuMDQxMDg1IFoiIGlkPSJTaGFwZSIgZmlsbD0iI0ZGRkZGRiIgZmlsbC1ydWxlPSJub256ZXJvIj48L3BhdGg+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cC00LUNvcHktNCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTMwNy44MTc2MTcsIDAuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMzUwLjYwNyw0MTIuMzQ2IEw0NzEsNjIyIEwzMzQuNTk2MTU5LDYyMiBDMzI1LjY0NzAwNiw2MjIgMzE3LjM4MDQzMiw2MTcuMjE2NDggMzEyLjkyMTA1OCw2MDkuNDU3NTI5IEwzMTIuOTIxMDU4LDYwOS40NTc1MjkgTDI3NC45ODUsNTQzLjQ1MSBMMzUwLjYwNyw0MTIuMzQ2IFogTTEzNi42NzMyNSw2NSBDMTQ1LjYyNTcyNyw2NSAxNTMuODk0ODQyLDY5Ljc4NzA0MzUgMTU4LjM1Mjk4NCw3Ny41NTA1MzYgTDE1OC4zNTI5ODQsNzcuNTUwNTM2IEwyMzYuNjU1LDIxMy45MDggTDE2MC45ODMsMzQ1LjA5OCBMMCw2NSBaIiBpZD0iQ29tYmluZWQtU2hhcGUtQ29weSIgZmlsbD0idXJsKCNsaW5lYXJHcmFkaWVudC0xKSI+PC9wYXRoPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTE4Ni4wNjgyNjEsNjMwLjA2MDA0OSBMNTUxLDAgTDU1MSwwIEw0MjcuMjk5NjA0LDAgQzQwOS40NDIwMTYsLTMuMjI0Njc1MWUtMTQgMzkyLjk0MDAyMiw5LjUyMzkyNjA2IDM4NC4wMDYzMDEsMjQuOTg2MjA2MSBMMjAsNjU1IEwyMCw2NTUgTDE0Mi44MDE3MTUsNjU1IEMxNjAuNjQwMjE1LDY1NSAxNzcuMTI3NTg3LDY0NS40OTYyNTQgMTg2LjA2ODI2MSw2MzAuMDYwMDQ5IFoiIGlkPSJQYXRoLTQtQ29weS0yIiBmaWxsPSJ1cmwoI2xpbmVhckdyYWRpZW50LTIpIj48L3BhdGg+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==" height="16" alt="PLSX" style="height:16px;width:auto;max-width:52px;object-fit:contain">
+          </div>
+          <div class="pay-icon" title="PRVX — ProveX (provex.com)">
+            <img loading="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHAAAAAgCAIAAABFDGvrAAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAATMklEQVR42u1aaZRV1ZXee59zhzdWvZqoKpBiNkoigggKGoZIMK1iAE2MGheOicY2kzF2BtOm29UmWSaadNSYpYmxjWNsFQXDGOZRkUFlqCpBqaKo8Y13Pmf3j1cQFVDCj/7R9Pnx3lrnrXfP3t/59nC+c3H4sFPhQwMFBIygwLLIiVQYOQOI8hWJvqEV1vAM1GfMVCxZAZblS+VVOiWrzTMP5nWht7Q3zO+1iyVgA5BkicAmLaUOQqGZCU6OIY+YYQ2EbGllFFS+OsnjhxUmjcqd0ZiosxOkgqJPXUUuligAQRRVilSdUW+b9TqR6fVi7cWe1nzbjqhlv93qy1AZJd8AoWzikwRPwI8wFIEVGBS4A5OdF4y155wxsDHld2Zzb+2Dts6wlPcCZRClTa4SXpx9q6RiqmSoQARGMk5Vo6IRde6YXsJdQet6XNuaWBZIQzAxegB4UgKKGKpw5hDne9Njsdpw81vejnddYqOxCgcNSDfEq6tYJsIEOlWRly44FaqvHroq3zfcx/pWrsluT0DlQH/8KDzjU8F5kUy/KZ/dYD3nGAVGfdKGPGAYnfOpqkSCH3x2b2NtzYzxlaNrMIEAWodB6OdZeY5y4l7RxpJvZQMPdKvfsaewF+KGGxQH+5mGoGa1XlApxo5Sl2+Cv/my01IxBn2SAkoQEfa1dsjqZObmz6ZBdRRAvdWRCFQtO1QTxqqiCl2qYbc2cBNGUL0X6aWut9vR0eidFk6a6l2b4MERr9njt3RWDtCgDa1PKIXy/26WQIAPmskMiB+d/McBZQBkMpQvbI7iZgAuhQFj7eOr88ve6zQwM9jyvzlu5HCuUIElStUhx9f0bG4JmmVcV+dOvVBdn/FGdEoIRQws7VgBhwJZHM2ssq3MiACErAVohaQBJWsAilACKwlcBrZMb0ZmwEMl7gNfyAgATIcfC6iBxQfcOrzokR5LwABBM5samVgzSxBoRoEiVmSgRgBg1Hgc2NKRXoYEDBVGJIwoIEIQRprpi2NG2YLbtVxXDF/a9W4QJKBggY5tDg4sdLc6CYcVTuJLTy1N8HUgNDuGXzSkNkHq6Eg3GFAjImgArREZBQFKZgDQSFT2gAwgBAYE7EcC+dA+YL+tyIzMBIAaQJeBRUZAZtSMwIj9U8h4FDj7n8RAgIgIBBoRgKRmtDQK4kAwaQAo2/SPA3po0yIAhYCgkLUMfBxfmbxq9BA7zNpSvnpw//KDOeT6tgj/kl3VFm9HJU7zpk0MLgkicBBdA32DAoNcW/ri2PuKAIgAFCoVRqGrIAxCHThuFLlhIcy2WxwFUvtSR8QMQIyGQqkBUQMwlAFjJI2oDWADABgVIwMTaoOYiTUwMhMzakQGJmA8TG1ERiL0NNsBZXxdRK+EASC6kn1HWn2hpQLPZMek8DhD/lj9ti5HP7KpfVP7cXZKsxsGnltfG0VezpD/deDtnVBcUty6TrYEZjCwOOTz3jXxUoNW0kV0JQQSQwM9mxThkeGO/WwDEiJfLF53w3WLl7722uLX/rZ86YplSxYvXfLnp5+ac8nndDEr+llYtgkVokYAPlzfCEEQAzECE6BmUowKAJFlOU/wIeDKu/eR5MMMEqFUcmZcctnypSueeebP9dUJHbimwE4nvPjLV69YtOSZZx6rrUhEYUSIJwQolm0gZtShhDCug3QxMlPKmDfkrIHStlS4Bzoe7n7lr8Eq38BMseaC4PJTnbNdjjyhfUmuDaHBkdChdTQ4+8mhgQFBRJGubxw4YsSIUSMHNTU1NDUNHTV8+HmTzn/g0SevmHuRyuZjaBpCIhFJAktoAkTUACiEkCYiCEJDEAIzgAYQUhpSEigoZwtEFFJIKYCZWaMgIYmICKVAiZqVtBNy6ZIFAVSMmzzlppuvVI4bKcwMbLjjWzePHDFi/bqVLe/ti5mmZj4xhhKAYEbWyMrSUZz9JAeZgmuPU41zGsanPIqB3qB37Td7Uk7lWaWpY4J/8iOhiEoWFGJQiIMXY99iLw6a+BiFkvvJisJ1Xa31sgVPTZk09nMzLp0yadrjL7ykAG/42ryqiopcvtTd2e27TiHb29dxIPRcIAHC6CuUuvp6vdAtFnt6e9sZfCSKIuzs6u3q6WAIAFEDKcbenr7ugx2RV5SCFMiebKFQLAa+m+3pCtyiJhkzIN+x7+677/UVz71y3sQzT3+/q3jrLTeMasg0b93wy//8vZ1KcMQn2Db1J2mNrEhFpAKpfFOUbPASUR4viJ2+NZPdkGuJJdJhFNSpuil6FqsqhyKlpU8iH4NiDBypA1sHNkRCf1IDikhIROz17N/XzOkMd+195I/PzJwzq66xGmLGORPO+/z556xetqK2suL0MZ9e9OrC1du3AxkzL7po+pTJI4aeku06uHH96pfmz+/OusNHfuqqr1zuOX2PP/ZIvqSZpDTt79x+44Dq9EtP/Wnb23uwonHetddPPvesmkzFnp07Xv7v5zds212ZSNUn7EVL5j+18NJ5F5933Y1XNXsLrrliNmj3ofvu63LcdLoOfc3HEfLyqHAqUqgtBV4QmXYp5kUSfZuKVV5gSEimknVRoZUiRKAkxg2oiECxko6F2RgGFpcSUBJcMkVC2ooAUUlG/hBPEYARNKNGZgUSAIIocrMhYF/J984/ZVhKcwh+ruRMnjHza/O+dNmsL1Q3DgKAUtv7L67Zcf8D/3HLvLmHH3fp7Mvmzpp743XXHHSKc669od6CXesWLlyzl4U3eOxZP7rz2wA9z/3xQZVoevTRhy4878zyv86fcv5VV19529evmb9kW1XKSENw/68evHTqhGkXf+nPY2fUxuOrXnzuhYUrzAHVyucYawcEnkDIa0QKiUJTgQAvxl6F9hN+kC6GgoL6bV5uy4EdBrInXDb5oH5rDa4qSqFl6MY4sFRoR24CAosiM/Bs1HCU5pj7uyBmYAQAlAAweOTEb3z7jhu/fvVd9/z4p3d+K0G0ee2WroN9QaSjKEqljPt+9bObrr3mLy+8OnPulTfPm+vkDtxz523TJ5x92VdvfqP53XGTz//Bd256d+fOZ/+yREVqyuRzDeWFAZx59kSt1IqXn1q3dectt333wvPO3LbmtZnTJo399Jg77v4Vxyvu+cmdNWnbjZxErKJ1x6ZfPvwnK1516sjhXm/Lz++9l600KWHqMEQDT/CkhECBCaEhPRmFFSJIgJP0gowIku1KvtC9oRf7kGSd31CgbD7dtkouzIhxQ9S4okmRoQtJ7SSMMLJBOtlKTwsQmvhjbSFCABg9burocVMPT25542+/+LffCpHUrKSULz/39L//+K5kRZ3ji3+dNR1ZL3r8d/f9+qFUQ9PGl18oieQrf/jZZ6dMH2Xev3z56m9cecHEz05JP/CoE2VmTJlOgtYvWefbNROnT2AdLlqwzA+NhqZBmzavf/e9jtOGnzZpTP38lSVZBRJlqqoKACIAYYqK2pje15cMSYHwhJQcnGAO1WzpAEUk3TBBfkx7KXSS7NW8WFq/Re1kQdVB0yy6fGtpzSa5oCe+c0P4R2k3gjEsl4pySSwmwXfJEYQJHxiBBRB/zBGOtQaAll0bFy1ZB7E0lfp2bGtevOqv4IZk2VprAOjc926lnbAq64KiPzgTY6RN27fGMkPjZtqqLLW0dbpAZjw1JC42btqys8cZ/Znx9QPrlD/w3DNH+YXmFSs3VdUPtqtSSPr2e35++wf7Q4ThQwbQ8pZCqXDm5AtvnTcn19W1fkfrzGkTv/ejO16fc5OMqlxpIYQnUpQQMEBVCISdTOQjVxVjbmT5bsJ002v99xcW17KhjCA9KbjsHGd2Ugx5P9/cld7/vvn6DnxuSPrWbCqRT7GfVKWwz7GrK8gJlA9IH38gZmYAeGfrsp989190apip+iRWQWXaTjjKDcvto4WGiJiVcjXnIwDmU2pr/FKHziTyLjYYhglcDHxtxvo6mles3HD67Gljxo6rchtqbLF++erm9h5RWx25AXPigZ/etWXP/mQmlvUwbcXzbk/nzm1pmztF5e13fCNO8OLzj97562cXrF45ZuIXvvrlGQ/+YWmsrl5HLoA4gbaJCeRbHSUzVueVjL3dGqMKDir3c/Rsfk2X4Uk/eUZw9vnBNOVUNgQTz4i+FCvUsKl20/P7zGVBAopJVrFsT2kbDWjibJuOuj9RrdfMWmtbmgOqkhW1VRU19cmKlKCItRBMillrDUqQJoFaBu7atdsQ8Qtfufbs04eGPe1mZtA/f+0qE7F59+5Wz0uK3LolqxBg0tQLpk8/F4AXL9pYEuTnDr775juIZtPguuWLX3ri0Sc2bdk95+orzho9eH9HrqeoL7786pkTR+c69zz2xJPtBw489LtnNRjXf/O2poFx7eZAGCdyUtLACTA3d/QeyNHY2k8vad7HJRtVen5ux/agUwuZ4oHToy+mvViBIg6toXRJxjgNwkJO7nu770+u7sQKOti7Rdn55MCmvuZNQueY8JgNEwCwjlkmEZlGnR9iCI6ntQJHQN6MJGi2LIOIpJ1iRlCqOsYLnn52/dbWps9MemHZmpdfnb9u+SvXXTrNLXbd95vflSTEY3Lrmg0dRX/W3CuuvmKW9jpXrNlCcTsu1CMPPtLW58y+9taNb2xatODV9UtfmXHOuKnjhkY+Nowef/cPvykAnvv9b9Y2d1cPqH760Sfe2NU+oOnsH37/Fu0Xj4eeACCqMjUf9ZK4V0VclBcPOaulo3dfMeiQ+smu5a6p4p4xI5o9MTvHj2wXRYBS2SZYNY5hifQpgBmZGeyb2V1di2rHzwk7d+s3Hk5GxGwifEgiwbKqhYSIKvRHNg2qrKx4442t6zeus4QEFpoIQLDgIgenNZ1SU5FauXrttnd2CSseCTNwc0uXLrFT6YbGgSNGjpKo1q9a8YPvfX/d69sTyUpEuyfXU1mZiRtGZ0fb0qXLXnjlJVOalrAOdOxfs35zQ8OAESNPGzZyWCnf9dQffn/nD+/tcOiSuXNOrU/t3LLuF798KKCYIUSp2NPZ2dE0qMFK1Ly5eWOurxsNGz7psIRHXNIxaTtCYejczYPOnZ4a90TL62vcd3pEGFLvuNL0Lwd3JIsjsmxG5OcsG5B6K2FvXdBXBdGAUjbasat9Pk0+x7BO8V++yy5sN1WKGD5G+ULEIAiCMIpJZRmkwGKUZS2KWUVocBRqz7FNaRp2oImJkNgNI9ePGuvrGmqr3Hx323vvaaBYIqU0aiIGdL1AqIg5EBJs22SNwBKElfdcZB7WNCgVt7oOtnV3HLAT6cBIe0qA05vQRSOWCmUCQTGSFygVhiZx0gQNGKF5AgxFRjRBRdLb0dszSJ0yNX1Wey7cp9rq1ODZwW2N+c/0yqIGS7GVTZW6MiKXQC9BXo3uid5u2bvKmjA9mUnpV+8VXa3KIMkRflKwGIZhmRYJqZg0SAAiQGJNyIJRCmHYJkhSAMAoEJiVIWXctt1iqaO93S25ViwhzJjWZVUYgLVtSsMwLdOSUjIjowAQwNoypClFX29vZ2dXECk7nhTACAiICduwLanIiEAQRwJJEJmWJQUxIoPg4xC8jxbyGCl0Eckn3ZrtGOrVT07NcDyGKHkmX1Rbqg+VKAnRlwTfot4ktVdRUB12F15rya+tnDA9nqzMLv6ttX+7KSVBBEz9Tn5slWdmDQgkgAnLOQEZAQQjACjQCsst8iHFiBk0SyFt05JChgyMeHghAg2smImZmRGgLDxjv0INIKU0LRORNCAiMDMhAGvNqIEAkbhfW2HmQ9IYnkgORYBQoIKYEcYlRTmzb6vXITh9Hl2ivNSb3hqOxRO6yUPKxqPAMLxKcis79mSfOcjNVRMvVLLYu+KnqnOHshOmKhpai36Z8njuIJDLriP3I9ofMVBW9YnxkFOHxWJmYAZgQob+K4vyan/XoY9QDg8LdwBY1lbxUEfKgIxI/fb267VllRvwuBA9CqCK2FKATJ5Em6nb9lv9FvbEBHUJIa02FjlCx+KNfQk7V4V9sR07+550qisax15Z7G3uWf2LWPduS9iGyjNpBAQWmo5P7C4L5qCJuV9kJ4yEZkTBIPjvSOIHmhNG0OWIBSiz75DnyMj9mGA/VoDwAbYe1hREeen+OslMoPThDh31oSfhCVZ5ySw59A0FIMzQAAKQ7j69K+d3DaapDXR2m79tt7U9HACt/Hqzs9wePjnTNLWr9fnC1vsTpW4Lk1bo4yG6hWT0X/h8MqCMwOUri/5LIqR+FpWZg2WR/sPcOwzXh/XrDzMK//6JH8w/h5iIZfJj+VcE6BekkZGxf7eOL+qPrPLH7BgxUnXuqLEwr9Ga9jZv2WkuhUR91amXeqbT3vJwcHCxSYpB/qPXhP/HX3Q45hGVNbOlsBALrCZ5fUPdZQXLi6qT3f6m1v2PUPHtGGQcUzO6VmiczIgeJeSPITljJDgQdiSxV23pDVvt9MADuZWtbb+R4f6UrkWtQhECGMT/z9DjGAolIEslhAYmNyBDYVyqHsA4o0EcCdYIioE10skM6PE6z6gQAskOQQCMyJHgogmWwYDoKBFEJBAiQv8keSnsWON/AC+xLZ9zzm4nAAAAAElFTkSuQmCC" height="16" alt="PRVX" style="height:16px;width:auto;max-width:56px;object-fit:contain">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy" data-pt="© 2026 Volvara. Todos os direitos reservados. · NIF: 227192753 · Preços sem IVA." data-en="© 2026 Volvara. All rights reserved. · VAT: 227192753 · Prices excl. VAT.">© 2026 Volvara. Todos os direitos reservados. · NIF: 227192753 · Preços sem IVA.</div>
+    <div class="footer-links"><a href="/privacidade" rel="nofollow" data-pt="Política de Privacidade" data-en="Privacy Policy">Política de Privacidade</a> · <a href="/termos" rel="nofollow" data-pt="Termos e Condições" data-en="Terms &amp; Conditions">Termos e Condições</a></div>
+    <div class="footer-live"><div class="footer-live-dot"></div>Portimão, Portugal</div>
+  </div>
+
+    <div class="footer-studio-link">
+      <a href="/studio/" data-pt="Para projectos mais cuidados, visita o Studio →" data-en="For more considered work, visit the Studio →">Para projectos mais cuidados, visita o Studio &rarr;</a>
+    </div>
+  </footer>
+
+<!-- Sticky mobile CTA -->
+<div id="stickyCta" aria-label="Contacto rápido">
+  <a href="#contact" class="sticky-cta-btn" data-pt="Demo grátis — zero risco →" data-en="Free demo — zero risk →">Demo grátis — zero risco →</a>
+  <a href="https://wa.me/351917810999" class="sticky-cta-wa" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+  <button type="button" class="sticky-cta-close" id="stickyClose" aria-label="Fechar">✕</button>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+(function() {
+  'use strict';
+
+  // ─── CURSOR ────────────────────────────────────────────────────────────────
+  // Fully isolated. If #cur missing or non-pointer device: silent no-op.
+  var cur = document.getElementById('cur');
+  if (cur && window.matchMedia('(pointer:fine)').matches) {
+    document.addEventListener('mousemove', function(e) {
+      cur.style.left = e.clientX + 'px';
+      cur.style.top  = e.clientY + 'px';
+      cur.classList.add('vis');
+    });
+    document.querySelectorAll('a,button,.port-card,.plan,.tcard,.benefit').forEach(function(el) {
+      el.addEventListener('mouseenter', function() {
+        cur.classList.add('big');
+        cur.style.background = 'var(--crimson)';
+      });
+      el.addEventListener('mouseleave', function() {
+        cur.classList.remove('big');
+        cur.style.background = 'var(--amber)';
+      });
+    });
+  }
+
+  // ─── NAV SCROLL ────────────────────────────────────────────────────────────
+  var nav = document.getElementById('nav');
+  if (nav) {
+    window.addEventListener('scroll', function() {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+  }
+
+  // ─── SCROLL REVEAL ─────────────────────────────────────────────────────────
+  document.body.classList.add('js-reveal');
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) e.target.classList.add('on');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.r').forEach(function(el) { obs.observe(el); });
+  }
+
+  // ─── FORM SUBMIT ───────────────────────────────────────────────────────────
+  var contactForm = document.getElementById('contactForm');
+  var formLoadTime = Date.now();
+  if (contactForm) {
+    var lastSubmit = 0;
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var now = Date.now();
+      if (now - lastSubmit < 30000) {
+        alert('Por favor aguarda 30 segundos antes de enviar novamente.');
+        return;
+      }
+      if (now - formLoadTime < 3000) { return; }
+      lastSubmit = now;
+      var btn = contactForm.querySelector('.form-btn');
+      var success = document.getElementById('formSuccess');
+      btn.disabled = true;
+      btn.style.opacity = '.6';
+      var data = {};
+      new FormData(contactForm).forEach(function(v, k) { data[k] = v; });
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
+      }).then(function(res) {
+        if (res.ok) {
+          contactForm.reset();
+          if (success) success.style.display = 'block';
+          btn.style.display = 'none';
+        } else {
+          btn.disabled = false;
+          btn.style.opacity = '1';
+          return res.json().catch(function() { return {}; }).then(function(errData) {
+            alert('Erro ao enviar (' + (errData.error || res.status) + '). Tenta novamente ou contacta go@volvara.pt');
+          });
+        }
+      }).catch(function() {
+        btn.disabled = false;
+        btn.style.opacity = '1';
+      });
+    });
+  }
+
+  // ─── FAQ ───────────────────────────────────────────────────────────────────
+  document.querySelectorAll('.faq-q').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(i) { i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // ─── LANG TOGGLE ───────────────────────────────────────────────────────────
+  var langBtn = document.getElementById('langBtn');
+  var currentLang = 'pt';
+
+  function setLang(lang) {
+    currentLang = lang;
+    if (langBtn) langBtn.textContent = lang === 'pt' ? 'EN' : 'PT';
+    document.querySelectorAll('[data-pt]').forEach(function(el) {
+      var val = lang === 'pt' ? el.getAttribute('data-pt') : el.getAttribute('data-en');
+      if (val === null) return;
+      if (el.tagName === 'OPTION') {
+        el.textContent = val;
+      } else if (el.hasAttribute('data-placeholder-pt')) {
+        el.placeholder = lang === 'pt' ? el.getAttribute('data-placeholder-pt') : el.getAttribute('data-placeholder-en');
+      } else {
+        el.innerHTML = val;
+      }
+    });
+    document.querySelectorAll('[data-placeholder-pt]').forEach(function(el) {
+      el.placeholder = lang === 'pt' ? el.getAttribute('data-placeholder-pt') : el.getAttribute('data-placeholder-en');
+    });
+  }
+
+  if (langBtn) {
+    langBtn.addEventListener('click', function() {
+      setLang(currentLang === 'pt' ? 'en' : 'pt');
+    });
+  }
+
+  // ─── HAMBURGER MOBILE NAV ──────────────────────────────────────────────────
+  var burger = document.getElementById('navBurger');
+  var drawer = document.getElementById('navDrawer');
+  var overlay = document.getElementById('navOverlay');
+
+  function openNav() {
+    drawer.classList.add('open');
+    overlay.classList.add('open');
+    burger.classList.add('open');
+    burger.setAttribute('aria-expanded', 'true');
+    burger.setAttribute('aria-label', 'Fechar menu');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeNav() {
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Abrir menu');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  if (burger && drawer && overlay) {
+    var closeBtn = document.getElementById('navDrawerClose');
+    burger.addEventListener('click', function() {
+      drawer.classList.contains('open') ? closeNav() : openNav();
+    });
+    if (closeBtn) closeBtn.addEventListener('click', closeNav);
+    overlay.addEventListener('click', closeNav);
+    drawer.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', closeNav);
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeNav();
+    });
+  }
+
+  // ─── STICKY MOBILE CTA ─────────────────────────────────────────────────────
+  (function() {
+    var bar = document.getElementById('stickyCta');
+    var closeBtn = document.getElementById('stickyClose');
+    if (!bar) return;
+    var dismissed = false;
+    var shown = false;
+
+    function showBar() {
+      if (dismissed || shown) return;
+      bar.classList.add('visible');
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() { bar.classList.add('show'); });
+      });
+      shown = true;
+    }
+    function hideBar() {
+      bar.classList.remove('show');
+      setTimeout(function() { bar.classList.remove('visible'); }, 320);
+      dismissed = true;
+    }
+
+    // Show after 300px scroll on mobile
+    window.addEventListener('scroll', function() {
+      if (window.innerWidth >= 961) return;
+      if (window.scrollY > 300) { showBar(); }
+    }, { passive: true });
+
+    // Close button
+    if (closeBtn) closeBtn.addEventListener('click', hideBar);
+
+    // Hide when contact section is visible (no duplicate CTA)
+    if ('IntersectionObserver' in window) {
+      var contactEl = document.getElementById('contact');
+      if (contactEl) {
+        var ctaObs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) { bar.classList.remove('show'); }
+            else if (shown && !dismissed) { bar.classList.add('show'); }
+          });
+        }, { threshold: 0.1 });
+        ctaObs.observe(contactEl);
+      }
+    }
+
+    // GA4 events on sticky CTA clicks
+    bar.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        if (window.gtag) gtag('event', 'sticky_cta_click', {
+          event_category: 'engagement',
+          event_label: a.classList.contains('sticky-cta-wa') ? 'whatsapp' : 'demo'
+        });
+      });
+    });
+  })();
+
+  // ─── GA4 CONVERSION EVENTS ─────────────────────────────────────────────────
+  // CTA buttons
+  document.querySelectorAll('.btn-a,.btn-c,.nav-cta,.nav-drawer-cta').forEach(function(el) {
+    el.addEventListener('click', function() {
+      if (window.gtag) gtag('event', 'cta_click', { event_category: 'engagement', event_label: el.textContent.trim().substring(0,30) });
+    });
+  });
+  // WhatsApp
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      if (window.gtag) gtag('event', 'whatsapp_click', { event_category: 'contact' });
+    });
+  });
+
+})();
+</script>
+
+<script>
+(function(){
+  // __langAutoDetect: auto-set EN for non-PT browsers on first visit
+  if (sessionStorage.getItem('__langAutoDetect')) return;
+  sessionStorage.setItem('__langAutoDetect','1');
+  var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+  if (lang.indexOf('pt') !== 0) {
+    // User browser is not Portuguese — switch to EN
+    window.addEventListener('DOMContentLoaded', function(){
+      var btn = document.getElementById('langBtn');
+      if (btn && btn.textContent.trim() === 'EN') btn.click();
+    });
+  }
+})();
+</script>
+</body>
+</html>
