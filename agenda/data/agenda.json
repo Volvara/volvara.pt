@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T12:09:16.167Z",
+  "last_updated": "2026-04-24T12:09:31.347Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -744,6 +744,19 @@
       "category": "setup",
       "note": "Feito. Falta banner (seg) e link Blockchain (cache a expirar).",
       "completed_at": "2026-04-24T12:09:16.161Z"
+    },
+    {
+      "id": "umocvb7im",
+      "week": "W17",
+      "status": "todo",
+      "priority": "medium",
+      "title": "Refactor volvara.pt · Quick + Studio tiers",
+      "desc": "Novo posicionamento. 2 tiers lado-a-lado: Quick (from €299) e Studio (from €1200). Remover preços específicos, substituir por ranges. Hero mantém brutalist. Footer link subtil para /studio.",
+      "date": "2026-04-24",
+      "time": "13:15",
+      "duration_min": 90,
+      "category": "build",
+      "note": ""
     }
   ]
 }
