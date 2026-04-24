@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T18:10:42.034Z",
+  "last_updated": "2026-04-24T18:11:30.017Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -203,7 +203,8 @@
       "desc": "Push ao repo. Aguardar GitHub Pages rebuild (~2 min). Verificar em browser limpo. Testar em mobile real.",
       "category": "deploy",
       "priority": "high",
-      "status": "todo"
+      "status": "skipped",
+      "note": "Obsolete · reescopado no plano W18 actualizado"
     },
     {
       "id": "t012",
