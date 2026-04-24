@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /
+# Volvara Studio is reached by invitation. Not indexed by design.
