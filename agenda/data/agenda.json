@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T10:31:05.105Z",
+  "last_updated": "2026-04-24T12:07:05.037Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -100,7 +100,8 @@
       "desc": "Carrossel 5 slides. Imagens em /outputs/post06-*.png. Caption copy-paste do volvara-content-pack-v2.html.",
       "category": "publish",
       "priority": "high",
-      "status": "todo"
+      "status": "done",
+      "completed_at": "2026-04-24T12:07:05.034Z"
     },
     {
       "id": "t004",
