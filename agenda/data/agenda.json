@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T12:07:41.897Z",
+  "last_updated": "2026-04-24T12:07:57.698Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -235,7 +235,8 @@
       "desc": "business.facebook.com → agendar Post 09 (Sáb 2 Mai 12h · carrossel 3 free tools) e Post 10 (Seg 4 Mai 19h · reel 7 days). Imagens em /outputs/.",
       "category": "publish",
       "priority": "critical",
-      "status": "todo"
+      "status": "skipped",
+      "note": "PARKED · content pack 07-10 desalinhado com reposicionamento Quick+Studio. Retomar depois de /studio live."
     },
     {
       "id": "t015",
