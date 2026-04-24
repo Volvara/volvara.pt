@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T12:07:05.037Z",
+  "last_updated": "2026-04-24T12:07:28.550Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -125,7 +125,8 @@
       "desc": "Reel 20s. Cover em /outputs/post07-cover.png. Usar prompt Hera ou gravação alternativa. Caption no content pack.",
       "category": "publish",
       "priority": "high",
-      "status": "todo"
+      "status": "skipped",
+      "note": "PARKED · content pack 07-10 desalinhado com reposicionamento Quick+Studio. Retomar depois de /studio live."
     },
     {
       "id": "t006",
