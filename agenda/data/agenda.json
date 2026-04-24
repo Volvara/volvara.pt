@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T12:10:28.476Z",
+  "last_updated": "2026-04-24T18:07:22.081Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -113,7 +113,8 @@
       "desc": "Confirmar actualizações ops Volvara. Lista fechada de leads Studio prontos para demos W19+.",
       "category": "qualify",
       "priority": "high",
-      "status": "todo"
+      "status": "done",
+      "completed_at": "2026-04-24T18:07:22.080Z"
     },
     {
       "id": "t005",
