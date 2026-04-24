@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T18:33:34.722Z",
+  "last_updated": "2026-04-24T18:33:37.234Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -1000,6 +1000,19 @@
       "date": "2026-04-30",
       "time": "13:30",
       "duration_min": 60,
+      "category": "qualify",
+      "note": ""
+    },
+    {
+      "id": "umod915u9",
+      "week": "W18",
+      "status": "todo",
+      "priority": "medium",
+      "title": "Enviar 4 outreach Studio personalizados (LinkedIn + email)",
+      "desc": "Engagement prévio IG 2-3 posts. DM personalizado. Follow-up email se LinkedIn sem resposta 48h. Track no ops.",
+      "date": "2026-05-04",
+      "time": "09:30",
+      "duration_min": 180,
       "category": "qualify",
       "note": ""
     }
