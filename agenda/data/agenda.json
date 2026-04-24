@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T18:33:17.096Z",
+  "last_updated": "2026-04-24T18:33:19.609Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -910,6 +910,19 @@
       "time": "14:30",
       "duration_min": 30,
       "category": "setup",
+      "note": ""
+    },
+    {
+      "id": "umod90s8o",
+      "week": "W18",
+      "status": "todo",
+      "priority": "medium",
+      "title": "Quick v3 · SVG icons + amber glow + refinement",
+      "desc": "Substituir emoji icons nas 6 benefit cards por SVG custom. Integrar amber glow backdrop hero. Polish typography.",
+      "date": "2026-04-29",
+      "time": "09:30",
+      "duration_min": 120,
+      "category": "build",
       "note": ""
     }
   ]
