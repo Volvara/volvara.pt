@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T18:33:07.055Z",
+  "last_updated": "2026-04-24T18:33:09.566Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -857,6 +857,19 @@
       "date": "2026-04-27",
       "time": "13:30",
       "duration_min": 90,
+      "category": "build",
+      "note": ""
+    },
+    {
+      "id": "umod90khp",
+      "week": "W18",
+      "status": "todo",
+      "priority": "medium",
+      "title": "Motion system Studio · CSS + JS (word reveals, parallax, breathe)",
+      "desc": "Intersection Observer word-by-word reveals. Parallax hero. Typography breathing pull quotes. Ken Burns portrait.",
+      "date": "2026-04-28",
+      "time": "09:30",
+      "duration_min": 120,
       "category": "build",
       "note": ""
     }
