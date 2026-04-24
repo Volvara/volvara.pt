@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T18:33:24.640Z",
+  "last_updated": "2026-04-24T18:33:27.146Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -949,6 +949,19 @@
       "time": "13:30",
       "duration_min": 90,
       "category": "build",
+      "note": ""
+    },
+    {
+      "id": "umod90y22",
+      "week": "W18",
+      "status": "todo",
+      "priority": "medium",
+      "title": "Outreach templates Studio PT+EN (LinkedIn DM + email)",
+      "desc": "3 variantes por canal: warm, referral, cold. Tom editorial, concise. Links para /studio/.",
+      "date": "2026-04-30",
+      "time": "09:30",
+      "duration_min": 60,
+      "category": "qualify",
       "note": ""
     }
   ]
