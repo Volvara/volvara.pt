@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T10:11:57.605Z",
+  "last_updated": "2026-04-24T10:31:05.105Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -87,7 +87,8 @@
       "desc": "Abrir chat novo, passar prompt do HANDOFF-REALITY-CHECK.md. Aprovar veredictos ✅/⚠️/❌ por lead. Mover Palm Beach + descartados para PERDIDO no ops.",
       "category": "qualify",
       "priority": "high",
-      "status": "todo"
+      "status": "done",
+      "completed_at": "2026-04-24T10:31:05.104Z"
     },
     {
       "id": "t003",
