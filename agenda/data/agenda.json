@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T18:33:19.609Z",
+  "last_updated": "2026-04-24T18:33:22.124Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -923,6 +923,19 @@
       "time": "09:30",
       "duration_min": 120,
       "category": "build",
+      "note": ""
+    },
+    {
+      "id": "umod90u6j",
+      "week": "W18",
+      "status": "todo",
+      "priority": "medium",
+      "title": "Cross-site QA desktop+mobile+tablet + Lighthouse audit",
+      "desc": "Target Lighthouse 95+ mobile. Core Web Vitals verdes. Acessibilidade WCAG AA. Responsive 320→1920.",
+      "date": "2026-04-29",
+      "time": "11:30",
+      "duration_min": 60,
+      "category": "",
       "note": ""
     }
   ]
