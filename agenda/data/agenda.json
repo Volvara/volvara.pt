@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T18:31:17.540Z",
+  "last_updated": "2026-04-24T18:31:32.225Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -292,7 +292,8 @@
       "desc": "Aprovação final Brand Study antes de build. Bloqueia W19 se não aprovado.",
       "category": "review",
       "priority": "critical",
-      "status": "todo"
+      "status": "skipped",
+      "note": "Obsolete · reescopado no plano W18 actualizado"
     },
     {
       "id": "t019",
