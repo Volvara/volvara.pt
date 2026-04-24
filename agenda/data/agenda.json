@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T12:08:54.438Z",
+  "last_updated": "2026-04-24T12:09:16.167Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -734,7 +734,7 @@
     {
       "id": "umocvaf1e",
       "week": "W17",
-      "status": "todo",
+      "status": "done",
       "priority": "medium",
       "title": "Reconstruir perfil LinkedIn pós-hack",
       "desc": "Hack recovery: headline Volvara EN-first, About editorial, 7 Experiences, 3 Education limpas, 19 Skills, Languages, Featured (Volvara + Mariana + CTPP com thumb custom). Banner adiado seg 27.",
@@ -742,7 +742,8 @@
       "time": "09:00",
       "duration_min": 300,
       "category": "setup",
-      "note": "Feito. Falta banner (seg) e link Blockchain (cache a expirar)."
+      "note": "Feito. Falta banner (seg) e link Blockchain (cache a expirar).",
+      "completed_at": "2026-04-24T12:09:16.161Z"
     }
   ]
 }
