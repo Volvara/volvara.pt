@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T18:33:22.124Z",
+  "last_updated": "2026-04-24T18:33:24.640Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -936,6 +936,19 @@
       "time": "11:30",
       "duration_min": 60,
       "category": "",
+      "note": ""
+    },
+    {
+      "id": "umod90w4f",
+      "week": "W18",
+      "status": "todo",
+      "priority": "medium",
+      "title": "Deploy final Quick v3 + Studio v5 + live testing",
+      "desc": "Push ZIP. Aguardar GitHub Pages rebuild. Testar em incognito ambos os sites. Screenshot before/after.",
+      "date": "2026-04-29",
+      "time": "13:30",
+      "duration_min": 90,
+      "category": "build",
       "note": ""
     }
   ]
