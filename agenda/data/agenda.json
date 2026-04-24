@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T18:33:02.029Z",
+  "last_updated": "2026-04-24T18:33:04.543Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -831,6 +831,19 @@
       "date": "2026-04-27",
       "time": "10:15",
       "duration_min": 45,
+      "category": "build",
+      "note": ""
+    },
+    {
+      "id": "umod90gm7",
+      "week": "W17",
+      "status": "todo",
+      "priority": "medium",
+      "title": "Iterar MJ · seleccionar 5 imagens Studio finais + AVIF compress",
+      "desc": "3-4 iterações cada prompt. Seleccionar melhor de cada. Compressão AVIF via squoosh.app target <200KB.",
+      "date": "2026-04-27",
+      "time": "11:00",
+      "duration_min": 90,
       "category": "build",
       "note": ""
     }
