@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T18:33:12.078Z",
+  "last_updated": "2026-04-24T18:33:14.588Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -882,6 +882,19 @@
       "desc": "H1 stagger slam-in 100ms. Tier cards tilt on hover. Amber radial glow pulsar footer. Counter roll proof stats.",
       "date": "2026-04-28",
       "time": "11:30",
+      "duration_min": 60,
+      "category": "build",
+      "note": ""
+    },
+    {
+      "id": "umod90od7",
+      "week": "W18",
+      "status": "todo",
+      "priority": "medium",
+      "title": "Integrar imagens Midjourney · Studio backgrounds",
+      "desc": "Hero backdrop, manifesto interstitial, about portrait real, contact interstitial. 5-8 integrations.",
+      "date": "2026-04-28",
+      "time": "13:30",
       "duration_min": 60,
       "category": "build",
       "note": ""
