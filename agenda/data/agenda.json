@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T12:09:31.347Z",
+  "last_updated": "2026-04-24T12:09:58.129Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -756,6 +756,19 @@
       "time": "13:15",
       "duration_min": 90,
       "category": "build",
+      "note": ""
+    },
+    {
+      "id": "umocvbs6l",
+      "week": "W17",
+      "status": "todo",
+      "priority": "medium",
+      "title": "Ops plano enum · adicionar Studio €1200+",
+      "desc": "Actualizar ops: adicionar plano \"Studio (€1200+)\" ao enum do modal Novo/Editar Lead. Gravar memória Claude com decisões pricing/tiers.",
+      "date": "2026-04-24",
+      "time": "14:45",
+      "duration_min": 15,
+      "category": "setup",
       "note": ""
     }
   ]
