@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T18:33:32.190Z",
+  "last_updated": "2026-04-24T18:33:34.722Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -988,6 +988,19 @@
       "time": "11:30",
       "duration_min": 60,
       "category": "setup",
+      "note": ""
+    },
+    {
+      "id": "umod913wh",
+      "week": "W18",
+      "status": "todo",
+      "priority": "medium",
+      "title": "Curar lista 8 leads QdL/Vale do Lobo premium para outreach seg",
+      "desc": "Research boutique property managers, interior designers, private chefs, wine merchants, wedding planners luxo. IG+LinkedIn profile check.",
+      "date": "2026-04-30",
+      "time": "13:30",
+      "duration_min": 60,
+      "category": "qualify",
       "note": ""
     }
   ]
