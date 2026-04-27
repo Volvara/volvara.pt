@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-27T21:51:03.931Z",
+  "last_updated": "2026-04-27T21:51:15.920Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -853,7 +853,7 @@
     {
       "id": "umod90ijz",
       "week": "W17",
-      "status": "todo",
+      "status": "skipped",
       "priority": "medium",
       "title": "Gerar 3-4 assets Quick MJ + desenhar SVG icons custom",
       "desc": "Amber glow abstract backdrop. 6 SVG icons tipográficos bold amber para What's included.",
@@ -861,7 +861,7 @@
       "time": "13:30",
       "duration_min": 90,
       "category": "build",
-      "note": ""
+      "note": "Quick v3 implementado via CSS · gradient amber metallic + ambient glow + slam-in. Já live."
     },
     {
       "id": "umod90khp",
