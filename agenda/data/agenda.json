@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-27T21:51:57.340Z",
+  "last_updated": "2026-04-27T21:52:29.853Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -892,7 +892,7 @@
     {
       "id": "umod90od7",
       "week": "W18",
-      "status": "todo",
+      "status": "skipped",
       "priority": "medium",
       "title": "Integrar imagens Midjourney · Studio backgrounds",
       "desc": "Hero backdrop, manifesto interstitial, about portrait real, contact interstitial. 5-8 integrations.",
@@ -900,7 +900,7 @@
       "time": "13:30",
       "duration_min": 60,
       "category": "build",
-      "note": ""
+      "note": "Substituído · Hera Launch video integrado em vez de imagens MJ. Vídeo live no hero Studio."
     },
     {
       "id": "umod90qav",
