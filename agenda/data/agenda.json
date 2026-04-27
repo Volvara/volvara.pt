@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-27T21:50:25.444Z",
+  "last_updated": "2026-04-27T21:50:44.395Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -827,7 +827,7 @@
     {
       "id": "umod90eoc",
       "week": "W17",
-      "status": "todo",
+      "status": "skipped",
       "priority": "medium",
       "title": "Subscribe Midjourney + primeiros 5 prompts Studio",
       "desc": "Standard plan €10/mês. Prompts hero desk, villa interior, portrait beach, typography macro, handwriting letter.",
@@ -835,7 +835,7 @@
       "time": "10:15",
       "duration_min": 45,
       "category": "build",
-      "note": ""
+      "note": "Substituído · Hera Launch + CSS em vez de Midjourney"
     },
     {
       "id": "umod90gm7",
