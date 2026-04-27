@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-24T18:35:44.105Z",
+  "last_updated": "2026-04-27T10:40:48.648Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -799,7 +799,7 @@
     {
       "id": "umod90asz",
       "week": "W17",
-      "status": "todo",
+      "status": "doing",
       "priority": "medium",
       "title": "Re-upload banner LinkedIn + verificar Blockchain Course",
       "desc": "Upload banner-C-hybrid.jpg; confirmar link Blockchain desapareceu do topcard.",
