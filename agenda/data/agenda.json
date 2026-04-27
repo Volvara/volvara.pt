@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-27T21:51:31.521Z",
+  "last_updated": "2026-04-27T21:51:57.340Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -879,7 +879,7 @@
     {
       "id": "umod90mfh",
       "week": "W18",
-      "status": "todo",
+      "status": "skipped",
       "priority": "medium",
       "title": "Motion system Quick · hero slam-in, tier hover, amber glow",
       "desc": "H1 stagger slam-in 100ms. Tier cards tilt on hover. Amber radial glow pulsar footer. Counter roll proof stats.",
@@ -887,7 +887,7 @@
       "time": "11:30",
       "duration_min": 60,
       "category": "build",
-      "note": ""
+      "note": "Quick v3 já live · slam-in + ambient glow + filled metallic já em produção"
     },
     {
       "id": "umod90od7",
