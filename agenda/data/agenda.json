@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-27T21:50:44.395Z",
+  "last_updated": "2026-04-27T21:51:03.931Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -840,7 +840,7 @@
     {
       "id": "umod90gm7",
       "week": "W17",
-      "status": "todo",
+      "status": "skipped",
       "priority": "medium",
       "title": "Iterar MJ · seleccionar 5 imagens Studio finais + AVIF compress",
       "desc": "3-4 iterações cada prompt. Seleccionar melhor de cada. Compressão AVIF via squoosh.app target <200KB.",
@@ -848,7 +848,7 @@
       "time": "11:00",
       "duration_min": 90,
       "category": "build",
-      "note": ""
+      "note": "Substituído · Hera Launch usado em vez de MJ"
     },
     {
       "id": "umod90ijz",
