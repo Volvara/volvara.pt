@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-27T21:54:02.893Z",
+  "last_updated": "2026-04-27T21:54:06.887Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -1043,6 +1043,19 @@
       "date": "2026-04-28",
       "time": "09:30",
       "duration_min": 20,
+      "category": "build",
+      "note": ""
+    },
+    {
+      "id": "umohqijza",
+      "week": "W18",
+      "status": "todo",
+      "priority": "medium",
+      "title": "Fix Quick · gap no hero desktop",
+      "desc": "Identificar e corrigir gap visual no hero desktop volvara.pt. Provavelmente espaço entre eyebrow e h1, ou entre h1 e subtitle, ou padding excessivo nos breakpoints. QA Chrome desktop 1440px+.",
+      "date": "2026-04-28",
+      "time": "09:50",
+      "duration_min": 60,
       "category": "build",
       "note": ""
     }
