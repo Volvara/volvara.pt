@@ -1,5 +1,13 @@
 [
   {
+    "id": "id_1777364793808_9uj1",
+    "data": "2026-04-27",
+    "tipo": "despesa",
+    "desc": "FairEmail Pro Android APP",
+    "val": 7.77,
+    "estado": "pago"
+  },
+  {
     "id": "id_1777288277433_ndcm",
     "data": "2026-04-27",
     "tipo": "despesa",
