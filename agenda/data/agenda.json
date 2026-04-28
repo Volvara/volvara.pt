@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-28T09:21:59.612Z",
+  "last_updated": "2026-04-28T09:22:42.939Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -1064,7 +1064,7 @@
     {
       "id": "umohqixvk",
       "week": "W18",
-      "status": "todo",
+      "status": "done",
       "priority": "medium",
       "title": "Fix Studio · video Hera mal em mobile",
       "desc": "Vídeo hero Hera tem layout problems em mobile. Verificar object-fit, aspect ratio ajustado para portrait viewport, fallback poster image, e talvez switch para CSS animation em <720px. Testar 360px/375px/414px.",
@@ -1072,7 +1072,8 @@
       "time": "11:00",
       "duration_min": 60,
       "category": "build",
-      "note": ""
+      "note": "",
+      "completed_at": "2026-04-28T09:22:42.939Z"
     }
   ]
 }
