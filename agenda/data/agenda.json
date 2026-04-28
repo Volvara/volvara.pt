@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-27T21:54:24.896Z",
+  "last_updated": "2026-04-28T09:21:29.982Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -1036,7 +1036,7 @@
     {
       "id": "umohqigwd",
       "week": "W18",
-      "status": "todo",
+      "status": "done",
       "priority": "medium",
       "title": "Push Studio v6.2 + QA live",
       "desc": "Upload index.html descarregado (cursor fix + nav links + topbar removed). Push ao GitHub. Verificar live em volvara.pt/studio/. Cursor sempre vermelho, hover azul, transparente sobre texto vermelho. Nav 5 items (Estúdio · Processo · Incluído · Investimento · Contacto).",
@@ -1044,7 +1044,8 @@
       "time": "09:30",
       "duration_min": 20,
       "category": "build",
-      "note": ""
+      "note": "",
+      "completed_at": "2026-04-28T09:21:29.981Z"
     },
     {
       "id": "umohqijza",
