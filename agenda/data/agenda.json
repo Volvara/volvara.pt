@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-29T08:41:48.037Z",
+  "last_updated": "2026-04-29T19:08:24.789Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -1078,7 +1078,7 @@
     {
       "id": "umojt3884",
       "week": "W18",
-      "status": "todo",
+      "status": "done",
       "priority": "medium",
       "title": "Studio v13 · paleta Carbon & Bone",
       "desc": "Substituir cobalt blue por sistema carbon (#1A1A1D) + graphite (#2D2E33) + steel (#5C5E66). Manter signal red mas em burgundy #C8323F. Bone warm (#F4ECE0/#E8DFD0) substitui soft. Aplicar em todo o Studio + brand-study v3 mockup. Push final.",
@@ -1086,7 +1086,8 @@
       "time": "09:30",
       "duration_min": 120,
       "category": "build",
-      "note": ""
+      "note": "",
+      "completed_at": "2026-04-29T19:08:24.787Z"
     },
     {
       "id": "umojt3a5t",
