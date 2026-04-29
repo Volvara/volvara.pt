@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-29T19:08:24.789Z",
+  "last_updated": "2026-04-29T19:08:40.844Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -1092,7 +1092,7 @@
     {
       "id": "umojt3a5t",
       "week": "W18",
-      "status": "todo",
+      "status": "skipped",
       "priority": "medium",
       "title": "Hera video color update · pedido pequeno",
       "desc": "Pedir ao Hera Launch para mudar 3 cores no vídeo hero existente: background #0F0F12 → #1A1A1D, subtitle cobalt → steel #5C5E66, period red → burgundy #C8323F. Texto exacto pronto na sessão Claude.",
@@ -1100,7 +1100,7 @@
       "time": "09:30",
       "duration_min": 15,
       "category": "build",
-      "note": ""
+      "note": "Sem créditos Hera durante 2 semanas · Hera confirmou Option C com bg #2A2A2D quando regenerar · v30 já live como solução temporária"
     },
     {
       "id": "umojt3c3o",
