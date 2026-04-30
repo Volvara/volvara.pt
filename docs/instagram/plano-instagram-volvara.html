@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plano Instagram · Volvara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --carbon: #0C0B0E;
+  --graphite: #1A1A1D;
+  --bone: #EDEBE5;
+  --cream: #F4F1EC;
+  --stone: #EDEBE5;
+  --card-light: #FAF8F3;
+  --steel: #5C5E66;
+  --signal: #C8323F;
+  --burgundy: #C8323F;
+  --amber: #FFB020;
+  --crimson: #DC143C;
+  --ink: #0F0F12;
+  --rule: rgba(15,15,18,0.10);
+  --f-serif: 'Fraunces', Georgia, serif;
+  --f-mono: 'DM Mono', monospace;
+  --f-display: 'Bebas Neue', sans-serif;
+  --f-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: var(--f-sans);
+  background: var(--stone);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--carbon);
+  color: var(--bone);
+  padding: 5rem 0 4rem;
+  border-bottom: 1px solid rgba(244,236,229,0.08);
+}
+.hero .eyebrow {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--signal);
+  margin-bottom: 1.5rem;
+}
+.hero h1 {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.2rem;
+  color: var(--bone);
+}
+.hero h1 .signal { color: var(--signal); font-weight: 400; }
+.hero .lead {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.3rem;
+  color: rgba(244,236,229,0.7);
+  max-width: 720px;
+  line-height: 1.5;
+}
+.hero .meta {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+.hero .meta strong { color: var(--bone); font-weight: 500; }
+
+/* ── SECTIONS ── */
+.section {
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.section.dark {
+  background: var(--carbon);
+  color: var(--bone);
+}
+.section.dark .eyebrow { color: var(--signal); }
+.section.dark h2 { color: var(--bone); }
+.section.dark .lede { color: rgba(244,236,229,0.7); }
+
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--signal);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.eyebrow::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--signal);
+  display: inline-block;
+}
+h2 {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.5rem;
+  color: var(--ink);
+}
+h2 .signal { color: var(--signal); font-weight: 400; }
+h3 {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.6rem;
+  margin: 2rem 0 1rem;
+  color: var(--ink);
+}
+.section.dark h3 { color: var(--bone); }
+h4 {
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin: 1.5rem 0 0.8rem;
+}
+.lede {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.2rem;
+  color: var(--steel);
+  max-width: 760px;
+  margin-bottom: 2.5rem;
+  line-height: 1.5;
+}
+p { margin-bottom: 1rem; max-width: 720px; }
+em { font-style: italic; color: var(--signal); }
+strong { font-weight: 500; }
+
+/* ── PROFILE PIC GRID ── */
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0 1rem;
+}
+.profile-option {
+  background: var(--card-light);
+  padding: 2rem;
+  border-radius: 6px;
+  border: 1px solid var(--rule);
+  text-align: center;
+  transition: all 0.3s;
+}
+.profile-option:hover {
+  border-color: var(--signal);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px -12px rgba(200,50,63,0.15);
+}
+.profile-option img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 1.2rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.profile-option h4 { color: var(--ink); margin-top: 0; margin-bottom: 0.6rem; }
+.profile-option p { font-size: 0.92rem; color: var(--steel); margin: 0; }
+
+/* ── BIO BOX ── */
+.bio-box {
+  background: var(--card-light);
+  padding: 2rem;
+  border-left: 3px solid var(--signal);
+  border-radius: 4px;
+  margin: 1.5rem 0;
+  font-family: var(--f-mono);
+  font-size: 0.95rem;
+  white-space: pre-wrap;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+/* ── GRID DIPTYCH SCHEMATIC ── */
+.grid-schema {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  max-width: 540px;
+  margin: 2rem auto;
+  padding: 4px;
+  background: var(--ink);
+  border-radius: 4px;
+}
+.cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.5rem;
+  font-weight: 500;
+}
+.cell.studio { background: var(--carbon); color: var(--bone); border-left: 3px solid var(--burgundy); }
+.cell.studio span.signal { color: var(--burgundy); }
+.cell.quick { background: #0A0A0A; color: var(--amber); }
+.cell.quick span.crimson { color: var(--crimson); }
+.cell.center { background: var(--graphite); color: var(--cream); font-style: italic; font-family: var(--f-serif); font-size: 0.95rem; letter-spacing: -0.01em; text-transform: none; }
+
+/* ── POST CARDS ── */
+.posts-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.post-card {
+  padding: 1.8rem;
+  border-radius: 6px;
+  position: relative;
+}
+.post-card.studio { background: var(--carbon); color: var(--bone); border-left: 3px solid var(--burgundy); }
+.post-card.studio h4 { color: var(--bone); }
+.post-card.quick { background: #0A0A0A; color: var(--amber); border-left: 3px solid var(--crimson); }
+.post-card.quick h4 { color: var(--amber); }
+.post-card.center { background: var(--graphite); color: var(--cream); border-left: 3px solid var(--burgundy); }
+.post-card.center h4 { color: var(--cream); }
+.post-card .num {
+  position: absolute;
+  top: 1rem; right: 1.2rem;
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  opacity: 0.5;
+}
+.post-card h4 {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.6rem;
+  text-transform: none;
+}
+.post-card .desc {
+  font-size: 0.88rem;
+  opacity: 0.75;
+  margin: 0;
+  font-family: var(--f-sans);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* ── HIGHLIGHTS ── */
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.highlight-card {
+  background: var(--card-light);
+  padding: 1.5rem 1.2rem;
+  border-radius: 6px;
+  text-align: center;
+  border: 1px solid var(--rule);
+}
+.highlight-cover {
+  width: 88px; height: 88px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 2rem;
+  font-weight: 300;
+}
+.highlight-cover.quick { background: #0A0A0A; color: var(--amber); }
+.highlight-cover.studio { background: var(--carbon); color: var(--bone); }
+.highlight-cover.process { background: var(--burgundy); color: var(--bone); font-family: var(--f-mono); font-style: normal; }
+.highlight-cover.clients { background: var(--bone); color: var(--carbon); border: 1px solid var(--rule); }
+.highlight-cover.about { background: var(--cream); color: var(--carbon); }
+.highlight-card h4 {
+  margin: 0 0 0.4rem;
+  text-transform: none;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.highlight-card p {
+  font-size: 0.85rem;
+  color: var(--steel);
+  margin: 0;
+  letter-spacing: 0;
+}
+
+/* ── CALENDAR ── */
+.calendar-week {
+  margin: 2rem 0;
+}
+.calendar-week h3 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+.calendar-week h3::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--signal);
+  display: inline-block;
+}
+.calendar-row {
+  display: grid;
+  grid-template-columns: 130px 80px 1fr;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  background: var(--card-light);
+  border-left: 2px solid transparent;
+  margin-bottom: 0.4rem;
+  border-radius: 3px;
+  font-size: 0.95rem;
+  align-items: center;
+}
+.calendar-row.studio { border-left-color: var(--burgundy); }
+.calendar-row.quick { border-left-color: var(--amber); }
+.calendar-row.center { border-left-color: var(--graphite); }
+.calendar-row.story { border-left-color: var(--steel); background: var(--stone); }
+.calendar-row .date {
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.calendar-row .time {
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  color: var(--steel);
+  font-weight: 500;
+}
+.calendar-row .what { color: var(--ink); }
+
+/* ── ACTION ITEMS ── */
+.action-list {
+  list-style: none;
+  margin: 1.5rem 0;
+  padding: 0;
+}
+.action-list li {
+  padding: 1rem 0 1rem 2.2rem;
+  position: relative;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.98rem;
+}
+.action-list li::before {
+  content: '○';
+  position: absolute;
+  left: 0;
+  top: 1rem;
+  font-family: var(--f-mono);
+  color: var(--signal);
+  font-size: 1.1rem;
+}
+.action-list li:last-child { border-bottom: none; }
+.action-list .label {
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--signal);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* ── PALETTE BANNER ── */
+.palette-banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin: 2rem 0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.palette-side {
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+.palette-side.quick {
+  background: #0A0A0A;
+  color: var(--amber);
+}
+.palette-side.studio {
+  background: var(--carbon);
+  color: var(--bone);
+}
+.palette-side h3 {
+  font-family: var(--f-serif);
+  font-style: italic;
+  margin: 0 0 1rem;
+  font-size: 1.6rem;
+  color: inherit;
+}
+.palette-side .swatches {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.swatch {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.palette-side p {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: inherit;
+  opacity: 0.7;
+  margin: 0;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--carbon);
+  color: rgba(244,236,229,0.5);
+  padding: 3rem 0;
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+footer .signal { color: var(--signal); }
+
+@media (max-width: 720px) {
+  .container { padding: 0 1.2rem; }
+  .hero { padding: 3rem 0 2.5rem; }
+  .section { padding: 3rem 0; }
+  .calendar-row {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+  .calendar-row .time { font-size: 0.72rem; }
+  .grid-schema { max-width: 100%; }
+  .palette-banner { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ───── HERO ───── -->
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Plano Instagram · 30 Abril 2026</div>
+    <h1>Dois lados.<br><span class="signal">Uma marca.</span></h1>
+    <p class="lead">Plano completo para o perfil <strong style="color:var(--bone)">@volvara.pt</strong> — perfil unificado que serve Volvara (Quick) e Volvara Studio. Grid em diptych vertical, conteúdo planeado, calendário, highlights.</p>
+    <div class="meta">
+      <span><strong>15</strong> posts actuais</span>
+      <span><strong>50</strong> followers</span>
+      <span><strong>78</strong> following</span>
+    </div>
+  </div>
+</section>
+
+<!-- ───── 1 · PROFILE PIC ───── -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">01 · Foto de perfil</div>
+    <h2>Três versões para <span class="signal">escolher.</span></h2>
+    <p class="lede">Cada uma comunica algo diferente. A marca tem dois lados — a foto deve sugerir isso ou ser deliberadamente neutra.</p>
+    
+    <div class="profile-grid">
+      <div class="profile-option">
+        <img src="profile-A-split.png" alt="Profile A">
+        <h4>Versão A · split diagonal</h4>
+        <p>Metade carbon com V italic Fraunces (Studio) + metade amber com V Bebas Neue (Quick) + ponto burgundy ao centro. Comunica os 2 lados visualmente.</p>
+      </div>
+      <div class="profile-option">
+        <img src="profile-B-graphite-vv.png" alt="Profile B">
+        <h4>Versão B · graphite VV</h4>
+        <p>Fundo graphite com VV italic Fraunces cream + ponto burgundy. Elegante, premium, neutro entre Quick e Studio.</p>
+      </div>
+      <div class="profile-option">
+        <img src="profile-C-volvara.png" alt="Profile C">
+        <h4>Versão C · VOLVARA logo</h4>
+        <p>Logo principal · VOLVA cream + RA filled amber gradient sobre preto. Fiel à identidade do Quick mas pode parecer too Quick.</p>
+      </div>
+    </div>
+    
+    <p style="font-style: italic; color: var(--steel); margin-top: 1rem;">Recomendação: <strong style="color:var(--ink)">Versão B</strong> · neutra, premium, comunica evolução da marca sem tomar partido. Quick lado funciona. Studio lado funciona. Cliente HNW não vê "agência amarela".</p>
+  </div>
+</section>
+
+<!-- ───── 2 · BIO ───── -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">02 · Bio reformulada</div>
+    <h2>150 caracteres <span class="signal">elegantes.</span></h2>
+    <p class="lede">A bio actual é confusa, mistura mensagens Quick com toques genéricos e tem emojis baratos (📍 ⚡) que envelhecem o perfil. Proposta limpa.</p>
+    
+    <h4>Display name</h4>
+    <p><strong>Volvara</strong> (não "Volvara Web Agency")</p>
+    
+    <h4>Categoria</h4>
+    <p>Design Agency</p>
+    
+    <h4>Bio</h4>
+    <div class="bio-box">Volvara · Algarve & Global
+
+Sites em dias para negócios locais.
+Studio editorial para marcas premium.
+
+Vê antes de pagar.
+volvara.pt</div>
+    
+    <h4>Note (acima da foto)</h4>
+    <div class="bio-box">Cada projecto, uma obsessão.</div>
+    
+    <h4>Link</h4>
+    <p><strong>volvara.pt</strong> (homepage que serve os 2 produtos)</p>
+  </div>
+</section>
+
+<!-- ───── 3 · GRID DIPTYCH ───── -->
+<section class="section dark">
+  <div class="container">
+    <div class="eyebrow">03 · Estratégia grid</div>
+    <h2>Diptych vertical · <span class="signal">três colunas.</span></h2>
+    <p class="lede">Coluna esquerda sempre Studio · coluna direita sempre Quick · coluna central institucional. Cliente que aterra no perfil percebe imediatamente os dois lados da marca.</p>
+    
+    <div class="grid-schema">
+      <div class="cell studio">STUDIO<br><span style="opacity:0.6">carbon</span></div>
+      <div class="cell center">institucional</div>
+      <div class="cell quick">QUICK<br><span class="crimson">amber</span></div>
+      
+      <div class="cell studio">STUDIO<br><span style="opacity:0.6">obsessão</span></div>
+      <div class="cell center">à medida</div>
+      <div class="cell quick">QUICK<br><span class="crimson">dias</span></div>
+      
+      <div class="cell studio">STUDIO<br><span style="opacity:0.6">por convite</span></div>
+      <div class="cell center">algarve · global</div>
+      <div class="cell quick">QUICK<br><span class="crimson">demo</span></div>
+    </div>
+    
+    <div class="palette-banner">
+      <div class="palette-side quick">
+        <h3>Quick</h3>
+        <div class="swatches">
+          <div class="swatch" style="background:#0A0A0A"></div>
+          <div class="swatch" style="background:#FFB020"></div>
+          <div class="swatch" style="background:#DC143C"></div>
+        </div>
+        <p>Brutalist · Bebas Neue · directo</p>
+      </div>
+      <div class="palette-side studio">
+        <h3>Studio</h3>
+        <div class="swatches">
+          <div class="swatch" style="background:#0C0B0E"></div>
+          <div class="swatch" style="background:#EDEBE5"></div>
+          <div class="swatch" style="background:#C8323F"></div>
+        </div>
+        <p>Editorial · Fraunces italic · contido</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── 4 · POSTS ───── -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">04 · Nove posts iniciais</div>
+    <h2>Conteúdo <span class="signal">concreto.</span></h2>
+    <p class="lede">Três posts por categoria. Coerência de paleta dentro de cada coluna. Mensagem distinta por post.</p>
+    
+    <h3 style="color: var(--burgundy)">Coluna esquerda · Studio</h3>
+    <div class="posts-list">
+      <div class="post-card studio"><span class="num">04</span>
+        <h4>Volvara. Studio.</h4>
+        <p class="desc">Logo elegante · cream sobre carbon · ponto burgundy. Anúncio do Studio como branch editorial.</p>
+      </div>
+      <div class="post-card studio"><span class="num">05</span>
+        <h4>Cada projecto, uma obsessão.</h4>
+        <p class="desc">Frase-âncora · Fraunces italic large · "uma obsessão" em burgundy. A promessa do Studio.</p>
+      </div>
+      <div class="post-card studio"><span class="num">06</span>
+        <h4>Por convite. Algarve. Global.</h4>
+        <p class="desc">Mono small caps · subtitle premium · selectividade sem exclusividade.</p>
+      </div>
+    </div>
+    
+    <h3 style="color: var(--graphite)">Coluna central · institucional</h3>
+    <div class="posts-list">
+      <div class="post-card center"><span class="num">07</span>
+        <h4>Ponto vermelho ".".</h4>
+        <p class="desc">Símbolo isolado em fundo neutro · highlight conceptual · marca registada visual.</p>
+      </div>
+      <div class="post-card center"><span class="num">08</span>
+        <h4>Quick or Studio?</h4>
+        <p class="desc">Split visual · explica os dois produtos · ajuda visitante a escolher.</p>
+      </div>
+      <div class="post-card center"><span class="num">09</span>
+        <h4>Algarve · Web Studio · Global.</h4>
+        <p class="desc">Lugar de trabalho · onde · para quem · sem geográficar a marca em excesso.</p>
+      </div>
+    </div>
+    
+    <h3 style="color: var(--crimson)">Coluna direita · Quick</h3>
+    <div class="posts-list">
+      <div class="post-card quick"><span class="num">01</span>
+        <h4>WEBSITES À TUA MEDIDA</h4>
+        <p class="desc">Bebas Neue grande · "à tua" amber + "MEDIDA." crimson. Manifesto do Quick.</p>
+      </div>
+      <div class="post-card quick"><span class="num">02</span>
+        <h4>EM DIAS. SEM RODEIOS.</h4>
+        <p class="desc">Process timeline visual · 4 fases · dias e não semanas.</p>
+      </div>
+      <div class="post-card quick"><span class="num">03</span>
+        <h4>VÊS O DEMO ANTES DE PAGARES</h4>
+        <p class="desc">Mensagem core do Quick · "vês antes de pagares" · zero risco.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── 5 · HIGHLIGHTS ───── -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">05 · Stories highlights</div>
+    <h2>Cinco categorias. <span class="signal">Sem sobreposição.</span></h2>
+    <p class="lede">Highlights são a "navegação" do perfil para visitantes novos. Cada um com cover dedicado de 110×110 que reflecte a paleta do conteúdo.</p>
+    
+    <div class="highlights-grid">
+      <div class="highlight-card">
+        <div class="highlight-cover quick">Q</div>
+        <h4>Quick</h4>
+        <p>Demos · before/after · casos rápidos</p>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-cover studio">S</div>
+        <h4>Studio</h4>
+        <p>Studies · processo editorial · anchor frase</p>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-cover process">→</div>
+        <h4>Process</h4>
+        <p>4 fases · stories explicativas com diagramas</p>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-cover clients">★</div>
+        <h4>Clients</h4>
+        <p>Mariana · Super Stars · clientes live</p>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-cover about">i</div>
+        <h4>About</h4>
+        <p>Filosofia · vê-antes-de-pagar · FAQ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── 6 · CALENDAR ───── -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">06 · Calendário · Maio 2026</div>
+    <h2>Três semanas. <span class="signal">Doze actions.</span></h2>
+    <p class="lede">Início após feriados · 5 Maio (segunda). Posts agendados, ritmo coerente, mistura entre Quick / Studio / institucional. Posts livres acima destes 9 (clientes live, novidades) seguem regra de coluna.</p>
+    
+    <div class="calendar-week">
+      <h3>Semana 1 · Relançamento (5–8 Maio)</h3>
+      <div class="calendar-row story"><span class="date">SEG · 5 MAI</span><span class="time">10:00</span><span class="what"><strong>Setup</strong> · profile pic + bio + display name + categoria</span></div>
+      <div class="calendar-row story"><span class="date">SEG · 5 MAI</span><span class="time">14:00</span><span class="what"><strong>Story carrossel 3 slides</strong> · "We've evolved" · antes/depois</span></div>
+      <div class="calendar-row studio"><span class="date">TER · 6 MAI</span><span class="time">10:00</span><span class="what"><strong>Post #4 Studio</strong> · "Volvara. Studio." (anúncio do Studio)</span></div>
+      <div class="calendar-row quick"><span class="date">QUA · 7 MAI</span><span class="time">10:00</span><span class="what"><strong>Post #1 Quick</strong> · "WEBSITES À TUA MEDIDA"</span></div>
+      <div class="calendar-row center"><span class="date">QUI · 8 MAI</span><span class="time">14:00</span><span class="what"><strong>Post #7 institucional</strong> · ponto vermelho conceptual</span></div>
+    </div>
+    
+    <div class="calendar-week">
+      <h3>Semana 2 · Posicionamento (12–15 Maio)</h3>
+      <div class="calendar-row studio"><span class="date">SEG · 12 MAI</span><span class="time">10:00</span><span class="what"><strong>Post #5 Studio</strong> · "Cada projecto, uma obsessão." (frase-âncora)</span></div>
+      <div class="calendar-row quick"><span class="date">TER · 13 MAI</span><span class="time">14:00</span><span class="what"><strong>Post #2 Quick</strong> · "EM DIAS. SEM RODEIOS." (timeline)</span></div>
+      <div class="calendar-row center"><span class="date">QUA · 14 MAI</span><span class="time">10:00</span><span class="what"><strong>Post #8 institucional</strong> · "Quick or Studio?" (split)</span></div>
+      <div class="calendar-row studio"><span class="date">QUI · 15 MAI</span><span class="time">14:00</span><span class="what"><strong>Post #6 Studio</strong> · "Por convite. Algarve. Global."</span></div>
+    </div>
+    
+    <div class="calendar-week">
+      <h3>Semana 3 · Conclusão grid (19–22 Maio)</h3>
+      <div class="calendar-row quick"><span class="date">SEG · 19 MAI</span><span class="time">10:00</span><span class="what"><strong>Post #3 Quick</strong> · "VÊS O DEMO ANTES DE PAGARES"</span></div>
+      <div class="calendar-row center"><span class="date">QUI · 22 MAI</span><span class="time">14:00</span><span class="what"><strong>Post #9 institucional</strong> · "Algarve · Web Studio · Global"</span></div>
+    </div>
+    
+    <p style="font-style: italic; color: var(--steel); margin-top: 2rem;">Posts livres (clientes live, novidades) interrompem este calendário se necessário · respeitando sempre a regra de coluna (Studio esquerda · centro institucional · Quick direita).</p>
+  </div>
+</section>
+
+<!-- ───── 7 · SESSÕES DE TRABALHO ───── -->
+<section class="section dark">
+  <div class="container">
+    <div class="eyebrow">07 · Sessões de trabalho</div>
+    <h2>Cinco sessões. <span class="signal">Total ~5h30.</span></h2>
+    <p class="lede">Distribuído entre 5 e 8 de Maio. Cada sessão tem objectivo claro, output mensurável, sem ambiguidade.</p>
+    
+    <ol class="action-list" style="color: var(--bone)">
+      <li>
+        <span class="label">Seg 5 Mai · 10:00 · 30 min</span>
+        <strong>Setup base do perfil</strong> · trocar profile pic (versão escolhida), reescrever bio, mudar display name para "Volvara", categoria para "Design Agency".
+      </li>
+      <li>
+        <span class="label">Seg 5 Mai · 11:00 · 1h</span>
+        <strong>Auditar + apagar posts antigos</strong> · revisar 15 posts existentes, apagar incoerentes (provavelmente 10–12), manter 3–5 que ainda funcionam.
+      </li>
+      <li>
+        <span class="label">Ter 6 Mai · 14:30 · 3h</span>
+        <strong>Criar 9 posts novos</strong> · 3 Quick (paleta amber/crimson), 3 Studio (carbon/bone/burgundy), 3 institucionais. Cada um em 3 formatos: feed (1080×1080), stories (1080×1920), LinkedIn (1200×627).
+      </li>
+      <li>
+        <span class="label">Qua 7 Mai · 10:00 · 30 min</span>
+        <strong>Highlights</strong> · criar 5 covers (Quick · Studio · Process · Clients · About), reorganizar stories archived em highlights por categoria.
+      </li>
+      <li>
+        <span class="label">Qua 7 Mai · 11:00 · 30 min</span>
+        <strong>Calendário + agendamento</strong> · agendar via Buffer ou Meta Creator Studio conforme calendário acima. Confirmar fuso horário.
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ───── 8 · PRINCÍPIOS ───── -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">08 · Princípios editoriais</div>
+    <h2>Quatro convicções <span class="signal">firmes.</span></h2>
+    
+    <h3>Coerência de coluna sempre.</h3>
+    <p>Studio esquerda. Quick direita. Institucional centro. Mesmo um post de cliente live (Mariana, Super Stars) respeita a coluna do produto que serviu — Mariana é Quick (post na direita), Super Stars CTPP é Quick (direita). Studio só terá posts livres quando houver clientes Studio reais.</p>
+    
+    <h3>Tipografia define o lado.</h3>
+    <p><strong>Bebas Neue + DM Mono</strong> = Quick. <strong>Fraunces italic + DM Mono</strong> = Studio. Mistura nunca. Visitante reconhece o produto pela fonte antes de ler o copy.</p>
+    
+    <h3>Português correcto sempre.</h3>
+    <p>PT-PT estrito (não brasileiro). AO1990. Sem "você", sem "selecção", sem "atualidade" = "actualidade". Inglês quando justifica (subtitles editoriais ou frases globais). Nunca os dois no mesmo post.</p>
+    
+    <h3>Vê antes de pagar é o ADN.</h3>
+    <p>Em qualquer post (Quick ou Studio), há sempre uma forma sutil de comunicar que o cliente vê o trabalho antes de se comprometer. Não como slogan repetitivo — como filosofia que aparece em diferentes formas (texto, ícone, processo, garantia).</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    Volvara <span class="signal">·</span> Plano Instagram <span class="signal">·</span> 30 Abril 2026 <span class="signal">·</span> Cada projecto, uma obsessão
+  </div>
+</footer>
+
+</body>
+</html>
