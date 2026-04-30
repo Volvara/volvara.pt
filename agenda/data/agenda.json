@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-29T19:17:27.905Z",
+  "last_updated": "2026-04-30T12:41:09.314Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -1118,7 +1118,7 @@
     {
       "id": "umokfi1ps",
       "week": "W18",
-      "status": "todo",
+      "status": "done",
       "priority": "medium",
       "title": "Studio · Nível 3 copy review (HNW tone)",
       "desc": "Reescrita coesa de TODOS os 124 strings PT do Studio para tom premium HNW. Eliminar 'uma pessoa' (equipa pode crescer). Foco: atenção total + resultado de excelência. 9 fixes críticos identificados (3 informais 'dizes/vês/quiseres', Loom→email, defesa de preço, footer, etc.). Frase-âncora a decidir.",
@@ -1126,7 +1126,8 @@
       "time": "09:30",
       "duration_min": 120,
       "category": "build",
-      "note": ""
+      "note": "",
+      "completed_at": "2026-04-30T12:41:09.312Z"
     }
   ]
 }
