@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-05-04T08:45:26.451Z",
+  "last_updated": "2026-05-04T14:35:07.426Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -1145,7 +1145,7 @@
     {
       "id": "umolh3ioe",
       "week": "W19",
-      "status": "todo",
+      "status": "done",
       "priority": "medium",
       "title": "Social media · auditoria + apagar posts antigos (visual incoerente com v43)",
       "desc": "Inventário completo Instagram + LinkedIn. Apagar posts com paleta antiga (cobalt/E63946) ou mensagens 'uma pessoa'. Manter posts neutros (princípios universais sem branding visual marcado).",
@@ -1153,7 +1153,8 @@
       "time": "14:30",
       "duration_min": 45,
       "category": "outreach",
-      "note": ""
+      "note": "",
+      "completed_at": "2026-05-04T14:35:07.426Z"
     },
     {
       "id": "umolh51gt",
