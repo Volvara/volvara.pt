@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-04-30T13:07:28.514Z",
+  "last_updated": "2026-05-04T08:45:26.451Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -1132,7 +1132,7 @@
     {
       "id": "umolh3fl3",
       "week": "W19",
-      "status": "todo",
+      "status": "skipped",
       "priority": "medium",
       "title": "Studio · viewport edge case (desktop→mobile transition)",
       "desc": "Bug raro identificado: ao redimensionar janela desktop para tablet/mobile, vídeo desaparece mas animação CSS não fica visível imediatamente · só CTA aparece após delay. Investigar JS resize handler + match media listener para garantir que CSS animation faz fallback imediato quando vídeo é hidden.",
