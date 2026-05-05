@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-05-05T09:34:34.465Z",
+  "last_updated": "2026-05-05T09:34:36.887Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -1178,7 +1178,7 @@
     {
       "id": "umolh5map",
       "week": "W19",
-      "status": "todo",
+      "status": "skipped",
       "priority": "medium",
       "title": "Social media · criar nova série Studio (6-8 posts paleta v3)",
       "desc": "Posts cuidados com paleta Carbon & Bone, frase-âncora 'Cada projecto, uma obsessão.', logo VOLVARA filled. Conteúdo: relançamento, frase-âncora, princípios (Código de raiz, Tempo com respeito), paleta, processo, diferença Studio vs Quick. 3 formatos por post: feed (1080x1080), stories (1080x1920), LinkedIn (1200x627).",
