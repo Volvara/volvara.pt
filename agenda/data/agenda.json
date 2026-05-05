@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-05-05T09:40:12.884Z",
+  "last_updated": "2026-05-05T09:40:35.893Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -1199,6 +1199,19 @@
       "time": "10:30",
       "duration_min": 120,
       "category": "build",
+      "note": ""
+    },
+    {
+      "id": "umosfu27o",
+      "week": "W19",
+      "status": "todo",
+      "priority": "medium",
+      "title": "LinkedIn Services Page link · cache cleanup",
+      "desc": "Link \"Blockchain & Crypto Course\" ainda persistente na top-card desde despublicação 24 Abr (passou 11 dias). Re-tentar despublicar Services Page · contactar LinkedIn Support se persistir.",
+      "date": "2026-05-05",
+      "time": "13:30",
+      "duration_min": 45,
+      "category": "setup",
       "note": ""
     }
   ]
