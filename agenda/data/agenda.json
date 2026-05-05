@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-05-05T11:20:51.898Z",
+  "last_updated": "2026-05-05T11:21:03.897Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -1033,7 +1033,7 @@
       "title": "Review responses + preparar W19 plan",
       "desc": "Analisar respostas outreach. Adaptar templates. Planear W19 baseado em response rate (target 2-3 em 4).",
       "date": "2026-05-09",
-      "time": "13:30",
+      "time": "14:00",
       "duration_min": 90,
       "category": "qualify",
       "note": ""
