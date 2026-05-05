@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-05-05T09:32:34.520Z",
+  "last_updated": "2026-05-05T09:34:34.465Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -368,7 +368,7 @@
       "desc": "Testar volvara.pt/studio live. Adicionar link subtil no footer do volvara.pt principal. Adicionar studio@volvara.pt à experience do LinkedIn.",
       "category": "deploy",
       "priority": "high",
-      "status": "todo"
+      "status": "skipped"
     },
     {
       "id": "t025",
