@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-05-05T09:39:31.899Z",
+  "last_updated": "2026-05-05T09:39:42.884Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -1114,7 +1114,7 @@
       "priority": "medium",
       "title": "Outreach W19 · LinkedIn DM Studio + GMB + IG bio",
       "desc": "Após paleta v3 deployada e estável: GMB completo (descrição+serviços+fotos+post), LinkedIn About com Studio mention, Instagram bio update, e templates outreach Studio PT+EN para 4-8 leads QdL/Vale do Lobo.",
-      "date": "2026-05-04",
+      "date": "2026-05-08",
       "time": "09:30",
       "duration_min": 240,
       "category": "qualify",
