@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-05-05T09:30:45.923Z",
+  "last_updated": "2026-05-05T09:32:34.520Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -256,7 +256,8 @@
       "desc": "Garantir login agenda + ops + repo GitHub funcional no portátil. Sync ficheiros críticos. Contactos de emergência.",
       "category": "admin",
       "priority": "medium",
-      "status": "todo"
+      "status": "done",
+      "completed_at": "2026-05-05T09:32:34.511Z"
     },
     {
       "id": "t016",
@@ -268,7 +269,8 @@
       "desc": "Fora. Posts 09 e 10 publicam automaticamente (agendados qui 30 Abr).",
       "category": "admin",
       "priority": "low",
-      "status": "todo"
+      "status": "done",
+      "completed_at": "2026-05-05T09:32:34.512Z"
     },
     {
       "id": "t017",
@@ -318,7 +320,7 @@
       "desc": "Feedback visual e copy. Iterar tone editorial. Eliminar qualquer palavra banida.",
       "category": "review",
       "priority": "high",
-      "status": "todo"
+      "status": "skipped"
     },
     {
       "id": "t021",
@@ -330,7 +332,7 @@
       "desc": "Iteração. QA tipografia serif/sans. Ajustar espaçamento editorial. Playwright desktop+mobile.",
       "category": "build",
       "priority": "high",
-      "status": "todo"
+      "status": "skipped"
     },
     {
       "id": "t022",
@@ -342,7 +344,7 @@
       "desc": "OG 1200x630 editorial. Favicon dedicado (diferente do VV principal). Schema.org ProfessionalService.",
       "category": "build",
       "priority": "medium",
-      "status": "todo"
+      "status": "skipped"
     },
     {
       "id": "t023",
@@ -354,7 +356,7 @@
       "desc": "Review exaustiva. Aprovar. Push ao repo em pasta /studio/ + data/ se precisar.",
       "category": "deploy",
       "priority": "critical",
-      "status": "todo"
+      "status": "skipped"
     },
     {
       "id": "t024",
@@ -726,7 +728,7 @@
       "desc": "Selfie camisa boa luz. Para LinkedIn, Volvara Studio, site principal. Qualquer manhã com boa luz natural.",
       "category": "admin",
       "priority": "low",
-      "status": "todo",
+      "status": "skipped",
       "flex": true
     },
     {
@@ -919,7 +921,7 @@
     {
       "id": "umod90s8o",
       "week": "W18",
-      "status": "todo",
+      "status": "done",
       "priority": "medium",
       "title": "Quick v3 · SVG icons + amber glow + refinement",
       "desc": "Substituir emoji icons nas 6 benefit cards por SVG custom. Integrar amber glow backdrop hero. Polish typography.",
@@ -927,12 +929,13 @@
       "time": "09:30",
       "duration_min": 120,
       "category": "build",
-      "note": ""
+      "note": "",
+      "completed_at": "2026-05-05T09:32:34.507Z"
     },
     {
       "id": "umod90u6j",
       "week": "W18",
-      "status": "todo",
+      "status": "done",
       "priority": "medium",
       "title": "Cross-site QA desktop+mobile+tablet + Lighthouse audit",
       "desc": "Target Lighthouse 95+ mobile. Core Web Vitals verdes. Acessibilidade WCAG AA. Responsive 320→1920.",
@@ -940,12 +943,13 @@
       "time": "11:30",
       "duration_min": 60,
       "category": "",
-      "note": ""
+      "note": "",
+      "completed_at": "2026-05-05T09:32:34.508Z"
     },
     {
       "id": "umod90w4f",
       "week": "W18",
-      "status": "todo",
+      "status": "done",
       "priority": "medium",
       "title": "Deploy final Quick v3 + Studio v5 + live testing",
       "desc": "Push ZIP. Aguardar GitHub Pages rebuild. Testar em incognito ambos os sites. Screenshot before/after.",
@@ -953,7 +957,8 @@
       "time": "13:30",
       "duration_min": 90,
       "category": "build",
-      "note": ""
+      "note": "",
+      "completed_at": "2026-05-05T09:32:34.510Z"
     },
     {
       "id": "umod90y22",
@@ -1159,7 +1164,7 @@
     {
       "id": "umolh51gt",
       "week": "W19",
-      "status": "todo",
+      "status": "done",
       "priority": "medium",
       "title": "Social media · criar nova série Studio (6-8 posts paleta v3)",
       "desc": "Posts cuidados com paleta Carbon & Bone, frase-âncora 'Cada projecto, uma obsessão.', logo VOLVARA filled. Conteúdo: relançamento, frase-âncora, princípios (Código de raiz, Tempo com respeito), paleta, processo, diferença Studio vs Quick. 3 formatos por post: feed (1080x1080), stories (1080x1920), LinkedIn (1200x627).",
@@ -1167,7 +1172,8 @@
       "time": "14:30",
       "duration_min": 180,
       "category": "outreach",
-      "note": ""
+      "note": "",
+      "completed_at": "2026-05-05T09:32:34.513Z"
     },
     {
       "id": "umolh5map",
