@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-05-05T13:07:55.205Z",
+  "last_updated": "2026-05-05T13:08:08.890Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -1216,6 +1216,19 @@
       "category": "setup",
       "note": "",
       "completed_at": "2026-05-05T11:28:58.175Z"
+    },
+    {
+      "id": "umosn8z0a",
+      "week": "W19",
+      "status": "todo",
+      "priority": "medium",
+      "title": "GMB · serviços + fotos + primeiro post",
+      "desc": "",
+      "date": "2026-05-08",
+      "time": "12:00",
+      "duration_min": 60,
+      "category": "",
+      "note": ""
     }
   ]
 }
