@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-05-05T15:38:21.893Z",
+  "last_updated": "2026-05-05T15:38:58.891Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -734,14 +734,15 @@
     {
       "id": "t055",
       "week": "W19",
-      "date": "2026-05-07",
-      "time": "15:00",
+      "date": "2026-05-06",
+      "time": "14:45",
       "duration_min": 15,
       "title": "LinkedIn · adicionar studio@volvara.pt",
       "desc": "Actualizar experience/contact info no LinkedIn com novo email.",
       "category": "setup",
       "priority": "medium",
-      "status": "todo"
+      "status": "todo",
+      "note": ""
     },
     {
       "id": "umocvaf1e",
