@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-05-05T15:36:25.888Z",
+  "last_updated": "2026-05-05T15:36:35.429Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -990,7 +990,7 @@
     {
       "id": "umod911y5",
       "week": "W18",
-      "status": "todo",
+      "status": "done",
       "priority": "medium",
       "title": "LinkedIn About + Instagram bio · menção Studio tier",
       "desc": "Adicionar Studio mention ao LinkedIn About. Instagram bio curto: 'Web studio · Algarve · studio@volvara.pt'.",
@@ -998,7 +998,8 @@
       "time": "11:00",
       "duration_min": 60,
       "category": "setup",
-      "note": "Reagendado de data anterior · 5 Mai"
+      "note": "Reagendado de data anterior · 5 Mai",
+      "completed_at": "2026-05-05T15:36:35.429Z"
     },
     {
       "id": "umod913wh",
