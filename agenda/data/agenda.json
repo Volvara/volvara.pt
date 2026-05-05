@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-05-05T09:35:20.885Z",
+  "last_updated": "2026-05-05T09:35:26.889Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -980,11 +980,11 @@
       "priority": "medium",
       "title": "GMB setup completo · descrição, serviços, fotos, primeiro post",
       "desc": "Descrição 750 chars com Quick+Studio. 4-6 serviços. Upload banner+logo+screenshots. Google Post 'Studio is open'.",
-      "date": "2026-04-30",
+      "date": "2026-05-08",
       "time": "10:30",
       "duration_min": 60,
       "category": "setup",
-      "note": ""
+      "note": "Reagendado de data anterior · 5 Mai"
     },
     {
       "id": "umod911y5",
