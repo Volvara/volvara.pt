@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-05-05T09:43:37.990Z",
+  "last_updated": "2026-05-05T09:52:29.424Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -1191,7 +1191,7 @@
     {
       "id": "umosftkgk",
       "week": "W19",
-      "status": "todo",
+      "status": "done",
       "priority": "medium",
       "title": "Studio · Nível 3 copy review HNW",
       "desc": "Reescrita coesa de TODOS os 124 strings PT do Studio para tom premium HNW. Eliminar 'uma pessoa' (equipa pode crescer). Foco: atenção total + resultado de excelência. 9 fixes críticos identificados. Frase-âncora a decidir.",
@@ -1199,7 +1199,8 @@
       "time": "10:30",
       "duration_min": 120,
       "category": "build",
-      "note": ""
+      "note": "",
+      "completed_at": "2026-05-05T09:52:29.423Z"
     },
     {
       "id": "umosfu27o",
