@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-05-04T14:35:07.426Z",
+  "last_updated": "2026-05-05T09:30:45.923Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -306,7 +306,7 @@
       "desc": "Chat novo. Aprovar tokens CSS. Primeiro draft HTML editorial (mood-luxury-minimal, fontes serif).",
       "category": "build",
       "priority": "critical",
-      "status": "todo"
+      "status": "skipped"
     },
     {
       "id": "t020",
