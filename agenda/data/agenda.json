@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-05-05T15:37:17.894Z",
+  "last_updated": "2026-05-05T15:37:33.227Z",
   "plan_title": "Volvara Studio Rollout",
   "plan_start": "2026-04-23",
   "plan_end": "2026-05-30",
@@ -1235,7 +1235,7 @@
     {
       "id": "umossks3p",
       "week": "W19",
-      "status": "todo",
+      "status": "done",
       "priority": "medium",
       "title": "SEO overhaul · Schema + OG images + manifest + sitemap + logo",
       "desc": "",
@@ -1243,7 +1243,8 @@
       "time": "14:30",
       "duration_min": 90,
       "category": "setup",
-      "note": ""
+      "note": "",
+      "completed_at": "2026-05-05T15:37:33.226Z"
     }
   ]
 }
